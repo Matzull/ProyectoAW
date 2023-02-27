@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+</head>
+
+<body>
+    <img src="img/logo-wMode.png" alt="logo" height="300">
+    <h1>Contacto</h1>
+    <h2>Otras páginas de la práctica 1</h2>
+    <ol>
+        <li><a href="index.html">Índice</a></li>
+        <li><a href="detalles.html">Detalles</a></li>
+        <li><a href="bocetos.html">Bocetos</a></li>
+        <li><a href="miembros.html">Miembros</a></li>
+        <li><a href="planificacion.html">Planificación</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ol>
+    <h2>Danos 'feedback' sobre nuestra web.</h2>
+    <form action="mailto:paraleizeComputing@gmail.com" method="post" enctype="text/plain">
+        <div>
+            <label for="name">Nombre:</label><br>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="email">E-mail de contacto:</label><br>
+            <input type="text" name="email" id="email">
+        </div>
+        <div>
+            <fieldset>
+                <legend>Motivo de la consulta:</legend>
+
+                <div>
+                    <input type="radio" id="evaluacion" name="motive" value="evaluacion" checked>
+                    <label for="evaluacion">Evaluación</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="sugerencias" name="motive" value="sugerencias">
+                    <label for="sugerencias">Sugerencias</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="criticas" name="motive" value="criticas">
+                    <label for="criticas">Críticas</label>
+                </div>
+            </fieldset>
+        </div>
+        <div>
+            <label>Comentarios:</label><br>
+            <textarea name="comments" rows="12" cols="35" placeholder="Escribe aquí tus comentarios"></textarea>
+        </div>
+        <input type="checkbox" name="terms" id="terms">
+        <label for="terms">Marque esta casilla para verificar que ha leído nuestros términos y condiciones del
+            servicio.</label>
+        <div>
+            <button type="submit" name="submit">Enviar</button>
+            <button type="reset" name="reset">Limpiar</button>
+        </div>
+    </form>
+
+
+</body>
+
+</html>

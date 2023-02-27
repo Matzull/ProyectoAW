@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            svg {
+                width: 200px;
+            }
+
+            #L1 {
+                stroke-dasharray: 5 2 5 2 5 2 3 1 1 2 5 2 5 2 5 2 5 2 5 2;    
+            }
+
+            #L2 {
+                stroke-dasharray: 5 2 5 2 3 1 1 2 5 2 5 2 5 2 5 2 5 2 5 2;
+            }
+
+            #L3 {
+                stroke-dasharray: 5 2 3 1 1 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2;
+            }
+
+            #L4 {
+                stroke-dasharray: 3 1 1 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 3 1 1 2;
+            }
+
+            @keyframes anim {
+                0% {
+                    stroke-dashoffset: 56;
+                }
+
+                40% {
+                    stroke-dashoffset: 28;
+                }
+
+                50% {
+                    stroke-dashoffset: 28;
+                }
+
+                90% {
+                    stroke-dashoffset: 0;
+                }
+
+                100% {
+                    stroke-dashoffset: 0;
+                }
+            }
+
+            .animated_path {
+                animation: anim 6s cubic-bezier(0.500, 0.105, 0.500, 0.955) infinite;
+                stroke-width: 0.6;
+                stroke-linecap: round;
+                stroke: #42c9ff;
+            }
+        </style>
+    </head>
+    <body>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.3 -4.3 9.8 4.8">
+            <path id="L1" class="animated_path" d="M 0 0 L 3 -4" />
+            <path id="L2" class="animated_path" d="M 2 0 L 5 -4 " />
+            <path id="L3" class="animated_path" d="M 4 0 L 7 -4 " />
+            <path id="L4" class="animated_path" d="M 6 0 L 9 -4" />
+        </svg>
+    </body>
+</html>
