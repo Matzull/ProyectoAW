@@ -8,7 +8,7 @@ conectar_db();
 
 if (check_credentials($_REQUEST["user_email"], $_REQUEST["user_password"])) {
     // Start the session
-    $_SESSION["user_email"] = $_REQUEST["user_email"];
+    $_SESSION["user_email"] = $_REQUEST["user_email"]; // TODO checkbox recuerdame
     desconectar_db();
     redirect("/user_dashboard.php");
 } else {
