@@ -44,7 +44,8 @@
                             Cuenta</button>
                     </form>
                     <br><span>Ya tienes una cuenta: </span>
-                    <button id="loginbutton" onclick="jump_to_login()">Iniciar Sesión</button>
+                    <button type="button" id="loginbutton" onclick="location.href='./login.php'">
+                    Iniciar Sesión</button>
 
                 </div>
             </div>
@@ -54,11 +55,6 @@
         </div>
     </div>
 
-    <script>
-        function jump_to_login() {
-            document.location = "/login.php"
-        }
-    </script>
 </body>
 
 </html>

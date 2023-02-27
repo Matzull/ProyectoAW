@@ -39,18 +39,14 @@
                         </div>
                         <button id="loginbutton" type="submit" title="Ingresar" name="Ingresar">Iniciar Sesión</button>
                     </form>
-                    <br><span>¿No tienes cuenta?</span><button id="CrearCuenta" onclick="jump_to_register()">
+                    <br><span>¿No tienes cuenta?</span>
+                    <button type="button" id="CrearCuenta" onclick="location.href='./register.php'">
                         Registrate!</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        function jump_to_register() {
-            document.location = "/register.php"
-        }
-    </script>
 </body>
 
 </html>
