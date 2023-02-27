@@ -39,9 +39,11 @@ function desconectar()
 function check_if_email_is_in_use($email)
 {
     $sql = "SELECT user_mail from users where user_mail = \"" . $email . "\"";
-    return isset(mysqli_fetch_assoc(mysqli_query($db, $sql)));
+    $row = mysqli_fetch_assoc(mysqli_query($db, $sql));
+    return isset($row);
 }
 
-function register_new_user($user_email, $user_password, $user_name){
-    $sql = "INSERT INTO users (user_email, user_password, user_name) VALUES (\"".$user_email."\",\"". $user_password."\",\"".$user_name."\"); ";
+function register_new_user($user_email, $user_password, $user_name)
+{
+    $sql = "INSERT INTO users (user_email, user_password, user_name) VALUES (\"" . $user_email . "\",\"" . $user_password . "\",\"" . $user_name . "\"); ";
 }
