@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2023 at 08:25 PM
+-- Generation Time: Feb 27, 2023 at 10:22 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -40,6 +40,18 @@ CREATE TABLE `kernels` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `open_sessions`
+--
+
+CREATE TABLE `open_sessions` (
+  `id` varchar(100) NOT NULL,
+  `session_start` date NOT NULL,
+  `user_email` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `token_transactions`
 --
 
@@ -58,13 +70,22 @@ CREATE TABLE `token_transactions` (
 
 CREATE TABLE `users` (
   `user_email` varchar(60) NOT NULL,
-  `hashed_psw` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`hashed_psw`)),
-  `millis_crunched` int(11) NOT NULL,
-  `ranking` int(11) NOT NULL,
-  `tokens` double NOT NULL,
-  `last_active` date NOT NULL,
-  `blocked` tinyint(1) NOT NULL
+  `user_password` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `millis_crunched` int(11) NOT NULL DEFAULT 0,
+  `ranking` int(11) DEFAULT NULL,
+  `tokens` double NOT NULL DEFAULT 0,
+  `last_active` date NOT NULL DEFAULT current_timestamp(),
+  `blocked` tinyint(1) NOT NULL DEFAULT 0,
+  `user_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`, `tokens`, `last_active`, `blocked`, `user_name`) VALUES
+('jaime2@gmail.com', 'aaaaaaaa', 0, NULL, 0, '2023-02-27', 0, 'jaime'),
+('jaime@gmail.com', 'aaaaaaaa', 0, NULL, 0, '2023-02-27', 0, 'jaime');
 
 --
 -- Indexes for dumped tables
@@ -76,6 +97,12 @@ CREATE TABLE `users` (
 ALTER TABLE `kernels`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_email_fk` (`user_email`);
+
+--
+-- Indexes for table `open_sessions`
+--
+ALTER TABLE `open_sessions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `token_transactions`

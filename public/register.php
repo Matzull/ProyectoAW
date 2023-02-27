@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <?php require "includes/utilities/toast.php"?>
     <div id="contenedor">
         <div id="central">
             <div id="back_box">
@@ -25,18 +26,18 @@
                 <div class="margin_box" id="signupform">
                     <form action="/includes/controlador/register_endpoint.php">
                         <div class="normal-text">Nombre de usuario</div>
-                        <input class="box" type="text" name="usuario" placeholder="Escribe tu nombre de usuario"
+                        <input class="box" type="text" name="user_name" placeholder="Escribe tu nombre de usuario"
                             required>
                         <div class="normal-text">E-mail</div>
-                        <input class="box" type="text" name="usuario" placeholder="Escribe tu correo" required>
+                        <input class="box" type="text" name="user_email" placeholder="Escribe tu correo" required>
                         <div class="normal-text">Contraseña</div>
-                        <input class="box" type="password" name="password" placeholder="Escribe tu contraseña" required>
+                        <input class="box" type="password" name="user_password" placeholder="Escribe tu contraseña" required>
                         <div class="normal-text">Confirmar la contraseña</div>
-                        <input class="box" type="password" name="password" placeholder="Vuelve a escribir la contraseña"
+                        <input class="box" type="password" name="user_password_rep" placeholder="Vuelve a escribir la contraseña"
                             required>
                         <div class="pie-form">
                             <div>
-                                <input type="checkbox" name="terminos" id="terminos" value="value">
+                                <input type="checkbox" name="terminos" id="terminos" value="not_accepted">
                                 <label for="terminos">Acepto los términos y condiciones</label>
                             </div>
                         </div>

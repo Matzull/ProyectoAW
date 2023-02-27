@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <?php require "includes/utilities/toast.php" ?>
     <div id="contenedor">
         <div id="dibujo">
             <!-- dibujo blobs/ Flor -->
@@ -27,16 +28,18 @@
                     <div class="muted-text"> Iniciar sesión con tu usuario y contraseña.</div><br>
                     <form id="loginform" action="/includes/controlador/login_endpoint.php">
                         <div class="normal-text">E-mail</div>
-                        <input class="box" type="text" name="usuario" placeholder="Escribe tu correo" required>
+                        <input class="box" type="text" name="user_email" placeholder="Escribe tu correo" required>
                         <div class="normal-text">Contraseña</div>
-                        <input class="box" type="password" name="password" placeholder="Escribe tu contraseña" required>
-                        <div class="pie-form">
-                            <div>
-                                <input type="checkbox" name="recuerdame" id="recuerdame" value="value">
-                                <label for="recuerdame">Recuérdame</label>
+                        <input class="box" type="password" name="user_password" placeholder="Escribe tu contraseña"
+                            required>
+                        <!-- <div class="pie-form">
+                                <div>
+                                    <input type="checkbox" name="recuerdame" id="recuerdame" value="value">
+                                    <label for="recuerdame">Recuérdame</label>
+                                </div>
+                                <a href="#">¿Has olvidado tu contraseña?</a> 
                             </div>
-                            <!-- <a href="#">¿Has olvidado tu contraseña?</a> -->
-                        </div>
+                        -->
                         <button id="loginbutton" type="submit" title="Ingresar" name="Ingresar">Iniciar Sesión</button>
                     </form>
                     <br><span>¿No tienes cuenta?</span><button id="CrearCuenta" onclick="jump_to_register()">
