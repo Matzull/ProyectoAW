@@ -32,14 +32,6 @@
                         <div class="normal-text">Contraseña</div>
                         <input class="box" type="password" name="user_password" placeholder="Escribe tu contraseña"
                             required>
-                        <!-- <div class="pie-form">
-                                <div>
-                                    <input type="checkbox" name="recuerdame" id="recuerdame" value="value">
-                                    <label for="recuerdame">Recuérdame</label>
-                                </div>
-                                <a href="#">¿Has olvidado tu contraseña?</a> 
-                            </div>
-                        -->
                         <button id="loginbutton" type="submit" title="Ingresar" name="Ingresar">Iniciar Sesión</button>
                     </form>
                     <br><span>¿No tienes cuenta?</span>
