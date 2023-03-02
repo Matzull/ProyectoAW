@@ -1,0 +1,62 @@
+@import "global.css";
+
+#nav-bar-container{
+    position: fixed;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#nav-bar{
+    color: var(--white);
+    background-color: var(--gris);
+    height: 54px;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    width: 100%;
+}
+
+#nav-bar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#nav-bar > ul > li{
+    display: inline-block;
+    padding: 20px 25px;
+}
+
+#nav-bar > ul {
+    display: flex;
+    align-items: start;
+}
+
+#nav-bar > ul > li > ul li{
+    display: block;
+    padding: 15px 20px;
+}
+
+#nav-bar > ul > li > ul {
+    display: block;
+    position: absolute;
+}
+
+#nav-bar > ul > li .dropdown-content{
+    position: relative;
+    /* left: -15px; */
+    margin-top: 25px;
+    background-color: var(--gris);
+    border-radius: 15px;
+}
+
+#nav-bar > ul > li:hover > ul {
+    display: block;
+}
+#nav-bar > ul > li > ul:hover{
+    
+    display: block;
+}
