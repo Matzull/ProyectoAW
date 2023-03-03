@@ -1,24 +1,30 @@
 <div id="nav-bar-container">
     <div id="nav-bar">
-        <img src="/img/logo-dMode.png" alt="" height="50">
-        <ul>
-            <li>Inicio</li>
-            <li>Mercado de Kernels
-                <ul>
-                    <div class="dropdown-content">
-                        <li>Mercado de Kernels</li>
-                        <li>Ranking</li>
-                    </div>
-                </ul>
-            </li>
-            <li>Información
-                <ul>
-                    <div class="dropdown-content">
-                        <li>FAQ</li>
-                        <li>Contacto</li>
-                    </div>
-                </ul>
-            </li>
-        </ul>
+        <div class="nav-bar-sec">
+            <a href="/index.html"><img src="/img/logo-h-dMode.png" alt="" height="30"></a>
+            <ul>
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/kernel_marketplace.php">Mercado de Kernels</a>
+                    <ul>
+                        <div class="dropdown-content">
+                            <li><a href="/kernel_marketplace.php">Mercado de Kernels</a></li>
+                            <li><a href="/ranking.php">Ranking</a></li>
+                        </div>
+                    </ul>
+                </li>
+                <li><a href="/FAQ.php">Información</a>
+                    <ul>
+                        <div class="dropdown-content">
+                            <li><a href="/FAQ.php">FAQ</a></li>
+                            <li><a href="/contacto.php">Contacto</a></li>
+                        </div>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-bar-sec">
+            <button type="button" class="small-button c-h-blue" onclick="location.href='/login.php'">Iniciar sesión</button>
+            <button type="button" class="small-button c-h-b-blue" onclick="location.href='/register.php'">Crear cuenta</button>
+        </div>
     </div>
 </div>

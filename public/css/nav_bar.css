@@ -1,22 +1,28 @@
 @import "global.css";
 
 #nav-bar-container{
-    position: fixed;
+    position: sticky;
+    top: 0px;
     padding: 5px;
     width: 100%;
     box-sizing: border-box;
 }
 
 #nav-bar{
-    color: var(--white);
     background-color: var(--gris);
     height: 54px;
     padding: 0px 20px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border-radius: 15px;
     width: 100%;
+}
+
+#nav-bar > .nav-bar-sec{
+    display: flex;
+    align-items: center;
 }
 
 #nav-bar ul{
@@ -25,27 +31,32 @@
     padding: 0;
 }
 
-#nav-bar > ul > li{
+#nav-bar a{
+    color: inherit;
+    text-decoration: none;
+}
+
+#nav-bar > .nav-bar-sec > ul > li{
     display: inline-block;
     padding: 20px 25px;
 }
 
-#nav-bar > ul {
+#nav-bar > .nav-bar-sec > ul {
     display: flex;
     align-items: start;
 }
 
-#nav-bar > ul > li > ul li{
+#nav-bar > .nav-bar-sec > ul > li > ul li{
     display: block;
     padding: 15px 20px;
 }
 
-#nav-bar > ul > li > ul {
-    display: block;
+#nav-bar > .nav-bar-sec > ul > li > ul {
+    display: none;
     position: absolute;
 }
 
-#nav-bar > ul > li .dropdown-content{
+#nav-bar > .nav-bar-sec > ul > li .dropdown-content{
     position: relative;
     /* left: -15px; */
     margin-top: 25px;
@@ -53,10 +64,16 @@
     border-radius: 15px;
 }
 
-#nav-bar > ul > li:hover > ul {
+#nav-bar > .nav-bar-sec > ul > li:hover > ul {
     display: block;
 }
-#nav-bar > ul > li > ul:hover{
+
+#nav-bar > .nav-bar-sec > ul > li > ul:hover{
     
     display: block;
+}
+
+
+#nav-bar > .nav-bar-sec > button:first-of-type{
+    margin-right: 15px;
 }

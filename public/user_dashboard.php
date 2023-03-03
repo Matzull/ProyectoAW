@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/nav_bar.css">
 </head>
 
-<body style="background-color: var(--bg); margin: 0px">
+<body>
     <?php require_once("./includes/nav_bar.php") ?>
     logged:
     <?php echo $_SESSION["user_email"] ?>

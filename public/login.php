@@ -35,7 +35,7 @@
                         <button id="loginbutton" type="submit" title="Ingresar" name="Ingresar">Iniciar Sesión</button>
                     </form>
                     <br><span>¿No tienes cuenta?</span>
-                    <button type="button" id="CrearCuenta" onclick="location.href='./register.php'">
+                    <button type="button" id="CrearCuenta" onclick="location.href='/register.php'">
                         Registrate!</button>
                 </div>
             </div>
