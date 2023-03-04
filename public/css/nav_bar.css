@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: 15px;
+    border-radius: 10px;
     width: 100%;
 }
 
@@ -34,6 +34,10 @@
 #nav-bar a{
     color: inherit;
     text-decoration: none;
+}
+
+#nav-bar a > img{
+    display: block;
 }
 
 #nav-bar > .nav-bar-sec > ul > li{
@@ -74,6 +78,6 @@
 }
 
 
-#nav-bar > .nav-bar-sec > button:first-of-type{
+#nav-bar > .nav-bar-sec > p:first-child, #nav-bar > .nav-bar-sec > button:first-child{
     margin-right: 15px;
 }

@@ -9,7 +9,7 @@ define('INSTALADA', false);
 
 // Parámetros de configuración de la BD
 define('BD_HOST', 'localhost');
-define('BD_NAME', 'paralelize_app');
+define('BD_NAME', 'parallelize_app');
 define('BD_USER', 'root');
 define('BD_PASS', '');
 
