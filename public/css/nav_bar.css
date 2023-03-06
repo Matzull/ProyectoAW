@@ -3,7 +3,7 @@
 #nav-bar-container{
     position: sticky;
     top: 0px;
-    padding: 5px;
+    padding: 10px;
     width: 100%;
     box-sizing: border-box;
 }

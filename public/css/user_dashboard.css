@@ -1,4 +1,13 @@
 
+.container{
+    display: flex;
+    margin-right: 210px; /* user nav bar width + margin right 10px*/
+}
+
+.panel-container{
+    width: 100%;
+}
+
 .panel-header{
     display: flex;
     align-items: center;
@@ -6,7 +15,7 @@
 }
 
 .sections-container{
-    margin: 10px 30px;
+    margin: 10px 10px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -14,7 +23,7 @@
 
 .section{
     background-color: var(--gris);
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 20px;
     box-sizing: border-box;
     flex-grow: 1;
@@ -23,6 +32,3 @@
 .sections-container > .section:first-child, .section:nth-child(2){
     min-width: calc(50% - 5px);
 }
-
-
-
