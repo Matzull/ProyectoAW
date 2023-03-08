@@ -37,7 +37,7 @@
                             required>
                         <div class="pie-form">
                             <div>
-                                <input type="checkbox" name="terminos" id="terminos" value="not_accepted">
+                                <input type="checkbox" name="terminos" id="terminos" value="accepted">
                                 <label for="terminos">Acepto los términos y condiciones</label>
                             </div>
                         </div>

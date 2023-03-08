@@ -54,7 +54,7 @@ function register_new_user($user_email, $user_password, $user_name)
 {
     global $db;
     if ($db) {
-        $sql = "INSERT INTO users (user_email, user_password, user_name) VALUES (\"" . $user_email . "\",\"" . $user_password . "\",\"" . $user_name . "\"); ";
+        $sql = "INSERT INTO users (user_email, user_password, user_name) VALUES (\"" . $user_email . "\",\"" . password_hash($user_password,PASSWORD_BCRYPT) . "\",\"" . $user_name . "\"); ";
         mysqli_query($db, $sql);
     }else{
         echo "conection isnt open";
@@ -66,7 +66,7 @@ function check_credentials($user_email, $user_password)
     global $db;
     if ($db) {
         $sql = "SELECT user_password from users where user_email = \"" . $user_email . "\"";
-        return mysqli_fetch_assoc(mysqli_query($db, $sql))["user_password"] == $user_password;
+        return password_verify($user_password, mysqli_fetch_assoc(mysqli_query($db, $sql))["user_password"]);
     }else{
         echo "conection isnt open";
     }
