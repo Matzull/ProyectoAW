@@ -6,7 +6,7 @@ require "../utilities/redirect.php";
 
 // check terms are accepted
 
-if ($_REQUEST["terminos"] == "not_accepted") {
+if ($_REQUEST["terminos"] != "accepted") {
     redirect("/register.php?err=Debes aceptar los terminos y condiciones");
 }
 
