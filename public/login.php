@@ -28,9 +28,9 @@
                     <div class="muted-text"> Iniciar sesión con tu usuario y contraseña.</div><br>
                     <form id="loginform" action="/includes/controlador/login_endpoint.php">
                         <div class="normal-text">E-mail</div>
-                        <input class="box" type="text" name="user_email" placeholder="Escribe tu correo" required>
+                        <input class="input-field" type="text" name="user_email" placeholder="Escribe tu correo" required>
                         <div class="normal-text">Contraseña</div>
-                        <input class="box" type="password" name="user_password" placeholder="Escribe tu contraseña"
+                        <input class="input-field" type="password" name="user_password" placeholder="Escribe tu contraseña"
                             required>
                         <button id="loginbutton" type="submit" title="Ingresar" name="Ingresar">Iniciar Sesión</button>
                     </form>

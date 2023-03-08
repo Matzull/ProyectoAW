@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/css/nav_bar.css">
     <link rel="stylesheet" href="/css/user_nav_bar.css">
     <link rel="stylesheet" href="/css/user_dashboard.css">
+    <link rel="stylesheet" href="/css/settings.css">
 </head>
 
 <body>
@@ -29,45 +30,53 @@
             </div>
             <div class="sections-container">
                 <div class="section">
-                    <img src="https://picsum.photos/100/100" alt="" width="100">
-                    <h3>PARTICIPACIÓN</h3>
-                    <p>Has subido 50 kernels.</p>
-                    <p>Has ejecutado 100 kernels.</p>
-                </div>
-                <div class="section">
-                    <h3>TUS TOKENS</h3>
-                    <button type="button">+</button>
-                    <p>1 000</p>
-                    <img src="https://picsum.photos/100/100" alt="" width="100">
-                </div>
-                <div class="section">
-                    <h3>HISTORIAL DE EJECUCIONES</h3>
-                    <div class="search-panel">
-                        <form action="">
-                            <input type="text" name="" id="">
-                            <button class="button c-h-blue" type="submit">Buscar</button>
-                            <button class="button c-h-blue" type="button">Filtrar</button>
-                            <select name="cars" id="cars">
-                            <optgroup label="Fecha">
-                                <option value="more recent first">Más reciente primero</option>
-                                <option value="less recent first">Menos reciente primero</option>
-                            </optgroup>
-                            <optgroup label="Ingresos">
-                                <option value="more income first">Más ingresos primero</option>
-                                <option value="less income first">Menos ingresos primero</option>
-                            </optgroup>
-                            </select>
-                        </form>
+                    <div class="section-row">
+                        <div class="section-content">
+                            <h2>Mi foto de Perfil</h2>
+                            <div>
+                                <img src="https://picsum.photos/100/100" alt="">
+                                <div>
+                                    <button class="button c-h-blue" type="button">Cambiar Foto</button>
+                                    <button class="button c-h-b-blue" type="button">Cambiar Foto</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <h2>Nombre de Usuario</h2>
+                            <div>
+                                <input class="input-field" type="text" name="" id="" value="NombreDeUsuario" disabled>
+                                <button class="button c-h-blue" type="button">Editar</button>
+                                <button class="button c-h-b-blue" type="button">Utilizar Mi Nombre Real</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="execution-history">
+                    <div class="section-row">
+                        <div class="section-content">
+                            <h2>Mis Datos Personales</h2>
+                            <h3>Nombre</h3>
+                            <input class="input-field" type="text" name="" id="" value="Nombre" disabled>
+                            <button class="button c-h-blue" type="button">Editar</button>
+                            <h3>Apellidos</h3>
+                            <input class="input-field" type="text" name="" id="" value="Apellidos" disabled>
+                            <button class="button c-h-blue" type="button">Editar</button>
+                            <h3>Correo electrónico</h3>
+                            <input class="input-field" type="text" name="" id="" value="example@gmail.com" disabled>
+                            <button class="button c-h-blue" type="button">Editar</button>
+                            <h3>Método de pago</h3>
+                            <button class="button c-h-blue" type="button">Mostrar información de pago</button>
+                        </div>
+                        <div class="section-content">
+                            <h2>Opciones</h2>
+                            <h3>Opciones del perfil público</h3>
+                            <input type="checkbox" name="" id="show-real-name">
+                            <label for="show-real-name">Mostrar mi nombre real</label>
+                            <input type="checkbox" name="" id="show-my-wallet">
+                            <label for="show-my-wallet">Mostrar mi cartera</label>
+                            <button class="button c-h-blue" type="button">Ver perfil como un tercero</button>
+                            <h3>Otras opciones</h3>
+
+                        </div>
                     </div>
-                </div>
-                <div class="section">
-                    <h3>TUS ÚLTIMOS KERNELS</h3>
-                    <div class="last-kernels">
-            
-                    </div>
-                    <button class="button c-h-blue" type="button">Ver más kernels</button>
                 </div>
             </div>
         </div>

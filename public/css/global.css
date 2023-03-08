@@ -50,3 +50,26 @@ body{
     color: inherit;
 }
 
+
+/* FORMULARIO */
+
+.input-field{
+    padding: 8px;
+    background-color: inherit;
+    border: 2px solid var(--h-blue);
+    border-radius: 10px;
+    color: inherit;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-field:focus-visible{
+    outline-width: 0px;
+    border-color: var(--white);
+}
+
+.input-field:-internal-autofill-selected {
+    background-color: var(--h-blue) !important;
+    color: inherit !important;
+    appearance: inherit;
+}

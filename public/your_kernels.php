@@ -32,19 +32,23 @@
                     <h3>HISTORIAL DE EJECUCIONES</h3>
                     <div class="search-panel">
                         <form action="">
-                            <input type="text" name="" id="">
-                            <button class="button c-h-blue" type="submit">Buscar</button>
-                            <button class="button c-h-blue" type="button">Filtrar</button>
-                            <select name="cars" id="cars">
-                            <optgroup label="Fecha">
-                                <option value="more recent first">Más reciente primero</option>
-                                <option value="less recent first">Menos reciente primero</option>
-                            </optgroup>
-                            <optgroup label="Ingresos">
-                                <option value="more income first">Más ingresos primero</option>
-                                <option value="less income first">Menos ingresos primero</option>
-                            </optgroup>
-                            </select>
+                            <div class="search-main-panel">
+                                <input class="input-field" type="text" name="" id="" placeholder="Buscar...">
+                                <button class="button c-h-blue" type="submit">Buscar</button>
+                            </div>
+                            <div class="search-option-panel">
+                                <button class="button c-h-blue" type="button">Filtrar</button>
+                                <select name="cars" id="cars">
+                                <optgroup label="Fecha">
+                                    <option value="more recent first">Más reciente primero</option>
+                                    <option value="less recent first">Menos reciente primero</option>
+                                </optgroup>
+                                <optgroup label="Ingresos">
+                                    <option value="more income first">Más ingresos primero</option>
+                                    <option value="less income first">Menos ingresos primero</option>
+                                </optgroup>
+                                </select>
+                            </div>
                         </form>
                     </div>
                     <div class="execution-history">
