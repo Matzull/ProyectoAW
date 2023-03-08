@@ -24,8 +24,8 @@
     <div class="container">
         <div class="panel-container">
             <div class="panel-header">
-                <img src="./svg/Dashboard_i.svg" alt="" width="44">
-                <h2>DASHBOARD</h2>
+                <img src="./svg/Settings_i.svg" alt="" width="44">
+                <h2>AJUSTES</h2>
             </div>
             <div class="sections-container">
                 <div class="section">
@@ -65,7 +65,7 @@
                 <div class="section">
                     <h3>TUS ÚLTIMOS KERNELS</h3>
                     <div class="last-kernels">
-        
+            
                     </div>
                     <button class="button c-h-blue" type="button">Ver más kernels</button>
                 </div>
@@ -73,7 +73,6 @@
         </div>
         <?php require_once("./includes/user_nav_bar.php") ?>
     </div>
-    <!-- <div style="width: 400px; height: 1000px;"></div> -->
 </body>
 
 </html>

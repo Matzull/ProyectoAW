@@ -1,5 +1,5 @@
 :root{
-    --main: #ffc88e;
+    --main: #8EADFF;
     --h-blue: #5181FF;
     --h-b-blue: #2648A2;
     --gris: #2C2B33;
@@ -10,3 +10,43 @@
     --red: #CE4B4B;
     --green: #51B940;
 }
+
+body{
+    background-color: var(--bg);
+    margin: 0px;
+    color: var(--white);
+}
+
+/* COLORES DE FONDO */
+.c-main{
+    background-color: var(--main);
+}
+.c-h-blue{
+    background-color: var(--h-blue);
+}
+.c-h-b-blue{
+    background-color: var(--h-b-blue);
+}
+.c-red{
+    background-color: var(--red);
+}
+.c-green{
+    background-color: var(--green);
+}
+
+/* BOTONES */
+/* Botón pequeño */
+.small-button{
+    padding: 5px 15px;
+    border-radius: 15px;
+    border: none;
+    color: inherit;
+}
+
+.button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    color: inherit;
+}
+

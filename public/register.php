@@ -45,7 +45,7 @@
                             Cuenta</button>
                     </form>
                     <br><span>Ya tienes una cuenta: </span>
-                    <button type="button" id="loginbutton" onclick="location.href='./login.php'">
+                    <button type="button" id="loginbutton" onclick="location.href='/login.php'">
                     Iniciar Sesión</button>
 
                 </div>
