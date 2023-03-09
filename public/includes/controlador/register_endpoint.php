@@ -6,13 +6,13 @@ require "../utilities/redirect.php";
 
 // check terms are accepted
 
-if ($_REQUEST["terminos"] != "accepted") {
+if ($_REQUEST["terms"] != "accepted") {
     redirect("/register.php?err=Debes aceptar los terminos y condiciones");
 }
 
 // check passwords match
 
-if ($_REQUEST["user_password"] != $_REQUEST["user_password_rep"]) {
+if ($_REQUEST["user_password"] != $_REQUEST["user_pass_conf"]) {
     redirect("/register.php?err=Las contraseñas no coinciden");
 }
 

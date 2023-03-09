@@ -84,8 +84,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`, `tokens`, `last_active`, `blocked`, `user_name`) VALUES
-('jaime2@gmail.com', 'aaaaaaaa', 0, NULL, 0, '2023-02-27', 0, 'jaime'),
-('jaime@gmail.com', 'aaaaaaaa', 0, NULL, 0, '2023-02-27', 0, 'jaime');
+('jaime2@gmail.com', '$2y$10$zyPdsVEjJ7uK.VUq7.t8YeS8PkbeqNthkH5jgJu6dor/o46baf1ru', 0, NULL, 0, '2023-02-27', 0, 'jaime'),
+('jaime@gmail.com', '$2y$10$8eOlgWYRiwIoQsQhoIJb5uMqzFEw2BqCH3pBgtkAW/E0.bp/ohhz2', 0, NULL, 0, '2023-02-27', 0, 'jaime');
+-- Password: aaaaaaaa
 
 --
 -- Indexes for dumped tables

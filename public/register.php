@@ -15,43 +15,37 @@
 
 <body>
     <?php require "includes/utilities/toast.php"?>
-    <div id="contenedor">
-        <div id="central">
-            <div id="back_box">
-                <h1>
-                    Crear Cuenta
-                </h1>
-                <div class="muted-text"> Crea una cuenta para empezar...</div>
-
-                <div class="margin_box" id="signupform">
-                    <form action="/includes/controlador/register_endpoint.php">
-                        <div class="normal-text">Nombre de usuario</div>
-                        <input class="input-field" type="text" name="user_name" placeholder="Escribe tu nombre de usuario"
-                            required>
-                        <div class="normal-text">E-mail</div>
-                        <input class="input-field" type="text" name="user_email" placeholder="Escribe tu correo" required>
-                        <div class="normal-text">Contraseña</div>
-                        <input class="input-field" type="password" name="user_password" placeholder="Escribe tu contraseña" required>
-                        <div class="normal-text">Confirmar la contraseña</div>
-                        <input class="input-field" type="password" name="user_password_rep" placeholder="Vuelve a escribir la contraseña"
-                            required>
-                        <div class="pie-form">
-                            <div>
-                                <input type="checkbox" name="terminos" id="terminos" value="accepted">
-                                <label for="terminos">Acepto los términos y condiciones</label>
-                            </div>
-                        </div>
-                        <button id="CrearCuenta" type="submit" title="CrearCuenta" name="CrearCuenta">Crear
-                            Cuenta</button>
-                    </form>
-                    <br><span>Ya tienes una cuenta: </span>
-                    <button type="button" id="loginbutton" onclick="location.href='/login.php'">
-                    Iniciar Sesión</button>
-
+    <div class="form-container">
+        <div class="form">
+            <h2 class="title">
+                Crear Cuenta
+            </h2>
+            <p class="subtitle t-muted">Crea una cuenta para empezar...</p>
+            <form action="/includes/controlador/register_endpoint.php">
+                <label for="user_name">Nombre de usuario</label>
+                <input id="user_name" class="input-field" type="text" name="user_name" placeholder="Escribe tu nombre de usuario"
+                    required>
+                <label for="user_email">E-mail</label>
+                <input id="user_email" class="input-field" type="text" name="user_email" placeholder="Escribe tu correo" required>
+                <label for="user_password">Contraseña</label>
+                <input id="user_password" class="input-field" type="password" name="user_password" placeholder="Escribe tu contraseña" required>
+                <label for="user_pass_conf">Confirmar la contraseña</label>
+                <input id="user_pass_conf" class="input-field" type="password" name="user_pass_conf" placeholder="Vuelve a escribir la contraseña"
+                    required>
+                <div class="form-options">
+                    <div>
+                        <input type="checkbox" name="terms" id="terms" value="accepted">
+                        <label for="terms">Acepto los términos y condiciones</label>
+                    </div>
                 </div>
-            </div>
+                <button id="create-acc-button" class="button c-h-blue" type="submit" title="CrearCuenta" name="CrearCuenta">Crear
+                    Cuenta</button>
+            </form>
+            <p class="text-sec-button">¿Ya tienes cuenta?</p>
+            <button class="button c-h-b-blue" type="button" id="loginbutton" onclick="location.href='/login.php'">
+            Iniciar Sesión</button>
         </div>
-        <div id="dibujo">
+        <div class="form-drawing">
             <!-- dibujo blobs/ Flor -->
         </div>
     </div>

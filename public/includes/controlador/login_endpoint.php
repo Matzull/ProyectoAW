@@ -12,7 +12,8 @@ if (check_credentials($_REQUEST["user_email"], $_REQUEST["user_password"])) {
     desconectar_db();
     redirect("/user_dashboard.php");
 } else {
-    redirect("/login.php?err=El usuario o contraseña son incorrectos");
+    echo password_hash($_REQUEST["user_password"],PASSWORD_BCRYPT);
+    //redirect("/login.php?err=El usuario o contraseña son incorrectos");
 }
 
 desconectar_db();
