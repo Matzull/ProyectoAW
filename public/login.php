@@ -1,3 +1,4 @@
+
 <!-- Define que el documento esta bajo el estandar de HTML 5 -->
 <!DOCTYPE html>
 
@@ -17,7 +18,9 @@
     <?php
 
     require_once "includes/config.php";
+
     $formulario = new parallelize_namespace\FormularioLogin();
+
     ?>
     <div class="form-container">
         <div class="form-drawing">

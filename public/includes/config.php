@@ -1,11 +1,11 @@
 <?php
 
-require "includes/utils";
+require_once "includes/utils.php";
 
 spl_autoload_register(function ($class) {
 
     // project-specific namespace prefix
-    $prefix = 'es\\ucm\\fdi\\aw';
+    $prefix = 'parallelize_namespace';
 
     // base directory for the namespace prefix
     $base_dir = __DIR__;
