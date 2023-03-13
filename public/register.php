@@ -25,7 +25,7 @@
             </h2>
             <p class="subtitle t-muted">Crea una cuenta para empezar...</p>
 
-            <?= $formulario->gestiona() ?>
+            <?=$formulario->gestiona() ?>
 
             <p class="text-sec-button">¿Ya tienes cuenta?</p>
             <button class="button c-h-b-blue" type="button" id="loginbutton" onclick="location.href='login.php'">

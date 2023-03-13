@@ -21,9 +21,10 @@ class Usuario
             return false;
         } else {
             $fila = $rs->fetch_assoc();
-            return new Usuario($fila['user_name'], $fila['user_email'], $fila['password'], $fila['millis_crunched'], $fila['ranked'], $fila['tokens'], $fila['last_active'], $fila['blocked']);
+            return new Usuario($fila['user_name'], $fila['user_email'], $fila['user_password'], $fila['millis_crunched'], $fila['ranking'], $fila['tokens'], $fila['last_active'], $fila['blocked']);
         }
     }
+
     public function compruebaPassword($password)
     {
         return password_verify($password, $this->password);
@@ -38,13 +39,13 @@ class Usuario
         }
         return false;
     }
-    public static function crea($user_email, $user_name, $password);
+    public static function crea($user_email, $user_name, $password)
     {
         $user = Usuario::buscaUsuario($user_email);
         if (!$user) {
             $conn = Aplicacion::getInstance()->getConexionBd();
             $query = sprintf(
-                "INSERT INTO Usuarios (user_email, user_name ,password ) VALUES (\"%s\", \"%s\", \"%s\")",
+                'INSERT INTO users (user_email, user_name ,user_password ) VALUES (\'%s\', \'%s\', \'%s\')',
                 $conn->real_escape_string($user_email),
                 $conn->real_escape_string($user_name),
                 password_hash($password, PASSWORD_DEFAULT)
@@ -54,13 +55,13 @@ class Usuario
                 echo "Error SQL ({$conn->errno}):  {$conn->error}";
                 return false;
             }
-            
+
             return self::buscaUsuario($user_email);
         }
         return false;
     }
 
-    public function __construct($user_name, $user_email, $password, $millis_crunched, $ranked, $tokens, $last_active, $blocked, )
+    public function __construct($user_name, $user_email, $password, $millis_crunched, $ranked, $tokens, $last_active, $blocked)
     {
         $this->user_name = $user_name;
         $this->user_email = $user_email;
@@ -71,11 +72,30 @@ class Usuario
         $this->last_active = $last_active;
         $this->blocked = $blocked;
 
-
     }
 
     public function getNombre()
     {
-        return $this->nombre;
+        return $this->user_name;
+    }
+
+    public function getTockens()
+    {
+        return $this->tokens;
+    }
+
+    public function getMsCrunched()
+    {
+        return $this->millis_crunched;
+    }
+
+    public function getKernelCount()
+    {
+        return sizeof(\parallelize_namespace\Kernel::buscaKernelDeUsuario($this));
+    }
+
+    public function getKernels()
+    {
+        return \parallelize_namespace\Kernel::buscaKernelDeUsuario($this);
     }
 }

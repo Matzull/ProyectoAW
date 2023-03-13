@@ -1,11 +1,12 @@
-<?php 
-    session_start();
+<?php
+require 'includes/config.php';
 
-    if(!isset($_SESSION["user_email"])){
-        require "./includes/utilities/redirect.php";
-        redirect("/login.php");
-    }
+if (!isset($_SESSION['user'])) {
+    header("location: login.php");
+    die();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +40,7 @@
                 </div>
                 <div class="section">
                     <h3>GRÁFICA DE MOVIMIENTOS</h3>
-            
+
                     <h3>HISTORIAL DE MOVIMIENTOS</h3>
                 </div>
             </div>
