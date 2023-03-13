@@ -3,7 +3,6 @@
 namespace parallelize_namespace;
 
 require_once "includes/config.php";
-require "../utilities/db_bind.php";
 
 class FormularioLogin extends Formulario
 {
@@ -48,20 +47,17 @@ EOS;
             $this->errores['user_password'] = 'El password no puede estar vacío.';
         }
 
-        session_start();
+        if (count($this->errores) === 0) {
+            $usuario = \parallelize_namespace\Usuario::login($nombreUsuario, $password);
 
+            if ($usuario) {
+                $_SESSION["user"] = $usuario; // TODO checkbox recuerdame
+            } else {
+                $this->errores[] = "usuario o contraseña incorrectos";
+            }
 
-        conectar_db();
-
-        if (check_credentials($nombreUsuario, $password)) {
-            // Start the session
-            $_SESSION["user_email"] = $nombreUsuario; // TODO checkbox recuerdame
-            desconectar_db();
-        } else {
-            $this->errores[] = "usuario o contraseña incorrectos";
         }
 
-        desconectar_db();
     }
 
     public function __construct()

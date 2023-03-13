@@ -38,15 +38,15 @@ class Usuario
         }
         return false;
     }
-    public static function crea($nombreUsuario, $nombre, $password, $rol)
+    public static function crea($user_email, $user_name, $password);
     {
-        $user = Usuario::buscaUsuario($nombreUsuario);
+        $user = Usuario::buscaUsuario($user_email);
         if (!$user) {
             $conn = Aplicacion::getInstance()->getConexionBd();
             $query = sprintf(
                 "INSERT INTO Usuarios (user_email, user_name ,password ) VALUES (\"%s\", \"%s\", \"%s\")",
-                $conn->real_escape_string($nombre),
-                $conn->real_escape_string($nombreUsuario),
+                $conn->real_escape_string($user_email),
+                $conn->real_escape_string($user_name),
                 password_hash($password, PASSWORD_DEFAULT)
             );
             if (!$conn->query($query)) {
@@ -55,7 +55,7 @@ class Usuario
                 return false;
             }
             
-            return self::buscaUsuario($nombreUsuario);
+            return self::buscaUsuario($user_email);
         }
         return false;
     }

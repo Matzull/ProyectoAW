@@ -1,4 +1,3 @@
-
 <!-- Define que el documento esta bajo el estandar de HTML 5 -->
 <!DOCTYPE html>
 
@@ -19,7 +18,7 @@
 
     require_once "includes/config.php";
 
-    $formulario = new parallelize_namespace\FormularioLogin();
+    $formulario = new \parallelize_namespace\FormularioLogin();
 
     ?>
     <div class="form-container">
@@ -31,15 +30,9 @@
                 Iniciar Sesión
             </h2>
             <p class="subtitle t-muted">Iniciar sesión con tu usuario y contraseña.</p>
-            <form action="/includes/controlador/login_endpoint.php" method="post">
-                // TODO check cosasssss
-
-                <?= $formulario->gestiona() ?>
-
-
-            </form>
+            <?= $formulario->gestiona() ?>
             <p class="text-sec-button">¿No tienes cuenta?</p>
-            <button class="button c-h-b-blue" type="button" id="CrearCuenta" onclick="location.href='/register.php'">
+            <button class="button c-h-b-blue" type="button" id="CrearCuenta" onclick="location.href='register.php'">
                 Registrate</button>
         </div>
     </div>
