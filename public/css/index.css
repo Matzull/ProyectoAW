@@ -1,0 +1,25 @@
+@import "global.css";
+
+.diagonal-gradient {
+    align-items: center;
+    justify-content: space-around;
+    background: linear-gradient(to bottom right, #185A97, #218718);
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    width: 95%;
+    height: 600px;
+    border-radius: 10px;
+}
+
+.aligned{
+    display: flex;
+    margin-left: 5%;
+}
+
+#line{
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+    max-height: 70px;
+    border-radius: 10000px;
+}
