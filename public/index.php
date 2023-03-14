@@ -25,7 +25,6 @@ if (!isset($_SESSION['user'])) {
     <?php require_once("./includes/vistas/nav_bar.php") ?>
     <div>
         <div class="diagonal-gradient"></div>
-        <img id="line" src="/img/line.png" alt="">
         <div class="aligned">
             <div>
                 <h1>Bienvenid@s a Parallelize!</h1>
@@ -33,7 +32,6 @@ if (!isset($_SESSION['user'])) {
             </div>
             <div class="diagonal-gradient"></div>
         </div>
-        <img id="line" src="/img/line.png" alt="">
         <div class="diagonal-gradient"></div>
         <?php require_once("./includes/vistas/nav_bar.php") ?>
     </div>
