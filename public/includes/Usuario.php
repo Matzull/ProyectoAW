@@ -73,7 +73,7 @@ class Usuario
         $this->blocked = $blocked;
 
     }
-    // ñkjzcxnvk
+    // ñkjzcxnvkfdasfasdfsafa
 
     public function getNombre()
     {
