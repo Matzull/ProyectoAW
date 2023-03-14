@@ -54,18 +54,6 @@ CREATE TABLE `kernels` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `open_sessions`
---
-
-CREATE TABLE `open_sessions` (
-  `id` varchar(100) NOT NULL,
-  `session_start` date NOT NULL,
-  `user_email` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `token_transactions`
 --
 
@@ -117,12 +105,6 @@ ALTER TABLE `comments`
 ALTER TABLE `kernels`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_email_fk` (`user_email`);
-
---
--- Indexes for table `open_sessions`
---
-ALTER TABLE `open_sessions`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `token_transactions`

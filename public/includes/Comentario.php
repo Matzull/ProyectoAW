@@ -1,16 +1,20 @@
 <?php
 namespace parallelize_namespace;
 
-class Contact
+class Comentario
 {
     private $user_name;
     private $user_email;
     private $user_comment;
 
-    public static function enviaComentario($user_email, $user_name, $user_comment) {
+    public static function enviaComentario($user_comment)
+    {
         $conn = Aplicacion::getInstance()->getConexionBd();
+
         $query = sprintf(
-            'INSERT INTO comments (user_email, user_name ,comment ) VALUES ('$user_email','$user_name', '$user_comment')'
+            'INSERT INTO users (user_email, comment ) VALUES (\'%s\', \'%s\')',
+            $conn->real_escape_string($_SESSION["user"]->getUserEmail()),
+            $conn->real_escape_string($user_comment),
         );
         if (!$conn->query($query)) {
             echo $query;

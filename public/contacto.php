@@ -23,9 +23,8 @@ if (!isset($_SESSION['user'])) {
 
 <body>
     <?php
-    require_once "includes/config.php"; 
-    require_once("./includes/nav_bar.php") 
-    $formulario = new \parallelize_namespace\FormularioContacto();
+    require_once "includes/config.php";
+    require_once("./includes/nav_bar.php");
     ?>
     <div class="form-container">
         <div class="form">
@@ -33,10 +32,17 @@ if (!isset($_SESSION['user'])) {
                 Contacto
             </h2>
             <p class="subtitle t-muted">Danos feedback de nuestra web!</p>
+            <?php
 
-            <?=$formulario->gestiona() ?>
+            if (isset($_SESSION["user"])) {
+                $formulario = new \parallelize_namespace\FormularioContacto();
+            } else {
+                echo "Necesitas estar registrado para enviarnos información, registrate aqui o si ya tienes cuenta haz login!"; // TODO los enlaces
+            }
+            ?>
 
         </div>
+
         <div id="socials" class="form">
             <h2 class="title">
                 Redes sociales

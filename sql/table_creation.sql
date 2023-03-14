@@ -37,20 +37,6 @@ CREATE TABLE `kernels` (
   `statistics` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`statistics`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `open_sessions`
---
-
-CREATE TABLE `open_sessions` (
-  `id` varchar(100) NOT NULL,
-  `session_start` date NOT NULL,
-  `user_email` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
 --
 -- Table structure for table `token_transactions`
 --
@@ -98,12 +84,6 @@ INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`
 ALTER TABLE `kernels`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_email_fk` (`user_email`);
-
---
--- Indexes for table `open_sessions`
---
-ALTER TABLE `open_sessions`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `token_transactions`
