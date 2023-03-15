@@ -26,9 +26,9 @@ if (!isset($_SESSION['user_email'])) {
 
 
     <?php require('includes/vistas/nav_bar.php') ?>
-    <div class='container'>
-        <div class='panel-container'>
-            <div class='panel-header'>
+    <div class='main-container'>
+        <div class='user-panel'>
+            <div class='header'>
                 <img src='./svg/Dashboard_i.svg' alt='' width='44'>
                 <h2>DASHBOARD</h2>
             </div>
@@ -81,15 +81,13 @@ if (!isset($_SESSION['user_email'])) {
                 <div class='section'>
                     <h3>TUS ÚLTIMOS KERNELS</h3>
                     <div class='last-kernels'>
-
                     </div>
                     <button class='button c-h-blue' type='button'>Ver más kernels</button>
                 </div>
             </div>
         </div>
-        <?php require('includes/vistas/user_nav_bar.php') ?>
     </div>
-    <!-- <div style = 'width: 400px; height: 1000px;'></div> -->
+    <?php require('includes/vistas/user_nav_bar.php') ?>
 </body>
 
 </html>

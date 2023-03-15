@@ -3,7 +3,7 @@ namespace parallelize_namespace;
 
 require 'includes/config.php';
 
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user_email'])) {
     header("location: login.php");
     die();
 }
@@ -19,14 +19,14 @@ if (!isset($_SESSION['user'])) {
     <title>Document</title>
     <link rel="stylesheet" href="css/nav_bar.css">
     <link rel="stylesheet" href="css/user_nav_bar.css">
-    <link rel="stylesheet" href="css/user_dashboard.css">
+    <link rel="stylesheet" href="css/wallet.css">
 </head>
 
 <body>
     <?php require_once("./includes/vistas/nav_bar.php") ?>
-    <div class="container">
-        <div class="panel-container">
-            <div class="panel-header">
+    <div class="main-container">
+        <div class="user-panel">
+            <div class="header">
                 <img src="./svg/Wallet_i.svg" alt="" width="44">
                 <h2>CARTERA</h2>
             </div>
@@ -42,13 +42,13 @@ if (!isset($_SESSION['user'])) {
                 </div>
                 <div class="section">
                     <h3>GRÁFICA DE MOVIMIENTOS</h3>
-
                     <h3>HISTORIAL DE MOVIMIENTOS</h3>
                 </div>
             </div>
         </div>
-        <?php require_once("./includes/vistas/user_nav_bar.php") ?>
     </div>
+    <?php require_once("./includes/vistas/user_nav_bar.php") ?>
+
 </body>
 
 </html>
