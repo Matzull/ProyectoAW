@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'includes/utils.php';
+require_once 'includes/Usuario.php';
 
 spl_autoload_register(
     function ($class) {
