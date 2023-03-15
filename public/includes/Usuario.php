@@ -80,6 +80,10 @@ class Usuario
         return $this->user_name;
     }
 
+    public function getEmail(){
+        return $this->user_email;
+    }
+
     public function getTockens()
     {
         return $this->tokens;
