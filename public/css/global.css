@@ -3,6 +3,7 @@
     --h-blue: #5181FF;
     --h-b-blue: #2648A2;
     --gris: #2C2B33;
+    --h-gris: #403f4a;
     --bg: #0C0E14;
     --white: #FFF2F2;
     --m-text: #9D8A8A;
@@ -17,6 +18,10 @@ body{
     margin: 0px;
     color: var(--white);
     font-weight: 500;
+}
+
+.main-container{
+    padding: 10px;
 }
 
 a {
