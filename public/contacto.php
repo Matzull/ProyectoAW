@@ -36,6 +36,9 @@ if (!isset($_SESSION['user'])) {
 
             if (isset($_SESSION["user"])) {
                 $formulario = new \parallelize_namespace\FormularioContacto();
+                echo "<p>Esta funcionalidad no esta disponible de momento (WIP)</p>";
+                $formulario->gestiona();
+                
             } else {
                 echo "<p>Necesitas estar registrado para enviarnos información, registrate aqui o si ya tienes cuenta haz login!</p>"; // TODO los enlaces
             }
