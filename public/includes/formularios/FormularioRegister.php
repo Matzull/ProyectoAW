@@ -93,7 +93,7 @@ class FormularioRegister extends Formulario
 
             if ($usuario) {
                 // Start the session
-                $_SESSION['user'] = $usuario;
+                $_SESSION['user_email'] = $usuario->getEmail();
                 // TODO checkbox recuerdame
             } else {
                 $this->errores[] = 'Ese email ya está registrado.';
