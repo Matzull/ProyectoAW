@@ -19,7 +19,7 @@
     require_once "includes/config.php";
     require_once("./includes/vistas/nav_bar.php");
     ?>
-    <div class="form-container-marketplace">
+    <div class="container-marketplace">
 
         <h1 class="title">
             Mercado
@@ -35,7 +35,7 @@
                 </h3>
                 <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
                 <!-- creamos los botones para redirigir a los links -->
-                <a href="https://instagram.com"><button>0.06c/seg</button></a>
+                <a href="kernel_info.php"><button>0.06c/seg</button></a>
                 <a href="kernel_info.php"><button>Ejecutar</button></a>
             </div>
 
@@ -45,7 +45,7 @@
                 </h3>
                 <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
                 <!-- creamos los botones para redirigir a los links -->
-                <a href="https://instagram.com"><button>0.06c/seg</button></a>
+                <a href="kernel_info.php"><button>0.06c/seg</button></a>
                 <a href="kernel_info.php"><button>Ejecutar</button></a>
             </div>
         </div>
@@ -53,7 +53,7 @@
         <h2 class="title">
             Mejor pagados
         </h2>
-        <div class="form-container">
+        <div class="marketplace-kernels">
             <div id="kernel1" class="form">
                 <h3 class="title">
                     Manola Fuertes
@@ -61,19 +61,19 @@
                 <p class="subtitle t-muted">mi ordenador es una patata ayudadme!</p>
 
                 <!-- Creamos redes sociales? -->
-                <a href="https://instagram.com"><button>0.06c/seg</button></a>
+                <a href="kernel_info.php"><button>0.06c/seg</button></a>
                 <a href="kernel_info.php"><button>Ejecutar</button></a>
 
             </div>
 
             <div id="kernel1" class="form">
                 <h3 class="title">
-                    Lucrecia Molinos
+                    Lucia Molinos
                 </h3>
                 <p class="subtitle t-muted">mi ordenador es una patata ayudadme!</p>
 
                 <!-- Creamos redes sociales? -->
-                <a href="https://instagram.com"><button>0.06c/seg</button></a>
+                <a href="kernel_info.php"><button>0.06c/seg</button></a>
                 <a href="kernel_info.php"><button>Ejecutar</button></a>
 
             </div>
