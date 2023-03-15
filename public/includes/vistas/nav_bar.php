@@ -25,10 +25,14 @@
         <?php if (isset($_SESSION["user_email"])): ?>
             <div class="nav-bar-sec">
                 <p>
-                    <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getName(); ?>
+                    <a href="user_dashboard.php">
+                        <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getName(); ?>
+                    </a>
                 </p>
-                <img src="<?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user"])->getPicUrl(); ?>" alt=""
-                    width="40">
+                <img src="<?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getPicUrl(); ?>" alt=""
+                    width="40" />
+                <button type="button" class="small-button c-h-b-blue" onclick="location.href='logout.php'">Cerrar
+                    sesión</button>
             </div>
         <?php else: ?>
             <div class="nav-bar-sec">
