@@ -28,53 +28,64 @@
             Mejor pagados
         </h2>
             <!-- <p class="subtitle t-muted">Danos feedback de nuestra web!</p> -->
-        <div class="form-container">
+        <div class="marketplace-kernels">
             <div id="kernel1" class="form">
                 <h3 class="title">
-                    Federico Garsia
+                    Federico Garcia
                 </h3>
                 <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
                 <!-- creamos los botones para redirigir a los links -->
-                <a href="kernel_info.php"><button>0.06c/seg</button></a>
-                <a href="kernel_info.php"><button>Ejecutar</button></a>
+                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
             </div>
 
-            <div id="kernel1" class="form">
+            <div id="kernel2" class="form">
                 <h3 class="title">
-                    ambrosio Garsia
+                    Ambrosio Garcia
                 </h3>
-                <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
+                <p class="subtitle t-muted">mi kernel requiere de mucha mano de obra</p>
                 <!-- creamos los botones para redirigir a los links -->
-                <a href="kernel_info.php"><button>0.06c/seg</button></a>
-                <a href="kernel_info.php"><button>Ejecutar</button></a>
+                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
             </div>
+
+            <div id="kernel3" class="form">
+                <h3 class="title">
+                    Rosa Mosqueta
+                </h3>
+                <p class="subtitle t-muted">Proyecto muy ambicioso</p>
+                <!-- creamos los botones para redirigir a los links -->
+                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+            </div>
+            
         </div>
 
         <h2 class="title">
-            Mejor pagados
+            Nuevos
         </h2>
         <div class="marketplace-kernels">
-            <div id="kernel1" class="form">
+            <div id="kernel3" class="form">
                 <h3 class="title">
                     Manola Fuertes
                 </h3>
                 <p class="subtitle t-muted">mi ordenador es una patata ayudadme!</p>
 
                 <!-- Creamos redes sociales? -->
-                <a href="kernel_info.php"><button>0.06c/seg</button></a>
-                <a href="kernel_info.php"><button>Ejecutar</button></a>
+                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
 
             </div>
 
-            <div id="kernel1" class="form">
+            <div id="kernel4" class="form">
                 <h3 class="title">
                     Lucia Molinos
                 </h3>
-                <p class="subtitle t-muted">mi ordenador es una patata ayudadme!</p>
+                <p class="subtitle t-muted">no es muy dificil!</p>
 
                 <!-- Creamos redes sociales? -->
-                <a href="kernel_info.php"><button>0.06c/seg</button></a>
-                <a href="kernel_info.php"><button>Ejecutar</button></a>
+                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
 
             </div>
         </div>
