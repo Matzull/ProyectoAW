@@ -48,7 +48,7 @@ if (!isset($_SESSION['user_email'])) {
                     <h3>TUS TOKENS</h3>
                     <button type='button'>+</button>
                     <p>
-                        <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user"])->getTockens() ?>
+                        <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getTockens() ?>
                     </p>
                     <img src='https://picsum.photos/100/100' alt='' width='100'>
                 </div>

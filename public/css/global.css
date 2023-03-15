@@ -168,3 +168,30 @@ que estar horizontal*/
     width: 100%;
     background-color: #3282b8;
 }
+
+/* Formato de tablas*/
+.table-format{
+    width: 60%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; 
+     empty-cells: show;
+}
+
+thead{
+    background-color: gray;
+}
+
+tbody{
+    background-color:var(--l-gris)
+}
+
+td {
+    text-align: center;
+}
+
+tr:hover {
+    background-color:var(--m-text)
+}
