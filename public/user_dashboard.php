@@ -1,8 +1,8 @@
 <?php
 namespace parallelize_namespace;
 
-require 'includes/config.php';
 require 'includes/Usuario.php';
+require 'includes/config.php';
 
 if (!isset($_SESSION['user'])) {
     header("location: login.php");
