@@ -34,7 +34,7 @@ if (!isset($_SESSION['user_email'])) {
                         <div class="section-content">
                             <h2>Mi foto de Perfil</h2>
                             <div>
-                                <img src="https://picsum.photos/100/100" alt="">
+                            <img class="circle-border" src="https://picsum.photos/100/100" alt="" width="100" height="100">
                                 <div>
                                     <button class="button c-h-blue" type="button">Cambiar Foto</button>
                                     <button class="button c-h-b-blue" type="button">Cambiar Foto</button>

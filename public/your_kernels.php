@@ -33,15 +33,14 @@ if (!isset($_SESSION['user_email'])) {
             <div class="sections-container">
                 <div class="section">
                     <h3>HISTORIAL DE EJECUCIONES</h3>
-                    <div class="search-panel">
-                        <form action="">
-                            <div class="search-main-panel">
-                                <input class="input-field" type="text" name="" id="" placeholder="Buscar...">
-                                <button class="button c-h-blue" type="submit">Buscar</button>
-                            </div>
-                            <div class="search-option-panel">
-                                <button class="button c-h-blue" type="button">Filtrar</button>
-                                <select name="cars" id="cars">
+                    <form class="search-form" action="">
+                        <div class="main-panel">
+                            <input class="input-field" type="text" name="" id="" placeholder="Buscar...">
+                            <button class="button c-h-blue" type="submit">Buscar</button>
+                        </div>
+                        <div class="option-panel">
+                            <button class="button c-h-blue" type="button">Filtrar</button>
+                            <select class="select" name="orderby" id="orderby">
                                 <optgroup label="Fecha">
                                     <option value="more recent first">Más reciente primero</option>
                                     <option value="less recent first">Menos reciente primero</option>
@@ -50,10 +49,9 @@ if (!isset($_SESSION['user_email'])) {
                                     <option value="more income first">Más ingresos primero</option>
                                     <option value="less income first">Menos ingresos primero</option>
                                 </optgroup>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
+                            </select>
+                        </div>
+                    </form>
                     <div class="execution-history">
                     </div>
                 </div>
