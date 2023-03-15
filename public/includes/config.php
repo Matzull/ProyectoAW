@@ -24,7 +24,7 @@ spl_autoload_register(
         // replace the namespace prefix with the base directory, replace namespace
         // separators with directory separators in the relative class name, append
         // with .php
-        $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
+        $file = $base_dir . str_replace('\\', '', $relative_class) . '.php';
 
         // if the file exists, require it
         if (file_exists($file)) {
@@ -34,10 +34,10 @@ spl_autoload_register(
 );
 
 // Parámetros de configuración generales
-define('RUTA_APP', '/');
-define('RUTA_IMGS', RUTA_APP . '/img');
-define('RUTA_CSS', RUTA_APP . '/css');
-define('RUTA_JS', RUTA_APP . '/js');
+define('RUTA_APP', '');
+define('RUTA_IMGS', RUTA_APP . 'img');
+define('RUTA_CSS', RUTA_APP . 'css');
+define('RUTA_JS', RUTA_APP . 'js');
 define('INSTALADA', false);
 
 // Parámetros de configuración de la BD

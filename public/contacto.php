@@ -15,10 +15,10 @@ if (!isset($_SESSION['user'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
-    <link rel="stylesheet" href="/css/nav_bar.css">
-    <link rel="stylesheet" href="/css/user_nav_bar.css">
-    <link rel="stylesheet" href="/css/user_dashboard.css">
-    <link rel="stylesheet" href="/css/contacto.css">
+    <link rel="stylesheet" href="css/nav_bar.css">
+    <link rel="stylesheet" href="css/user_nav_bar.css">
+    <link rel="stylesheet" href="css/user_dashboard.css">
+    <link rel="stylesheet" href="css/contacto.css">
 </head>
 
 <body>
@@ -53,9 +53,9 @@ if (!isset($_SESSION['user'])) {
             <p class="subtitle t-muted">Síguenos en nuestras redes!</p>
 
             <!-- Creamos redes sociales? -->
-            <a href="https://instagram.com"><img src="/img/logo-Instagram-bMode.png" height="30"></a>
-            <a href="https://facebook.com"><img src="/img/logo-Facebook-bMode.png" height="30"></a>
-            <a href="https://github.com"><img src="/img/logo-Github-dMode.png" height="30"></a>
+            <a href="https://instagram.com"><img src="img/logo-Instagram-bMode.png" height="30"></a>
+            <a href="https://facebook.com"><img src="img/logo-Facebook-bMode.png" height="30"></a>
+            <a href="https://github.com"><img src="img/logo-Github-dMode.png" height="30"></a>
 
         </div>
         <div class="form-drawing">
