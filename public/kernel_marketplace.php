@@ -27,41 +27,55 @@
             Mejor pagados
         </h2>
             <!-- <p class="subtitle t-muted">Danos feedback de nuestra web!</p> -->
+        <div class="form-container">
+            <div id="kernel1" class="form">
+                <h3 class="title">
+                    Federico Garsia
+                </h3>
+                <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
+                <!-- creamos los botones para redirigir a los links -->
+                <a href="https://instagram.com"><button>0.06c/seg</button></a>
+                <a href="kernel_info.php"><button>Ejecutar</button></a>
+            </div>
 
-        <div id="kernel1" class="form">
-            <h3 class="title">
-                Federico Garsia
-            </h3>
-            <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
-            <!-- creamos los botones para redirigir a los links -->
-            <a href="https://instagram.com"><button>0.06c/seg</button></a>
-            <a href="kernel_info.php"><button>Ejecutar</button></a>
-        </div>
-
-        <div id="kernel1" class="form">
-            <h3 class="title">
-                ambrosio Garsia
-            </h3>
-            <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
-            <!-- creamos los botones para redirigir a los links -->
-            <a href="https://instagram.com"><button>0.06c/seg</button></a>
-            <a href="kernel_info.php"><button>Ejecutar</button></a>
+            <div id="kernel1" class="form">
+                <h3 class="title">
+                    ambrosio Garsia
+                </h3>
+                <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
+                <!-- creamos los botones para redirigir a los links -->
+                <a href="https://instagram.com"><button>0.06c/seg</button></a>
+                <a href="kernel_info.php"><button>Ejecutar</button></a>
+            </div>
         </div>
 
         <h2 class="title">
             Mejor pagados
         </h2>
+        <div class="form-container">
+            <div id="kernel1" class="form">
+                <h3 class="title">
+                    Manola Fuertes
+                </h3>
+                <p class="subtitle t-muted">mi ordenador es una patata ayudadme!</p>
 
-        <div id="kernel1" class="form">
-            <h3 class="title">
-                Manola Fuertes
-            </h3>
-            <p class="subtitle t-muted">mi ordenador es una patata ayudadme!</p>
+                <!-- Creamos redes sociales? -->
+                <a href="https://instagram.com"><button>0.06c/seg</button></a>
+                <a href="kernel_info.php"><button>Ejecutar</button></a>
 
-            <!-- Creamos redes sociales? -->
-            <a href="https://instagram.com"><button>0.06c/seg</button></a>
-            <a href="kernel_info.php"><button>Ejecutar</button></a>
+            </div>
 
+            <div id="kernel1" class="form">
+                <h3 class="title">
+                    Lucrecia Molinos
+                </h3>
+                <p class="subtitle t-muted">mi ordenador es una patata ayudadme!</p>
+
+                <!-- Creamos redes sociales? -->
+                <a href="https://instagram.com"><button>0.06c/seg</button></a>
+                <a href="kernel_info.php"><button>Ejecutar</button></a>
+
+            </div>
         </div>
         
     </div>

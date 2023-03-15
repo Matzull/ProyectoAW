@@ -1,0 +1,26 @@
+/*este no consigo que funcione y no se porque*/
+.form-container-marketplace-kernels { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    /* width: 100%;
+    height: 100%; */
+}
+
+.form-container-marketplace{
+    /* display: flex;
+    align-items: center; */
+    /*justify-content: space-around;*/
+
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    /* width: 100%;
+    height: 100%; */
+}
+
+
