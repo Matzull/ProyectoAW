@@ -1,5 +1,5 @@
 <?php
-namespace parallelize_namespace;
+namespace parallelize_namespace\formulario;
 
 /**
  * Clase base para la gestión de formularios.

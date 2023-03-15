@@ -1,6 +1,6 @@
 <?php
 
-namespace parallelize_namespace;
+namespace parallelize_namespace\formulario;
 
 require_once 'includes/config.php';
 

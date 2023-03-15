@@ -18,7 +18,7 @@
 
     require_once "includes/config.php";
 
-    $formulario = new \parallelize_namespace\FormularioLogin();
+    $formulario = new \parallelize_namespace\formulario\FormularioLogin();
 
     ?>
     <div class="form-container">

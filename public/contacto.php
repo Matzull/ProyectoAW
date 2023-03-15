@@ -35,7 +35,7 @@ if (!isset($_SESSION['user'])) {
             <?php
 
             if (isset($_SESSION["user"])) {
-                $formulario = new \parallelize_namespace\FormularioContacto();
+                $formulario = new \parallelize_namespace\formulario\FormularioContacto();
                 echo "<p>Esta funcionalidad no esta disponible de momento (WIP)</p>";
                 $formulario->gestiona();
                 
