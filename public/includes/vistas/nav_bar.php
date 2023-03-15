@@ -3,7 +3,7 @@
         <div class="nav-bar-sec">
             <a href="/index.html"><img src="/img/logo-h-dMode.png" alt="" height="30"></a>
             <ul>
-                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/index.php">Inicio</a></li>
                 <li><a href="/kernel_marketplace.php">Mercado de Kernels</a>
                     <ul>
                         <div class="dropdown-content">
@@ -24,7 +24,7 @@
         </div>
         <?php if (isset($_SESSION["user"])): ?>
             <div class="nav-bar-sec">
-                <p>Username</p>
+                <p><a href=""><?= $_SESSION["user"]->getEmail() ?></a></p>
                 <img src="https://picsum.photos/40/40" alt="" width="40">
             </div>
         <?php else: ?>

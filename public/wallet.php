@@ -1,4 +1,7 @@
 <?php
+namespace parallelize_namespace;
+
+require 'includes/Usuario.php';
 require 'includes/config.php';
 
 if (!isset($_SESSION['user'])) {
