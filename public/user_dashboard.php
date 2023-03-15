@@ -1,7 +1,6 @@
 <?php
 namespace parallelize_namespace;
 
-require 'includes/Usuario.php';
 require 'includes/config.php';
 
 if (!isset($_SESSION['user'])) {
@@ -18,15 +17,15 @@ if (!isset($_SESSION['user'])) {
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Document</title>
-    <link rel='stylesheet' href='/css/nav_bar.css'>
-    <link rel='stylesheet' href='/css/user_nav_bar.css'>
-    <link rel='stylesheet' href='/css/user_dashboard.css'>
+    <link rel='stylesheet' href='css/nav_bar.css'>
+    <link rel='stylesheet' href='css/user_nav_bar.css'>
+    <link rel='stylesheet' href='css/user_dashboard.css'>
 </head>
 
 <body>
 
 
-    <?php require('./includes/vistas/nav_bar.php') ?>
+    <?php require('includes/vistas/nav_bar.php') ?>
     <div class='container'>
         <div class='panel-container'>
             <div class='panel-header'>
@@ -38,17 +37,18 @@ if (!isset($_SESSION['user'])) {
                     <img src='https://picsum.photos/100/100' alt='' width='100'>
                     <h3>PARTICIPACIÓN</h3>
                     <p>Has subido
-                        <?= $_SESSION["user"]->getKernelCount() ?> kernels.
+                        <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getKernelCount() ?>
+                        kernels.
                     </p>
                     <p>Has ejecutado
-                        <?= $_SESSION["user"]->getMsCrunched() ?> ms .
+                        <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getMsCrunched() ?> ms .
                     </p>
                 </div>
                 <div class='section'>
                     <h3>TUS TOKENS</h3>
                     <button type='button'>+</button>
                     <p>
-                        <?= $_SESSION["user"]->getTockens() ?>
+                        <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user"])->getTockens() ?>
                     </p>
                     <img src='https://picsum.photos/100/100' alt='' width='100'>
                 </div>

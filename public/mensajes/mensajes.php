@@ -5,12 +5,12 @@ require_once '../includes/vistas/helpers/mensajes.php';
 
 $idMensaje = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 if (!$idMensaje) {
-    Utils::redirige(buildUrl('/tablon.php'));
+    Utils::redirige(buildUrl('tablon.php'));
 }
 
 $mensaje = Mensaje::buscaPorId($idMensaje);
 if (!$mensaje) {
-	Utils::redirige(buildUrl('/tablon.php'));
+	Utils::redirige(buildUrl('tablon.php'));
 }
 
 $numPagina = filter_input(INPUT_GET, 'numPagina', FILTER_SANITIZE_NUMBER_INT) ?? 1;

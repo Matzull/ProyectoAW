@@ -10,4 +10,28 @@
     height: 200px;
     box-sizing: border-box;
 }
-/*Puede que haya que especificar el estilo de el segundo "Form" con id="socials*/
+
+.small{
+    height: 50px;
+    width: 50px;
+}
+
+.socials-cont{/*Puede que haya que especificar el estilo de el segundo "Form" con id="socials*/
+    gap: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
+}
+
+.social-drawing {
+    max-width: 250px;
+    height: 250px;
+    width: 100%;
+    background-color: #3282b8;
+}

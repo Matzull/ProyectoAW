@@ -1,5 +1,5 @@
 <?php
-namespace parallelize_namespace;
+namespace parallelize_namespace\formulario;
 
 /**
  * Clase base para la gestión de formularios.
@@ -47,7 +47,7 @@ abstract class Formulario
      */
     protected static function createMensajeError($errores = [], $idError = '', $htmlElement = 'span', $atts = [])
     {
-        if (! isset($errores[$idError])) {
+        if (!isset($errores[$idError])) {
             return '';
         }
 
@@ -60,9 +60,10 @@ abstract class Formulario
         return $html;
     }
 
-    protected static function generaErroresCampos($campos, $errores, $htmlElement = 'span', $atts = []) {
+    protected static function generaErroresCampos($campos, $errores, $htmlElement = 'span', $atts = [])
+    {
         $erroresCampos = [];
-        foreach($campos as $campo) {
+        foreach ($campos as $campo) {
             $erroresCampos[$campo] = self::createMensajeError($errores, $campo, $htmlElement, $atts);
         }
         return $erroresCampos;
@@ -160,7 +161,7 @@ abstract class Formulario
         $this->action = $opciones['action'];
         $this->method = $opciones['method'];
         $this->classAtt = $opciones['class'];
-        $this->enctype  = $opciones['enctype'];
+        $this->enctype = $opciones['enctype'];
         $this->urlRedireccion = $opciones['urlRedireccion'];
 
         if (!$this->action) {
@@ -200,7 +201,7 @@ abstract class Formulario
         $this->procesaFormulario($datos);
         $esValido = count($this->errores) === 0;
 
-        if (! $esValido ) {
+        if (!$esValido) {
             return $this->generaFormulario($datos);
         }
 
@@ -271,6 +272,7 @@ abstract class Formulario
             $htmlCamposFormularios
         </form>
         EOS;
+
         return $htmlForm;
     }
 }
