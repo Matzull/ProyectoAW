@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="css/nav_bar.css">
     <link rel="stylesheet" href="css/user_nav_bar.css">
     <link rel="stylesheet" href="css/user_dashboard.css">
-    <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="css/marketplace.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -80,7 +81,10 @@
         
     </div>
     
-
+    <?php
+    
+    require_once("./includes/vistas/footer.php");
+    ?>
 
 </body>
 
