@@ -13,11 +13,77 @@ require 'includes/config.php';
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Ranking</title>
     <link rel='stylesheet' href='css/nav_bar.css'>
+    <link rel='stylesheet' href='/css/nav_bar.css'>
+    <link rel="stylesheet" href="css/ranking.css">
 </head>
 
 <body>
     <?php require('./includes/vistas/nav_bar.php') ?>
-    
+
+    <div class="ranking-container">
+        <div class="table-format">
+            <table> 
+                <!-- Para rellenar esta tabla habrá que consultar el ranking en la BD -->
+                <thead>
+                    <tr>
+                        <th>posición</th>
+                        <th>nombre de usuario</th>
+                        <th>puntuación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Matzul_el_mediocre</td>
+                            <td>30</td> 
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>diegoq</td>
+                            <td>29</td> 
+                        </tr>   
+                        <tr>
+                            <td>3</td>
+                            <td>jaimev</td>
+                            <td>28</td> 
+                        </tr>  
+                        <?php
+                            for ($i = 1; $i <= 15; $i++) {
+                                echo <<<EOS
+                                <tr>
+                                    <td>pos</td>
+                                    <td>nombre</td>
+                                    <td>puntos</td> 
+                                </tr> 
+                                EOS;
+                            }  
+                        ?>  
+                </tbody>
+            </table>  
+        </div>
+
+        <div class="right-side">
+            <div class="top-rank">
+                <h2 class="title">
+                    BEST PARALELLIZERS
+                </h2>
+                <div class="ranking1">
+                    <h3>Matzul_el_mediocre</h3>
+                </div>
+                <div class="ranking2">
+                    <h3>diegoq</h3>
+                </div>
+                <div class="ranking3">
+                    <h3>jaimev</h3>
+                </div>
+            </div>
+            
+            <div class="rank-blob">
+            <!-- dibujo blobs/ Flor -->
+            </div>
+        </div>
+    </div>
+  
 </body>
 
 </html>
