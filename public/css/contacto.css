@@ -10,4 +10,13 @@
     height: 200px;
     box-sizing: border-box;
 }
-/*Puede que haya que especificar el estilo de el segundo "Form" con id="socials*/
+
+a img{
+    height: 50;
+    width: 50;
+}
+
+.socials{/*Puede que haya que especificar el estilo de el segundo "Form" con id="socials*/
+    display: block;
+}
+

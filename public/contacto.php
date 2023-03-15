@@ -53,9 +53,9 @@ if (!isset($_SESSION['user'])) {
             <p class="subtitle t-muted">Síguenos en nuestras redes!</p>
 
             <!-- Creamos redes sociales? -->
-            <a href="https://instagram.com"><img src="img/logo-Instagram-bMode.png" height="30"></a>
-            <a href="https://facebook.com"><img src="img/logo-Facebook-bMode.png" height="30"></a>
-            <a href="https://github.com"><img src="img/logo-Github-dMode.png" height="30"></a>
+            <a href="https://instagram.com"><img src="img/logo-Instagram-bMode.png"></a>
+            <a href="https://facebook.com"><img src="img/logo-Facebook-bMode.png"></a>
+            <a href="https://github.com"><img src="img/logo-Github-dMode.png"></a>
 
         </div>
         <div class="form-drawing">
