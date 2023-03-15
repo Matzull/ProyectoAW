@@ -37,17 +37,18 @@ if (!isset($_SESSION['user'])) {
                     <img src='https://picsum.photos/100/100' alt='' width='100'>
                     <h3>PARTICIPACIÓN</h3>
                     <p>Has subido
-                        <?= $_SESSION["user"]->getKernelCount() ?> kernels.
+                        <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getKernelCount() ?>
+                        kernels.
                     </p>
                     <p>Has ejecutado
-                        <?= $_SESSION["user"]->getMsCrunched() ?> ms .
+                        <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getMsCrunched() ?> ms .
                     </p>
                 </div>
                 <div class='section'>
                     <h3>TUS TOKENS</h3>
                     <button type='button'>+</button>
                     <p>
-                        <?= $_SESSION["user"]->getTockens() ?>
+                        <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user"])->getTockens() ?>
                     </p>
                     <img src='https://picsum.photos/100/100' alt='' width='100'>
                 </div>

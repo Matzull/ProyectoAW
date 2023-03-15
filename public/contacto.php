@@ -34,7 +34,7 @@ if (!isset($_SESSION['user'])) {
             <p class="subtitle t-muted">Danos feedback de nuestra web!</p>
             <?php
 
-            if (isset($_SESSION["user"])) {
+            if (isset($_SESSION["user_email"])) {
                 $formulario = new \parallelize_namespace\formulario\FormularioContacto();
                 echo $formulario->gestiona();
                 

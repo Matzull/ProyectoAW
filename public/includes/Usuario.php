@@ -75,12 +75,13 @@ class Usuario
     }
     // ñkjzcxnvkfdasfasdfsafa
 
-    public function getNombre()
+    public function getName()
     {
         return $this->user_name;
     }
 
-    public function getEmail(){
+    public function getEmail()
+    {
         return $this->user_email;
     }
 
@@ -102,5 +103,10 @@ class Usuario
     public function getKernels()
     {
         return \parallelize_namespace\Kernel::buscaKernelDeUsuario($this);
+    }
+
+    public function getPicUrl()
+    {
+        return "";
     }
 }

@@ -13,7 +13,7 @@ class Comentario
 
         $query = sprintf(
             'INSERT INTO users (user_email, comment ) VALUES (\'%s\', \'%s\')',
-            $conn->real_escape_string($_SESSION["user"]->getUserEmail()),
+            $conn->real_escape_string($_SESSION["user_email"]),
             $conn->real_escape_string($user_comment),
         );
         if (!$conn->query($query)) {

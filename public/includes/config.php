@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'includes/utils.php';
-require_once 'includes/Usuario.php';
+require 'includes/Usuario.php';
 
 spl_autoload_register(
     function ($class) {
@@ -32,7 +32,7 @@ spl_autoload_register(
         $file = $base_dir . str_replace('\\', '', $relative_class) . '.php';
 
         // if the file exists, require it
-        // echo "<div>file " . $file . "</div>";
+        echo "<div>file " . $file . "</div>";
 
         if (file_exists($file)) {
 
@@ -69,7 +69,7 @@ spl_autoload_register(
         // with .php
         $file = $base_dir . str_replace('\\', '', $relative_class) . '.php';
 
-        // echo "<div>file " . $file . "</div>";
+        echo "<div>file " . $file . "</div>";
         // if the file exists, require it
         if (file_exists($file)) {
             require $file;

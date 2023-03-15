@@ -22,15 +22,20 @@
                 </li>
             </ul>
         </div>
-        <?php if (isset($_SESSION["user"])): ?>
+        <?php if (isset($_SESSION["user_email"])): ?>
             <div class="nav-bar-sec">
-                <p>Username</p>
-                <!-- <img src="https://picsum.photos/40/40" alt="" width="40"> -->
+                <p>
+                    <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getName(); ?>
+                </p>
+                <img src="<?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user"])->getPicUrl(); ?>" alt=""
+                    width="40">
             </div>
         <?php else: ?>
             <div class="nav-bar-sec">
-                <button type="button" class="small-button c-h-blue" onclick="location.href='login.php'">Iniciar sesión</button>
-                <button type="button" class="small-button c-h-b-blue" onclick="location.href='register.php'">Crear cuenta</button>
+                <button type="button" class="small-button c-h-blue" onclick="location.href='login.php'">Iniciar
+                    sesión</button>
+                <button type="button" class="small-button c-h-b-blue" onclick="location.href='register.php'">Crear
+                    cuenta</button>
             </div>
         <?php endif; ?>
     </div>
