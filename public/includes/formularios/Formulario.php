@@ -192,6 +192,10 @@ abstract class Formulario
         if (strcasecmp('GET', $this->method) == 0) {
             $datos = &$_GET;
         }
+
+        echo "datos:" . implode(",", $datos);
+
+
         $this->errores = [];
 
         if (!$this->formularioEnviado($datos)) {
@@ -200,6 +204,7 @@ abstract class Formulario
 
         $this->procesaFormulario($datos);
         $esValido = count($this->errores) === 0;
+
 
         if (!$esValido) {
             return $this->generaFormulario($datos);
