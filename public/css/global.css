@@ -3,7 +3,6 @@
     --h-blue: #5181FF;
     --h-b-blue: #2648A2;
     --gris: #2C2B33;
-    --h-gris: #464451;
     --bg: #0C0E14;
     --white: #FFF2F2;
     --m-text: #9D8A8A;
@@ -18,10 +17,6 @@ body{
     margin: 0px;
     color: var(--white);
     font-weight: 500;
-}
-
-.main-container{
-    padding: 10px;
 }
 
 a {
@@ -90,7 +85,7 @@ a:hover {
     filter: brightness(80%);
 }
 
-/* INPUT TEXT */
+/* FORMULARIO */
 
 .input-field{
     font: inherit;
@@ -135,38 +130,9 @@ a:hover {
 }
 
 
-/* TABLAS */
-.table-format{
-    width: 60%;
-}
 
-table {
-    width: 100%;
-    border-collapse: collapse; 
-     empty-cells: show;
-}
+/* CONTENEDORES */
 
-thead{
-    background-color: gray;
-}
-
-tbody{
-    background-color:var(--l-gris)
-}
-
-td {
-    text-align: center;
-}
-
-tr:hover {
-    background-color:var(--m-text)
-}
-
-
-
-/* --- COMPONENTES COMPLEJOS --- */
-
-/* FORMULARIO */
 /* Usado en login y register: 
     contiene el formulario y una imagen. */
 
