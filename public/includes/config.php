@@ -80,6 +80,7 @@ spl_autoload_register(
 // Parámetros de configuración generales
 define('RUTA_APP', '');
 define('RUTA_IMGS', RUTA_APP . 'img');
+define('RUTA_SVG', RUTA_APP . 'svg');
 define('RUTA_CSS', RUTA_APP . 'css');
 define('RUTA_JS', RUTA_APP . 'js');
 define('INSTALADA', false);
