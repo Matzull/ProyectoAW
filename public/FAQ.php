@@ -18,19 +18,52 @@ require 'includes/config.php';
 
 <body>
     <?php require('./includes/vistas/nav_bar.php') ?>
-    <div class="form">
-        <h1 class="title">
-            FAQ
-        </h1>
-        <input type="text" placeholder="¿Cómo te podemos ayudar">
+    <div class="container">
+        <div class="form">
+            <h1 class="title-FAQ">
+                FAQ
+            </h1>
+            <!-- <input method="post" type="text" placeholder="¿Cómo te podemos ayudar"> -->
+            <form method="POST" action="">
+                <input class="input-field" type="text" name="search-FAQ" placeholder="¿Cómo te podemos ayudar?"/>
+            </form>
+        </div>
     </div>
-
-    <h5>Kernels</h5>
-    <h5>Otro tema</h5>
-    <h5>Otro tema</h5>
-    <h5>Otro tema</h5>
-    <h5>Otro tema</h5>
-
+    <div class="FAQ-container">
+        <div class="FAQs-c1">
+            <h2>Kernels</h2>
+            <!-- Las preguntas deben ser enlaces a las respuestas pero por ahora solo las vistas -->
+            <div class="question-FAQ" >
+                <p>Como contactar con el equipo</p>
+                <p>Otra pregunta</p>
+                <p>Otra pregunta</p>
+                <p>Otra pregunta</p>
+                <p>Otra pregunta</p>
+            </div>
+        </div>
+        <div class="FAQs-c2">
+            <h2>Otro tema</h2>
+            <div class="question-FAQ" >
+                <p>Otra pregunta</p>
+                <p>Otra pregunta</p>
+                <p>Otra pregunta</p>
+                <p>Otra pregunta</p>
+                <p>Otra pregunta</p>
+            </div>
+        </div>
+    
+        <div class="FAQs-c3">
+            <h2>Otro tema</h2>
+    
+            <div class="question-FAQ" >
+                <p>Otra pregunta</p>
+                <p>Otra pregunta</p>
+                <p>Otra pregunta</p>
+                <p>Otra pregunta</p>
+                <p>Otra pregunta</p>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
