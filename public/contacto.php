@@ -24,7 +24,7 @@ if (!isset($_SESSION['user'])) {
 <body>
     <?php
     require_once "includes/config.php";
-    require_once("./includes/nav_bar.php");
+    require_once("./includes/vistas/nav_bar.php");
     ?>
     <div class="form-container">
         <div class="form">
@@ -37,7 +37,7 @@ if (!isset($_SESSION['user'])) {
             if (isset($_SESSION["user"])) {
                 $formulario = new \parallelize_namespace\FormularioContacto();
             } else {
-                echo "Necesitas estar registrado para enviarnos información, registrate aqui o si ya tienes cuenta haz login!"; // TODO los enlaces
+                echo "<p>Necesitas estar registrado para enviarnos información, registrate aqui o si ya tienes cuenta haz login!</p>"; // TODO los enlaces
             }
             ?>
 
