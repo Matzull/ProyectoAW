@@ -51,7 +51,7 @@ class FormularioLogin extends Formulario
 
             if ($usuario) {
                 $_SESSION['user_email'] = $usuario->getEmail();
-                // TODO checkbox recuerdame
+                    // TODO checkbox recuerdame
             } else {
                 $this->errores[] = 'usuario o contraseña incorrectos';
             }

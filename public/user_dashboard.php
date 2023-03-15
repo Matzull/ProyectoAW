@@ -3,7 +3,7 @@ namespace parallelize_namespace;
 
 require 'includes/config.php';
 
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user_email'])) {
     header("location: login.php");
     die();
 }

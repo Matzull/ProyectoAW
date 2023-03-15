@@ -39,7 +39,7 @@ if (!isset($_SESSION['user'])) {
                 
 
             } else {
-                echo "<p>Necesitas estar registrado para enviarnos información, registrate aqui o si ya tienes cuenta haz login!</p>"; // TODO los enlaces
+                echo "<p>Necesitas estar registrado para enviarnos información,<a href=\"./register.php\"> registrate aqui</a> o si ya tienes cuenta <a href=\"./login.php\">inicia sesión aqui!</a></p>"; // TODO los enlaces
             }
             ?>
         </div>
