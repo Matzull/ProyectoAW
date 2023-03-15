@@ -22,7 +22,7 @@
                 </li>
             </ul>
         </div>
-        <?php if (isset($_SESSION["user_email"])): ?>
+        <?php if (isset($_SESSION["user"])): ?>
             <div class="nav-bar-sec">
                 <p>Username</p>
                 <img src="https://picsum.photos/40/40" alt="" width="40">
