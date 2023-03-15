@@ -23,7 +23,7 @@ if (!isset($_SESSION['user'])) {
 </head>
 
 <body>
-    <?php require_once("./includes/nav_bar.php") ?>
+    <?php require_once("./includes/vistas/nav_bar.php") ?>
     <div class="container">
         <div class="panel-container">
             <div class="panel-header">
@@ -82,7 +82,7 @@ if (!isset($_SESSION['user'])) {
                 </div>
             </div>
         </div>
-        <?php require_once("./includes/user_nav_bar.php") ?>
+        <?php require_once("./includes/vistas/user_nav_bar.php") ?>
     </div>
 </body>
 
