@@ -1,4 +1,4 @@
-:root{
+:root {
     --main: #8EADFF;
     --h-blue: #5181FF;
     --h-b-blue: #2648A2;
@@ -12,7 +12,7 @@
     --green: #51B940;
 }
 
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--bg);
     margin: 0px;
@@ -20,7 +20,7 @@ body{
     font-weight: 500;
 }
 
-.main-container{
+.main-container {
     padding: 10px;
 }
 
@@ -35,25 +35,29 @@ a:hover {
 }
 
 /* COLORES DE FONDO */
-.c-main{
+.c-main {
     background-color: var(--main);
 }
-.c-h-blue{
+
+.c-h-blue {
     background-color: var(--h-blue);
 }
-.c-h-b-blue{
+
+.c-h-b-blue {
     background-color: var(--h-b-blue);
 }
-.c-red{
+
+.c-red {
     background-color: var(--red);
 }
-.c-green{
+
+.c-green {
     background-color: var(--green);
 }
 
 /* COLORES DE TEXTO */
 
-.t-muted{
+.t-muted {
     color: var(--m-text);
 }
 
@@ -70,12 +74,13 @@ a:hover {
 /* --- COMPONENTES SIMPLES --- */
 
 /* CONTENEDOR CIRCULAR */
-.circle-border { /* Es necesario que sea cuadrado */
+.circle-border {
+    /* Es necesario que sea cuadrado */
     border-radius: 50%;
 }
 
 /* CONTENEDOR FLEX SPACE-BETWEEN */
-.flex-between{
+.flex-between {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,7 +88,7 @@ a:hover {
 
 /* BOTONES */
 /* Botón pequeño */
-.small-button{
+.small-button {
     font: inherit;
     padding: 5px 15px;
     border-radius: 15px;
@@ -91,11 +96,13 @@ a:hover {
     color: inherit;
     transition: filter 0.4s;
 }
+
 .small-button:hover {
     filter: brightness(80%);
 }
+
 /* Botón normal */
-.button{
+.button {
     font: inherit;
     padding: 10px 20px;
     border-radius: 10px;
@@ -103,9 +110,11 @@ a:hover {
     color: inherit;
     transition: filter 0.4s;
 }
+
 .button:hover {
     filter: brightness(80%);
 }
+
 /* Botón circular */
 .circular-button {
     font: inherit;
@@ -120,13 +129,14 @@ a:hover {
     color: inherit;
     transition: filter 0.4s;
 }
+
 .circular-button:hover {
     filter: brightness(80%);
 }
 
 /* FORMULARIO */
 
-.input-field{
+.input-field {
     font: inherit;
     padding: 8px;
     background-color: inherit;
@@ -137,7 +147,7 @@ a:hover {
     box-sizing: border-box;
 }
 
-.input-field:focus-visible{
+.input-field:focus-visible {
     outline-width: 0px;
     border-color: var(--white);
 }
@@ -150,7 +160,7 @@ a:hover {
 
 /* SELECT */
 
-.select{
+.select {
     font: inherit;
     padding: 10px;
     border-radius: 10px;
@@ -175,7 +185,7 @@ a:hover {
 /* Usado en login y register: 
     contiene el formulario y una imagen. */
 
-.form-container { 
+.form-container {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -187,7 +197,7 @@ a:hover {
     height: 100%; */
 }
 
-.form{
+.form {
     border-radius: 10px;
     max-width: 450px;
     width: 100%;
@@ -198,22 +208,25 @@ a:hover {
     border: 2px solid var(--h-gris);
 }
 
-.form > .title{
+.form>.title {
     font-size: 200%;
     margin: 0px 0px 10px 0px;
 }
-.form > .subtitle{
+
+.form>.subtitle {
     margin-top: 10px;
 }
 
-.form > form > input{
+.form>form>input {
     margin: 10px 0px 15px 0px;
 }
-.form > form .form-options {
+
+.form>form .form-options {
     display: flex;
     justify-content: space-between;
 }
-.form > .text-sec-button{
+
+.form>.text-sec-button {
     margin: 15px 0px 5px 0px;
     text-align: center;
 }
@@ -232,7 +245,8 @@ a:hover {
     gap: 5px;
 }
 
-.search-form > .main-panel, .search-form > .option-panel{
+.search-form>.main-panel,
+.search-form>.option-panel {
     display: flex;
     justify-content: end;
     gap: 5px;
@@ -248,12 +262,13 @@ a:hover {
     gap: 10px;
 }
 
-.sections-container .section{
+.sections-container .section {
     background-color: var(--gris);
     border-radius: 10px;
     padding: 20px;
     box-sizing: border-box;
-    flex-grow: 1; /* Secciones ocupan el espacio mayor posible */
+    flex-grow: 1;
+    /* Secciones ocupan el espacio mayor posible */
 
     border: 2px solid var(--h-gris);
 }
@@ -269,7 +284,7 @@ a:hover {
     align-items: center;
 }
 
-.sections-container .section-h > .lateral-info {
+.sections-container .section-h>.lateral-info {
     width: 100%;
     align-items: center;
 }
@@ -277,10 +292,12 @@ a:hover {
 /* PANEL DE USUARIO */
 /* Utilizado en páginas de gestión del usuario: 
     dashboard, tus kernels, ... */
-#user-panel{
-    margin-right: 215px; /* user nav bar width + margin right 10px*/
+#user-panel {
+    margin-right: 215px;
+    /* user nav bar width + margin right 10px*/
 }
-#user-panel > .header{
+
+#user-panel>.header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -292,7 +309,7 @@ a:hover {
 /* TODO: Mover a kernel_marketplace.css */
 /*este de momento es usado solo para el kernel marketplace o el mercado (basicamente intente que no tuviese
 que estar horizontal*/
-.form-container-marketplace{
+.form-container-marketplace {
     display: flex;
     align-items: center;
     /*justify-content: space-around;*/
@@ -306,6 +323,24 @@ que estar horizontal*/
 
 /*cosas de las vistas que se podrían requerir en varios documentos*/
 
-#transaction_graph_canvas{
-    width: 100%;
+#transaction_graph_canvas {
+    width: 94%;
+    padding: 3%;
+}
+
+#transaction_table {
+    font-size: 16px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 94%;
+    left: 3%;
+    position: relative;
+}
+
+#transaction_table>tbody>tr>td  {
+   border: #b7b7b7 solid 1px;
+}
+
+#transaction_table>thead>tr>th {
+    border: #b7b7b7 solid 1px;
 }
