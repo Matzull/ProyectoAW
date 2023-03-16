@@ -63,7 +63,7 @@ CREATE TABLE `kernels` (
   `user_email` varchar(60) NOT NULL,
   `results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`results`)),
   `id` int(11) NOT NULL,
-  `js_code` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`js_code`)),
+  `js_code` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `statistics` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`statistics`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -180,6 +180,9 @@ ALTER TABLE `kernels`
 ALTER TABLE `token_transactions`
   ADD CONSTRAINT `email_fk` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`);
 COMMIT;
+
+INSERT INTO `kernels` (`name`, `run_state`, `user_email`, `results`, `id`, `js_code`, `statistics`)
+VALUES ('Matrix Multiplication', '{"status":"running"}', 'test@test.es', '{}', 1, '\/\/Generate matrices\r\nconst generateMatrices = () => {\r\n const matrices = [[], []]\r\n for (let y = 0; y < 512; y++){\r\n matrices[0].push([])\r\n matrices[1].push([])\r\n for (let x = 0; x < 512; x++){\r\n matrices[0][y].push(Math.random())\r\n matrices[1][y].push(Math.random())\r\n }\r\n }\r\n return matrices\r\n}\r\n\r\n\/\/Calculate kernels\r\nconst gpu = new GPU();\r\nconst multiplyMatrix = gpu.createKernel(function(a, b) {\r\n let sum = 0;\r\n for (let i = 0; i < 512; i++) {\r\n sum += a[this.thread.y][i] * b[i][this.thread.x];\r\n }\r\n return sum;\r\n}).setOutput([512, 512])\r\n\r\n\/\/Call the kernel\r\nconst matrices = generateMatrices()\r\nconst out = multiplyMatrix(matrices[0], matrices[1])\r\n\r\n\/\/Log the output', '{}');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
