@@ -1,35 +1,48 @@
-/*!
-  Theme: GitHub
-  Description: Light theme as seen on github.com
-  Author: github.com
-  Maintainer: @Hirse
-  Updated: 2021-05-15
-  Outdated base version: https://github.com/primer/github-syntax-light
-  Current colors taken from GitHub's CSS
-*/
 .flex-container-info { 
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  gap: 30px;
+}
 
-  padding: 0;
-  min-width: 100vw;
+.vertical { 
+  flex-direction: column;
   min-height: 100vh;
-  /* width: 100%;
-  height: 100%; */
+}
+
+.horizontal { 
+  flex-direction: row;
+}
+
+.fill-flex{
+  flex-grow: 1;
+}
+
+.centered{
+  align-items: center;
 }
 
 .codeBlock{
   border-radius: 10px;
-  max-width: 750px;
-  padding: 30px 30px 40px 30px;
+  max-width: 900px;
+  width: 900px;
+  padding: 15px 30px 15px 30px;
   box-sizing: border-box;
   background-color: var(--gris);
-  margin-left: 2%;
+  margin-left: -10%;
+  margin-top: -5%;
 }
 
 .block{
   background: #323030aa;
+}
+
+.small-info{
+  font: inherit;
+  padding: 5px 15px;
+  border-radius: 15px;
+  border: none;
+  color: inherit;
 }
 
 pre{
@@ -38,11 +51,12 @@ pre{
 }
 
 code{
-  font-family: 'Courier New', Courier, monospace; /* Define una fuente monoespaciada para el código */
-  font-size: 1em; /* Establece el tamaño de la fuente en 1em */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1em;
   background: #1e1e1e00;
-  padding: 15px; /* Agrega un espacio de relleno alrededor del código */
-  display: block; /*Hace que el código se muestre en un bloque separado*/
-  overflow-x: auto; /* Agrega un desplazamiento horizontal para mostrar el código completo */
-  line-height: 1.5; /* Establece la altura de línea en 1.5 para mejorar la legibilidad */
+  padding: 15px;
+  display: block;
+  overflow-y: auto;
+  line-height: 1.5;
+  max-height: 650px;
 }
