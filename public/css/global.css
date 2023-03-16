@@ -194,6 +194,8 @@ a:hover {
     padding: 30px 30px 40px 30px;
     box-sizing: border-box;
     background-color: var(--gris);
+
+    border: 2px solid var(--h-gris);
 }
 
 .form > .title{
@@ -252,6 +254,8 @@ a:hover {
     padding: 20px;
     box-sizing: border-box;
     flex-grow: 1; /* Secciones ocupan el espacio mayor posible */
+
+    border: 2px solid var(--h-gris);
 }
 
 .sections-container .section .title {
