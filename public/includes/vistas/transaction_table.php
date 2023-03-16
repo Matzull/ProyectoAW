@@ -6,22 +6,25 @@ if (!isset($_SESSION["user_email"])) {
     $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
     $transactions = $user->getTransactions();
 
-}
-?>
-<table>
-    <thead>
-        <tr>
-            <th> fecha </th>
-            <th> descripción </th>
-            <th> volumen </th>
-            <th> balance resultante </th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        foreach ($transactions as $i => $t) {
-            echo "<tr><td>" . $t->getTimestamp() . "</td><td>" . $t->getDescription() . "</td><td>" . $t->getQuantity() . "</td><td>" . $t->getBalance() . "</td><tr>";
-        }
-        ?>
-    </tbody>
-</table>
+    if (sizeof($transactions) != 0) { ?>
+        <table>
+            <thead>
+                <tr>
+                    <th> fecha </th>
+                    <th> descripción </th>
+                    <th> volumen </th>
+                    <th> balance resultante </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($transactions as $i => $t) {
+                    echo "<tr><td>" . $t->getTimestamp() . "</td><td>" . $t->getDescription() . "</td><td>" . $t->getQuantity() . "</td><td>" . $t->getBalance() . "</td><tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+    <?php } else { ?>
+        <p>No hay transaciones todavía</p>
+    <?php }
+} ?>

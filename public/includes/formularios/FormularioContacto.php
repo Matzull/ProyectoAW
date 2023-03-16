@@ -23,11 +23,9 @@ class FormularioContacto extends Formulario
         </div>
         </div>
         <label for = 'user_comment'>Comentarios</label>
-        <textarea id = 'user_comment' class = 'input-field' name = 'user_comment' placeholder = 'Escribe cualquier cosa que quieras comentarnos' value = "$val_user_comment" textarea>
+        <textarea id = 'user_comment' class = 'input-field' name = 'user_comment' placeholder = 'Escribe cualquier cosa que quieras comentarnos' value = "$val_user_comment" ></textarea>
         HTML . generarError('user_comment', $this->errores) . <<<HTML
-        <!-- la id de este button era create-acc-button -->
-        <div class = 'form-options'>
-        <div>
+      
         <!-- la id de este button era create-acc-button -->
         <button id = 'send-button' class = 'button c-h-blue' type = 'submit' title = 'Enviar' name = 'Enviar'>Enviar</button>
         <!-- este botón ni existía es el de clear??(es el de LIMPIAR DE FIGMA)-->
