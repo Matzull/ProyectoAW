@@ -27,7 +27,7 @@ if (!isset($_SESSION['user_email'])) {
 
     <?php require("includes/vistas/nav_bar.php") ?>
     <div class="main-container">
-        <div class="user-panel">
+        <div id="user-panel">
             <div class="header">
                 <img src="./svg/Dashboard_i.svg" alt="" width="44">
                 <h2>DASHBOARD</h2>

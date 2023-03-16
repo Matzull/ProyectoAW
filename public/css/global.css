@@ -273,10 +273,10 @@ a:hover {
 /* PANEL DE USUARIO */
 /* Utilizado en páginas de gestión del usuario: 
     dashboard, tus kernels, ... */
-.user-panel{
+#user-panel{
     margin-right: 215px; /* user nav bar width + margin right 10px*/
 }
-.user-panel > .header{
+#user-panel > .header{
     display: flex;
     align-items: center;
     justify-content: center;

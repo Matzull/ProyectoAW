@@ -25,7 +25,7 @@ if (!isset($_SESSION['user_email'])) {
 <body>
     <?php require_once("./includes/vistas/nav_bar.php") ?>
     <div class="main-container">
-        <div class="user-panel">
+        <div id="user-panel">
             <div class="header">
                 <img src="./svg/Wallet_i.svg" alt="" width="44">
                 <h2>CARTERA</h2>
@@ -36,10 +36,10 @@ if (!isset($_SESSION['user_email'])) {
                 </div>
                 <div class="section section-h take-out">
                     <div>
-                        <img src="https://picsum.photos/150/150" alt="" width="50">
+                    <img src="svg/Hammer_i.svg" alt="" height="60">
                         <button class="button c-h-blue" type="button">Retirar Dinero</button>
                     </div>
-                    <img src="https://picsum.photos/150/150" alt="" width="100">
+                    <img src="svg/Piggybank.svg" alt="" height="100">
                 </div>
                 <div class="section">
                     <h3 class="title">GRÁFICA DE MOVIMIENTOS</h3>
