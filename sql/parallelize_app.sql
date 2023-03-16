@@ -75,10 +75,26 @@ CREATE TABLE `kernels` (
 
 CREATE TABLE `token_transactions` (
   `id` int(11) NOT NULL,
-  `transaction_timestamp` int(11) NOT NULL DEFAULT current_timestamp(),
+  `transaction_timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `quantity` double NOT NULL,
-  `user_email` varchar(60) NOT NULL
+  `user_email` varchar(60) NOT NULL,
+  `description` varchar(60) NOT NULL DEFAULT 'sin descripcion',
+  `balance` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `token_transactions`
+--
+
+INSERT INTO `token_transactions` (`id`, `transaction_timestamp`, `quantity`, `user_email`, `description`, `balance`) VALUES
+(15, '2023-03-16 18:28:50', 1, 'test@test.es', 'movimiento bancario', 1),
+(16, '2023-03-16 18:28:53', 2, 'test@test.es', 'movimiento bancario', 3),
+(17, '2023-03-16 18:28:56', 3, 'test@test.es', 'movimiento bancario', 6),
+(18, '2023-03-16 18:28:59', 4, 'test@test.es', 'movimiento bancario', 10),
+(19, '2023-03-16 18:29:02', 1, 'test@test.es', 'movimiento bancario', 11),
+(20, '2023-03-16 18:29:04', 2, 'test@test.es', 'movimiento bancario', 13),
+(21, '2023-03-16 18:29:07', 3, 'test@test.es', 'movimiento bancario', 16),
+(22, '2023-03-16 18:29:09', 4, 'test@test.es', 'movimiento bancario', 20);
 
 -- --------------------------------------------------------
 
@@ -90,7 +106,7 @@ CREATE TABLE `users` (
   `user_email` varchar(60) NOT NULL,
   `user_password` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `millis_crunched` int(11) NOT NULL DEFAULT 0,
-  `ranking` int(11) DEFAULT NULL,
+  `ranking` int(11) NOT NULL DEFAULT -1,
   `tokens` double NOT NULL DEFAULT 0,
   `last_active` date NOT NULL DEFAULT current_timestamp(),
   `blocked` tinyint(1) NOT NULL DEFAULT 0,
@@ -102,9 +118,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`, `tokens`, `last_active`, `blocked`, `user_name`) VALUES
-('jaime2@gmail.com', '$2y$10$zyPdsVEjJ7uK.VUq7.t8YeS8PkbeqNthkH5jgJu6dor/o46baf1ru', 0, NULL, 0, '2023-02-27', 0, 'jaime'),
-('jaime@gmail.com', '$2y$10$8eOlgWYRiwIoQsQhoIJb5uMqzFEw2BqCH3pBgtkAW/E0.bp/ohhz2', 0, NULL, 0, '2023-02-27', 0, 'jaime'),
-('test@test.es', '$2y$10$CK0lm03ly46CaK8bSNgc9.sGKJ6inhBi8ndaoJm6viKUYKmg8mxMK', 0, NULL, 0, '2023-03-15', 0, 'test');
+('jaime2@gmail.com', '$2y$10$zyPdsVEjJ7uK.VUq7.t8YeS8PkbeqNthkH5jgJu6dor/o46baf1ru', 0, -1, 0, '2023-02-27', 0, 'jaime'),
+('jaime@gmail.com', '$2y$10$8eOlgWYRiwIoQsQhoIJb5uMqzFEw2BqCH3pBgtkAW/E0.bp/ohhz2', 0, -1, 0, '2023-02-27', 0, 'jaime'),
+('test@test.es', '$2y$10$CK0lm03ly46CaK8bSNgc9.sGKJ6inhBi8ndaoJm6viKUYKmg8mxMK', 0, -1, 20, '0000-00-00', 0, 'test');
 
 --
 -- Indexes for dumped tables

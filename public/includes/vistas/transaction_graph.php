@@ -72,16 +72,19 @@ if (!isset($_SESSION["user_email"])) {
                 }
 
                 let max_quantity = transactions.map(({ balance }) => balance).reduce((max, curr) => Math.max(max, curr), 0)
-                let min_time = transactions.map(({ time }) => time).reduce((min, curr) => Math.min(min, curr), 10000000)
-                let max_time = transactions.map(({ time }) => time).reduce((max, curr) => Math.max(max, curr), 0)
-                console.log(max_quantity)
 
-                let time_range = (end_time - min_time)
-                console.log("end_time", end_time, "min_time", min_time, "time_range:", time_range);
+                // readjust timeframe
+                let times = transactions.map(({ time }) => time)
+
+                start_time = times.reduce((min, curr) => Math.min(min, curr), 99999999999999999)
+                end_time = times.reduce((max, curr) => Math.max(max, curr), 0)
+                console.log("start_time", start_time, "end_time", end_time)
+
+                let time_range = (end_time - start_time)
 
                 let points = transactions.map((transaction) => {
                     return {
-                        x: (transaction.time - min_time) / time_range * canvas.width,
+                        x: (transaction.time - start_time) / time_range * canvas.width,
                         y: (1 - (transaction.balance / (max_quantity * 1.1))) * canvas.height
                     }
                 });
@@ -89,36 +92,42 @@ if (!isset($_SESSION["user_email"])) {
                 console.log(points);
 
                 // Create path
-                let region = new Path2D();
-                region.moveTo(0, canvas.height);
-                region.lineTo(canvas.width, points[0].y);
+                let i = 0;
 
+                let region = new Path2D();
+
+                region.moveTo(0, canvas.height);
+                i += 20;
+                drawXYrect(0 - 5, canvas.height - 5, 10, rgb(i, i, 0));
+
+                region.lineTo(0, points[0].y);
+                i += 20;
+                drawXYrect(0 - 5, points[0].y - 5, 10, rgb(i, i, 0));
 
                 for (let { x, y } of points) {
-                    console.log(x, y)
                     region.lineTo(x, y);
-                    drawXYrect(x - 15, y - 15, 30, rgb(0, 0, 0));
+                    i += 20;
+                    drawXYrect(x - 5, y - 5, 10, rgb(i, i, 0));
                 }
-                let last_point = points[points.length - 1];
 
-                region.lineTo(canvas.width, last_point.y);
-                region.moveTo(canvas.width, canvas.height);
+                region.lineTo(canvas.width, points[points.length - 1].y);
+                i += 20;
+                drawXYrect(canvas.width - 5, points[points.length - 1].y - 5, 10, rgb(i, i, 0));
+
+                region.lineTo(canvas.width, canvas.height);
+                i += 20;
+
+                drawXYrect(canvas.width - 5, canvas.height - 5, 10, rgb(i, i, 0));
+
                 region.closePath();
 
                 // Fill path
                 ctx.fillStyle = "green";
-                ctx.fill(region, "evenodd");
+                ctx.fill(region);
 
             }
 
-            function lineFromTo(x1, y1, x2, y2, c) {
-                ctx.strokeStyle = c + "11";
-                ctx.lineWidth = 2;
-                ctx.beginPath();
-                ctx.moveTo(x1, y1);
-                ctx.lineTo(x2, y2);
-                ctx.stroke();
-            }
+
 
             function drawXYrect(x, y, grosor, color) {
                 if (color)
