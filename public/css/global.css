@@ -304,3 +304,8 @@ que estar horizontal*/
     height: 100%; */
 }
 
+/*cosas de las vistas que se podrían requerir en varios documentos*/
+
+#transaction_graph_canvas{
+    width: 100%;
+}

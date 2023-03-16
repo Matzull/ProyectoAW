@@ -8,6 +8,7 @@ class Transaction
     private $quantity;
     private $user_email;
     private $description;
+    private $balance;
 
     public static function buscaTransacionesDeUsuario(Usuario $user)
     { // User $user
@@ -23,21 +24,23 @@ class Transaction
                 $t['transaction_timestamp'],
                 $t['quantity'],
                 $t['user_email'],
-                $t['description']
+                $t['description'],
+                $t['balance']
 
             );
         }
         return $ret;
     }
 
-    public static function submit($quantity, $user_email, $description)
+    public static function submit($quantity, $user_email, $description, $balance)
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
         $query = sprintf(
-            'INSERT INTO token_transactions (user_email, quantity ,description ) VALUES (\'%s\', \'%s\', \'%s\')',
+            'INSERT INTO token_transactions (user_email, quantity ,description, transaction_timestamp, balance) VALUES (\'%s\', \'%s\', \'%s\',CURRENT_TIMESTAMP(),\'%s\')',
             $conn->real_escape_string($user_email),
             $conn->real_escape_string($quantity),
-            $conn->real_escape_string($description)
+            $conn->real_escape_string($description),
+            $conn->real_escape_string($balance)
         );
         if (!$conn->query($query)) {
             echo $query;
@@ -48,12 +51,13 @@ class Transaction
     }
 
 
-    public function __construct($transaction_timestamp, $quantity, $user_email, $description)
+    public function __construct($transaction_timestamp, $quantity, $user_email, $description, $balance)
     {
         $this->user_email = $user_email;
         $this->transaction_timestamp = $transaction_timestamp;
         $this->quantity = $quantity;
         $this->description = $description;
+        $this->balance = $balance;
     }
 
     public function getJson()
@@ -63,7 +67,25 @@ class Transaction
             'quantity': '$this->quantity',
             'description': '$this->description',
             'user_email': '$this->user_email',
+            'balance': $this->balance
         }";
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+    public function getTimestamp()
+    {
+        return $this->transaction_timestamp;
+    }
+    public function getBalance()
+    {
+        return $this->balance;
     }
 
 }
