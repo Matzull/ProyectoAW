@@ -100,6 +100,6 @@ require 'includes/config.php';
 
 
 </body>
-<?= require_once("./includes/vistas/footer.php");?>
+<?php require_once("./includes/vistas/footer.php");?>
 
 </html>

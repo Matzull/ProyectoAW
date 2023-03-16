@@ -24,7 +24,8 @@
 
 .codeBlock{
   border-radius: 10px;
-  max-width: 650px;
+  max-width: 900px;
+  width: 900px;
   padding: 15px 30px 15px 30px;
   box-sizing: border-box;
   background-color: var(--gris);
