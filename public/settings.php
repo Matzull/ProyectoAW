@@ -23,7 +23,7 @@ if (!isset($_SESSION['user_email'])) {
 <body>
     <?php require_once("./includes/vistas/nav_bar.php") ?>
     <div class="main-container">
-        <div class="user-panel">
+        <div id="user-panel">
             <div class="header">
                 <img src="./svg/Settings_i.svg" alt="" width="44">
                 <h2>AJUSTES</h2>

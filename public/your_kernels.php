@@ -25,14 +25,14 @@ if (!isset($_SESSION['user_email'])) {
 <body>
     <?php require_once("./includes/vistas/nav_bar.php") ?>
     <div class="main-container">
-        <div class="user-panel">
+        <div id="user-panel">
             <div class="header">
                 <img src="./svg/Kernels_i.svg" alt="" width="44">
                 <h2>TUS KERNELS</h2>
             </div>
             <div class="sections-container">
                 <div class="section">
-                    <h3>HISTORIAL DE EJECUCIONES</h3>
+                    <h3 class="title">HISTORIAL DE EJECUCIONES</h3>
                     <form class="search-form" action="">
                         <div class="main-panel">
                             <input class="input-field" type="text" name="" id="" placeholder="Buscar...">
@@ -56,8 +56,13 @@ if (!isset($_SESSION['user_email'])) {
                     </div>
                 </div>
                 <div class="section">
-                    <h3>SUBIR KERNEL</h3>
-                    <img src="https://picsum.photos/150/150" alt="" width="100">
+                    <h3 class="title">SUBIR KERNEL</h3>
+                    <div id="upload-panel">
+                        <img src="svg/Kernels_big_i.svg" alt="">
+                        <button class="circular-button button c-h-blue" onclick="location.href='token_transaction.php'">
+                            <img src="svg/Plus_i.svg" alt="">
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
