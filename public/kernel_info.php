@@ -1,5 +1,6 @@
 <?php
 namespace parallelize_namespace;
+
 require 'includes/config.php';
 ?>
 
@@ -27,7 +28,7 @@ require 'includes/config.php';
     <?php
     require_once "includes/config.php";
     require_once("./includes/vistas/nav_bar.php");
-    
+
     //$kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["kernel_id"]);
     ?>
     <div class="flex-container-info horizontal">
@@ -47,9 +48,9 @@ require 'includes/config.php';
                 <h2 class="title centered">
                     Informacion Adicional
                 </h2>
-                <p>Usuario: <?=\parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName()?></p>
-                <p>Estado: <?=json_decode($kernel->getrun_state())->status?></p>
-                <p class="form"><?=json_decode($kernel->getstatistics())->description?></p>
+                <p>Usuario: <?= \parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName() ?></p>
+                <p>Estado: <?= json_decode($kernel->getrun_state())->status ?></p>
+                <p class="form"><?= json_decode($kernel->getstatistics())->description ?></p>
             </div>
             <div class="form">
                 <h2 class="title centered">
@@ -57,11 +58,14 @@ require 'includes/config.php';
                 </h2>
                 <p class="form">Iteracion 105/350</p>
                 <div class="flex-container-info ">
-                    <button type="button" class="small-button c-green fill-flex" onclick="location.href='kernel_info.php'"><p>Ejecutar</p></button>
+                    <button  class="small-button c-green fill-flex"
+                        onclick="location.href='kernel_info.php'">
+                        <p>Ejecutar</p>
+                    </button>
                     <div class="small-info c-h-b-blue fill-flex">
-                        <p> <?=json_decode($kernel->getstatistics())->price?> c/seg</p>
+                        <p> <?= json_decode($kernel->getstatistics())->price ?> c/seg</p>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </div>

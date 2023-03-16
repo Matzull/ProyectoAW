@@ -8,12 +8,14 @@ if (!isset($_SESSION["user_email"])) {
 
     if (sizeof($transactions) != 0) { ?>
 
-        <button onclick="all_time()">all time</button>
-        <button onclick="one_month()">1 mes</button>
-        <button onclick="one_year()">1 año</button>
-        <button onclick="custom()">custom</button>
 
         <canvas id="transaction_graph_canvas"></canvas>
+        <button class="small-button c-h-b-blue" onclick="all_time()">all time</button>
+        <button class="small-button c-h-b-blue" onclick="one_month()">1 mes</button>
+        <button class="small-button c-h-b-blue" onclick="one_year()">1 año</button>
+
+        <br>
+        <br>
 
         <script>
             /*
@@ -45,46 +47,37 @@ if (!isset($_SESSION["user_email"])) {
             const ctx = canvas.getContext("2d");
 
             function all_time() {
-                render(1678987767000, new Date().getTime());
+                render(0);
             }
 
             function one_month() {
-                render(new Date().getTime() - 30 * 24 * 60 * 60 * 1000, new Date().getTime());
+                render(new Date().getTime() - 30 * 24 * 60 * 60 * 1000);
             }
 
             function one_year() {
-                render(new Date().getTime() - 30 * 24 * 60 * 60 * 1000 * 12, new Date().getTime());
+                render(new Date().getTime() - 30 * 24 * 60 * 60 * 1000 * 12);
             }
 
             function custom() {
 
             }
 
-            function render(start_time, end_time) {
+            function render(start_time) {
                 canvas.width = 900;
                 canvas.height = 450;
-                ctx.fillStyle = "#FFFFFF"; // BG color
+                ctx.fillStyle = "#403f4a"; // BG color
 
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-                while (transactions[1].time < start_time) { // nos quitamos la parte inicial mientras que el segundo elemento este fuera del rango que deseamos pintar
+                while (transactions[0].time < start_time) {
                     transactions.slice(1);
                 }
 
                 let max_quantity = transactions.map(({ balance }) => balance).reduce((max, curr) => Math.max(max, curr), 0)
 
-                // readjust timeframe
-                let times = transactions.map(({ time }) => time)
-
-                start_time = times.reduce((min, curr) => Math.min(min, curr), 99999999999999999)
-                end_time = times.reduce((max, curr) => Math.max(max, curr), 0)
-                console.log("start_time", start_time, "end_time", end_time)
-
-                let time_range = (end_time - start_time)
-
-                let points = transactions.map((transaction) => {
+                let points = transactions.map((transaction, i) => {
                     return {
-                        x: (transaction.time - start_time) / time_range * canvas.width,
+                        x: i / transactions.length * canvas.width,
                         y: (1 - (transaction.balance / (max_quantity * 1.1))) * canvas.height
                     }
                 });
@@ -97,37 +90,20 @@ if (!isset($_SESSION["user_email"])) {
                 let region = new Path2D();
 
                 region.moveTo(0, canvas.height);
-                i += 20;
-                drawXYrect(0 - 5, canvas.height - 5, 10, rgb(i, i, 0));
-
                 region.lineTo(0, points[0].y);
-                i += 20;
-                drawXYrect(0 - 5, points[0].y - 5, 10, rgb(i, i, 0));
 
                 for (let { x, y } of points) {
                     region.lineTo(x, y);
-                    i += 20;
-                    drawXYrect(x - 5, y - 5, 10, rgb(i, i, 0));
                 }
 
                 region.lineTo(canvas.width, points[points.length - 1].y);
-                i += 20;
-                drawXYrect(canvas.width - 5, points[points.length - 1].y - 5, 10, rgb(i, i, 0));
-
                 region.lineTo(canvas.width, canvas.height);
-                i += 20;
-
-                drawXYrect(canvas.width - 5, canvas.height - 5, 10, rgb(i, i, 0));
 
                 region.closePath();
 
-                // Fill path
-                ctx.fillStyle = "green";
+                ctx.fillStyle = "#5181FFAA";
                 ctx.fill(region);
-
             }
-
-
 
             function drawXYrect(x, y, grosor, color) {
                 if (color)

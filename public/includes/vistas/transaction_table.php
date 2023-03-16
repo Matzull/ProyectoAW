@@ -7,13 +7,13 @@ if (!isset($_SESSION["user_email"])) {
     $transactions = $user->getTransactions();
 
     if (sizeof($transactions) != 0) { ?>
-        <table>
+        <table id="transaction_table">
             <thead>
                 <tr>
-                    <th> fecha </th>
-                    <th> descripción </th>
-                    <th> volumen </th>
-                    <th> balance resultante </th>
+                    <th> Fecha </th>
+                    <th> Descripción </th>
+                    <th> Volumen </th>
+                    <th> Balance resultante </th>
                 </tr>
             </thead>
             <tbody>

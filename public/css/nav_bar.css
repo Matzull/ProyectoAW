@@ -72,7 +72,13 @@
     border: 2px solid var(--h-gris);
     box-sizing: border-box;
 }
+#nav-bar>.nav-bar-sec>ul>li{
+    transition: all 0.3s;
+}
 
+#nav-bar>.nav-bar-sec>ul>li:hover{
+    background-color: var(--h-gris);
+}
 #nav-bar > .nav-bar-sec > ul > li:hover > ul {
     display: block;
 }

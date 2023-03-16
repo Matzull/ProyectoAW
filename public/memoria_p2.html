@@ -7,6 +7,7 @@
     <title>Memoria Práctica 2</title>
     <link rel="stylesheet" href="css/global.css">
     <style>
+        /* TODO evitar usar css embebido */
         .section {
             width: 100%;
         }
@@ -21,12 +22,92 @@
                 <p class="t-muted">En este documento se describe con detalle los scripts y la estructura de la base de datos que conforman este proyecto.</p>
                 <h2 class="title">LISTADOS DE SCRIPTS PARA LAS VISTAS</h2>
                 <p class="t-muted">Se ha decidido utilizar un script PHP para cada vista, dando como resultado la siguiente lista:</p>
-                <ul>
-                    <li>Inicio de sesión y creación de cuenta.</li>
-                    <li></li>
+                <ul class="t-muted">
+                    <li>Inicio de sesión y creación de cuenta.
+                        <ul>
+                            <li>login.php: junto con logout.php.</li>
+                            <li>register.php</li>
+                        </ul>
+                    </li>
+                    <li>Subida de kernels.
+                        <ul>
+                            <li>your_kernels.php</li>
+                            <li>|kernel_form.php|</li>
+                        </ul>
+                    </li>
+                    <li>Ejecución de kernels.
+                        <ul>
+                            <li>kernel_marketplace.php</li>
+                            <li>kernel_info.php</li>
+                            <li>|kernel_execution.php|</li>
+                        </ul>
+                    </li>
+                    <li>Valoraciones.
+                        <ul>
+                            <li>kernel_info.php</li>
+                        </ul>
+                    </li>
+                    <li>Gestión de tokens.
+                        <ul>
+                            <li>wallet.php</li>
+                            <li>token_transaction.php</li>
+                        </ul>
+                    </li>
+                    <li>Ranking.
+                        <ul>
+                            <li>ranking.php</li>
+                        </ul>
+                    </li>
+                    <li>Gestión de administrador.
+                        <ul>
+                            <li>admin_dashboard.php</li>
+                        </ul>
+                    </li>
+                    <li>Vistas complementarias.
+                        <ul>
+                            <li>index.php</li>
+                            <li>FAQ.php</li>
+                            <li>contacto.php</li>
+                            <li>user_dashboard.php</li>
+                            <li>profile_view.php</li>
+                        </ul>
+                    </li>
+                    <li>Componentes.
+                        <ul>
+                            <li>nav_bar.php</li>
+                            <li>user_nav_bar.php</li>
+                            <li>footer.php</li>
+                            <li>token_big_info.php</li>
+                            <li>transaction_graph.php</li>
+                            <li>transaction_table.php</li>
+                        </ul>
+                    </li>
                 </ul>
                 <h2 class="title">LISTADOS DE SCRIPTS ADICIONALES</h2>
+                <p class="t-muted">Como la gestión de la base de datos es compleja, se ha decidido separar la funcionalidad en clases que representan tablas de las bases de datos:</p>
+                <ul class="t-muted">
+                    <li>Aplicacion.php</li>
+                    <li>Usuario.php</li>
+                    <li>Kernel.php</li>
+                    <li>Comentario.php</li>
+                    <li>Transaction.php</li>
+                </ul>
+                <p class="t-muted">Además de estas clases, se ha decido crear una familia de clases que heredan de Formulario.php, lo que permite organizar y modificar fácilmente todos los tipos de formularios utilizados.</p>
+                <ul class="t-muted">
+                    <li>Formulario.php</li>
+                    <li>FormularioContacto.php</li>
+                    <li>FormularioLogin.php</li>
+                    <li>FormulatioRegister.php</li>
+                    <li>FormularioTransaction.php</li>
+                </ul>
+                <p class="t-muted">Por último, también se ha decidio utilizar varios scripts PHP con funcionalidad axuliar.</p>
+                <ul class="t-muted">
+                    <li>config.php</li>
+                </ul>
                 <h2 class="title">ESTRUCTURA DE LA BASE DE DATOS</h2>
+                <!-- TODO poner imagen de la estructura -->
+                <img src="https://picsum.photos/300/300" alt="" height="300">
+                <p class="t-muted"></p>
                 <h2 class="title">SOBRE EL PROTOTIPO FUNCIONAL</h2>
             </div>
         </div>
