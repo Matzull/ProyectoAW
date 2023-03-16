@@ -4,7 +4,7 @@ namespace parallelize_namespace\formulario;
 
 require_once 'includes/config.php';
 
-class FormularioTransation extends Formulario
+class FormularioTransaction extends Formulario
 {
     protected function generaCamposFormulario(&$datos = array())
     {

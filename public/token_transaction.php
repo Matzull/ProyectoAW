@@ -21,7 +21,7 @@
         $usuario = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
         $t = $usuario->getTockens();
         echo "<p>actualmente tienes $t tockens</p>";
-        $formulario = new \parallelize_namespace\formulario\FormularioTransation();
+        $formulario = new \parallelize_namespace\formulario\FormularioTransaction();
         echo $formulario->gestiona();
     }
 
