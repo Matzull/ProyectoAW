@@ -1,56 +1,44 @@
 <?php
 require 'includes/config.php';
 
-if (!isset($_SESSION['user'])) {
-    header("location: login.php");
-    die();
-}
+// if (!isset($_SESSION['user'])) {
+//     header("location: login.php");
+//     die();
+// }
 
-// public static function buscaUsuario($user_email)
-//     {
-//         $conn = Aplicacion::getInstance()->getConexionBd();
-
-//         $query = sprintf("SELECT * FROM users U WHERE U.user_email = '%s'", $conn->real_escape_string($user_email));
-//         $rs = $conn->query($query);
-//         if ($rs->num_rows == 0) {
-//             return false;
-//         } else {
-//             $fila = $rs->fetch_assoc();
-//             return new Usuario($fila['user_name'], $fila['user_email'], $fila['user_password'], $fila['millis_crunched'], $fila['ranking'], $fila['tokens'], $fila['last_active'], $fila['blocked']);
-//         }
-//     }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+    <title>Kernel Info</title>
     <link rel="stylesheet" href="css/nav_bar.css">
     <link rel="stylesheet" href="css/user_nav_bar.css">
     <link rel="stylesheet" href="css/user_dashboard.css">
     <link rel="stylesheet" href="css/kernel_info.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css"> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <link href="../prism.css" rel="stylesheet" />
+    <script src="../prism.js"></script>
+    
+    
 </head>
 
 <body>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-core.min.js"></script> -->
+	
     <?php
     require_once "includes/config.php";
     require_once("./includes/vistas/nav_bar.php");
     ?>
-    <div class="form-container">
-        <div class="form">
+    <div class="flex-container-info">
+        <div class="codeBlock">
             <h2 class="title">
                 Informacion del Kernel
             </h2>
             <?php
-
-            if (isset($_SESSION["user"])) {
             $javascript_code = <<<EOS
                 //Generate matrices
                 const generateMatrices = () => {
@@ -82,14 +70,21 @@ if (!isset($_SESSION['user'])) {
 
                 //Log the output
                 EOS;
+            echo '<pre><code class="language-javascript">'.$javascript_code.'</code></pre>';
 
-                echo '<pre><code class="language-javascript">'.$javascript_code.'</code></pre>';
-                
-            } else {
-                echo "<p>Necesitas estar registrado para ver la información del kernel, registrate aqui o si ya tienes cuenta haz login!</p>"; // TODO los enlaces
-            }
             ?>
 
+        </div>
+        
+        <div class="information">
+            <div class=block>
+                <h2 class="title">
+                    Informacion del Kernel
+                </h2>
+            </div>
+            <div class=block>
+                bai
+            </div>
         </div>
     </div>
 
