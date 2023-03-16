@@ -48,19 +48,7 @@ if (!isset($_SESSION['user_email'])) {
                     </div>
                 </div>
                 <div class="section section-h">
-                    <div class="lateral-info">
-                        <h3 class="title">TUS TOKENS</h3>
-                        <div class="flex-between">
-                            <button class="circular-button button c-h-blue" type="button"
-                                onclick="location.href='transaction.php'">
-                                <img src="svg/Plus_i.svg" alt="">
-                            </button>
-                            <h3 class="t-big no-margin">
-                                <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getTockens() ?>
-                            </h3>
-                        </div>
-                    </div>
-                    <img src="svg/Token_i.svg" alt="" width="100" heigh="100">
+                    <?php require("includes/vistas/token_big_info.php")?>
                 </div>
                 <div class="section">
                     <h3 class="title">HISTORIAL DE EJECUCIONES</h3>
@@ -70,7 +58,7 @@ if (!isset($_SESSION['user_email'])) {
                             <button class="button c-h-blue" type="submit">Buscar</button>
                         </div>
                         <div class="option-panel">
-                            <button class="button c-h-blue" type="button">Filtrar</button>
+                            <button class="button c-h-blue">Filtrar</button>
                             <select class="select" name="orderby" id="orderby">
                                 <optgroup label="Fecha">
                                     <option value="more recent first">Más reciente primero</option>

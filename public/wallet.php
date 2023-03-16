@@ -32,18 +32,7 @@ if (!isset($_SESSION['user_email'])) {
             </div>
             <div class="sections-container">
                 <div class="section section-h">
-                    <div class="lateral-info">
-                        <h3 class="title">TUS TOKENS</h3>
-                        <div class="flex-between">
-                            <button class="circular-button button c-h-blue" type="button">
-                                <img src="svg/Plus_i.svg" alt="">
-                            </button>
-                            <h3 class="t-big no-margin">
-                                <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getTockens() ?>
-                            </h3>
-                        </div>
-                    </div>
-                    <img src="svg/Token_i.svg" alt="" width="100" heigh="100">
+                    <?php require("includes/vistas/token_big_info.php") ?>
                 </div>
                 <div class="section section-h take-out">
                     <div>

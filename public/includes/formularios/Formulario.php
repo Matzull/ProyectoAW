@@ -193,7 +193,7 @@ abstract class Formulario
             $datos = &$_GET;
         }
 
-        echo "datos:" . implode(",", $datos);
+        // echo "datos:" . implode(",", $datos);
 
 
         $this->errores = [];
