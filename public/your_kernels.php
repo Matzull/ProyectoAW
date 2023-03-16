@@ -39,7 +39,7 @@ if (!isset($_SESSION['user_email'])) {
                             <button class="button c-h-blue" type="submit">Buscar</button>
                         </div>
                         <div class="option-panel">
-                            <button class="button c-h-blue" type="button">Filtrar</button>
+                            <button class="button c-h-blue" >Filtrar</button>
                             <select class="select" name="orderby" id="orderby">
                                 <optgroup label="Fecha">
                                     <option value="more recent first">Más reciente primero</option>

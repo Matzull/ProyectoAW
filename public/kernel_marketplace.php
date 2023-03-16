@@ -35,8 +35,8 @@
                 </h3>
                 <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
                 <!-- creamos los botones para redirigir a los links -->
-                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
             </div>
 
             <div id="kernel1" class="form form-extra-carrousel">
@@ -45,8 +45,8 @@
                 </h3>
                 <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
                 <!-- creamos los botones para redirigir a los links -->
-                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
             </div>
 
             <div id="kernel1" class="form form-extra-carrousel">
@@ -55,8 +55,8 @@
                 </h3>
                 <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
                 <!-- creamos los botones para redirigir a los links -->
-                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
             </div>
 
             <div id="kernel1" class="form form-extra-carrousel">
@@ -65,8 +65,8 @@
                 </h3>
                 <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
                 <!-- creamos los botones para redirigir a los links -->
-                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
             </div>
 
             <div id="kernel1" class="form form-extra-carrousel">
@@ -75,8 +75,8 @@
                 </h3>
                 <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
                 <!-- creamos los botones para redirigir a los links -->
-                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
             </div>
 
             <div id="kernel2" class="form form-extra-carrousel">
@@ -85,8 +85,8 @@
                 </h3>
                 <p class="subtitle t-muted">mi kernel requiere de mucha mano de obra</p>
                 <!-- creamos los botones para redirigir a los links -->
-                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
             </div>
 
             <div id="kernel3" class="form form-extra-carrousel">
@@ -95,8 +95,8 @@
                 </h3>
                 <p class="subtitle t-muted">Proyecto muy ambicioso</p>
                 <!-- creamos los botones para redirigir a los links -->
-                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
             </div>
             
         </div>
@@ -112,8 +112,8 @@
                 <p class="subtitle t-muted">mi ordenador es una patata ayudadme!</p>
 
                 <!-- Creamos redes sociales? -->
-                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
 
             </div>
 
@@ -124,8 +124,8 @@
                 <p class="subtitle t-muted">no es muy dificil!</p>
 
                 <!-- Creamos redes sociales? -->
-                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
 
             </div>
         </div>

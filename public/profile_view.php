@@ -72,7 +72,7 @@ else{
                         <button class="button c-h-blue" type="submit">Buscar</button>
                     </div>
                     <div class="option-panel">
-                        <button class="button c-h-blue" type="button">Filtrar</button>
+                        <button class="button c-h-blue" >Filtrar</button>
                         <select class="select" name="orderby" id="orderby">
                             <optgroup label="Fecha">
                                 <option value="more recent first">Más reciente primero</option>
@@ -93,7 +93,7 @@ else{
                 <div class="last-kernels">
 
                 </div>
-                <button class="button c-h-blue" type="button">Ver más kernels</button>
+                <button class="button c-h-blue" >Ver más kernels</button>
             </div>
         </div>
     <?php endif; ?>

@@ -31,14 +31,14 @@
                 </p>
                 <img src="<?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getPicUrl(); ?>" alt=""
                     width="40" />
-                <button type="button" class="small-button c-h-b-blue" onclick="location.href='logout.php'">Cerrar
+                <button class="small-button c-h-b-blue" onclick="location.href='logout.php'">Cerrar
                     sesión</button>
             </div>
         <?php else: ?>
             <div class="nav-bar-sec">
-                <button type="button" class="small-button c-h-blue" onclick="location.href='login.php'">Iniciar
+                <button class="small-button c-h-blue" onclick="location.href='login.php'">Iniciar
                     sesión</button>
-                <button type="button" class="small-button c-h-b-blue" onclick="location.href='register.php'">Crear
+                <button class="small-button c-h-b-blue" onclick="location.href='register.php'">Crear
                     cuenta</button>
             </div>
         <?php endif; ?>

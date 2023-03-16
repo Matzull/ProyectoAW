@@ -32,7 +32,7 @@
             <p class="subtitle t-muted">Iniciar sesión con tu usuario y contraseña.</p>
             <?= $formulario->gestiona() ?>
             <p class="text-sec-button">¿No tienes cuenta?</p>
-            <button class="button c-h-b-blue" type="button" id="CrearCuenta" onclick="location.href='register.php'">
+            <button class="button c-h-b-blue"  id="CrearCuenta" onclick="location.href='register.php'">
                 Registrate</button>
         </div>
     </div>

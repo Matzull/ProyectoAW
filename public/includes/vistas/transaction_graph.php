@@ -8,10 +8,10 @@ if (!isset($_SESSION["user_email"])) {
 
     if (sizeof($transactions) != 0) { ?>
 
-        <button onclick="all_time()">all time</button>
-        <button onclick="one_month()">1 mes</button>
-        <button onclick="one_year()">1 año</button>
-        <button onclick="custom()">custom</button>
+        <button class="small-button c-h-b-blue" onclick="all_time()">all time</button>
+        <button class="small-button c-h-b-blue" onclick="one_month()">1 mes</button>
+        <button class="small-button c-h-b-blue" onclick="one_year()">1 año</button>
+
 
         <canvas id="transaction_graph_canvas"></canvas>
 
@@ -63,7 +63,7 @@ if (!isset($_SESSION["user_email"])) {
             function render(start_time, end_time) {
                 canvas.width = 900;
                 canvas.height = 450;
-                ctx.fillStyle = "#FFFFFF"; // BG color
+                ctx.fillStyle = "#403f4a"; // BG color
 
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -97,37 +97,23 @@ if (!isset($_SESSION["user_email"])) {
                 let region = new Path2D();
 
                 region.moveTo(0, canvas.height);
-                i += 20;
-                drawXYrect(0 - 5, canvas.height - 5, 10, rgb(i, i, 0));
 
                 region.lineTo(0, points[0].y);
-                i += 20;
-                drawXYrect(0 - 5, points[0].y - 5, 10, rgb(i, i, 0));
 
                 for (let { x, y } of points) {
                     region.lineTo(x, y);
-                    i += 20;
-                    drawXYrect(x - 5, y - 5, 10, rgb(i, i, 0));
                 }
 
                 region.lineTo(canvas.width, points[points.length - 1].y);
-                i += 20;
-                drawXYrect(canvas.width - 5, points[points.length - 1].y - 5, 10, rgb(i, i, 0));
-
                 region.lineTo(canvas.width, canvas.height);
-                i += 20;
 
-                drawXYrect(canvas.width - 5, canvas.height - 5, 10, rgb(i, i, 0));
 
                 region.closePath();
 
                 // Fill path
-                ctx.fillStyle = "green";
+                ctx.fillStyle = "#5181FFAA";
                 ctx.fill(region);
-
             }
-
-
 
             function drawXYrect(x, y, grosor, color) {
                 if (color)
