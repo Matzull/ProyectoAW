@@ -42,7 +42,7 @@ class FormularioTransation extends Formulario
         if (count($this->errores) === 0) {
             echo $token_delta . ":" . $usuario->getTockens() + $token_delta;
             $usuario->setTokens($usuario->getTockens() + $token_delta);
-            \parallelize_namespace\Transaction::submit($token_delta,$_SESSION["user_email"],"movimiento bancario");
+            \parallelize_namespace\Transaction::submit($token_delta, $_SESSION["user_email"], "movimiento bancario", $usuario->getTockens() + $token_delta);
         }
 
     }

@@ -15,10 +15,6 @@
     gap: 30px;
 }
 
-.inverted {
-    filter: invert(1);
-}
-
 #piggy {
     flex-grow: 1;
 }

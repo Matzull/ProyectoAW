@@ -29,7 +29,7 @@
         </h2>
             <!-- <p class="subtitle t-muted">Danos feedback de nuestra web!</p> -->
         <div class="marketplace-kernels">
-            <div id="kernel1" class="form">
+            <div id="kernel1" class="form form-extra-carrousel">
                 <h3 class="title">
                     Federico Garcia
                 </h3>
@@ -39,7 +39,47 @@
                 <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
             </div>
 
-            <div id="kernel2" class="form">
+            <div id="kernel1" class="form form-extra-carrousel">
+                <h3 class="title">
+                    Federico Garcia
+                </h3>
+                <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
+                <!-- creamos los botones para redirigir a los links -->
+                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+            </div>
+
+            <div id="kernel1" class="form form-extra-carrousel">
+                <h3 class="title">
+                    Federico Garcia
+                </h3>
+                <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
+                <!-- creamos los botones para redirigir a los links -->
+                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+            </div>
+
+            <div id="kernel1" class="form form-extra-carrousel">
+                <h3 class="title">
+                    Federico Garcia
+                </h3>
+                <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
+                <!-- creamos los botones para redirigir a los links -->
+                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+            </div>
+
+            <div id="kernel1" class="form form-extra-carrousel">
+                <h3 class="title">
+                    Federico Garcia
+                </h3>
+                <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
+                <!-- creamos los botones para redirigir a los links -->
+                <button type="button" class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
+                <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+            </div>
+
+            <div id="kernel2" class="form form-extra-carrousel">
                 <h3 class="title">
                     Ambrosio Garcia
                 </h3>
@@ -49,7 +89,7 @@
                 <button type="button" class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
             </div>
 
-            <div id="kernel3" class="form">
+            <div id="kernel3" class="form form-extra-carrousel">
                 <h3 class="title">
                     Rosa Mosqueta
                 </h3>
@@ -65,7 +105,7 @@
             Nuevos
         </h2>
         <div class="marketplace-kernels">
-            <div id="kernel3" class="form">
+            <div id="kernel3" class="form form-extra-carrousel">
                 <h3 class="title">
                     Manola Fuertes
                 </h3>
@@ -77,7 +117,7 @@
 
             </div>
 
-            <div id="kernel4" class="form">
+            <div id="kernel4" class="form form-extra-carrousel">
                 <h3 class="title">
                     Lucia Molinos
                 </h3>
