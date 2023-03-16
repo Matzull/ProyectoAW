@@ -33,50 +33,18 @@ require 'includes/config.php';
     <div class="flex-container-info horizontal">
         <div class="codeBlock">
             <h2 class="title">
-                Informacion del Kernel
+                Codigo fuente
             </h2>
             <?php
-                $javascript_code = <<<HTML
-                  //Generate matrices
-                  const generateMatrices = () => {
-                      const matrices = [[], []]
-                      for (let y = 0; y < 512; y++){
-                          matrices[0].push([])
-                          matrices[1].push([])
-                          for (let x = 0; x < 512; x++){
-                              matrices[0][y].push(Math.random())
-                              matrices[1][y].push(Math.random())
-                          }
-                      }
-                      return matrices
-                  }
-
-                  //Calculate kernels
-                  const gpu = new GPU();
-                  const multiplyMatrix = gpu.createKernel(function(a, b) {
-                      let sum = 0;
-                      for (let i = 0; i < 512; i++) {
-                          sum += a[this.thread.y][i] * b[i][this.thread.x];
-                      }
-                      return sum;
-                  }).setOutput([512, 512])
-
-                  //Call the kernel
-                  const matrices = generateMatrices()
-                  const out = multiplyMatrix(matrices[0], matrices[1])
-
-                  //Log the output
-                  HTML;
-                //echo json_encode($javascript_code);
                 $kernel = \parallelize_namespace\Kernel::buscaKernelPorId(1);
-                echo '<pre><code class="language-javascript">' . $kernel->getCode() . '</code></pre>';
+                echo '<pre class="line-numbers"><code class="language-javascript ">' . $kernel->getCode() . '</code></pre>';
             ?>
 
         </div>
 
         <div class="flex-container-info vertical">
             <div class="form">
-                <h2 class="title">
+                <h2 class="title centered">
                     Informacion Adicional
                 </h2>
                 <p>Usuario: <?=\parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName()?></p>
@@ -84,7 +52,7 @@ require 'includes/config.php';
                 <p class="form"><?=json_decode($kernel->getstatistics())->description?></p>
             </div>
             <div class="form">
-                <h2 class="title">
+                <h2 class="title centered">
                     Accion
                 </h2>
                 <p class="form">Iteracion 105/350</p>
