@@ -73,7 +73,28 @@ class Usuario
         $this->blocked = $blocked;
 
     }
-    // ñkjzcxnvkfdasfasdfsafa
+
+    private function storeToDb()
+    {
+        $conn = Aplicacion::getInstance()->getConexionBd();
+
+        $query = sprintf(
+            'UPDATE users SET user_name=\'%s\', password=\'%s\', millis_crunched=%s, ranked=%s, tokens=%s, last_active=%s, blocked=%s WHERE user_email=\'%s\'',
+            $conn->real_escape_string($this->user_name),
+            $conn->real_escape_string($this->password),
+            $conn->real_escape_string($this->millis_crunched),
+            $conn->real_escape_string($this->ranked),
+            $conn->real_escape_string($this->tokens),
+            $conn->real_escape_string($this->last_active),
+            $conn->real_escape_string($this->blocked),
+            $conn->real_escape_string($this->user_email)
+        );
+        if (!$conn->query($query)) {
+            echo $query;
+            echo "Error SQL ({$conn->errno}):  {$conn->error}";
+            return false;
+        }
+    }
 
     public function getName()
     {
@@ -108,5 +129,11 @@ class Usuario
     public function getPicUrl()
     {
         return "";
+    }
+
+    public function setTokens($value)
+    {
+        $tokens = $value;
+        $this->storeToDb();
     }
 }

@@ -49,13 +49,13 @@ require 'includes/config.php';
                         </tr>  
                         <?php
                             for ($i = 1; $i <= 15; $i++) {
-                                echo <<<EOS
+                                echo <<<HTML
                                 <tr>
                                     <td>pos</td>
                                     <td>nombre</td>
                                     <td>puntos</td> 
                                 </tr> 
-                                EOS;
+                                HTML;
                             }  
                         ?>  
                 </tbody>

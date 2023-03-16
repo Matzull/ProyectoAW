@@ -14,38 +14,38 @@ class FormularioRegister extends Formulario
         $val_user_pass = isset($datos['user_pass']) ? $datos['user_pass'] : '';
         $user_pass_conf = isset($datos['user_pass_conf']) ? $datos['user_pass_conf'] : '';
 
-        return generaErroresGlobalesFormulario($this->errores) . <<<EOS
+        return generaErroresGlobalesFormulario($this->errores) . <<<HTML
 
         <label for = 'user_name'>Nombre de usuario</label>
         <input id = 'user_name' class = 'input-field' type = 'text' name = 'user_name' placeholder = 'Escribe tu nombre de usuario' value = "$val_user_name"
         required>
-        EOS . generarError('user_name', $this->errores) . <<<EOS
+        HTML . generarError('user_name', $this->errores) . <<<HTML
 
         <label for = 'user_email'>E-mail</label>
         <input id = 'user_email' class = 'input-field' type = 'text' name = 'user_email' placeholder = 'Escribe tu correo' value = "$val_user_email" required>
-        EOS . generarError('user_email', $this->errores) . <<<EOS
+        HTML . generarError('user_email', $this->errores) . <<<HTML
 
         <label for = 'user_pass'>Contraseña</label>
         <input id = 'user_pass' class = 'input-field' type = 'password' name = 'user_pass' placeholder = 'Escribe tu contraseña' value = "$val_user_pass" required>
-        EOS . generarError('user_pass', $this->errores) . <<<EOS
+        HTML . generarError('user_pass', $this->errores) . <<<HTML
 
         <label for = 'user_pass_conf'>Confirmar la contraseña</label>
         <input id = 'user_pass_conf' class = 'input-field' type = 'password' name = 'user_pass_conf' placeholder = 'Vuelve a escribir la contraseña' value = "$user_pass_conf"
         required>
-        EOS . generarError('user_pass_conf', $this->errores) . <<<EOS
+        HTML . generarError('user_pass_conf', $this->errores) . <<<HTML
 
         <div class = 'form-options'>
         <div>
         <input type = 'checkbox' name = 'terms' id = 'terms' value = 'accepted'>
         <label for = 'terms'>Acepto los términos y condiciones</label>
-        EOS . generarError('terms', $this->errores) . <<<EOS
+        HTML . generarError('terms', $this->errores) . <<<HTML
 
         </div>
         </div>
         <button id = 'create-acc-button' class = 'button c-h-blue' type = 'submit' title = 'CrearCuenta' name = 'CrearCuenta'>Crear
         Cuenta</button>
 
-        EOS;
+        HTML;
     }
 
     protected function procesaFormulario(&$datos)

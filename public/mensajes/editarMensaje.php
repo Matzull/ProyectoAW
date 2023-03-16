@@ -24,10 +24,10 @@ if (idUsuarioLogado() != $mensaje->idAutor && ! esAdmin()) {
 $idMensajeRetorno = filter_input(INPUT_GET, 'idMensajeRetorno', FILTER_SANITIZE_NUMBER_INT);
 
 $editaMensajeForm = mensajeForm('actualizaMensaje.php', 'Mensaje: ', 'Actualiza', $idMensajeRetorno, $idMensaje, $mensaje->mensaje);
-$contenidoPrincipal = <<<EOS
+$contenidoPrincipal = <<<HTML
 	<h1>Editar Mensaje</h1>
 	<p>Mensaje: {$mensaje->mensaje}</p>
 	$editaMensajeForm
-EOS;
+HTML;
 
 require '../includes/vistas/comun/layout.php';

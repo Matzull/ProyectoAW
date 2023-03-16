@@ -11,7 +11,7 @@ class FormularioContacto extends Formulario
 
         $val_user_comment = isset($datos['user_comment']) ? $datos['user_comment'] : '';
 
-        return generaErroresGlobalesFormulario($this->errores) . <<<EOS
+        return generaErroresGlobalesFormulario($this->errores) . <<<HTML
 
         <div class = 'form-options'>
         <div>
@@ -25,7 +25,7 @@ class FormularioContacto extends Formulario
         </div>
         <label for = 'user_comment'>Comentarios</label>
         <textarea id = 'user_comment' class = 'input-field' name = 'user_comment' placeholder = 'Escribe cualquier cosa que quiras comentarnos' value = "$val_user_comment" textarea>
-        EOS . generarError('user_comment', $this->errores) . <<<EOS
+        HTML . generarError('user_comment', $this->errores) . <<<HTML
 
         <div class = 'form-options'>
         <div>
@@ -35,7 +35,7 @@ class FormularioContacto extends Formulario
         <!-- este botón ni existía es el de clear?? NO SE COMO BORRAR AL PULSAR -->
         <button id = 'clear-button' class = 'button c-h-blue' type = 'submit' title = 'Clear' name = 'Clear'>Limpiar</button>
 
-        EOS;
+        HTML;
     } // TODO boton borrar
 
     protected function procesaFormulario(&$datos)

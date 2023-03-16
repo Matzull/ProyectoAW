@@ -12,15 +12,15 @@ class FormularioLogin extends Formulario
         $val_nombreUsuario = isset($datos['user_email']) ? $datos['user_email'] : '';
         $val_password = isset($datos['user_password']) ? $datos['user_password'] : '';
 
-        return generaErroresGlobalesFormulario($this->errores) . <<<EOS
+        return generaErroresGlobalesFormulario($this->errores) . <<<HTML
         <label for = 'user_email'>E-mail</label>
         <input id = 'user_email' class = 'input-field' type = 'text' name = 'user_email' placeholder = 'Escribe tu correo' value = "$val_nombreUsuario" required>
-        EOS . generarError('user_email', $this->errores) . <<<EOS
+        HTML . generarError('user_email', $this->errores) . <<<HTML
 
         <label for = 'user_password'>Contraseña</label>
         <input id = 'user_password' class = 'input-field' type = 'password' name = 'user_password' placeholder = 'Escribe tu contraseña' value = "$val_password"
         required>
-        EOS . generarError('user_password', $this->errores) . <<<EOS
+        HTML . generarError('user_password', $this->errores) . <<<HTML
 
         <div class = 'form-options'>
         <div>
@@ -31,7 +31,7 @@ class FormularioLogin extends Formulario
         </div>
         <button id = 'login-button' class = 'button c-h-blue' type = 'submit' title = 'Ingresar' name = 'Ingresar'>Iniciar Sesión</button>
 
-        EOS;
+        HTML;
     }
 
     protected function procesaFormulario(&$datos)

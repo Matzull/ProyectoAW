@@ -18,10 +18,10 @@ $numPorPagina = filter_input(INPUT_GET, 'numPorPagina', FILTER_SANITIZE_NUMBER_I
 
 $tituloPagina = 'Mensaje';
 
-$contenidoPrincipal = <<<EOS
+$contenidoPrincipal = <<<HTML
 <h1>Mensaje</h1>
 <p>{$mensaje->mensaje}</p>
-EOS;
+HTML;
 
 /* Mensajes sin paginar 
 $contenidoPrincipal .= listaMensajes($mensaje->id, true, $idMensaje);
@@ -32,10 +32,10 @@ $contenidoPrincipal .= listaMensajesPaginados($mensaje->id, true, $idMensaje, $n
 
 if (estaLogado()) {
 	$formNuevoMensaje = mensajeForm('nuevoMensaje.php', 'Respuesta: ', 'Crear', $idMensaje);
-	$contenidoPrincipal .= <<<EOS
+	$contenidoPrincipal .= <<<HTML
 		<h1>Responder</h1>
 		$formNuevoMensaje
-	EOS;
+	HTML;
 }
 
 require '../includes/vistas/comun/layout.php';

@@ -39,7 +39,7 @@ require 'includes/config.php';
                 Informacion del Kernel
             </h2>
             <?php
-            $javascript_code = <<<EOS
+            $javascript_code = <<<HTML
                 //Generate matrices
                 const generateMatrices = () => {
                     const matrices = [[], []]
@@ -69,7 +69,7 @@ require 'includes/config.php';
                 const out = multiplyMatrix(matrices[0], matrices[1])
 
                 //Log the output
-                EOS;
+                HTML;
             echo '<pre><code class="language-javascript">'.$javascript_code.'</code></pre>';
 
             ?>

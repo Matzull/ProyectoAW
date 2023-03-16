@@ -34,7 +34,7 @@ if (!isset($_SESSION['user_email'])) {
             </div>
             <div class="sections-container">
                 <div class="section section-h">
-                <img class="circle-border" src="https://picsum.photos/100/100" alt="" width="100" height="100">
+                    <img class="circle-border" src="https://picsum.photos/100/100" alt="" width="100" height="100">
                     <div class="lateral-info">
                         <h3 class="title">PARTICIPACIÓN</h3>
                         <p class="t-muted">Has subido
@@ -42,7 +42,8 @@ if (!isset($_SESSION['user_email'])) {
                             kernels.
                         </p>
                         <p class="t-muted">Has ejecutado
-                            <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getMsCrunched() ?> ms.
+                            <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getMsCrunched() ?>
+                            ms.
                         </p>
                     </div>
                 </div>
@@ -50,7 +51,8 @@ if (!isset($_SESSION['user_email'])) {
                     <div class="lateral-info">
                         <h3 class="title">TUS TOKENS</h3>
                         <div class="flex-between">
-                            <button class="circular-button button c-h-blue" type="button">
+                            <button class="circular-button button c-h-blue" type="button"
+                                onclick="location.href='transaction.php'">
                                 <img src="svg/Plus_i.svg" alt="">
                             </button>
                             <h3 class="t-big no-margin">
