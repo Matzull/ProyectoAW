@@ -12,7 +12,6 @@ class FormularioContacto extends Formulario
         $val_user_comment = isset($datos['user_comment']) ? $datos['user_comment'] : '';
 
         return generaErroresGlobalesFormulario($this->errores) . <<<HTML
-
         <div class = 'form-options'>
         <div>
         <input type = 'radio' name = 'type' id = 'eval' value = 'eval'>
@@ -24,19 +23,17 @@ class FormularioContacto extends Formulario
         </div>
         </div>
         <label for = 'user_comment'>Comentarios</label>
-        <textarea id = 'user_comment' class = 'input-field' name = 'user_comment' placeholder = 'Escribe cualquier cosa que quiras comentarnos' value = "$val_user_comment" textarea>
+        <textarea id = 'user_comment' class = 'input-field' name = 'user_comment' placeholder = 'Escribe cualquier cosa que quieras comentarnos' value = "$val_user_comment" textarea>
         HTML . generarError('user_comment', $this->errores) . <<<HTML
-
+        <!-- la id de este button era create-acc-button -->
         <div class = 'form-options'>
         <div>
-       
         <!-- la id de este button era create-acc-button -->
         <button id = 'send-button' class = 'button c-h-blue' type = 'submit' title = 'Enviar' name = 'Enviar'>Enviar</button>
-        <!-- este botón ni existía es el de clear?? NO SE COMO BORRAR AL PULSAR -->
+        <!-- este botón ni existía es el de clear??(es el de LIMPIAR DE FIGMA)-->
         <button id = 'clear-button' class = 'button c-h-blue' type = 'submit' title = 'Clear' name = 'Clear'>Limpiar</button>
-
         HTML;
-    } // TODO boton borrar
+    } // TODO boton borrar desde la linea 29 hasta la 34 y el codigo posterior de contacto aparece como output???
 
     protected function procesaFormulario(&$datos)
     {
