@@ -77,10 +77,11 @@ require 'includes/config.php';
         <div class="flex-container-info vertical">
             <div class="form">
                 <h2 class="title">
-                    Informacion del Kernel
+                    Informacion Adicional
                 </h2>
-                <p class="form">Este código utiliza la biblioteca GPU.js para realizar la multiplicación de dos matrices de tamaño
-                    512x512 de forma paralela en la GPU.</p>
+                <p>Usuario: <?=\parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName()?></p>
+                <p>Estado: <?=json_decode($kernel->getrun_state())->status?></p>
+                <p class="form"><?=json_decode($kernel->getstatistics())->description?></p>
             </div>
             <div class="form">
                 <h2 class="title">
@@ -90,7 +91,7 @@ require 'includes/config.php';
                 <div class="flex-container-info ">
                     <button type="button" class="small-button c-green fill-flex" onclick="location.href='kernel_info.php'"><p>Ejecutar</p></button>
                     <div class="small-info c-h-b-blue fill-flex">
-                        <p> 0,06 c/seg </p>
+                        <p> <?=json_decode($kernel->getstatistics())->price?> c/seg</p>
                     </div>
                 </div> 
             </div>
