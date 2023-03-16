@@ -34,12 +34,22 @@ if (!isset($_SESSION['user_email'])) {
                 <div class="section section-h">
                     <div class="lateral-info">
                         <h3 class="title">TUS TOKENS</h3>
-                        <button type="button">+</button>
-                        <p><?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getTockens() ?></p>
+                        <div class="flex-between">
+                            <button class="circular-button button c-h-blue" type="button">
+                                <img src="svg/Plus_i.svg" alt="">
+                            </button>
+                            <h3 class="t-big no-margin">
+                                <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getTockens() ?>
+                            </h3>
+                        </div>
                     </div>
-                    <img class="circle-border" src="https://picsum.photos/100/100" alt="" width="100" height="100">
+                    <img src="svg/Token_i.svg" alt="" width="100" heigh="100">
                 </div>
-                <div class="section">
+                <div class="section section-h take-out">
+                    <div>
+                        <img src="https://picsum.photos/150/150" alt="" width="50">
+                        <button class="button c-h-blue" type="button">Retirar Dinero</button>
+                    </div>
                     <img src="https://picsum.photos/150/150" alt="" width="100">
                 </div>
                 <div class="section">

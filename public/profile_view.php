@@ -54,12 +54,14 @@ else{
                 <div class="section section-h">
                     <div class="lateral-info">
                         <h3 class="title">TOKENS</h3>
-                        <button type="button">+</button>
-                        <p>
-                            <?= $user->getTockens() ?>
-                        </p>
+                        <div class="flex-between">
+                            <div></div>
+                            <h3 class="t-big no-margin">
+                                <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getTockens() ?>
+                            </h3>
+                        </div>
                     </div>
-                    <img class="circle-border" src="https://picsum.photos/100/100" alt="" width="100" height="100">
+                    <img src="svg/Token_i.svg" alt="" width="100" heigh="100">
                 </div>
             </div>
             <div class="section">
