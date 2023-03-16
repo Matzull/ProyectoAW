@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2023 at 05:50 PM
+-- Generation Time: Mar 16, 2023 at 02:11 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `parallelize_app`
 --
+CREATE DATABASE IF NOT EXISTS `parallelize_app` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `parallelize_app`;
 
 -- --------------------------------------------------------
 
@@ -31,6 +33,22 @@ CREATE TABLE `comments` (
   `user_email` varchar(60) NOT NULL,
   `user_name` varchar(20) NOT NULL,
   `comment` varchar(1024) CHARACTER SET utf32 COLLATE utf32_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `execution_registration`
+--
+
+CREATE TABLE `execution_registration` (
+  `user_email` varchar(60) NOT NULL,
+  `end_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `kernel_id` int(11) NOT NULL,
+  `results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`results`)),
+  `iteration_range_start` int(11) NOT NULL,
+  `iteration_range_end` int(11) NOT NULL,
+  `reward` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -85,7 +103,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`, `tokens`, `last_active`, `blocked`, `user_name`) VALUES
 ('jaime2@gmail.com', '$2y$10$zyPdsVEjJ7uK.VUq7.t8YeS8PkbeqNthkH5jgJu6dor/o46baf1ru', 0, NULL, 0, '2023-02-27', 0, 'jaime'),
-('jaime@gmail.com', '$2y$10$8eOlgWYRiwIoQsQhoIJb5uMqzFEw2BqCH3pBgtkAW/E0.bp/ohhz2', 0, NULL, 0, '2023-02-27', 0, 'jaime');
+('jaime@gmail.com', '$2y$10$8eOlgWYRiwIoQsQhoIJb5uMqzFEw2BqCH3pBgtkAW/E0.bp/ohhz2', 0, NULL, 0, '2023-02-27', 0, 'jaime'),
+('test@test.es', '$2y$10$CK0lm03ly46CaK8bSNgc9.sGKJ6inhBi8ndaoJm6viKUYKmg8mxMK', 0, NULL, 0, '2023-03-15', 0, 'test');
 
 --
 -- Indexes for dumped tables
@@ -98,12 +117,17 @@ ALTER TABLE `comments`
   ADD KEY `user_email` (`user_email`);
 
 --
+-- Indexes for table `execution_registration`
+--
+ALTER TABLE `execution_registration`
+  ADD PRIMARY KEY (`kernel_id`,`iteration_range_start`);
+
+--
 -- Indexes for table `kernels`
 --
 ALTER TABLE `kernels`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_email_fk` (`user_email`);
-
 
 --
 -- Indexes for table `token_transactions`
