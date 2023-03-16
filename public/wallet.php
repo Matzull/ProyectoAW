@@ -35,15 +35,21 @@ if (!isset($_SESSION['user_email'])) {
                     <?php require("includes/vistas/token_big_info.php") ?>
                 </div>
                 <div class="section section-h take-out">
-                    <div>
-                        <img src="https://picsum.photos/150/150" alt="" width="50">
-                        <button class="button c-h-blue" type="button">Retirar Dinero</button>
+                    <div id="hammer-div">
+                        <img src="img\hammer-icon-8080.png" class="inverted" alt="" width="100">
+                        <button class="button c-h-blue" onclick="location.href='token_transaction.php'">Retirar Dinero</button>
                     </div>
-                    <img src="https://picsum.photos/150/150" alt="" width="100">
+                    <img src="img\piggy_bank_PNG47.png" alt="" width="100" id="piggy">
                 </div>
                 <div class="section">
                     <h3 class="title">GRÁFICA DE MOVIMIENTOS</h3>
+                    <?php
+                    require("includes/vistas/transaction_graph.php");
+                    ?>
                     <h3 class="title">HISTORIAL DE MOVIMIENTOS</h3>
+                    <?php
+                    require("includes/vistas/transaction_table.php");
+                    ?>
                 </div>
             </div>
         </div>

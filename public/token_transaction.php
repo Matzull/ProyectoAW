@@ -14,6 +14,7 @@
 
     require 'includes/config.php';
 
+
     if (!isset($_SESSION["user_email"])) {
         echo '<p>Debes haberte identificado</p>';
     } else {

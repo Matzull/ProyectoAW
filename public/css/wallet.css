@@ -1,15 +1,28 @@
-.sections-container > .section:first-child, .section:nth-child(2){
+.sections-container>.section:first-child,
+.section:nth-child(2) {
     min-width: calc(50% - 5px);
 }
 
-.take-out{
+.take-out {
     justify-content: space-between;
 }
 
-.take-out > div {
+.take-out>div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
+}
+
+.inverted {
+    filter: invert(1);
+}
+
+#piggy {
+    flex-grow: 1;
+}
+
+#hammer-div {
+    flex-grow: 0.5;
 }

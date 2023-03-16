@@ -127,6 +127,11 @@ class Usuario
         return \parallelize_namespace\Kernel::buscaKernelDeUsuario($this);
     }
 
+    public function getTransactions()
+    {
+        return \parallelize_namespace\Transaction::buscaTransacionesDeUsuario($this);
+    }
+
     public function getPicUrl()
     {
         return "";

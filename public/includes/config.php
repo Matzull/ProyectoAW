@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once 'includes/utils.php';
-require 'includes/Usuario.php';
 
 spl_autoload_register(
     function ($class) {
@@ -12,13 +11,13 @@ spl_autoload_register(
         $prefix = 'parallelize_namespace';
 
         // base directory for the namespace prefix
-        $base_dir = __DIR__ . "\\";
+        $base_dir = __DIR__ . "\\dao\\";
 
         // does the class use the namespace prefix?
         $len = strlen($prefix);
         if (strncmp($prefix, $class, $len) !== 0) {
             // no, move to the next registered autoloader
-            echo "<div>no se sirve para " . $prefix . "</div>";
+            // echo "<div>no se sirve para " . $prefix . "</div>";
             return;
         }
         // echo "<div>si me sirve para " . $prefix . "</div>";
@@ -55,7 +54,7 @@ spl_autoload_register(
         $len = strlen($prefix);
         if (strncmp($prefix, $class, $len) !== 0) {
             // no, move to the next registered autoloader
-            echo "<div>no se sirve para " . $prefix . "</div>";
+            // echo "<div>no se sirve para " . $prefix . "</div>";
 
             return;
         }
