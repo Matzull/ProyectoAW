@@ -57,11 +57,28 @@ a:hover {
     color: var(--m-text);
 }
 
+/* TAMAÑOS DE TEXTO CONCRETOS */
+.t-big {
+    font-size: 3rem;
+}
+
+/* ELIMINAR MÁRGENES */
+.no-margin {
+    margin: 0px;
+}
+
 /* --- COMPONENTES SIMPLES --- */
 
 /* CONTENEDOR CIRCULAR */
 .circle-border { /* Es necesario que sea cuadrado */
     border-radius: 50%;
+}
+
+/* CONTENEDOR FLEX SPACE-BETWEEN */
+.flex-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* BOTONES */
@@ -77,7 +94,7 @@ a:hover {
 .small-button:hover {
     filter: brightness(80%);
 }
-
+/* Botón normal */
 .button{
     font: inherit;
     padding: 10px 20px;
@@ -87,6 +104,23 @@ a:hover {
     transition: filter 0.4s;
 }
 .button:hover {
+    filter: brightness(80%);
+}
+/* Botón circular */
+.circular-button {
+    font: inherit;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: none;
+    color: inherit;
+    transition: filter 0.4s;
+}
+.circular-button:hover {
     filter: brightness(80%);
 }
 
