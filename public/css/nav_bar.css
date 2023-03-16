@@ -18,6 +18,8 @@
     justify-content: space-between;
     border-radius: 10px;
     width: 100%;
+
+    border: 2px solid var(--h-gris);
 }
 
 #nav-bar > .nav-bar-sec{
@@ -66,6 +68,9 @@
     margin-top: 25px;
     background-color: var(--gris);
     border-radius: 15px;
+
+    border: 2px solid var(--h-gris);
+    box-sizing: border-box;
 }
 
 #nav-bar > .nav-bar-sec > ul > li:hover > ul {

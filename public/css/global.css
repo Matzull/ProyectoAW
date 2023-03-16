@@ -3,6 +3,7 @@
     --h-blue: #5181FF;
     --h-b-blue: #2648A2;
     --gris: #2C2B33;
+    --h-gris: #403f4a;
     --bg: #0C0E14;
     --white: #FFF2F2;
     --m-text: #9D8A8A;
@@ -17,6 +18,10 @@ body{
     margin: 0px;
     color: var(--white);
     font-weight: 500;
+}
+
+.main-container{
+    padding: 10px;
 }
 
 a {
@@ -50,6 +55,13 @@ a:hover {
 
 .t-muted{
     color: var(--m-text);
+}
+
+/* --- COMPONENTES SIMPLES --- */
+
+/* CONTENEDOR CIRCULAR */
+.circle-border { /* Es necesario que sea cuadrado */
+    border-radius: 50%;
 }
 
 /* BOTONES */
@@ -102,6 +114,27 @@ a:hover {
     appearance: inherit;
 } */
 
+/* SELECT */
+
+.select{
+    font: inherit;
+    padding: 10px;
+    border-radius: 10px;
+    color: inherit;
+    background-color: var(--h-blue);
+    border: none;
+}
+
+/* .select:after {
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+} */
+.select:focus-visible {
+    outline: none;
+}
+
+
 
 /* CONTENEDORES */
 
@@ -112,19 +145,6 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: space-around;
-
-    padding: 0;
-    min-width: 100vw;
-    min-height: 100vh;
-    /* width: 100%;
-    height: 100%; */
-}
-/*este de momento es usado solo para el kernel marketplace o el mercado (basicamente intente que no tuviese
-que estar horizontal*/
-.form-container-marketplace{
-    display: flex;
-    align-items: center;
-    /*justify-content: space-around;*/
 
     padding: 0;
     min-width: 100vw;
@@ -169,29 +189,80 @@ que estar horizontal*/
     background-color: #3282b8;
 }
 
-/* Formato de tablas*/
-.table-format{
-    width: 60%;
+/* BÚSQUEDA */
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse; 
-     empty-cells: show;
+.search-form > .main-panel, .search-form > .option-panel{
+    display: flex;
+    justify-content: end;
+    gap: 5px;
 }
 
-thead{
-    background-color: gray;
+
+/* SECCIONES */
+/* Contenedor de secciones */
+.sections-container {
+    /* margin: 10px 10px; */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-tbody{
-    background-color:var(--l-gris)
+.sections-container .section{
+    background-color: var(--gris);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-grow: 1; /* Secciones ocupan el espacio mayor posible */
 }
 
-td {
+.sections-container .section .title {
+    margin: 0px 0px 10px 0px;
     text-align: center;
 }
 
-tr:hover {
-    background-color:var(--m-text)
+.sections-container .section-h {
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
+
+.sections-container .section-h > .lateral-info {
+    width: 100%;
+    align-items: center;
+}
+
+/* PANEL DE USUARIO */
+/* Utilizado en páginas de gestión del usuario: 
+    dashboard, tus kernels, ... */
+.user-panel{
+    margin-right: 215px; /* user nav bar width + margin right 10px*/
+}
+.user-panel > .header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+
+/* TODO: Mover a kernel_marketplace.css */
+/*este de momento es usado solo para el kernel marketplace o el mercado (basicamente intente que no tuviese
+que estar horizontal*/
+.form-container-marketplace{
+    display: flex;
+    align-items: center;
+    /*justify-content: space-around;*/
+
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    /* width: 100%;
+    height: 100%; */
+}
+

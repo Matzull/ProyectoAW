@@ -3,7 +3,7 @@ namespace parallelize_namespace;
 
 require 'includes/config.php';
 
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user_email'])) {
     header("location: login.php");
     die();
 }
@@ -19,29 +19,28 @@ if (!isset($_SESSION['user'])) {
     <title>Document</title>
     <link rel="stylesheet" href="css/nav_bar.css">
     <link rel="stylesheet" href="css/user_nav_bar.css">
-    <link rel="stylesheet" href="css/user_dashboard.css">
+    <link rel="stylesheet" href="css/your_kernels.css">
 </head>
 
 <body>
     <?php require_once("./includes/vistas/nav_bar.php") ?>
-    <div class="container">
-        <div class="panel-container">
-            <div class="panel-header">
+    <div class="main-container">
+        <div class="user-panel">
+            <div class="header">
                 <img src="./svg/Kernels_i.svg" alt="" width="44">
                 <h2>TUS KERNELS</h2>
             </div>
             <div class="sections-container">
                 <div class="section">
                     <h3>HISTORIAL DE EJECUCIONES</h3>
-                    <div class="search-panel">
-                        <form action="">
-                            <div class="search-main-panel">
-                                <input class="input-field" type="text" name="" id="" placeholder="Buscar...">
-                                <button class="button c-h-blue" type="submit">Buscar</button>
-                            </div>
-                            <div class="search-option-panel">
-                                <button class="button c-h-blue" type="button">Filtrar</button>
-                                <select name="cars" id="cars">
+                    <form class="search-form" action="">
+                        <div class="main-panel">
+                            <input class="input-field" type="text" name="" id="" placeholder="Buscar...">
+                            <button class="button c-h-blue" type="submit">Buscar</button>
+                        </div>
+                        <div class="option-panel">
+                            <button class="button c-h-blue" type="button">Filtrar</button>
+                            <select class="select" name="orderby" id="orderby">
                                 <optgroup label="Fecha">
                                     <option value="more recent first">Más reciente primero</option>
                                     <option value="less recent first">Menos reciente primero</option>
@@ -50,10 +49,9 @@ if (!isset($_SESSION['user'])) {
                                     <option value="more income first">Más ingresos primero</option>
                                     <option value="less income first">Menos ingresos primero</option>
                                 </optgroup>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
+                            </select>
+                        </div>
+                    </form>
                     <div class="execution-history">
                     </div>
                 </div>
@@ -63,8 +61,9 @@ if (!isset($_SESSION['user'])) {
                 </div>
             </div>
         </div>
-        <?php require_once("./includes/vistas/user_nav_bar.php") ?>
     </div>
+    <?php require_once("./includes/vistas/user_nav_bar.php") ?>
+
 </body>
 
 </html>

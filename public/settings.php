@@ -1,7 +1,7 @@
 <?php
 require 'includes/config.php';
 
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user_email'])) {
     header("location: login.php");
     die();
 }
@@ -17,15 +17,14 @@ if (!isset($_SESSION['user'])) {
     <title>Document</title>
     <link rel="stylesheet" href="css/nav_bar.css">
     <link rel="stylesheet" href="css/user_nav_bar.css">
-    <link rel="stylesheet" href="css/user_dashboard.css">
     <link rel="stylesheet" href="css/settings.css">
 </head>
 
 <body>
     <?php require_once("./includes/vistas/nav_bar.php") ?>
-    <div class="container">
-        <div class="panel-container">
-            <div class="panel-header">
+    <div class="main-container">
+        <div class="user-panel">
+            <div class="header">
                 <img src="./svg/Settings_i.svg" alt="" width="44">
                 <h2>AJUSTES</h2>
             </div>
@@ -35,7 +34,7 @@ if (!isset($_SESSION['user'])) {
                         <div class="section-content">
                             <h2>Mi foto de Perfil</h2>
                             <div>
-                                <img src="https://picsum.photos/100/100" alt="">
+                            <img class="circle-border" src="https://picsum.photos/100/100" alt="" width="100" height="100">
                                 <div>
                                     <button class="button c-h-blue" type="button">Cambiar Foto</button>
                                     <button class="button c-h-b-blue" type="button">Cambiar Foto</button>
@@ -73,16 +72,18 @@ if (!isset($_SESSION['user'])) {
                             <label for="show-real-name">Mostrar mi nombre real</label>
                             <input type="checkbox" name="" id="show-my-wallet">
                             <label for="show-my-wallet">Mostrar mi cartera</label>
-                            <button class="button c-h-blue" type="button">Ver perfil como un tercero</button>
+                            <button class="button c-h-blue" type="button" onclick="location.href='profile_view.php?id=<?= $_SESSION['user_email'] ?>'">
+                                Ver perfil como un tercero
+                            </button>
                             <h3>Otras opciones</h3>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <?php require_once("./includes/vistas/user_nav_bar.php") ?>
     </div>
+    <?php require_once("./includes/vistas/user_nav_bar.php") ?>
+
 </body>
 
 </html>
