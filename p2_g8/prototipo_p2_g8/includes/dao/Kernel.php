@@ -60,7 +60,7 @@ class Kernel {
         $conn = Aplicacion::getInstance()->getConexionBd();
 
         $query = sprintf(
-            'INSERT INTO kernel (name, run_state, user_email, results, js_code, statistics, total_reward, description, progress_map) 
+            'INSERT INTO kernels (name, run_state, user_email, results, js_code, statistics, total_reward, description, progress_map) 
             VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')',
             $conn->real_escape_string($kernel_name),
             0,

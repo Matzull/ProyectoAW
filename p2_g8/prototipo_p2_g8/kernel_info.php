@@ -49,7 +49,7 @@ require 'includes/config.php';
                     Informacion Adicional
                 </h2>
                 <p>Usuario: <?= \parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName() ?></p>
-                <p>Estado: <?= json_decode($kernel->getrun_state())->status ?></p>
+                <!-- <p>Estado: <?= json_decode($kernel->getrun_state())->status ?></p> -->
                 <p class="form"><?= json_decode($kernel->getstatistics())->description ?></p>
             </div>
             <div class="form block">
