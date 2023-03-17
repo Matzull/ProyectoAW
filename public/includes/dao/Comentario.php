@@ -23,4 +23,10 @@ class Comentario
         }
         return true;
     }
+
+    public function __construct($user_name, $user_email, $user_comment){
+        $this->user_name = $user_name;
+        $this->user_email = $user_email;
+        $this->user_comment = $user_comment;
+    }
 }

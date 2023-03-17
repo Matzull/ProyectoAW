@@ -9,10 +9,10 @@ class Aplicacion
 
     static function getInstance()
     {
-        if (!isset($instance)) {
-            $instance = new Aplicacion();
+        if (!isset(self::$instance)) {
+            self::$instance = new Aplicacion();
         }
-        return $instance;
+        return self::$instance;
     }
 
     function init($bdDatosConexion)
