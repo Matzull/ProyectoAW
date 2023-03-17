@@ -28,8 +28,9 @@ class FormularioSubirKernel extends Formulario
         <textarea id = 'kernel_description' class = 'input-field' name = 'kernel_description' placeholder = 'Pon una breve descripcion del funcionamiento del kernel' value = "$val_kernel_description" ></textarea>
         HTML . generarError('kernel_description', $this->errores) . <<<HTML
 
+        <!-- en el precio he puesto pattern="^[0-9]+(.[0-9]+)?$" para que solo puedas poner numeros y puntos -->
         <label for = 'input_price'>Precio</label>
-        <input id = 'input_price' class = 'input-field' name = 'input_price' placeholder = 'Pon un precio a pagar por la ejecucion' value = "$val_input_price" ></textarea>
+        <input id = 'input_price' class = 'input-field'  pattern="^[0-9]+(.[0-9]+)?$" name = 'input_price' placeholder = 'Pon un precio a pagar por la ejecucion' value = "$val_input_price" ></textarea>
         HTML . generarError('input_price', $this->errores) . <<<HTML
       
         <!-- la id de este button era create-acc-button -->
@@ -74,6 +75,6 @@ class FormularioSubirKernel extends Formulario
 
     public function __construct()
     {
-        parent::__construct(0, array('action' => './contacto.php', 'method' => 'POST', 'urlRedireccion' => './SalidaExitosaFormulario.php'));
+        parent::__construct(0, array('action' => './subirKernel.php', 'method' => 'POST', 'urlRedireccion' => './SalidaExitosaFormulario.php'));
     }
 }
