@@ -17,7 +17,7 @@ class FormularioSubirKernel extends Formulario
         return generaErroresGlobalesFormulario($this->errores) . <<<HTML
 
         <label for = 'kernel_name'>Nombre del kernel</label>
-        <textarea id = 'kernel_name' class = 'input-field' name = 'kernel_name' placeholder = 'Nombre del kernel' value = "$val_kernel_name" ></textarea>
+        <input id = 'kernel_name' class = 'input-field' name = 'kernel_name' placeholder = 'Nombre del kernel' value = "$val_kernel_name" ></textarea>
         HTML . generarError('kernel_name', $this->errores) . <<<HTML
         
         <label for = 'input_kernel'>Introducir kernel</label>
@@ -29,7 +29,7 @@ class FormularioSubirKernel extends Formulario
         HTML . generarError('kernel_description', $this->errores) . <<<HTML
 
         <label for = 'input_price'>Precio</label>
-        <textarea id = 'input_price' class = 'input-field' name = 'input_price' placeholder = 'Pon un precio a pagar por la ejecucion' value = "$val_input_price" ></textarea>
+        <input id = 'input_price' class = 'input-field' name = 'input_price' placeholder = 'Pon un precio a pagar por la ejecucion' value = "$val_input_price" ></textarea>
         HTML . generarError('input_price', $this->errores) . <<<HTML
       
         <!-- la id de este button era create-acc-button -->
