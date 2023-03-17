@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 17-03-2023 a las 16:30:59
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: Mar 17, 2023 at 08:26 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,17 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `parallelize_app`
+-- Database: `parallelize_app`
 --
 
---
 CREATE DATABASE IF NOT EXISTS `parallelize_app` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `parallelize_app`;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE `comments` (
@@ -40,7 +39,7 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `execution_registration`
+-- Table structure for table `execution_registration`
 --
 
 CREATE TABLE `execution_registration` (
@@ -56,7 +55,7 @@ CREATE TABLE `execution_registration` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `kernels`
+-- Table structure for table `kernels`
 --
 
 CREATE TABLE `kernels` (
@@ -73,7 +72,7 @@ CREATE TABLE `kernels` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `kernels`
+-- Dumping data for table `kernels`
 --
 
 INSERT INTO `kernels` (`name`, `run_state`, `user_email`, `results`, `id`, `js_code`, `statistics`, `total_reward`, `description`, `progress_map`) VALUES
@@ -82,7 +81,7 @@ INSERT INTO `kernels` (`name`, `run_state`, `user_email`, `results`, `id`, `js_c
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `token_transactions`
+-- Table structure for table `token_transactions`
 --
 
 CREATE TABLE `token_transactions` (
@@ -95,7 +94,7 @@ CREATE TABLE `token_transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `token_transactions`
+-- Dumping data for table `token_transactions`
 --
 
 INSERT INTO `token_transactions` (`id`, `transaction_timestamp`, `quantity`, `user_email`, `description`, `balance`) VALUES
@@ -111,7 +110,7 @@ INSERT INTO `token_transactions` (`id`, `transaction_timestamp`, `quantity`, `us
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -126,7 +125,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`, `tokens`, `last_active`, `blocked`, `user_name`) VALUES
@@ -135,75 +134,82 @@ INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`
 ('test@test.es', '$2y$10$CK0lm03ly46CaK8bSNgc9.sGKJ6inhBi8ndaoJm6viKUYKmg8mxMK', 0, -1, 20, '0000-00-00', 0, 'test');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `comments`
+-- Indexes for table `comments`
 --
 ALTER TABLE `comments`
   ADD KEY `user_email` (`user_email`);
 
 --
--- Indices de la tabla `execution_registration`
+-- Indexes for table `execution_registration`
 --
 ALTER TABLE `execution_registration`
-  ADD PRIMARY KEY (`kernel_id`,`iteration_range_start`);
+  ADD PRIMARY KEY (`kernel_id`,`iteration_range_start`),
+  ADD KEY `user_email_fk_ex_reg` (`user_email`);
 
 --
--- Indices de la tabla `kernels`
+-- Indexes for table `kernels`
 --
 ALTER TABLE `kernels`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_email_fk` (`user_email`);
 
 --
--- Indices de la tabla `token_transactions`
+-- Indexes for table `token_transactions`
 --
 ALTER TABLE `token_transactions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `email_fk` (`user_email`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_email`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `kernels`
+-- AUTO_INCREMENT for table `kernels`
 --
 ALTER TABLE `kernels`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `token_transactions`
+-- AUTO_INCREMENT for table `token_transactions`
 --
 ALTER TABLE `token_transactions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `comments`
+-- Constraints for table `comments`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `kernels`
+-- Constraints for table `execution_registration`
+--
+ALTER TABLE `execution_registration`
+  ADD CONSTRAINT `user_email_fk_ex_reg` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`);
+
+--
+-- Constraints for table `kernels`
 --
 ALTER TABLE `kernels`
   ADD CONSTRAINT `user_email_fk` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`);
 
 --
--- Filtros para la tabla `token_transactions`
+-- Constraints for table `token_transactions`
 --
 ALTER TABLE `token_transactions`
   ADD CONSTRAINT `email_fk` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`);
