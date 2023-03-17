@@ -59,7 +59,7 @@ if (!isset($_SESSION['user_email'])) {
                     <h3 class="title">SUBIR KERNEL</h3>
                     <div id="upload-panel">
                         <img src="svg/Kernels_big_i.svg" alt="">
-                        <button class="circular-button button c-h-blue" onclick="location.href='token_transaction.php'">
+                        <button class="circular-button button c-h-blue" onclick="location.href='FormularioSubirKernel.php'">
                             <img src="svg/Plus_i.svg" alt="">
                         </button>
                     </div>

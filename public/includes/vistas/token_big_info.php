@@ -5,7 +5,7 @@
             <img src="svg/Plus_i.svg" alt="">
         </button>
         <h3 class="t-big no-margin">
-            <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getTockens() ?>
+            <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->gettoekns() ?>
         </h3>
     </div>
 </div>

@@ -35,14 +35,14 @@ class FormularioTransaction extends Formulario
         }
         $usuario = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
 
-        if ($usuario->getTockens() + $token_delta < 0) {
+        if ($usuario->gettoekns() + $token_delta < 0) {
             $this->errores['token_delta'] = 'Debes tener suficiente dinero!';
         }
 
         if (count($this->errores) === 0) {
-            echo $token_delta . ":" . $usuario->getTockens() + $token_delta;
-            $usuario->setTokens($usuario->getTockens() + $token_delta);
-            \parallelize_namespace\Transaction::submit($token_delta, $_SESSION["user_email"], "movimiento bancario", $usuario->getTockens());
+            echo $token_delta . ":" . $usuario->gettoekns() + $token_delta;
+            $usuario->setTokens($usuario->gettoekns() + $token_delta);
+            \parallelize_namespace\Transaction::submit($token_delta, $_SESSION["user_email"], "movimiento bancario", $usuario->gettoekns());
         }
 
     }

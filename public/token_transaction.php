@@ -19,8 +19,8 @@
         echo '<p>Debes haberte identificado</p>';
     } else {
         $usuario = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
-        $t = $usuario->getTockens();
-        echo "<p>actualmente tienes $t tockens</p>";
+        $t = $usuario->gettoekns();
+        echo "<p>actualmente tienes $t toekns</p>";
         $formulario = new \parallelize_namespace\formulario\FormularioTransaction();
         echo $formulario->gestiona();
     }
