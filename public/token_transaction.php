@@ -20,7 +20,7 @@
     } else {
         $usuario = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
         $t = $usuario->gettoekns();
-        echo "<p>actualmente tienes $t toekns</p>";
+        echo "<p>actualmente tienes $t tokens</p>";
         $formulario = new \parallelize_namespace\formulario\FormularioTransaction();
         echo $formulario->gestiona();
     }

@@ -27,13 +27,14 @@
         <h2 class="title">
             Mejor pagados
         </h2>
+            <!-- TODO Seguramente podamos hacer una querie a la DB y hacer un for loop tanto para mostrar la lista de los kernels mejor pagados como para los mas recientes (Campos c/seg y fecha de subida requeridos en la DB)-->
             <!-- <p class="subtitle t-muted">Danos feedback de nuestra web!</p> -->
         <div class="marketplace-kernels">
             <div id="kernel1" class="form form-extra-carrousel">
                 <h3 class="title">
-                    Federico Garcia
+                    Federico García
                 </h3>
-                <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
+                <p class="subtitle t-muted">Mi kernel hace backtracking complicado</p>
                 <!-- creamos los botones para redirigir a los links -->
                 <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
                 <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
@@ -41,9 +42,9 @@
 
             <div id="kernel1" class="form form-extra-carrousel">
                 <h3 class="title">
-                    Federico Garcia
+                    Marcos Alonso
                 </h3>
-                <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
+                <p class="subtitle t-muted">Mi kernel es para un trabajo de IS2</p>
                 <!-- creamos los botones para redirigir a los links -->
                 <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
                 <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
@@ -51,9 +52,9 @@
 
             <div id="kernel1" class="form form-extra-carrousel">
                 <h3 class="title">
-                    Federico Garcia
+                    Juan Trillo
                 </h3>
-                <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
+                <p class="subtitle t-muted">Necesito bastante ayuda/p>
                 <!-- creamos los botones para redirigir a los links -->
                 <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
                 <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
@@ -61,9 +62,9 @@
 
             <div id="kernel1" class="form form-extra-carrousel">
                 <h3 class="title">
-                    Federico Garcia
+                    Jaime Vázquez
                 </h3>
-                <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
+                <p class="subtitle t-muted">Algoritmo que estudia una gran poblacion</p>
                 <!-- creamos los botones para redirigir a los links -->
                 <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
                 <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
@@ -71,9 +72,9 @@
 
             <div id="kernel1" class="form form-extra-carrousel">
                 <h3 class="title">
-                    Federico Garcia
+                    Jaime Gonzalez
                 </h3>
-                <p class="subtitle t-muted">mi kernel hace backtracking complicado</p>
+                <p class="subtitle t-muted">No sé que poner como descripción</p>
                 <!-- creamos los botones para redirigir a los links -->
                 <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
                 <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
@@ -81,9 +82,9 @@
 
             <div id="kernel2" class="form form-extra-carrousel">
                 <h3 class="title">
-                    Ambrosio Garcia
+                    Ambrosio García
                 </h3>
-                <p class="subtitle t-muted">mi kernel requiere de mucha mano de obra</p>
+                <p class="subtitle t-muted">Mi kernel requiere de mucha mano de obra</p>
                 <!-- creamos los botones para redirigir a los links -->
                 <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
                 <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
@@ -109,7 +110,7 @@
                 <h3 class="title">
                     Manola Fuertes
                 </h3>
-                <p class="subtitle t-muted">mi ordenador es una patata ayudadme!</p>
+                <p class="subtitle t-muted">Mi ordenador es una patata ayudadme!</p>
 
                 <!-- Creamos redes sociales? -->
                 <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
@@ -121,7 +122,7 @@
                 <h3 class="title">
                     Lucia Molinos
                 </h3>
-                <p class="subtitle t-muted">no es muy dificil!</p>
+                <p class="subtitle t-muted">No es muy dificil!</p>
 
                 <!-- Creamos redes sociales? -->
                 <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
