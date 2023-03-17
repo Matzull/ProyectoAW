@@ -29,9 +29,9 @@ if (!isset($_SESSION['user_email'])) {
     <div class="container">
         <div class="form">
             <h2 class="title">
-                Contacto
+                Subir kernel
             </h2>
-            <p class="subtitle t-muted">Danos feedback de nuestra web!</p>
+            <p class="subtitle t-muted">Pon una descripcion y precio a tu kernel</p>
             <?php
             if (isset($_SESSION["user_email"])) {
                 $formulario = new \parallelize_namespace\formulario\FormularioSubirKernel();
