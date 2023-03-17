@@ -19,7 +19,7 @@
     require_once "includes/config.php";
     require_once("./includes/vistas/nav_bar.php");
     ?>
-    <div class="container-marketplace">
+    <div class="main-container">
 
         <h1 class="title">
             Mercado
