@@ -1,0 +1,351 @@
+:root {
+    --main: #8EADFF;
+    --h-blue: #5181FF;
+    --h-b-blue: #2648A2;
+    --gris: #2C2B33;
+    --h-gris: #403f4a;
+    --bg: #0C0E14;
+    --white: #FFF2F2;
+    --m-white: #c1bbbb;
+    --m-text: #9D8A8A;
+    --l-gris: #4E4D5A;
+    --red: #CE4B4B;
+    --green: #51B940;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg);
+    margin: 0px;
+    color: var(--white);
+    font-weight: 500;
+}
+
+.main-container {
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--h-blue);
+}
+
+a:hover {
+    text-decoration: underline;
+    /* color: var(--white); */
+}
+
+/* COLORES DE FONDO */
+.c-main {
+    background-color: var(--main);
+}
+
+.c-h-blue {
+    background-color: var(--h-blue);
+}
+
+.c-h-b-blue {
+    background-color: var(--h-b-blue);
+}
+
+.c-red {
+    background-color: var(--red);
+}
+
+.c-green {
+    background-color: var(--green);
+}
+
+/* COLORES DE TEXTO */
+
+.t-muted {
+    color: var(--m-text);
+}
+
+.t-m-white{
+    color: var(--m-white);
+}
+
+/* TAMAÑOS DE TEXTO CONCRETOS */
+.t-big {
+    font-size: 3rem;
+}
+
+/* ELIMINAR MÁRGENES */
+.no-margin {
+    margin: 0px;
+}
+
+/* --- COMPONENTES SIMPLES --- */
+
+/* CONTENEDOR CIRCULAR */
+.circle-border {
+    /* Es necesario que sea cuadrado */
+    border-radius: 50%;
+}
+
+/* CONTENEDOR FLEX SPACE-BETWEEN */
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* BOTONES */
+/* Botón pequeño */
+.small-button {
+    font: inherit;
+    padding: 5px 15px;
+    border-radius: 15px;
+    border: none;
+    color: inherit;
+    transition: filter 0.4s;
+}
+
+.small-button:hover {
+    filter: brightness(80%);
+}
+
+/* Botón normal */
+.button {
+    font: inherit;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    color: inherit;
+    transition: filter 0.4s;
+}
+
+.button:hover {
+    filter: brightness(80%);
+}
+
+/* Botón circular */
+.circular-button {
+    font: inherit;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: none;
+    color: inherit;
+    transition: filter 0.4s;
+}
+
+.circular-button:hover {
+    filter: brightness(80%);
+}
+
+/* FORMULARIO */
+
+.input-field {
+    font: inherit;
+    padding: 8px;
+    background-color: inherit;
+    border: 2px solid var(--h-blue);
+    border-radius: 10px;
+    color: inherit;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-field:focus-visible {
+    outline-width: 0px;
+    border-color: var(--white);
+}
+
+/* .input-field:-internal-autofill-selected {
+    background-color: var(--h-blue) !important;
+    color: inherit !important;
+    appearance: inherit;
+} */
+
+/* SELECT */
+
+.select {
+    font: inherit;
+    padding: 10px;
+    border-radius: 10px;
+    color: inherit;
+    background-color: var(--h-blue);
+    border: none;
+}
+
+/* .select:after {
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+} */
+.select:focus-visible {
+    outline: none;
+}
+
+
+
+/* CONTENEDORES */
+
+/* Usado en login y register: 
+    contiene el formulario y una imagen. */
+
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    /* width: 100%;
+    height: 100%; */
+}
+
+.form {
+    border-radius: 10px;
+    max-width: 450px;
+    width: 100%;
+    padding: 30px 30px 40px 30px;
+    box-sizing: border-box;
+    background-color: var(--gris);
+
+    border: 2px solid var(--h-gris);
+}
+
+.form>.title {
+    font-size: 200%;
+    margin: 0px 0px 10px 0px;
+}
+
+.form>.subtitle {
+    margin-top: 10px;
+}
+
+.form>form>input {
+    margin: 10px 0px 15px 0px;
+}
+
+.form>form .form-options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form>.text-sec-button {
+    margin: 15px 0px 5px 0px;
+    text-align: center;
+}
+
+.form-drawing {
+    max-width: 500px;
+    min-height: 500px;
+    width: 100%;
+    background-color: #3282b8;
+}
+
+/* BÚSQUEDA */
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.search-form>.main-panel,
+.search-form>.option-panel {
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+}
+
+
+/* SECCIONES */
+/* Contenedor de secciones */
+.sections-container {
+    /* margin: 10px 10px; */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.sections-container .section {
+    background-color: var(--gris);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    /* Secciones ocupan el espacio mayor posible */
+
+    border: 2px solid var(--h-gris);
+}
+
+.sections-container .section .title {
+    margin: 0px 0px 10px 0px;
+    text-align: center;
+}
+
+.sections-container .section-h {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.sections-container .section-h>.lateral-info {
+    width: 100%;
+    align-items: center;
+}
+
+/* PANEL DE USUARIO */
+/* Utilizado en páginas de gestión del usuario: 
+    dashboard, tus kernels, ... */
+#user-panel {
+    margin-right: 215px;
+    /* user nav bar width + margin right 10px*/
+}
+
+#user-panel>.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+
+/* TODO: Mover a kernel_marketplace.css */
+/*este de momento es usado solo para el kernel marketplace o el mercado (basicamente intente que no tuviese
+que estar horizontal*/
+.form-container-marketplace {
+    display: flex;
+    align-items: center;
+    /*justify-content: space-around;*/
+
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    /* width: 100%;
+    height: 100%; */
+}
+
+/*cosas de las vistas que se podrían requerir en varios documentos*/
+
+#transaction_graph_canvas {
+    width: 94%;
+    padding: 3%;
+}
+
+#transaction_table {
+    font-size: 16px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 94%;
+    left: 3%;
+    position: relative;
+}
+
+#transaction_table>tbody>tr>td  {
+   border: #b7b7b7 solid 1px;
+}
+
+#transaction_table>thead>tr>th {
+    border: #b7b7b7 solid 1px;
+}

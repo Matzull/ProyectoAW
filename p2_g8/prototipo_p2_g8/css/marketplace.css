@@ -1,0 +1,14 @@
+
+.marketplace-kernels { 
+    display: flex;
+    padding-bottom: 10px;
+    gap: 10px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+.form-extra-carrousel {
+    flex: 0 0 auto; 
+}
+
+
+
