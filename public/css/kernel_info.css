@@ -6,7 +6,7 @@
 
 .vertical { 
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .horizontal { 
@@ -25,12 +25,15 @@
   padding: 15px 30px 15px 30px;
   box-sizing: border-box;
   background-color: var(--gris);
-  margin-left: 5%;
-  margin-bottom: 5%;
+  margin-left: 2%;
+  margin-top: 25px;
+  margin-bottom: 50px;
 }
 
 .block{
-  margin-right: 5%;
+  margin-top: 25px;
+  margin-right: 10%;
+  margin-bottom: 25px;
 }
 
 .small-info{
