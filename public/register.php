@@ -28,7 +28,7 @@
             <?= $formulario->gestiona() ?>
 
             <p class="text-sec-button">¿Ya tienes cuenta?</p>
-            <button class="button c-h-b-blue" type="button" id="loginbutton" onclick="location.href='login.php'">
+            <button class="button c-h-b-blue"  id="loginbutton" onclick="location.href='login.php'">
                 Iniciar Sesión</button>
         </div>
         <div class="form-drawing">
