@@ -55,19 +55,19 @@ class Kernel {
         return $ret;
     }
 
-    public static function enviaKernel($kernel)
+    public static function enviaKernel($kernel_name,$kernel_js_code,$kernel_statistics)
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
 
         $query = sprintf(
             'INSERT INTO kernel (name, run_state, user_email, results, js_code, statistics) 
             VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')',
-            $conn->real_escape_string($kernel['name']),
+            $conn->real_escape_string($kernel_name),
             '{"state":"pending"}',
             $conn->real_escape_string($_SESSION["user_email"]),
             '{"results":""}',
-            $conn->real_escape_string($kernel['js_code']),
-            $conn->real_escape_string($kernel['statistics'])
+            $conn->real_escape_string($kernel_js_code),
+            '{}'
         );
         if (!$conn->query($query)) {
             echo $query;

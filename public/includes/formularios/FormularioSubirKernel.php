@@ -64,7 +64,7 @@ class FormularioSubirKernel extends Formulario
         }
 
         if (count($this->errores) === 0) {
-            \parallelize_namespace\kernel::enviaKernel($input_kernel);
+            \parallelize_namespace\kernel::enviaKernel($kernel_name,$input_kernel);
         }
 
     }
