@@ -14,6 +14,7 @@ require 'includes/config.php';
     <title>FAQ</title>
     <link rel='stylesheet' href='css/nav_bar.css'>
     <link rel="stylesheet" href="css/FAQ.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -64,6 +65,8 @@ require 'includes/config.php';
             </div>
         </div>
     </div>
+
+    <?php require("./includes/vistas/footer.php"); ?>
 </body>
 
 </html>

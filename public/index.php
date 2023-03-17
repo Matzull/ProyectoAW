@@ -15,6 +15,7 @@ require 'includes/config.php';
     <link rel="stylesheet" href="css/user_nav_bar.css">
     <link rel="stylesheet" href="css/user_dashboard.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -31,7 +32,7 @@ require 'includes/config.php';
         <div class="diagonal-gradient"></div>
         <?php require_once("./includes/vistas/nav_bar.php") ?>
     </div>
-
+    <?php require("./includes/vistas/footer.php"); ?>
 
 </body>
 
