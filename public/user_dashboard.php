@@ -78,7 +78,7 @@ if (!isset($_SESSION['user_email'])) {
                     <h3 class="title">TUS ÚLTIMOS KERNELS</h3>
                     <div class="last-kernels">
                     </div>
-                    <button class="button c-h-blue" type="button">Ver más kernels</button>
+                    <button class="button c-h-blue" >Ver más kernels</button>
                 </div>
             </div>
         </div>

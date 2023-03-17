@@ -33,7 +33,7 @@ class Kernel {
         return $ret;
     }
 
-    public static function buscaKernelPorId(string $id) { // User $user
+    public static function buscaKernelPorId(string $id) { // Id
         $conn = Aplicacion::getInstance()->getConexionBd();
         $ret = NUll;
         $query = sprintf( "SELECT * FROM kernels K WHERE K.id = '%s'", $conn->real_escape_string($id));
@@ -42,13 +42,13 @@ class Kernel {
         {
             $rk = $rs->fetch_assoc();
             $ret = new Kernel(
-            $rk[ 'name' ],
-            $rk[ 'run_state' ],
-            $rk[ 'user_email' ],
-            $rk[ 'results' ],
-            $rk[ 'id' ],
-            $rk[ 'js_code' ],
-            $rk[ 'statistics' ]
+                $rk[ 'name' ],
+                $rk[ 'run_state' ],
+                $rk[ 'user_email' ],
+                $rk[ 'results' ],
+                $rk[ 'id' ],
+                $rk[ 'js_code' ],
+                $rk[ 'statistics' ]
             );
         }
         
@@ -65,9 +65,29 @@ class Kernel {
         $this->statistics = $statistics;
     }
 
+    public function getname()
+    {
+        return $this->name;
+    }
+    public function getrun_state()
+    {
+        return $this->run_state;
+    }
+    public function getuser_email()
+    {
+        return $this->user_email;
+    }
+    public function getresults()
+    {
+        return $this->results;
+    }
     public function getCode()
     {
         return $this->js_code;
+    }
+    public function getstatistics()
+    {
+        return $this->statistics;
     }
 
 }
