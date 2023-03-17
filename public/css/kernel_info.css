@@ -1,6 +1,6 @@
 .flex-container-info { 
   display: flex;
-  align-items: center;
+  align-items: inherit;
   justify-content: space-evenly;
 }
 
@@ -11,6 +11,7 @@
 
 .horizontal { 
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .centered{
@@ -24,12 +25,12 @@
   padding: 15px 30px 15px 30px;
   box-sizing: border-box;
   background-color: var(--gris);
-  margin-left: -5%;
-  margin-top: -5%;
+  margin-left: 5%;
+  margin-bottom: 5%;
 }
 
 .block{
-  background: #323030aa;
+  margin-right: 5%;
 }
 
 .small-info{
