@@ -18,6 +18,7 @@ if (!isset($_SESSION['user_email'])) {
     <link rel="stylesheet" href="css/nav_bar.css">
     <link rel="stylesheet" href="css/user_nav_bar.css">
     <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -26,7 +27,7 @@ if (!isset($_SESSION['user_email'])) {
     require_once("./includes/vistas/nav_bar.php");
     ?>
    
-    <div class="container">
+    <div class="main-container">
         <div class="form">
             <h2 class="title">
                 Contacto
@@ -61,6 +62,7 @@ if (!isset($_SESSION['user_email'])) {
         
     </div>
 
+    <?php require("./includes/vistas/footer.php"); ?>
 </body>
 
 </html>

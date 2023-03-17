@@ -15,6 +15,7 @@ require 'includes/config.php';
     <link rel='stylesheet' href='css/nav_bar.css'>
     <link rel='stylesheet' href='/css/nav_bar.css'>
     <link rel="stylesheet" href="css/ranking.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -83,6 +84,7 @@ require 'includes/config.php';
             </div>
         </div>
     </div>
+    <?php require("./includes/vistas/footer.php"); ?>
   
 </body>
 
