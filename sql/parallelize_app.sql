@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 16, 2023 at 02:11 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 17-03-2023 a las 16:30:59
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,15 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `parallelize_app`
+-- Base de datos: `parallelize_app`
 --
-CREATE DATABASE IF NOT EXISTS `parallelize_app` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `parallelize_app`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comments`
+-- Estructura de tabla para la tabla `comments`
 --
 
 CREATE TABLE `comments` (
@@ -38,7 +36,7 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `execution_registration`
+-- Estructura de tabla para la tabla `execution_registration`
 --
 
 CREATE TABLE `execution_registration` (
@@ -54,23 +52,33 @@ CREATE TABLE `execution_registration` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kernels`
+-- Estructura de tabla para la tabla `kernels`
 --
 
 CREATE TABLE `kernels` (
   `name` varchar(30) NOT NULL,
-  `run_state` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`run_state`)),
+  `run_state` tinyint(1) NOT NULL,
   `user_email` varchar(60) NOT NULL,
   `results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`results`)),
   `id` int(11) NOT NULL,
   `js_code` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `statistics` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`statistics`))
+  `statistics` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`statistics`)),
+  `total_reward` int(11) NOT NULL,
+  `description` longtext NOT NULL,
+  `progress_map` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `kernels`
+--
+
+INSERT INTO `kernels` (`name`, `run_state`, `user_email`, `results`, `id`, `js_code`, `statistics`, `total_reward`, `description`, `progress_map`) VALUES
+('Matrix Multiplication', 0, 'test@test.es', '{}', 1, '//Generate matrices\r\nconst generateMatrices = () => {\r\n const matrices = [[], []]\r\n for (let y = 0; y < 512; y++){\r\n matrices[0].push([])\r\n matrices[1].push([])\r\n for (let x = 0; x < 512; x++){\r\n matrices[0][y].push(Math.random())\r\n matrices[1][y].push(Math.random())\r\n }\r\n }\r\n return matrices\r\n}\r\n\r\n//Calculate kernels\r\nconst gpu = new GPU();\r\nconst multiplyMatrix = gpu.createKernel(function(a, b) {\r\n let sum = 0;\r\n for (let i = 0; i < 512; i++) {\r\n sum += a[this.thread.y][i] * b[i][this.thread.x];\r\n }\r\n return sum;\r\n}).setOutput([512, 512])\r\n\r\n//Call the kernel\r\nconst matrices = generateMatrices()\r\nconst out = multiplyMatrix(matrices[0], matrices[1])\r\n\r\n//Log the output', '{\"description\":\"Este código utiliza la biblioteca GPU.js para realizar la multiplicación de dos matrices de tamaño 512x512 de forma paralela en la GPU.\", \"price\":\"0,02\"}', 0, '', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `token_transactions`
+-- Estructura de tabla para la tabla `token_transactions`
 --
 
 CREATE TABLE `token_transactions` (
@@ -83,7 +91,7 @@ CREATE TABLE `token_transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `token_transactions`
+-- Volcado de datos para la tabla `token_transactions`
 --
 
 INSERT INTO `token_transactions` (`id`, `transaction_timestamp`, `quantity`, `user_email`, `description`, `balance`) VALUES
@@ -99,7 +107,7 @@ INSERT INTO `token_transactions` (`id`, `transaction_timestamp`, `quantity`, `us
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -114,7 +122,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`, `tokens`, `last_active`, `blocked`, `user_name`) VALUES
@@ -123,82 +131,79 @@ INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`
 ('test@test.es', '$2y$10$CK0lm03ly46CaK8bSNgc9.sGKJ6inhBi8ndaoJm6viKUYKmg8mxMK', 0, -1, 20, '0000-00-00', 0, 'test');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `comments`
+-- Indices de la tabla `comments`
 --
 ALTER TABLE `comments`
   ADD KEY `user_email` (`user_email`);
 
 --
--- Indexes for table `execution_registration`
+-- Indices de la tabla `execution_registration`
 --
 ALTER TABLE `execution_registration`
   ADD PRIMARY KEY (`kernel_id`,`iteration_range_start`);
 
 --
--- Indexes for table `kernels`
+-- Indices de la tabla `kernels`
 --
 ALTER TABLE `kernels`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_email_fk` (`user_email`);
 
 --
--- Indexes for table `token_transactions`
+-- Indices de la tabla `token_transactions`
 --
 ALTER TABLE `token_transactions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `email_fk` (`user_email`);
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `kernels`
+-- AUTO_INCREMENT de la tabla `kernels`
 --
 ALTER TABLE `kernels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `token_transactions`
+-- AUTO_INCREMENT de la tabla `token_transactions`
 --
 ALTER TABLE `token_transactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `comments`
+-- Filtros para la tabla `comments`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `kernels`
+-- Filtros para la tabla `kernels`
 --
 ALTER TABLE `kernels`
   ADD CONSTRAINT `user_email_fk` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`);
 
 --
--- Constraints for table `token_transactions`
+-- Filtros para la tabla `token_transactions`
 --
 ALTER TABLE `token_transactions`
   ADD CONSTRAINT `email_fk` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`);
 COMMIT;
-
-INSERT INTO `kernels` (`name`, `run_state`, `user_email`, `results`, `id`, `js_code`, `statistics`)
-VALUES ('Matrix Multiplication', '{"status":"running"}', 'test@test.es', '{}', 1, '\/\/Generate matrices\r\nconst generateMatrices = () => {\r\n const matrices = [[], []]\r\n for (let y = 0; y < 512; y++){\r\n matrices[0].push([])\r\n matrices[1].push([])\r\n for (let x = 0; x < 512; x++){\r\n matrices[0][y].push(Math.random())\r\n matrices[1][y].push(Math.random())\r\n }\r\n }\r\n return matrices\r\n}\r\n\r\n\/\/Calculate kernels\r\nconst gpu = new GPU();\r\nconst multiplyMatrix = gpu.createKernel(function(a, b) {\r\n let sum = 0;\r\n for (let i = 0; i < 512; i++) {\r\n sum += a[this.thread.y][i] * b[i][this.thread.x];\r\n }\r\n return sum;\r\n}).setOutput([512, 512])\r\n\r\n\/\/Call the kernel\r\nconst matrices = generateMatrices()\r\nconst out = multiplyMatrix(matrices[0], matrices[1])\r\n\r\n\/\/Log the output', '{"description":"Este código utiliza la biblioteca GPU.js para realizar la multiplicación de dos matrices de tamaño 512x512 de forma paralela en la GPU.", "price":"0,02"}');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
