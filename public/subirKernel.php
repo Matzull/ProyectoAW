@@ -29,7 +29,7 @@ if (!isset($_SESSION['user_email'])) {
     <div class="container">
         <div class="form">
             <h2 class="title">
-                Subir kernel
+                Contacto
             </h2>
             <?php
             if (isset($_SESSION["user_email"])) {
