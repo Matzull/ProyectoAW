@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,96 +14,209 @@
         }
     </style>
 </head>
+
 <body>
     <div class="main-container">
-        <h1 >MEMORIA DE LA PRÁCTICA 2</h1>
+        <h1>MEMORIA DE LA PRÁCTICA 2</h1>
         <div class="sections-container">
             <div class="section">
                 <h2 class="title">INTRODUCCIÓN</h2>
-                <p class="t-m-white">En este documento se describe con detalle los scripts y la estructura de la base de datos que conforman este proyecto.</p>
+                <p class="t-m-white">En este documento se describe con detalle los scripts y la estructura de la base de
+                    datos que conforman este proyecto.</p>
                 <h2 class="title">LISTADOS DE SCRIPTS PARA LAS VISTAS</h2>
-                <p class="t-m-white">Se ha decidido utilizar un script PHP para cada vista, dando como resultado la siguiente lista clasificada según la funcionalidad o el tema.</p>
+                <p class="t-m-white">Se ha decidido utilizar un script PHP para cada vista, dando como resultado la
+                    siguiente lista clasificada según la funcionalidad o el tema.</p>
                 <h3>Inicio de sesión y creación de cuenta.</h3>
                 <ul>
-                    <li>login.php: <span class="t-m-white">muestra una vista desde la que el usuario puede iniciar sesión. Acompañando a este script está logout.php que permite al usuario cerrar sesión, no es como tal un script de vista.</span></li>
-                    <li>register.php: <span class="t-m-white">muestra una vista desde la que el usuario puede completar un formulario para crearse una cuenta.</span></li>
+                    <li>login.php: <span class="t-m-white">muestra una vista desde la que el usuario puede iniciar
+                            sesión. Acompañando a este script está logout.php que permite al usuario cerrar sesión, no
+                            es como tal un script de vista.</span></li>
+                    <li>register.php: <span class="t-m-white">muestra una vista desde la que el usuario puede completar
+                            un formulario para crearse una cuenta.</span></li>
                 </ul>
                 <h3>Subida de kernels.</h3>
                 <ul>
-                    <li>your_kernels.php: <span class="t-m-white">muestra una vista exclusiva para usuarios registrados en la que hay información sobre los kernels subidos por él y un botón para añadir uno nuevo.</span></li>
-                    <li>|kernel_form.php|: <span class="t-m-white">muestra un formulario para completar la información se un kernel que se quiere añadir. Está conectado con el script your_kernels.php a través de un botón.</span></li>
+                    <li>your_kernels.php: <span class="t-m-white">muestra una vista exclusiva para usuarios registrados
+                            en la que hay información sobre los kernels subidos por él y un botón para añadir uno
+                            nuevo.</span></li>
+                    <li>|kernel_form.php|: <span class="t-m-white">muestra un formulario para completar la información
+                            se un kernel que se quiere añadir. Está conectado con el script your_kernels.php a través de
+                            un botón.</span></li>
                 </ul>
                 <h3>Ejecución de kernels.</h3>
                 <ul>
-                    <li>kernel_marketplace.php: <span class="t-m-white">muestra una vista de mercado donde el usuario puede ver las ofertas de kernels.</span></li>
-                    <li>kernel_info.php: <span class="t-m-white">muestra toda la información referente a un kernel. Se conecta con kernel_marketplace.php a través de un botón.</span></li>
-                    <li>|kernel_execution.php|: <span class="t-m-white">es una vista auxiliar a kernel_info.php que se muestra cuando el usuario decide ejecutar un kernel.</span></li>
+                    <li>kernel_marketplace.php: <span class="t-m-white">muestra una vista de mercado donde el usuario
+                            puede ver las ofertas de kernels.</span></li>
+                    <li>kernel_info.php: <span class="t-m-white">muestra toda la información referente a un kernel. Se
+                            conecta con kernel_marketplace.php a través de un botón.</span></li>
+                    <li>|kernel_execution.php|: <span class="t-m-white">es una vista auxiliar a kernel_info.php que se
+                            muestra cuando el usuario decide ejecutar un kernel.</span></li>
                 </ul>
                 <h3>Valoraciones.</h3>
                 <ul>
-                    <li>kernel_info.php: <span class="t-m-white">junto a la información mostrada del kernel hay una sección que permite hacer valoraciones.</span></li>
+                    <li>kernel_info.php: <span class="t-m-white">junto a la información mostrada del kernel hay una
+                            sección que permite hacer valoraciones.</span></li>
                 </ul>
                 <h3>Gestión de tokens.</h3>
                 <ul>
-                    <li>wallet.php: <span class="t-m-white">muestra una vista exclusiva para usuarios registrados que da información detallada sobre la cartera de tokens: historial de transacciones, gráficas, ... Junto a la información hay dos secciones con botones para retirar tokens o añadir tokens.</span></li>
-                    <li>token_transaction.php: <span class="t-m-white">muestra una vista auxiliar para completar la transacción deseada (retirar o añadir tokens) a través de un formulario.</span></li>
+                    <li>wallet.php: <span class="t-m-white">muestra una vista exclusiva para usuarios registrados que da
+                            información detallada sobre la cartera de tokens: historial de transacciones, gráficas, ...
+                            Junto a la información hay dos secciones con botones para retirar tokens o añadir
+                            tokens.</span></li>
+                    <li>token_transaction.php: <span class="t-m-white">muestra una vista auxiliar para completar la
+                            transacción deseada (retirar o añadir tokens) a través de un formulario.</span></li>
                 </ul>
                 <h3>Ranking.</h3>
                 <ul>
-                    <li>ranking.php: <span class="t-m-white">muestra una vista que lista a los usuarios con mayor participación dentro de la aplicación. Si estás registrado, se mostrará tu posición, aunque no estés en los primeros</span></li>
+                    <li>ranking.php: <span class="t-m-white">muestra una vista que lista a los usuarios con mayor
+                            participación dentro de la aplicación. Si estás registrado, se mostrará tu posición, aunque
+                            no estés en los primeros</span></li>
                 </ul>
                 <h3>Gestión de administrador.</h3>
                 <ul>
-                    <li>admin_dashboard.php: <span class="t-m-white">muestra una vista exclusiva a usuario con rol de administrador que permite realizar todas las acciones de administrador.</span></li>
+                    <li>admin_dashboard.php: <span class="t-m-white">muestra una vista exclusiva a usuario con rol de
+                            administrador que permite realizar todas las acciones de administrador.</span></li>
                 </ul>
                 <h3>Vistas complementarias.</h3>
                 <ul>
-                    <li>index.php: <span class="t-m-white">muestra la vista principal de la página, lo que primero se muestra a un usuario que no esté registrado.</span></li>
-                    <li>FAQ.php: <span class="t-m-white">muestra una vista para preguntar cuestiones sobre la página a través de un buscador o por una lista de preguntas dividida en secciones.</span></li>
-                    <li>contacto.php: <span class="t-m-white">muestra una vista desde la que se puede rellenar un formulario para sugerencias, quejas o cuestiones. Además, se muestran enlaces a las distintas redes sociales de la empresa.</span></li>
-                    <li>user_dashboard.php: <span class="t-m-white">muestra una vista exclusiva para usuarios registrados. Es la vista que primero se le muestra a un usuario registrado. En ella hay información resumida sobre la cuenta.</span></li>
-                    <li>settings.php: <span class="t-m-white">muestra una vista exclusiva para usuarios registrados donde se puede modificar datos de la cuenta o del perfil público.</span></li>
-                    <li>profile_view.php: <span class="t-m-white">muestra una vista que da detalles públicos sobre un usuario.</span></li>
+                    <li>index.php: <span class="t-m-white">muestra la vista principal de la página, lo que primero se
+                            muestra a un usuario que no esté registrado.</span></li>
+                    <li>FAQ.php: <span class="t-m-white">muestra una vista para preguntar cuestiones sobre la página a
+                            través de un buscador o por una lista de preguntas dividida en secciones.</span></li>
+                    <li>contacto.php: <span class="t-m-white">muestra una vista desde la que se puede rellenar un
+                            formulario para sugerencias, quejas o cuestiones. Además, se muestran enlaces a las
+                            distintas redes sociales de la empresa.</span></li>
+                    <li>user_dashboard.php: <span class="t-m-white">muestra una vista exclusiva para usuarios
+                            registrados. Es la vista que primero se le muestra a un usuario registrado. En ella hay
+                            información resumida sobre la cuenta.</span></li>
+                    <li>settings.php: <span class="t-m-white">muestra una vista exclusiva para usuarios registrados
+                            donde se puede modificar datos de la cuenta o del perfil público.</span></li>
+                    <li>profile_view.php: <span class="t-m-white">muestra una vista que da detalles públicos sobre un
+                            usuario.</span></li>
                 </ul>
                 <h3>Componentes.</h3>
                 <ul>
-                    <li>nav_bar.php: <span class="t-m-white">genera una barra de navegación que permite acceder a las páginas públicas para cualquier usuario: index.php, kernel_marketplace.php, ranking.php, FAQ.php y contacto.php. Además, dependiendo de si se está registrado o no, se mostrarán botones para iniciaar sesión y crear cuenta, o se mostrará el nombre del usuario registrado y un acceso al user_dashboard.php.</span></li>
-                    <li>user_nav_bar.php: <span class="t-m-white">genera una segunda barra de navegación exclusiva para usuarios registrados que permite navegar por las vistas de usuario: user_dashboard.php, wallet.php, your_kernels.php y settings.php. Se muestra sólo en esas vistas.</span></li>
-                    <li>footer.php: <span class="t-m-white">genera un pie de página para dar mayor accesibilidad al usuario.</span></li>
-                    <li>token_big_info.php: <span class="t-m-white">genera una sección que da detalles sobre la cartera de tokens de un usuario.</span></li>
-                    <li>transaction_graph.php: <span class="t-m-white">genera una gráfica que resume las transacciones realizadas por el usuario.</span></li>
-                    <li>transaction_table.php: <span class="t-m-white">genera una tabla con las trasacciones realizadas por el usuario.</span></li>
+                    <li>nav_bar.php: <span class="t-m-white">genera una barra de navegación que permite acceder a las
+                            páginas públicas para cualquier usuario: index.php, kernel_marketplace.php, ranking.php,
+                            FAQ.php y contacto.php. Además, dependiendo de si se está registrado o no, se mostrarán
+                            botones para iniciaar sesión y crear cuenta, o se mostrará el nombre del usuario registrado
+                            y un acceso al user_dashboard.php.</span></li>
+                    <li>user_nav_bar.php: <span class="t-m-white">genera una segunda barra de navegación exclusiva para
+                            usuarios registrados que permite navegar por las vistas de usuario: user_dashboard.php,
+                            wallet.php, your_kernels.php y settings.php. Se muestra sólo en esas vistas.</span></li>
+                    <li>footer.php: <span class="t-m-white">genera un pie de página para dar mayor accesibilidad al
+                            usuario.</span></li>
+                    <li>token_big_info.php: <span class="t-m-white">genera una sección que da detalles sobre la cartera
+                            de tokens de un usuario.</span></li>
+                    <li>transaction_graph.php: <span class="t-m-white">genera una gráfica que resume las transacciones
+                            realizadas por el usuario.</span></li>
+                    <li>transaction_table.php: <span class="t-m-white">genera una tabla con las trasacciones realizadas
+                            por el usuario.</span></li>
                 </ul>
                 <h2 class="title">LISTADOS DE SCRIPTS ADICIONALES</h2>
-                <p class="t-m-white">Como la gestión de la base de datos es compleja, se ha decidido separar la funcionalidad en clases:</p>
+                <p class="t-m-white">Como la gestión de la base de datos es compleja, se ha decidido separar la
+                    funcionalidad en clases:</p>
                 <ul>
-                    <li>Aplicacion.php: <span class="t-m-white">contiene la funcionalidad básica para mantener una única conexión con la base de datos.</span></li>
-                    <li>Usuario.php: <span class="t-m-white">contiene toda la funcionalidad directamente relacionada con el usuario.</span></li>
-                    <li>Kernel.php: <span class="t-m-white">contiene toda la funcionalidad directamente relacionada con los kernels.</span></li>
-                    <li>Comentario.php: <span class="t-m-white">contiene toda la funcionalidad directamente relacionada con los comentarios.</span></li>
-                    <li>Transaction.php: <span class="t-m-white">contiene toda la funcionalidad directamente relacionada con las transacciones (retirada o adición de tokens).</span></li>
+                    <li>Aplicacion.php: <span class="t-m-white">contiene la funcionalidad básica para mantener una única
+                            conexión con la base de datos.</span></li>
+                    <li>Usuario.php: <span class="t-m-white">contiene toda la funcionalidad directamente relacionada con
+                            el usuario.</span></li>
+                    <li>Kernel.php: <span class="t-m-white">contiene toda la funcionalidad directamente relacionada con
+                            los kernels.</span></li>
+                    <li>Comentario.php: <span class="t-m-white">contiene toda la funcionalidad directamente relacionada
+                            con los comentarios.</span></li>
+                    <li>Transaction.php: <span class="t-m-white">contiene toda la funcionalidad directamente relacionada
+                            con las transacciones (retirada o adición de tokens).</span></li>
                 </ul>
-                <p class="t-m-white">Además de estas clases, se ha decido crear una familia de clases que heredan de Formulario.php, lo que permite organizar y modificar fácilmente todos los tipos de formularios utilizados.</p>
+                <p class="t-m-white">Además de estas clases, se ha decido crear una familia de clases que heredan de
+                    Formulario.php, lo que permite organizar y modificar fácilmente todos los tipos de formularios
+                    utilizados.</p>
                 <ul>
-                    <li>Formulario.php: <span class="t-m-white">clase abtracta de la que heredan el resto de formularios. Con tiene la funcionalidad compartida entre todos los formularios.</span></li>
-                    <li>FormularioContacto.php: <span class="t-m-white">permite crear y gestionar un formulario para la página de contacto.</span></li>
-                    <li>FormularioLogin.php: <span class="t-m-white">permite crear y gestionar un formulario para la página de login.</span></li>
-                    <li>FormularioRegister.php: <span class="t-m-white">permite crear y gestionar un formulario para la página de creación de cuenta.</span></li>
-                    <li>FormularioTransaction.php: <span class="t-m-white">permite crear y gestionar un formulario para la página de token_transaction.php.</span></li>
+                    <li>Formulario.php: <span class="t-m-white">clase abtracta de la que heredan el resto de
+                            formularios. Con tiene la funcionalidad compartida entre todos los formularios.</span></li>
+                    <li>FormularioContacto.php: <span class="t-m-white">permite crear y gestionar un formulario para la
+                            página de contacto.</span></li>
+                    <li>FormularioLogin.php: <span class="t-m-white">permite crear y gestionar un formulario para la
+                            página de login.</span></li>
+                    <li>FormularioRegister.php: <span class="t-m-white">permite crear y gestionar un formulario para la
+                            página de creación de cuenta.</span></li>
+                    <li>FormularioTransaction.php: <span class="t-m-white">permite crear y gestionar un formulario para
+                            la página de token_transaction.php.</span></li>
                 </ul>
-                <p class="t-m-white">Por último, también se ha decidio utilizar un script PHP con funcionalidad axuliar.</p>
+                <p class="t-m-white">Por último, también se ha decidio utilizar un script PHP con funcionalidad axuliar.
+                </p>
                 <ul>
-                    <li>config.php: <span class="t-m-white">permite reducir la repetición de código común entre los script y que permite iniciarlizar la sesión y otros valores como constantes.</span></li>
+                    <li>config.php: <span class="t-m-white">permite reducir la repetición de código común entre los
+                            script y que permite iniciarlizar la sesión y otros valores como constantes.</span></li>
                 </ul>
                 <h2 class="title">ESTRUCTURA DE LA BASE DE DATOS</h2>
                 <!-- TODO poner imagen de la estructura -->
-                <!-- <img src="https://picsum.photos/300/300" alt="" height="300"> -->
+                <img src="img\diagramaER.png" alt="diagramaER">
+                <h3>Explicación de las tablas</h3>
+
+                <ul>
+                    <li>users</li>
+                    <li>comments: registra los comentarios enviados por la funcionalidad de contacto
+                        <ul>
+                            <li>
+                                user_email: apunta al usuario autor
+                            </li>
+                            <li>
+                                comment: el contenido del comentario
+                            </li>
+                        </ul>
+                    </li>
+                    <li>kernels: guarda los kernels que han sido subidos por los usuarios y la información acerca de
+                        ellos
+                        <ul>
+                            <li>
+                                name: 
+                            </li>
+                            <li>
+                                run_state: el contenido del comentario
+                            </li>
+                            <li>
+                                user_email: apunta al usuario autor
+                            </li>
+                            <li>
+                                results: el contenido del comentario
+                            </li>
+                            <li>
+                                id: el contenido del comentario
+                            </li>
+                            <li>
+                                js_code: el contenido del comentario
+                            </li>
+                            <li>
+                                statistics: el contenido del comentario
+                            </li>
+                            <li>
+                                total_reward: el contenido del comentario
+                            </li>
+                            <li>
+                                description: el contenido del comentario
+                            </li>
+                            <li>
+                                progress_map: el contenido del comentario
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li>token_transaction</li>
+                    <li>execution_registration</li>
+                </ul>
+
+
                 <p class="t-m-white"></p>
                 <h2 class="title">SOBRE EL PROTOTIPO FUNCIONAL</h2>
                 <h3>Uso.</h3>
-                <p class="t-m-white">El prototipo tiene una carpeta 'sql' que contiene los archivos necesarios para importar la base de datos. Una vez importada se puede probar directamente las funcionalidades con las cuentas ya creadas: jaime2@gmail.com (contraseña: aaaaaaaa) y jaime@gmail.com (contraseña: aaaaaaaa). Tambien es posible crear cuentas de usuario nuevas</p>
+                <p class="t-m-white">El prototipo tiene una carpeta 'sql' que contiene los archivos necesarios para
+                    importar la base de datos. Una vez importada se puede probar directamente las funcionalidades con
+                    las cuentas ya creadas: jaime2@gmail.com (contraseña: aaaaaaaa) y jaime@gmail.com (contraseña:
+                    aaaaaaaa). Tambien es posible crear cuentas de usuario nuevas</p>
             </div>
         </div>
     </div>
 </body>
+
 </html>

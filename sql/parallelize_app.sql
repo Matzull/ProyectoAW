@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2023 at 08:26 PM
+-- Generation Time: Mar 17, 2023 at 08:38 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -32,7 +32,6 @@ USE `parallelize_app`;
 
 CREATE TABLE `comments` (
   `user_email` varchar(60) NOT NULL,
-  `user_name` varchar(20) NOT NULL,
   `comment` varchar(1024) CHARACTER SET utf32 COLLATE utf32_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
