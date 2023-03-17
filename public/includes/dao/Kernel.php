@@ -55,19 +55,22 @@ class Kernel {
         return $ret;
     }
 
-    public static function enviaKernel($kernel_name,$kernel_js_code,$kernel_statistics)
+    public static function enviaKernel($kernel_name,$kernel_js_code,$kernel_description,$kernel_price)
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
 
         $query = sprintf(
-            'INSERT INTO kernel (name, run_state, user_email, results, js_code, statistics) 
-            VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')',
+            'INSERT INTO kernel (name, run_state, user_email, results, js_code, statistics, total_reward, description, progress_map) 
+            VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')',
             $conn->real_escape_string($kernel_name),
-            '{"state":"pending"}',
+            0,
             $conn->real_escape_string($_SESSION["user_email"]),
             '{"results":""}',
             $conn->real_escape_string($kernel_js_code),
-            '{}'
+            '{}',
+            $conn->real_escape_string($kernel_price),
+            $conn->real_escape_string($kernel_description),
+            $conn->real_escape_string(0) //hay que inicializar el progress_map a 0
         );
         if (!$conn->query($query)) {
             echo $query;
