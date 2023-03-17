@@ -170,40 +170,61 @@
                         ellos
                         <ul>
                             <li>
-                                name: 
+                                name: el nombre del kernel
                             </li>
                             <li>
-                                run_state: el contenido del comentario
+                                run_state: determina si el kernel ha terminado del todo
                             </li>
                             <li>
                                 user_email: apunta al usuario autor
                             </li>
                             <li>
-                                results: el contenido del comentario
+                                results: los resultados intermedios de la ejecucion
                             </li>
                             <li>
-                                id: el contenido del comentario
+                                id: identificador unico
                             </li>
                             <li>
-                                js_code: el contenido del comentario
+                                js_code: el codigo a ejecutar
                             </li>
                             <li>
-                                statistics: el contenido del comentario
+                                statistics: datos de la velocidad de cada iteracion
                             </li>
                             <li>
-                                total_reward: el contenido del comentario
+                                total_reward: el valor de recompensa total ofrecida
                             </li>
                             <li>
-                                description: el contenido del comentario
+                                description: un texto que describa el funcionamiento del código
                             </li>
                             <li>
-                                progress_map: el contenido del comentario
+                                progress_map: mapa de bits que determina que iteraciones están ejecutadas y cuales no.
                             </li>
                         </ul>
 
                     </li>
-                    <li>token_transaction</li>
-                    <li>execution_registration</li>
+                    <li>token_transaction: registra cada transacion entrante o saliente de tokens para poder mostrar la
+                        evolución a lo largo del tiempo de tu balance
+                        <ul>
+                            <li>id: identificador unico</li>
+                            <li>transaction_timestamp: segundo en el que se ejecutó la transación</li>
+                            <li>quantity: cantidad de tokens introducida o extraida</li>
+                            <li>user_email: usuario beneficiado</li>
+                            <li>description: breve texto explicando la razón del movimiento</li>
+                            <li>balance: balance resultante</li>
+                        </ul>
+                    </li>
+                    <li>execution_registration: lleva un registro de todas las veces que un usuario ejecuta un kernel
+                        para poder repartit las recompensas, se guarda en el momento que el cliente devuelve los datos
+                        resueltos
+                        <ul>
+                            <li>user_email: el usuario responsable del calculo</li>
+                            <li>end_time: el moemnto cuando se devolvieron los datos</li>
+                            <li>kernel_id: el kernel ejecutado</li>
+                            <li>iteration_range_start: por que iteracion a empezado a ejecutar</li>
+                            <li>iteration_range_end: que iteración ha sido la ultima en ejecutar</li>
+                            <li>reward: cuantos creditos han sido transferidos</li>
+                        </ul>
+                    </li>
                 </ul>
 
 
