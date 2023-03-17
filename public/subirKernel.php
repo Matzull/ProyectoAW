@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_email'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -29,15 +29,12 @@ if (!isset($_SESSION['user_email'])) {
     <div class="container">
         <div class="form">
             <h2 class="title">
-                Contacto
+                Subir kernel
             </h2>
-            <p class="subtitle t-muted">Danos feedback de nuestra web!</p>
             <?php
             if (isset($_SESSION["user_email"])) {
                 $formulario = new \parallelize_namespace\formulario\FormularioSubirKernel();
                 echo $formulario->gestiona();
-                
-
             } else {
                 echo "<p>Necesitas estar registrado para enviarnos información,<a href=\"./register.php\"> registrate aqui</a> o si ya tienes cuenta <a href=\"./login.php\">inicia sesión aqui!</a></p>"; // TODO los enlaces
             }

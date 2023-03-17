@@ -55,6 +55,23 @@ class Kernel {
         return $ret;
     }
 
+    public static function enviaKernel($user_comment)
+    {
+        $conn = Aplicacion::getInstance()->getConexionBd();
+
+        $query = sprintf(
+            'INSERT INTO kernel (user_email, comment ) VALUES (\'%s\', \'%s\')',
+            $conn->real_escape_string($_SESSION["user_email"]),
+            $conn->real_escape_string($user_comment),
+        );
+        if (!$conn->query($query)) {
+            echo $query;
+            echo "Error SQL ({$conn->errno}):  {$conn->error}";
+            return false;
+        }
+        return true;
+    }
+
     public function __construct( $name, $run_state, $user_email, $results, $id, $js_code, $statistics ) {
         $this->name = $name;
         $this->run_state = $run_state;

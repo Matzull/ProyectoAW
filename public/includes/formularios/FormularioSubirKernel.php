@@ -26,9 +26,9 @@ class FormularioSubirKernel extends Formulario
 
     protected function procesaFormulario(&$datos)
     {
-        $user_comment = filter_input(INPUT_POST, 'user_comment', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        if (!$user_comment || empty($user_comment = trim($user_comment))) {
-            $this->errores['user_comment'] = 'El comentario no puede estar vacío.';
+        $input_kernel = filter_input(INPUT_POST, 'input_kernel', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        if (!$input_kernel || empty($input_kernel = trim($input_kernel))) {
+            $this->errores['input_kernel'] = 'El kernel es erroneo.';
         }
 
         if (!isset($_SESSION["user"])) {
@@ -36,7 +36,7 @@ class FormularioSubirKernel extends Formulario
         }
 
         if (count($this->errores) === 0) {
-            \parallelize_namespace\Comentario::enviaComentario($user_comment);
+            \parallelize_namespace\kernel::enviaKernel($input_kernel);
         }
 
     }
