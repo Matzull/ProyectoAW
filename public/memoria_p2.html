@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="main-container">
-        <h1 >MEMORIA DE LA PRÁCTICA 2</h1>
+        <h1>MEMORIA DE LA PRÁCTICA 2</h1>
         <div class="sections-container">
             <div class="section">
                 <h2 class="title">INTRODUCCIÓN</h2>
@@ -30,13 +30,13 @@
                 <h3>Subida de kernels.</h3>
                 <ul>
                     <li>your_kernels.php: <span class="t-m-white">muestra una vista exclusiva para usuarios registrados en la que hay información sobre los kernels subidos por él y un botón para añadir uno nuevo.</span></li>
-                    <li>|kernel_form.php|: <span class="t-m-white">muestra un formulario para completar la información se un kernel que se quiere añadir. Está conectado con el script your_kernels.php a través de un botón.</span></li>
+                    <li>subirKernel.php: <span class="t-m-white">muestra un formulario para completar la información se un kernel que se quiere añadir. Está conectado con el script your_kernels.php a través de un botón.</span></li>
                 </ul>
                 <h3>Ejecución de kernels.</h3>
                 <ul>
                     <li>kernel_marketplace.php: <span class="t-m-white">muestra una vista de mercado donde el usuario puede ver las ofertas de kernels.</span></li>
                     <li>kernel_info.php: <span class="t-m-white">muestra toda la información referente a un kernel. Se conecta con kernel_marketplace.php a través de un botón.</span></li>
-                    <li>|kernel_execution.php|: <span class="t-m-white">es una vista auxiliar a kernel_info.php que se muestra cuando el usuario decide ejecutar un kernel.</span></li>
+                    <li>kernel_execution.php: <span class="t-m-white">es una vista auxiliar a kernel_info.php que se muestra cuando el usuario decide ejecutar un kernel.</span></li>
                 </ul>
                 <h3>Valoraciones.</h3>
                 <ul>
@@ -101,6 +101,8 @@
                 <h2 class="title">SOBRE EL PROTOTIPO FUNCIONAL</h2>
                 <h3>Uso.</h3>
                 <p class="t-m-white">El prototipo tiene una carpeta 'sql' que contiene los archivos necesarios para importar la base de datos. Una vez importada se puede probar directamente las funcionalidades con las cuentas ya creadas: jaime2@gmail.com (contraseña: aaaaaaaa) y jaime@gmail.com (contraseña: aaaaaaaa).</p>
+                <h3>Estructura</h3>
+                <p class="t-m-white">En la raíz de la carpeta donde se almacena el prototipo ('public') se pueden encontrar todos los scripts utilizados para la vistas y una serie de carpetas con recursos que usarán dichos scripts: 'css', 'img', 'includes', 'js' y 'svg'. La carpeta includes contiene los scripts auxiliares y las carpetas 'dao' (clases de la base de datos), 'formularios' y 'vistas' (secciones reutilizables).</p>
             </div>
         </div>
     </div>
