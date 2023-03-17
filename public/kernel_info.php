@@ -17,8 +17,8 @@ require 'includes/config.php';
     <link rel="stylesheet" href="css/user_dashboard.css">
     <link rel="stylesheet" href="css/kernel_info.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link href="../prism.css" rel="stylesheet" />
-    <script src="../prism.js"></script>
+    <link href="includes/modules/prism.css" rel="stylesheet" />
+    <script src="includes/modules/prism.js"></script>
 
 </head>
 
@@ -43,7 +43,7 @@ require 'includes/config.php';
 
         </div>
 
-        <div class="flex-container-info vertical">
+        <div class="flex-container-info vertical block">
             <div class="form">
                 <h2 class="title centered">
                     Informacion Adicional
@@ -52,7 +52,7 @@ require 'includes/config.php';
                 <p>Estado: <?= json_decode($kernel->getrun_state())->status ?></p>
                 <p class="form"><?= json_decode($kernel->getstatistics())->description ?></p>
             </div>
-            <div class="form">
+            <div class="form block">
                 <h2 class="title centered">
                     Accion
                 </h2>
