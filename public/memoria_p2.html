@@ -36,14 +36,21 @@
                 </ul>
                 <h3>Subida de kernels.</h3>
                 <ul>
-                    <li>your_kernels.php: <span class="t-m-white">muestra una vista exclusiva para usuarios registrados en la que hay información sobre los kernels subidos por él y un botón para añadir uno nuevo.</span></li>
-                    <li>|kernel_form.php|: <span class="t-m-white">muestra un formulario para completar la información se un kernel que se quiere añadir. Está conectado con el script your_kernels.php a través de un botón.</span></li>
+                    <li>your_kernels.php: <span class="t-m-white">muestra una vista exclusiva para usuarios registrados
+                            en la que hay información sobre los kernels subidos por él y un botón para añadir uno
+                            nuevo.</span></li>
+                    <li>|kernel_form.php|: <span class="t-m-white">muestra un formulario para completar la información
+                            se un kernel que se quiere añadir. Está conectado con el script your_kernels.php a través de
+                            un botón.</span></li>
                 </ul>
                 <h3>Ejecución de kernels.</h3>
                 <ul>
-                    <li>kernel_marketplace.php: <span class="t-m-white">muestra una vista de mercado donde el usuario puede ver las ofertas de kernels.</span></li>
-                    <li>kernel_info.php: <span class="t-m-white">muestra toda la información referente a un kernel. Se conecta con kernel_marketplace.php a través de un botón.</span></li>
-                    <li>|kernel_execution.php|: <span class="t-m-white">es una vista auxiliar a kernel_info.php que se muestra cuando el usuario decide ejecutar un kernel.</span></li>
+                    <li>kernel_marketplace.php: <span class="t-m-white">muestra una vista de mercado donde el usuario
+                            puede ver las ofertas de kernels.</span></li>
+                    <li>kernel_info.php: <span class="t-m-white">muestra toda la información referente a un kernel. Se
+                            conecta con kernel_marketplace.php a través de un botón.</span></li>
+                    <li>|kernel_execution.php|: <span class="t-m-white">es una vista auxiliar a kernel_info.php que se
+                            muestra cuando el usuario decide ejecutar un kernel.</span></li>
                 </ul>
                 <h3>Valoraciones.</h3>
                 <ul>
@@ -149,7 +156,8 @@
 
                 <ul>
                     <li>users</li>
-                    <li>comments: registra los comentarios enviados por la funcionalidad de contacto
+                    <li>comments: registra los comentarios enviados por la funcionalidad de contacto. La clase
+                        comentario maneja las lecturas y escrituras de esta tabla.
                         <ul>
                             <li>
                                 user_email: apunta al usuario autor
@@ -160,7 +168,7 @@
                         </ul>
                     </li>
                     <li>kernels: guarda los kernels que han sido subidos por los usuarios y la información acerca de
-                        ellos
+                        ellos. La clase Kernel maneja las lecturas y escrituras de esta tabla.
                         <ul>
                             <li>
                                 name: el nombre del kernel
@@ -196,7 +204,8 @@
 
                     </li>
                     <li>token_transaction: registra cada transacion entrante o saliente de tokens para poder mostrar la
-                        evolución a lo largo del tiempo de tu balance
+                        evolución a lo largo del tiempo de tu balance. La clase Transaction maneja las lecturas y
+                        escrituras de esta tabla.
                         <ul>
                             <li>id: identificador unico</li>
                             <li>transaction_timestamp: segundo en el que se ejecutó la transación</li>
@@ -207,15 +216,15 @@
                         </ul>
                     </li>
                     <li>execution_registration: lleva un registro de todas las veces que un usuario ejecuta un kernel
-                        para poder repartit las recompensas, se guarda en el momento que el cliente devuelve los datos
-                        resueltos
+                        para poder repartid las recompensas, se guarda en el momento que el cliente devuelve los datos
+                        resueltos. La funcionalidad no está implementado.
                         <ul>
                             <li>user_email: el usuario responsable del calculo</li>
                             <li>end_time: el moemnto cuando se devolvieron los datos</li>
                             <li>kernel_id: el kernel ejecutado</li>
-                            <li>iteration_range_start: por que iteracion a empezado a ejecutar</li>
-                            <li>iteration_range_end: que iteración ha sido la ultima en ejecutar</li>
-                            <li>reward: cuantos creditos han sido transferidos</li>
+                            <li>iteration_range_start: por que iteración ha empezado a ejecutar</li>
+                            <li>iteration_range_end: que iteración ha sido la última en ejecutar</li>
+                            <li>reward: cuantos créditos han sido transferidos</li>
                         </ul>
                     </li>
                 </ul>
@@ -227,9 +236,13 @@
                 <p class="t-m-white">El prototipo tiene una carpeta 'sql' que contiene los archivos necesarios para
                     importar la base de datos. Una vez importada se puede probar directamente las funcionalidades con
                     las cuentas ya creadas: jaime2@gmail.com (contraseña: aaaaaaaa) y jaime@gmail.com (contraseña:
-                    aaaaaaaa). Tambien es posible crear cuentas de usuario nuevas</p>
+                    aaaaaaaa). También es posible crear cuentas de usuario nuevas</p>
                 <h3>Estructura</h3>
-                <p class="t-m-white">En la raíz de la carpeta donde se almacena el prototipo ('public') se pueden encontrar todos los scripts utilizados para la vistas y una serie de carpetas con recursos que usarán dichos scripts: 'css', 'img', 'includes', 'js' y 'svg'. La carpeta includes contiene los scripts auxiliares y las carpetas 'dao' (clases de la base de datos), 'formularios' y 'vistas' (secciones reutilizables).</p>
+                <p class="t-m-white">En la raíz de la carpeta donde se almacena el prototipo ('public') se pueden
+                    encontrar todos los scripts utilizados para la vistas y una serie de carpetas con recursos que
+                    usarán dichos scripts: 'css', 'img', 'includes', 'js' y 'svg'. La carpeta includes contiene los
+                    scripts auxiliares y las carpetas 'dao' (clases de la base de datos), 'formularios' y 'vistas'
+                    (secciones reutilizables).</p>
             </div>
         </div>
     </div>
