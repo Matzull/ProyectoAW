@@ -4,7 +4,7 @@ namespace parallelize_namespace\formulario;
 
 require_once 'includes/config.php';
 
-class FormularioContacto extends Formulario
+class FormularioSubirKernel extends Formulario
 {
     protected function generaCamposFormulario(&$datos = array())
     {
