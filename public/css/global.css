@@ -6,6 +6,7 @@
     --h-gris: #403f4a;
     --bg: #0C0E14;
     --white: #FFF2F2;
+    --m-white: #c1bbbb;
     --m-text: #9D8A8A;
     --l-gris: #4E4D5A;
     --red: #CE4B4B;
@@ -59,6 +60,10 @@ a:hover {
 
 .t-muted {
     color: var(--m-text);
+}
+
+.t-m-white{
+    color: var(--m-white);
 }
 
 /* TAMAÑOS DE TEXTO CONCRETOS */
