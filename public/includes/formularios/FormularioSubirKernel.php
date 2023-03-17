@@ -63,10 +63,6 @@ class FormularioSubirKernel extends Formulario
             $this->errores['input_price'] = 'Debes poner un precio a tu kernel.';
         }
 
-        if (!isset($_SESSION["user"])) {
-            $this->errores[] = 'Debes estar identificado, con una sesión abierta.';
-        }
-
         if (count($this->errores) === 0) {
             \parallelize_namespace\kernel::enviaKernel($input_kernel);
         }
