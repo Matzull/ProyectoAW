@@ -24,6 +24,7 @@
 
 #nav-bar > .nav-bar-sec{
     display: flex;
+    gap: 15px;
     align-items: center;
 }
 
@@ -44,7 +45,7 @@
 
 #nav-bar > .nav-bar-sec > ul > li{
     display: inline-block;
-    padding: 16px 25px;
+    padding: 16px 20px;
 }
 
 #nav-bar > .nav-bar-sec > ul {
@@ -73,13 +74,15 @@
     box-sizing: border-box;
     overflow: hidden;
 }
-#nav-bar>.nav-bar-sec>ul>li{
+
+#nav-bar > .nav-bar-sec > ul li{
     transition: all 0.3s;
 }
 
 #nav-bar > .nav-bar-sec > ul li:hover{
     background-color: var(--h-gris);
 }
+
 #nav-bar > .nav-bar-sec > ul > li:hover > ul {
     display: block;
 }
@@ -90,6 +93,16 @@
 }
 
 
-#nav-bar > .nav-bar-sec > p:first-child, #nav-bar > .nav-bar-sec > button:first-child{
-    margin-right: 15px;
+
+@media only screen and (max-width: 900px) {
+    #nav-bar > .nav-bar-sec > .links-sec {
+      display: none;
+    }
+
+    #nav-bar > .nav-bar-sec:not(:first-child) {
+        display: none;
+    }
+    #nav-bar {
+        justify-content: center;
+    }
 }

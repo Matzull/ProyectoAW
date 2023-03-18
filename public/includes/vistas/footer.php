@@ -1,4 +1,4 @@
-<footer>
+<footer class="footer">
 	<div class="footer-container">
 
 		<div class="footer-column">
@@ -36,6 +36,6 @@
 
 	</div>
 	<div class="footer-bottom">
-		<p>Derechos de autor © 2023 | Todos los derechos reservados.</p>
+		<p class="no-margin">Derechos de autor © 2023 | Todos los derechos reservados.</p>
 	</div>
 </footer>
