@@ -93,6 +93,24 @@
 }
 
 
+#nav-bar > #nav-bar-hamburger-b {
+    display: none;
+    position: fixed;
+    right: 32px;
+}
+#nav-bar > #nav-bar-dropdown-h {
+    display: none;
+    position: fixed;
+    top: 70px;
+    right: 10px;
+
+    padding: 16px 20px;
+    border: 2px solid var(--h-gris);
+    box-sizing: border-box;
+    background-color: var(--gris);
+    border-radius: 15px;
+}
+
 
 @media only screen and (max-width: 900px) {
     #nav-bar > .nav-bar-sec > .links-sec {
@@ -104,5 +122,14 @@
     }
     #nav-bar {
         justify-content: center;
+    }
+    #nav-bar > #nav-bar-hamburger-b{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #nav-bar > #nav-bar-dropdown-h {
+        width: calc(100% - 20px);
     }
 }
