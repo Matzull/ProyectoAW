@@ -23,8 +23,6 @@ require 'includes/config.php';
 </head>
 
 <body>
-
-
     <?php
     require_once "includes/config.php";
     require_once("./includes/vistas/nav_bar.php");
@@ -37,7 +35,7 @@ require 'includes/config.php';
                 Codigo fuente
             </h2>
             <?php
-                $kernel = \parallelize_namespace\Kernel::buscaKernelPorId(1);
+                $kernel = \parallelize_namespace\Kernel::buscaKernelPorId(3);
                 echo '<pre class="line-numbers"><code class="language-javascript ">' . $kernel->getCode() . '</code></pre>';
             ?>
 
@@ -49,8 +47,8 @@ require 'includes/config.php';
                     Informacion Adicional
                 </h2>
                 <p>Usuario: <?= \parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName() ?></p>
-                <p>Estado: <?= json_decode($kernel->getrun_state())->status ?></p>
-                <p class="form"><?= json_decode($kernel->getstatistics())->description ?></p>
+                <p>Estado: <?= $kernel->getrun_state() == 0 ? "Inactive" : ($kernel->getrun_state() == 1 ? "In progress" : "Finished") ?></p>
+                <p class="form"><?= $kernel->getdescription()?></p>
             </div>
             <div class="form block">
                 <h2 class="title centered">
@@ -63,7 +61,7 @@ require 'includes/config.php';
                         <p>Ejecutar</p>
                     </button>
                     <div class="small-info c-h-b-blue fill-flex">
-                        <p> <?= json_decode($kernel->getstatistics())->price ?> c/seg</p>
+                        <p> <?= $kernel->gettotal_reward()?> c/seg</p>
                     </div>
                 </div>
             </div>

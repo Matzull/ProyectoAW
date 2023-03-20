@@ -20,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `parallelize_app`
 --
-
+CREATE DATABASE IF NOT EXISTS `parallelize_app` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `parallelize_app`;
 -- --------------------------------------------------------
 
 --
@@ -71,9 +72,6 @@ CREATE TABLE `kernels` (
 --
 -- Volcado de datos para la tabla `kernels`
 --
-
-INSERT INTO `kernels` (`name`, `run_state`, `user_email`, `results`, `id`, `js_code`, `statistics`, `total_reward`, `description`, `progress_map`) VALUES
-('Matrix Multiplication', 0, 'test@test.es', '{}', 1, '//Generate matrices\r\nconst generateMatrices = () => {\r\n const matrices = [[], []]\r\n for (let y = 0; y < 512; y++){\r\n matrices[0].push([])\r\n matrices[1].push([])\r\n for (let x = 0; x < 512; x++){\r\n matrices[0][y].push(Math.random())\r\n matrices[1][y].push(Math.random())\r\n }\r\n }\r\n return matrices\r\n}\r\n\r\n//Calculate kernels\r\nconst gpu = new GPU();\r\nconst multiplyMatrix = gpu.createKernel(function(a, b) {\r\n let sum = 0;\r\n for (let i = 0; i < 512; i++) {\r\n sum += a[this.thread.y][i] * b[i][this.thread.x];\r\n }\r\n return sum;\r\n}).setOutput([512, 512])\r\n\r\n//Call the kernel\r\nconst matrices = generateMatrices()\r\nconst out = multiplyMatrix(matrices[0], matrices[1])\r\n\r\n//Log the output', '{\"description\":\"Este código utiliza la biblioteca GPU.js para realizar la multiplicación de dos matrices de tamaño 512x512 de forma paralela en la GPU.\", \"price\":\"0,02\"}', 0, '', '');
 
 -- --------------------------------------------------------
 

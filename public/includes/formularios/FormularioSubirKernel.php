@@ -71,6 +71,6 @@ class FormularioSubirKernel extends Formulario
 
     public function __construct()
     {
-        parent::__construct(0, array('action' => './subirKernel.php', 'method' => 'POST', 'urlRedireccion' => './SalidaExitosaFormulario.php'));
+        parent::__construct(0, array('action' => './subirKernel.php', 'method' => 'POST', 'urlRedireccion' => './kernel_info.php'));
     }
 }
