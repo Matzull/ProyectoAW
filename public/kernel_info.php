@@ -35,7 +35,7 @@ require 'includes/config.php';
                 Codigo fuente
             </h2>
             <?php
-                $kernel = \parallelize_namespace\Kernel::buscaKernelPorId(3);
+                $kernel = \parallelize_namespace\Kernel::buscaKernelPorId(2);
                 echo '<pre class="line-numbers"><code class="language-javascript ">' . $kernel->getCode() . '</code></pre>';
             ?>
 
@@ -44,11 +44,11 @@ require 'includes/config.php';
         <div class="flex-container-info vertical block">
             <div class="form">
                 <h2 class="title centered">
-                    Informacion Adicional
+                    <?=$kernel->getname();?>
                 </h2>
                 <p>Usuario: <?= \parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName() ?></p>
                 <p>Estado: <?= $kernel->getrun_state() == 0 ? "Inactive" : ($kernel->getrun_state() == 1 ? "In progress" : "Finished") ?></p>
-                <p class="form"><?= $kernel->getdescription()?></p>
+                <p class="form"><?= $kernel->getdescription() ?></p>
             </div>
             <div class="form block">
                 <h2 class="title centered">

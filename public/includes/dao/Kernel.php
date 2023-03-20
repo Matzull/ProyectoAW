@@ -97,9 +97,9 @@ class Kernel {
         $this->id = $id;
         $this->js_code = $js_code;
         $this->statistics = $statistics;
-        $this->$description = $description;
-        $this->$total_reward = $total_reward;
-        $this->$progress_map = $progress_map;
+        $this->description = $description;
+        $this->total_reward = $total_reward;
+        $this->progress_map = $progress_map;
     }
 
     public function getname()
