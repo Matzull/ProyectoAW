@@ -17,8 +17,13 @@ require 'includes/config.php';
     <link rel="stylesheet" href="css/user_dashboard.css">
     <link rel="stylesheet" href="css/kernel_info.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link href="includes/modules/prism.css" rel="stylesheet" />
-    <script src="includes/modules/prism.js"></script>
+
+    <link rel="stylesheet" href="includes/modules/codeMirror/codemirror.css">
+    <script src="includes/modules/codeMirror/codemirror.js"></script>
+    <script src="includes/modules/codeMirror/javascript.js"></script>
+    <script src="includes/modules/codeMirror/closebrackets.js"></script>
+    <script src="includes/modules/codeMirror/runmode.js"></script>
+    <link rel="includes/modules/codeMirror/dracula.css">
 
 </head>
 
@@ -36,9 +41,14 @@ require 'includes/config.php';
             </h2>
             <?php
                 $kernel = \parallelize_namespace\Kernel::buscaKernelPorId(2);
-                echo '<pre class="line-numbers"><code class="language-javascript ">' . $kernel->getCode() . '</code></pre>';
             ?>
-
+            <pre id="code"><code></code></pre>
+            <script>
+                var code = '<?php echo htmlentities($kernel->getCode(), ENT_QUOTES)?>';
+                CodeMirror.runMode(code, "text/javascript", document.getElementById('code'), {theme: "dracula"});
+                // editor.setSize(0.7*window.innerWidth, "500");
+            </script>
+            
         </div>
 
         <div class="flex-container-info vertical block">
