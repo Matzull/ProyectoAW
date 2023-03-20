@@ -1,0 +1,9 @@
+
+.section > .section-row {
+    display: flex;
+    gap: 60px;
+}
+
+.section > .section-row > .section-content {
+    min-width: calc(50% - 30px);
+}

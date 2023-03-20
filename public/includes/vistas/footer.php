@@ -1,41 +1,41 @@
-<footer>
+<footer class="footer">
 	<div class="footer-container">
 
 		<div class="footer-column">
-			<h4>Contacto</h4>
-			<dl>
-				<dt><a href="contacto.php"> Danos tu opinión</a></li>
-				<dt><a href="contacto.php"> Redes sociales</a></li>
-			</dl>
+			<h4 class="title">Contacto</h4>
+			<ul>
+				<li><a href="contacto.php"> Danos tu opinión</a></li>
+				<li><a href="contacto.php"> Redes sociales</a></li>
+			</ul>
 		</div>
 
 		<div class="footer-column">
-			<h4>Informacion</h4>
-			<dl>
-				<dt><a href="FAQ.php"> FAQ</a></li>
-			</dl>
+			<h4 class="title">Información</h4>
+			<ul>
+				<li><a href="FAQ.php"> FAQ</a></li>
+			</ul>
 		</div>
 
 		<div class="footer-column">
-			<h3>Mercado de kernels</h3>
-			<dl>
-				<dt><a href="kernel_marketplace.php">kernels mejor pagados</a></li>
-				<dt><a href="kernel_marketplace.php">kernels nuevos</a></li>
-			</dl>
+			<h4 class="title">Mercado de kernels</h3>
+			<ul>
+				<li><a href="kernel_marketplace.php">Kernels mejor pagados</a></li>
+				<li><a href="kernel_marketplace.php">Kernels nuevos</a></li>
+			</ul>
 		</div>
 
 		<div class="footer-column">
-			<h3>Rankings</h3>
-			<dl>
-				<dt><a href="ranking.php">Ranking de kernels</a></li>
-				<dt><a href="ranking.php">Mejores usuarios</a></li>
-			</dl>
+			<h4 class="title">Rankings</h3>
+			<ul>
+				<li><a href="ranking.php">Ránking de kernels</a></li>
+				<li><a href="ranking.php">Mejores usuarios</a></li>
+			</ul>
 		</div>
 
 
 
 	</div>
 	<div class="footer-bottom">
-		<p>Derechos de autor © 2023 | Todos los derechos reservados.</p>
+		<p class="no-margin">Derechos de autor © 2023 | Todos los derechos reservados.</p>
 	</div>
 </footer>

@@ -1,0 +1,9 @@
+@import "global.css";
+
+.button{
+    width: 100%;
+}
+
+#login-button {
+    margin-top: 40px;
+}

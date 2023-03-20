@@ -1,0 +1,6 @@
+
+.sections-container > .section:first-child, .section:nth-child(2){
+    min-width: calc(50% - 5px);
+}
+
+

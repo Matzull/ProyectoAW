@@ -24,6 +24,7 @@
 
 #nav-bar > .nav-bar-sec{
     display: flex;
+    gap: 15px;
     align-items: center;
 }
 
@@ -44,12 +45,12 @@
 
 #nav-bar > .nav-bar-sec > ul > li{
     display: inline-block;
-    padding: 20px 25px;
+    padding: 16px 20px;
 }
 
 #nav-bar > .nav-bar-sec > ul {
     display: flex;
-    align-items: start;
+    align-items: center;
 }
 
 #nav-bar > .nav-bar-sec > ul > li > ul li{
@@ -71,14 +72,17 @@
 
     border: 2px solid var(--h-gris);
     box-sizing: border-box;
+    overflow: hidden;
 }
-#nav-bar>.nav-bar-sec>ul>li{
+
+#nav-bar > .nav-bar-sec > ul li{
     transition: all 0.3s;
 }
 
-#nav-bar>.nav-bar-sec>ul>li:hover{
+#nav-bar > .nav-bar-sec > ul li:hover{
     background-color: var(--h-gris);
 }
+
 #nav-bar > .nav-bar-sec > ul > li:hover > ul {
     display: block;
 }
@@ -89,6 +93,43 @@
 }
 
 
-#nav-bar > .nav-bar-sec > p:first-child, #nav-bar > .nav-bar-sec > button:first-child{
-    margin-right: 15px;
+#nav-bar > #nav-bar-hamburger-b {
+    display: none;
+    position: fixed;
+    right: 32px;
+}
+#nav-bar > #nav-bar-dropdown-h {
+    display: none;
+    position: fixed;
+    top: 70px;
+    right: 10px;
+
+    padding: 16px 20px;
+    border: 2px solid var(--h-gris);
+    box-sizing: border-box;
+    background-color: var(--gris);
+    border-radius: 15px;
+}
+
+
+@media only screen and (max-width: 900px) {
+    #nav-bar > .nav-bar-sec > .links-sec {
+      display: none;
+    }
+
+    #nav-bar > .nav-bar-sec:not(:first-child) {
+        display: none;
+    }
+    #nav-bar {
+        justify-content: center;
+    }
+    #nav-bar > #nav-bar-hamburger-b{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #nav-bar > #nav-bar-dropdown-h {
+        width: calc(100% - 20px);
+    }
 }
