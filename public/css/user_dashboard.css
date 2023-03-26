@@ -4,3 +4,28 @@
 }
 
 
+#last-kernels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#last-kernels > .kernels {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#last-kernels > .kernels > .upload-k {
+    background-color: var(--h-gris);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#last-kernels > .kernels > .upload-k > .k-title {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}

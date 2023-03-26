@@ -37,7 +37,7 @@ if (!isset($_SESSION['user_email'])) {
                             <img class="circle-border" src="https://picsum.photos/100/100" alt="" width="100" height="100">
                                 <div>
                                     <button class="button c-h-blue" >Cambiar Foto</button>
-                                    <button class="button c-h-b-blue" >Cambiar Foto</button>
+                                    <button class="button c-h-b-blue" >Eliminar Foto</button>
                                 </div>
                             </div>
                         </div>

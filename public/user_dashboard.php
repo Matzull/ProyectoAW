@@ -7,6 +7,8 @@ if (!isset($_SESSION['user_email'])) {
     header("location: login.php");
     die();
 }
+
+$user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
 ?>
 
 <!DOCTYPE html>
@@ -38,11 +40,11 @@ if (!isset($_SESSION['user_email'])) {
                     <div class="lateral-info">
                         <h3 class="title">PARTICIPACIÓN</h3>
                         <p class="t-muted">Has subido
-                            <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getKernelCount() ?>
+                            <?= $user->getKernelCount() ?>
                             kernels.
                         </p>
                         <p class="t-muted">Has ejecutado
-                            <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getMsCrunched() ?>
+                            <?= $user->getMsCrunched() ?>
                             ms.
                         </p>
                     </div>
@@ -74,11 +76,30 @@ if (!isset($_SESSION['user_email'])) {
                     <div class="execution-history">
                     </div>
                 </div>
-                <div class="section">
+                <div id="last-kernels" class="section">
                     <h3 class="title">TUS ÚLTIMOS KERNELS</h3>
-                    <div class="last-kernels">
+                    <div class="kernels">
+                        <?php if(sizeof($kernels = $user->getKernels()) > 0): ?>
+                            <!-- <p>Hay al menos un kernel</p> -->
+                            
+                            <?php
+                            $kernels = array_slice($kernels, 0, 3);
+                            foreach ($kernels as $k) {
+                                $kName = $k->getname();
+                                $kRunState = $k->getrun_state();
+                                echo <<<HTML
+                                    <div class="upload-k">
+                                        <h4 class="k-title">$kName</h4>
+                                        <span class="button c-green">$kRunState</span>
+                                    </div>
+                                HTML;
+                            }
+                            ?>
+                        <?php else: ?>
+                            <p>Todavía no has subido kernels.<p>
+                        <?php endif ?>
                     </div>
-                    <button class="button c-h-blue" >Ver más kernels</button>
+                    <button type="button" class="button c-h-blue" onclick="location.href='your_kernels.php'">Ver más kernels</button>
                 </div>
             </div>
         </div>

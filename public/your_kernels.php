@@ -32,7 +32,7 @@ if (!isset($_SESSION['user_email'])) {
             </div>
             <div class="sections-container">
                 <div class="section">
-                    <h3 class="title">HISTORIAL DE EJECUCIONES</h3>
+                    <!-- <h3 class="title">HISTORIAL DE EJECUCIONES</h3> -->
                     <form class="search-form" action="">
                         <div class="main-panel">
                             <input class="input-field" type="text" name="" id="" placeholder="Buscar...">
