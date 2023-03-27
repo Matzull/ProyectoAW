@@ -1,3 +1,4 @@
+<?php require 'includes/config.php'; ?>
 <!-- Define que el documento esta bajo el estandar de HTML 5 -->
 <!DOCTYPE html>
 
