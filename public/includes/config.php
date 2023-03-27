@@ -76,7 +76,7 @@ spl_autoload_register(
     }
 );
 
-if (isset($_ENV["PRODUCTION"])) {
+if (0) {//Cambiar si es el vps o el local
     require "config_vps.php";
 } else {
     require "config_local.php";

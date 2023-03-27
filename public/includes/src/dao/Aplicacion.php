@@ -17,7 +17,9 @@ class Aplicacion
 
     function init($bdDatosConexion)
     {
-        $this->db_connection = new \mysqli(BD_HOST, BD_USER, BD_PASS, BD_NAME);
+        $message = BD_HOST . " " . BD_USER . " " . BD_PASS . " " . BD_NAME;
+        error_log($message, 3, "/var/log/php/errors.log");
+        $this->db_connection = mysqli_connect(BD_HOST, BD_USER, BD_PASS, BD_NAME);
         if ($this->db_connection->connect_errno) {
             echo "Error de conexión a la BD ({$this->db_connection->connect_errno}):  {$this->db_connection->connect_error}";
             exit();
