@@ -27,7 +27,7 @@ $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
 <body>
 
 
-    <?php require("includes/vistas/nav_bar.php") ?>
+    <?php require("includes/src/vistas/nav_bar.php") ?>
     <div class="main-container">
         <div id="user-panel">
             <div class="header">
@@ -50,7 +50,7 @@ $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
                     </div>
                 </div>
                 <div class="section section-h">
-                    <?php require("includes/vistas/token_big_info.php")?>
+                    <?php require("includes/src/vistas/token_big_info.php")?>
                 </div>
                 <div class="section">
                     <h3 class="title">HISTORIAL DE EJECUCIONES</h3>
@@ -104,7 +104,7 @@ $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
             </div>
         </div>
     </div>
-    <?php require("includes/vistas/user_nav_bar.php") ?>
+    <?php require("includes/src/vistas/user_nav_bar.php") ?>
 </body>
 
 </html>

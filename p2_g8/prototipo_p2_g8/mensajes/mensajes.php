@@ -1,7 +1,7 @@
 <?php
 require_once '../includes/config.php';
-require_once '../includes/vistas/helpers/autorizacion.php';;
-require_once '../includes/vistas/helpers/mensajes.php';
+require_once '../includes/src/vistas/helpers/autorizacion.php';;
+require_once '../includes/src/vistas/helpers/mensajes.php';
 
 $idMensaje = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 if (!$idMensaje) {
@@ -38,4 +38,4 @@ if (estaLogado()) {
 	HTML;
 }
 
-require '../includes/vistas/comun/layout.php';
+require '../includes/src/vistas/comun/layout.php';

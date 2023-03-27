@@ -1,7 +1,7 @@
 <?php
 namespace parallelize_namespace;
 
-require 'includes/config.php';
+require 'includes/src/config.php';
 
 define('ERROR_MSG', 'Usuario no encontrado');
 if (!isset($_GET['id']) || 
@@ -25,7 +25,7 @@ else{
     <link rel="stylesheet" href="./css/profile_view.css">
 </head>
 <body>
-    <?php require_once("./includes/vistas/nav_bar.php") ?>
+    <?php require_once("./includes/src/vistas/nav_bar.php") ?>
     <div class="main-container">
     <?php if(strcmp($profile_msg, ERROR_MSG) == 0): ?>
         <h1><?= $profile_msg ?></h1>

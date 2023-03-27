@@ -18,7 +18,7 @@ require 'includes/config.php';
 </head>
 
 <body>
-    <?php require('./includes/vistas/nav_bar.php') ?>
+    <?php require('./includes/src/vistas/nav_bar.php') ?>
     <div class="container">
         <div class="form">
             <h1 class="title-FAQ">
@@ -66,7 +66,7 @@ require 'includes/config.php';
         </div>
     </div>
 
-    <?php require("./includes/vistas/footer.php"); ?>
+    <?php require("./includes/src/vistas/footer.php"); ?>
 </body>
 
 </html>

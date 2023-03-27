@@ -12,7 +12,7 @@
         <p><a href="wallet.php"><img src="svg/Wallet_i.svg" alt="" width="20"> Cartera</a></p>
         <p><a href="your_kernels.php"><img src="svg/Kernels_i.svg" alt="" width="20"> Tus Kernels</a></p>
         <p><a href="settings.php"><img src="svg/Settings_i.svg" alt="" width="20"> Ajustes</a></p>
-        <button class="button c-h-blue" onclick="location.href='includes/controlador/logout_endpoint.php'"><img
+        <button class="button c-h-blue" onclick="location.href='includes/src/controlador/logout_endpoint.php'"><img
                 src="./svg/log-out_i.svg" alt="" width="18">Cerrar Sesión</button>
     </div>
     <div class="fold">

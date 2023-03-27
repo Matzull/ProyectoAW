@@ -23,7 +23,7 @@ if (!isset($_SESSION['user_email'])) {
 </head>
 
 <body>
-    <?php require_once("./includes/vistas/nav_bar.php") ?>
+    <?php require_once("./includes/src/vistas/nav_bar.php") ?>
     <div class="main-container">
         <div id="user-panel">
             <div class="header">
@@ -32,7 +32,7 @@ if (!isset($_SESSION['user_email'])) {
             </div>
             <div class="sections-container">
                 <div class="section section-h">
-                    <?php require("includes/vistas/token_big_info.php") ?>
+                    <?php require("includes/src/vistas/token_big_info.php") ?>
                 </div>
                 <div class="section section-h take-out">
                     <div id="hammer-div">
@@ -44,17 +44,17 @@ if (!isset($_SESSION['user_email'])) {
                 <div class="section">
                     <h3 class="title">GRÁFICA DE MOVIMIENTOS</h3>
                     <?php
-                    require("includes/vistas/transaction_graph.php");
+                    require("includes/src/vistas/transaction_graph.php");
                     ?>
                     <h3 class="title">HISTORIAL DE MOVIMIENTOS</h3>
                     <?php
-                    require("includes/vistas/transaction_table.php");
+                    require("includes/src/vistas/transaction_table.php");
                     ?>
                 </div>
             </div>
         </div>
     </div>
-    <?php require_once("./includes/vistas/user_nav_bar.php") ?>
+    <?php require_once("./includes/src/vistas/user_nav_bar.php") ?>
 
 </body>
 

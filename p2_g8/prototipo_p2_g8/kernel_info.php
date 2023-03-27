@@ -17,8 +17,8 @@ require 'includes/config.php';
     <link rel="stylesheet" href="css/user_dashboard.css">
     <link rel="stylesheet" href="css/kernel_info.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link href="includes/modules/prism.css" rel="stylesheet" />
-    <script src="includes/modules/prism.js"></script>
+    <link href="includes/src/modules/prism.css" rel="stylesheet" />
+    <script src="includes/src/modules/prism.js"></script>
 
 </head>
 
@@ -27,7 +27,7 @@ require 'includes/config.php';
 
     <?php
     require_once "includes/config.php";
-    require_once("./includes/vistas/nav_bar.php");
+    require_once("./includes/src/vistas/nav_bar.php");
 
     //$kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["kernel_id"]);
     ?>
@@ -72,6 +72,6 @@ require 'includes/config.php';
 
 
 </body>
-<?php require_once("./includes/vistas/footer.php");?>
+<?php require_once("./includes/src/vistas/footer.php");?>
 
 </html>

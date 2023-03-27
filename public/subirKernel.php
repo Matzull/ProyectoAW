@@ -1,5 +1,5 @@
 <?php
-require 'includes/config.php';
+require_once "includes/config.php";
 
 if (!isset($_SESSION['user_email'])) {
     header("location: login.php");
@@ -22,8 +22,7 @@ if (!isset($_SESSION['user_email'])) {
 
 <body>
     <?php
-    require_once "includes/config.php";
-    require_once("./includes/vistas/nav_bar.php");
+    require_once("./includes/src/vistas/nav_bar.php");
     ?>
    
     <div class="container">

@@ -19,7 +19,7 @@ require 'includes/config.php';
 </head>
 
 <body>
-    <?php require('./includes/vistas/nav_bar.php') ?>
+    <?php require('./includes/src/vistas/nav_bar.php') ?>
 
     <div class="ranking-container">
         <div class="table-format">
@@ -84,7 +84,7 @@ require 'includes/config.php';
             </div>
         </div>
     </div>
-    <?php require("./includes/vistas/footer.php"); ?>
+    <?php require("./includes/src/vistas/footer.php"); ?>
   
 </body>
 

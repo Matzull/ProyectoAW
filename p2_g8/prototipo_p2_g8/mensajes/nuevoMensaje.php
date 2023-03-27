@@ -1,6 +1,6 @@
 <?php
 require_once '../includes/config.php';
-require_once '../includes/vistas/helpers/autorizacion.php';
+require_once '../includes/src/vistas/helpers/autorizacion.php';
 
 verificaLogado(Utils::buildUrl('tablon.php'));
 

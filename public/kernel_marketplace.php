@@ -17,7 +17,7 @@
 <body>
     <?php
     require_once "includes/config.php";
-    require_once("./includes/vistas/nav_bar.php");
+    require_once("./includes/src/vistas/nav_bar.php");
     ?>
     <div class="main-container">
 
@@ -133,7 +133,7 @@
         
     </div>
     
-    <?php require_once("./includes/vistas/footer.php"); ?>
+    <?php require_once("./includes/src/vistas/footer.php"); ?>
 
 </body>
 

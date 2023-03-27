@@ -18,19 +18,19 @@ require 'includes/config.php';
     <link rel="stylesheet" href="css/kernel_info.css">
     <link rel="stylesheet" href="css/footer.css">
 
-    <link rel="stylesheet" href="includes/modules/codeMirror/codemirror.css">
-    <script src="includes/modules/codeMirror/codemirror.js"></script>
-    <script src="includes/modules/codeMirror/javascript.js"></script>
-    <script src="includes/modules/codeMirror/closebrackets.js"></script>
-    <script src="includes/modules/codeMirror/runmode.js"></script>
-    <link rel="includes/modules/codeMirror/dracula.css">
+    <link rel="stylesheet" href="includes/src/modules/codeMirror/codemirror.css">
+    <script src="includes/src/modules/codeMirror/codemirror.js"></script>
+    <script src="includes/src/modules/codeMirror/javascript.js"></script>
+    <script src="includes/src/modules/codeMirror/closebrackets.js"></script>
+    <script src="includes/src/modules/codeMirror/runmode.js"></script>
+    <link rel="includes/src/modules/codeMirror/dracula.css">
 
 </head>
 
 <body>
     <?php
     require_once "includes/config.php";
-    require_once("./includes/vistas/nav_bar.php");
+    require_once("./includes/src/vistas/nav_bar.php");
 
     //$kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["kernel_id"]);
     ?>
@@ -80,6 +80,6 @@ require 'includes/config.php';
 
 
 </body>
-<?php require_once("./includes/vistas/footer.php");?>
+<?php require_once("./includes/src/vistas/footer.php");?>
 
 </html>

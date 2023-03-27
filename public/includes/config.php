@@ -11,7 +11,7 @@ spl_autoload_register(
         $prefix = 'parallelize_namespace';
 
         // base directory for the namespace prefix
-        $base_dir = __DIR__ . "\\dao\\";
+        $base_dir = __DIR__ . "\\src\\dao\\";
 
         // does the class use the namespace prefix?
         $len = strlen($prefix);
@@ -48,7 +48,7 @@ spl_autoload_register(
         $prefix = 'parallelize_namespace\formulario';
 
         // base directory for the namespace prefix
-        $base_dir = __DIR__ . "\\formularios\\";
+        $base_dir = __DIR__ . "\\src\\formularios\\";
 
         // does the class use the namespace prefix?
         $len = strlen($prefix);

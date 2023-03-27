@@ -19,7 +19,7 @@ require 'includes/config.php';
 </head>
 
 <body>
-    <?php require_once("./includes/vistas/nav_bar.php") ?>
+    <?php require_once("./includes/src/vistas/nav_bar.php") ?>
     <div>
         <div class="diagonal-gradient"></div>
         <div class="aligned">
@@ -30,9 +30,9 @@ require 'includes/config.php';
             <div class="diagonal-gradient"></div>
         </div>
         <div class="diagonal-gradient"></div>
-        <?php require_once("./includes/vistas/nav_bar.php") ?>
+        <?php require_once("./includes/src/vistas/nav_bar.php") ?>
     </div>
-    <?php require("./includes/vistas/footer.php"); ?>
+    <?php require("./includes/src/vistas/footer.php"); ?>
 
 </body>
 
