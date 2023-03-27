@@ -9,8 +9,8 @@
     <title> Crear Cuenta </title>
     <meta name="keywords" content="Crear Cuenta">
     <!-- Link hacia el archivo de estilos css -->
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/register.css">
 </head>
 
 <body>

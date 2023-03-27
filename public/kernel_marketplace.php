@@ -1,4 +1,4 @@
-<!-- wip juan -->
+<?php require_once "includes/config.php";?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,16 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercado</title>
-    <link rel="stylesheet" href="css/nav_bar.css">
-    <link rel="stylesheet" href="css/user_nav_bar.css">
-    <link rel="stylesheet" href="css/user_dashboard.css">
-    <link rel="stylesheet" href="css/marketplace.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_dashboard.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/marketplace.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/footer.css">
 </head>
 
 <body>
     <?php
-    require_once "includes/config.php";
     require_once("./includes/src/vistas/nav_bar.php");
     ?>
     <div class="main-container">

@@ -15,9 +15,9 @@ if (!isset($_SESSION['user_email'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/nav_bar.css">
-    <link rel="stylesheet" href="css/user_nav_bar.css">
-    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/settings.css">
 </head>
 
 <body>
@@ -25,7 +25,7 @@ if (!isset($_SESSION['user_email'])) {
     <div class="main-container">
         <div id="user-panel">
             <div class="header">
-                <img src="./svg/Settings_i.svg" alt="" width="44">
+                <img src="./<?= RUTA_SVG ?>/Settings_i.svg" alt="" width="44">
                 <h2>AJUSTES</h2>
             </div>
             <div class="sections-container">

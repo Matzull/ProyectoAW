@@ -1,7 +1,7 @@
 <?php
 namespace parallelize_namespace;
 
-require 'includes/config.php';
+require_once "includes/config.php";
 ?>
 
 <!DOCTYPE html>
@@ -12,11 +12,11 @@ require 'includes/config.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kernel Info</title>
-    <link rel="stylesheet" href="css/nav_bar.css">
-    <link rel="stylesheet" href="css/user_nav_bar.css">
-    <link rel="stylesheet" href="css/user_dashboard.css">
-    <link rel="stylesheet" href="css/kernel_info.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_dashboard.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/kernel_info.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/footer.css">
     <link href="includes/src/modules/prism.css" rel="stylesheet" />
     <script src="includes/src/modules/prism.js"></script>
 
@@ -26,7 +26,6 @@ require 'includes/config.php';
 
 
     <?php
-    require_once "includes/config.php";
     require_once("./includes/src/vistas/nav_bar.php");
 
     //$kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["kernel_id"]);

@@ -1,7 +1,7 @@
 <div id="nav-bar-container">
     <div id="nav-bar">
         <div class="nav-bar-sec">
-            <a href="index.php"><img src="img/logo-h-dMode.png" alt="" height="30"></a>
+            <a href="index.php"><img src="<?= RUTA_IMGS ?>/logo-h-dMode.png" alt="" height="30"></a>
             <ul>
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="kernel_marketplace.php">Mercado de Kernels</a>

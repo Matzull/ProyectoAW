@@ -20,9 +20,9 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $profile_msg ?></title>
-    <link rel="stylesheet" href="./css/nav_bar.css">
-    <link rel="stylesheet" href="./css/user_nav_bar.css">
-    <link rel="stylesheet" href="./css/profile_view.css">
+    <link rel="stylesheet" href="./<?= RUTA_CSS ?>/nav_bar.css">
+    <link rel="stylesheet" href="./<?= RUTA_CSS ?>/user_nav_bar.css">
+    <link rel="stylesheet" href="./<?= RUTA_CSS ?>/profile_view.css">
 </head>
 <body>
     <?php require_once("./includes/src/vistas/nav_bar.php") ?>
@@ -61,7 +61,7 @@ else{
                             </h3>
                         </div>
                     </div>
-                    <img src="svg/Token_i.svg" alt="" width="100" heigh="100">
+                    <img src="<?= RUTA_SVG ?>/Token_i.svg" alt="" width="100" heigh="100">
                 </div>
             </div>
             <div class="section">
