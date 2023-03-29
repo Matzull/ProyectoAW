@@ -18,7 +18,7 @@
     <?php
 
     $formulario = new \parallelize_namespace\formulario\FormularioLogin();
-    require "includes/src/vistas/logo_nav_bar.php"
+    require "includes/src/vistas/logo_nav_bar.php";
     ?>
     <div class="form-container">
         <div class="form-drawing">
@@ -32,7 +32,7 @@
             <?= $formulario->gestiona() ?>
             <p class="text-sec-button">¿No tienes cuenta?</p>
             <button class="button c-h-b-blue"  id="CrearCuenta" onclick="location.href='register.php'">
-                Registrate</button>
+                Crear Cuenta</button>
         </div>
     </div>
 </body>
