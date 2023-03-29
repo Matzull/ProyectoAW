@@ -80,7 +80,7 @@ require 'includes/config.php';
             </div>
             
             <div class="rank-blob">
-            <!-- dibujo blobs/ Flor -->
+            <img src="svg/blobanimation.svg">
             </div>
         </div>
     </div>

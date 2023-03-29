@@ -22,7 +22,7 @@
     ?>
     <div class="form-container">
         <div class="form-drawing">
-            <!-- dibujo blobs/ Flor -->
+            <img src="svg/blobanimation.svg">
         </div>
         <div class="form">
             <h2 class="title">

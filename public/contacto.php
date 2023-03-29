@@ -56,7 +56,7 @@ if (!isset($_SESSION['user_email'])) {
                     <a href="https://github.com"><img class="small" src="<?= RUTA_IMGS ?>/logo-Github-dMode.png"></a>
             </div>
             <div class="social-drawing">
-                    <!-- dibujo blobs/ Flor -->
+                    <img src="svg/blobanimation.svg">
             </div>
         </div>
         

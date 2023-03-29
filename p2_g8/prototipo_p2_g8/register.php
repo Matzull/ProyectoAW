@@ -31,7 +31,7 @@
                 Iniciar Sesión</button>
         </div>
         <div class="form-drawing">
-            <!-- dibujo blobs/ Flor -->
+            <img src="svg/blobanimation.svg">
         </div>
     </div>
 
