@@ -7,3 +7,28 @@
 .section > .section-row > .section-content {
     min-width: calc(50% - 30px);
 }
+
+.photo-panel {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.photo-panel > .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.field-button {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
