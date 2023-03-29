@@ -20,7 +20,7 @@
     require_once "includes/config.php";
 
     $formulario = new \parallelize_namespace\formulario\FormularioLogin();
-
+    require "includes/src/vistas/logo_nav_bar.php"
     ?>
     <div class="form-container">
         <div class="form-drawing">
@@ -37,7 +37,6 @@
                 Registrate</button>
         </div>
     </div>
-
 </body>
 
 </html>
