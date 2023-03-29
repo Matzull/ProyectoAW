@@ -29,7 +29,6 @@ require 'includes/config.php';
 
 <body>
     <?php
-    require_once "includes/config.php";
     require_once("./includes/src/vistas/nav_bar.php");
 
     //$kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["kernel_id"]);

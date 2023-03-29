@@ -1,3 +1,4 @@
+<?php require_once 'includes/config.php';?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,10 +17,6 @@
 <body>
 
     <?php
-
-    require 'includes/config.php';
-
-
     if (!isset($_SESSION["user_email"])) {
         echo '<p>Debes haberte identificado</p>';
     } else {

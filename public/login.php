@@ -17,8 +17,6 @@
 <body>
     <?php
 
-    require_once "includes/config.php";
-
     $formulario = new \parallelize_namespace\formulario\FormularioLogin();
     require "includes/src/vistas/logo_nav_bar.php"
     ?>
