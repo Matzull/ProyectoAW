@@ -17,6 +17,7 @@
 <body>
     <?php
     $formulario = new \parallelize_namespace\formulario\FormularioRegister();
+    require "includes/src/vistas/logo_nav_bar.php";
     ?>
     <div class="form-container">
         <div class="form">

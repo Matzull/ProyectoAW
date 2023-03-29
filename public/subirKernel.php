@@ -18,6 +18,7 @@ if (!isset($_SESSION['user_email'])) {
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/contacto.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/subirKernel.css">
 </head>
 
 <body>
@@ -25,7 +26,7 @@ if (!isset($_SESSION['user_email'])) {
     require_once("./includes/src/vistas/nav_bar.php");
     ?>
    
-    <div class="container">
+    <div class="main-container">
         <div class="form">
             <h2 class="title">
                 Subir kernel

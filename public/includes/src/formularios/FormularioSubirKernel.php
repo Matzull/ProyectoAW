@@ -36,9 +36,10 @@ class FormularioSubirKernel extends Formulario
         HTML . generarError('input_price', $this->errores) . <<<HTML
       
         <!-- la id de este button era create-acc-button -->
-        <button id = 'send-button' class = 'button c-h-blue' type = 'submit' title = 'Aceptar' name = 'Aceptar'>Aceptar</button>
-        <!-- este botón ni existía es el de clear??(es el de LIMPIAR DE FIGMA)-->
-        <button id = 'clear-button' class = 'button c-h-blue' type = 'submit' title = 'Clear' name = 'Clear'>Limpiar</button>
+        <div class="form-buttons">
+            <button id = 'send-button' class = 'button c-h-blue' type = 'submit' title = 'Aceptar' name = 'Aceptar'>Aceptar</button>
+            <button id = 'clear-button' class = 'button c-h-blue' type = 'reset' title = 'Clear' name = 'Clear'>Limpiar</button>
+        </div>
         HTML;
     } // TODO boton borrar desde la linea 29 hasta la 34 y el codigo posterior de contacto aparece como output???
 
