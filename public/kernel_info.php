@@ -18,12 +18,11 @@ require 'includes/config.php';
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/kernel_info.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/footer.css">
 
-    <link rel="stylesheet" href="includes/src/modules/codeMirror/codemirror.css">
-    <script src="includes/src/modules/codeMirror/codemirror.js"></script>
-    <script src="includes/src/modules/codeMirror/javascript.js"></script>
-    <script src="includes/src/modules/codeMirror/closebrackets.js"></script>
-    <script src="includes/src/modules/codeMirror/runmode.js"></script>
-    <link rel="includes/src/modules/codeMirror/dracula.css">
+    <link rel="stylesheet" href="js/codeMirror/codemirror.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/theme/dracula.min.css">
+
+    <script type="text/javascript" src="js/codeMirror/codemirror.js"></script>
+    <script type="text/javascript" src="js/codeMirror/javascript.js"></script>    
 
 </head>
 
@@ -31,7 +30,6 @@ require 'includes/config.php';
     <?php
     require_once("./includes/src/vistas/nav_bar.php");
 
-    //$kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["kernel_id"]);
     ?>
     <div class="flex-container-info horizontal">
         <div class="codeBlock">
@@ -39,15 +37,23 @@ require 'includes/config.php';
                 Codigo fuente
             </h2>
             <?php
-                $kernel = \parallelize_namespace\Kernel::buscaKernelPorId(2);
+                $kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["kernel_id"]);
             ?>
-            <pre id="code"><code></code></pre>
-            <script>
-                var code = '<?php echo htmlentities($kernel->getCode(), ENT_QUOTES)?>';
-                CodeMirror.runMode(code, "text/javascript", document.getElementById('code'), {theme: "dracula"});
-                // editor.setSize(0.7*window.innerWidth, "500");
-            </script>
-            
+            <pre id="sourceCode"></pre>
+            <script type="text/javascript">
+                var code = "<?php echo addcslashes(html_entity_decode($kernel->getCode(), ENT_QUOTES ), "\n")?>";
+                var editor = CodeMirror(document.getElementById("sourceCode"), {
+                    lineNumbers: true,
+                    mode: "javascript",
+                    theme: "dracula",
+                    indentUnit: 10,
+                    readOnly: true,
+                    lineWrapping: true,
+                    pasteAsPlainText: true
+                });
+                editor.setValue(code);
+                editor.setSize("100%", "100%");
+            </script>  
         </div>
 
         <div class="flex-container-info vertical block">

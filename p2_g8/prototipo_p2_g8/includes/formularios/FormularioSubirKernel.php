@@ -22,7 +22,12 @@ class FormularioSubirKernel extends Formulario
         
         <label for = 'input_kernel'>Introducir kernel</label>
         <textarea id = 'input_kernel' class = 'input-field' name = 'input_kernel' placeholder = 'Introduce tu kernel' value = "$val_input_kernel" ></textarea>
+          
         HTML . generarError('input_kernel', $this->errores) . <<<HTML
+
+
+
+
 
         <label for = 'kernel_description'>Descripcion del kernel</label>
         <textarea id = 'kernel_description' class = 'input-field' name = 'kernel_description' placeholder = 'Pon una breve descripcion del funcionamiento del kernel' value = "$val_kernel_description" ></textarea>

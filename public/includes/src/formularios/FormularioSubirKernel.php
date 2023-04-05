@@ -3,7 +3,14 @@
 namespace parallelize_namespace\formulario;
 
 require_once 'includes/config.php';
+?>
+    <link rel="stylesheet" href="js/codeMirror/codemirror.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/theme/dracula.min.css">
 
+    <script type="text/javascript" src="js/codeMirror/codemirror.js"></script>
+    <script type="text/javascript" src="js/codeMirror/javascript.js"></script>
+
+<?php
 class FormularioSubirKernel extends Formulario
 {
     protected function generaCamposFormulario(&$datos = array())
@@ -22,9 +29,17 @@ class FormularioSubirKernel extends Formulario
         
         <label for = 'input_kernel'>Introducir kernel</label>
         <textarea id = 'input_kernel' class = 'input-field' name = 'input_kernel' placeholder = 'Introduce tu kernel' value = "$val_input_kernel" ></textarea>
+        <script type="text/javascript">
+            var editor = CodeMirror.fromTextArea(document.getElementById("input_kernel"), {
+                lineNumbers: true,
+                mode: "javascript",
+                theme: "dracula",
+                indentUnit: 10,
+                lineWrapping: true
+            });
+            editor.setSize("100%", "100%");
+        </script> 
         HTML . generarError('input_kernel', $this->errores) . <<<HTML
-
-        //Codemirror
 
         <label for = 'kernel_description'>Descripcion del kernel</label>
         <textarea id = 'kernel_description' class = 'input-field' name = 'kernel_description' placeholder = 'Pon una breve descripcion del funcionamiento del kernel' value = "$val_kernel_description" ></textarea>
