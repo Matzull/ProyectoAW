@@ -37,10 +37,12 @@ require 'includes/config.php';
                 Codigo fuente
             </h2>
             <?php
-                $kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["kernel_id"]);
+                $kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["id"]);
             ?>
-            <pre id="sourceCode"></pre>
-            <script type="text/javascript">
+            <pre id="sourceCode">
+                <?= $kernel->getCode()?>
+            </pre>
+            <!-- <script type="text/javascript">
                 var code = "<?php echo addcslashes(html_entity_decode($kernel->getCode(), ENT_QUOTES ), "\n")?>";
                 var editor = CodeMirror(document.getElementById("sourceCode"), {
                     lineNumbers: true,
@@ -53,7 +55,7 @@ require 'includes/config.php';
                 });
                 editor.setValue(code);
                 editor.setSize("100%", "100%");
-            </script>  
+            </script>   -->
         </div>
 
         <div class="flex-container-info vertical block">
@@ -62,7 +64,7 @@ require 'includes/config.php';
                     <?=$kernel->getname();?>
                 </h2>
                 <p>Usuario: <?= \parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName() ?></p>
-                <p>Estado: <?= $kernel->getrun_state() == 0 ? "Inactive" : ($kernel->getrun_state() == 1 ? "In progress" : "Finished") ?></p>
+                <p>Estado: <?= $kernel->getis_finished() == 0 ? "Inactive" : ($kernel->getis_finished() == 1 ? "In progress" : "Finished") ?></p>
                 <p class="form"><?= $kernel->getdescription() ?></p>
             </div>
             <div class="form block">

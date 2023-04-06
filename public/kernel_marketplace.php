@@ -1,4 +1,4 @@
-<?php require_once "includes/config.php";?>
+<?php require_once "includes/config.php"; ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -17,6 +17,26 @@
 <body>
     <?php
     require_once("./includes/src/vistas/nav_bar.php");
+
+    function mostrar_kernel($kernel)
+    {
+        ?>
+        <div id="kernel<?= $i ?>" class="form form-extra-carrousel">
+            <h3 class="title">
+                <?= $kernel->getname() ?>
+            </h3>
+            <p class="subtitle t-muted">
+                <?= $kernel->getdescription() ?>
+            </p>
+            <!-- creamos los botones para redirigir a los links -->
+            <button class="small-button c-h-b-blue">
+                <?= $kernel->getreward_per_line() ?> tk/line
+            </button>
+            <button class="small-button c-green" onclick="location.href='kernel_info.php?id=<?= $kernel->getid() ?>'">Mas
+                info</button>
+        </div>
+        <?php
+    }
     ?>
     <div class="main-container">
 
@@ -26,112 +46,45 @@
         <h2 class="title">
             Mejor pagados
         </h2>
-            <!-- TODO Seguramente podamos hacer una querie a la DB y hacer un for loop tanto para mostrar la lista de los kernels mejor pagados como para los mas recientes (Campos c/seg y fecha de subida requeridos en la DB)-->
-            <!-- <p class="subtitle t-muted">Danos feedback de nuestra web!</p> -->
+        <!-- TODO Seguramente podamos hacer una querie a la DB y hacer un for loop tanto para mostrar la lista de los kernels mejor pagados como para los mas recientes (Campos c/seg y fecha de subida requeridos en la DB)-->
+        <!-- <p class="subtitle t-muted">Danos feedback de nuestra web!</p> -->
         <div class="marketplace-kernels">
-            <div id="kernel1" class="form form-extra-carrousel">
-                <h3 class="title">
-                    Federico García
-                </h3>
-                <p class="subtitle t-muted">Mi kernel hace backtracking complicado</p>
-                <!-- creamos los botones para redirigir a los links -->
-                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
-            </div>
 
-            <div id="kernel1" class="form form-extra-carrousel">
-                <h3 class="title">
-                    Marcos Alonso
-                </h3>
-                <p class="subtitle t-muted">Mi kernel es para un trabajo de IS2</p>
-                <!-- creamos los botones para redirigir a los links -->
-                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
-            </div>
+            <?php
 
-            <div id="kernel1" class="form form-extra-carrousel">
-                <h3 class="title">
-                    Juan Trillo
-                </h3>
-                <p class="subtitle t-muted">Necesito bastante ayuda/p>
-                <!-- creamos los botones para redirigir a los links -->
-                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
-            </div>
+            $lista_de_kernels = \parallelize_namespace\Kernel::buscaKernelsMejorPagados(10);
+            foreach ($lista_de_kernels as $i => $kernel) {
+                mostrar_kernel($kernel);
+            }
+            if (sizeof($lista_de_kernels) == 0) {
+                echo "no hay kernels en esta categoría";
+            }
 
-            <div id="kernel1" class="form form-extra-carrousel">
-                <h3 class="title">
-                    Jaime Vázquez
-                </h3>
-                <p class="subtitle t-muted">Algoritmo que estudia una gran poblacion</p>
-                <!-- creamos los botones para redirigir a los links -->
-                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
-            </div>
+            ?>
 
-            <div id="kernel1" class="form form-extra-carrousel">
-                <h3 class="title">
-                    Jaime Gonzalez
-                </h3>
-                <p class="subtitle t-muted">No sé que poner como descripción</p>
-                <!-- creamos los botones para redirigir a los links -->
-                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
-            </div>
 
-            <div id="kernel2" class="form form-extra-carrousel">
-                <h3 class="title">
-                    Ambrosio García
-                </h3>
-                <p class="subtitle t-muted">Mi kernel requiere de mucha mano de obra</p>
-                <!-- creamos los botones para redirigir a los links -->
-                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
-            </div>
-
-            <div id="kernel3" class="form form-extra-carrousel">
-                <h3 class="title">
-                    Rosa Mosqueta
-                </h3>
-                <p class="subtitle t-muted">Proyecto muy ambicioso</p>
-                <!-- creamos los botones para redirigir a los links -->
-                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
-            </div>
-            
         </div>
 
         <h2 class="title">
             Nuevos
         </h2>
         <div class="marketplace-kernels">
-            <div id="kernel3" class="form form-extra-carrousel">
-                <h3 class="title">
-                    Manola Fuertes
-                </h3>
-                <p class="subtitle t-muted">Mi ordenador es una patata ayudadme!</p>
+            <?php
 
-                <!-- Creamos redes sociales? -->
-                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
+            $lista_de_kernels = \parallelize_namespace\Kernel::buscaKernelsMasNuevos(10);
+            foreach ($lista_de_kernels as $i => $kernel) {
+                mostrar_kernel($kernel);
+            }
+            if (sizeof($lista_de_kernels) == 0) {
+                echo "no hay kernels en esta categoría";
+            }
 
-            </div>
+            ?>
 
-            <div id="kernel4" class="form form-extra-carrousel">
-                <h3 class="title">
-                    Lucia Molinos
-                </h3>
-                <p class="subtitle t-muted">No es muy dificil!</p>
-
-                <!-- Creamos redes sociales? -->
-                <button  class="small-button c-h-b-blue" onclick="location.href='kernel_info.php'">0,06 c/seg</button>
-                <button  class="small-button c-green" onclick="location.href='kernel_info.php'">Ejecutar</button>
-
-            </div>
         </div>
-        
+
     </div>
-    
+
     <?php require_once("./includes/src/vistas/footer.php"); ?>
 
 </body>

@@ -1,85 +1,144 @@
 <?php
 namespace parallelize_namespace;
 
-class Kernel {
+class Kernel
+{
 
-    private $name; 
-    private $run_state; 
+    private $name;
+    private $is_finished;
     private $user_email;
     private $results;
     private $id;
     private $js_code;
-    private $statistics;
     private $description;
     private $total_reward;
     private $progress_map;
+    private $reward_per_line;
 
-    public static function buscaKernelDeUsuario(Usuario $user) { // User $user
+    public static function buscaKernelDeUsuario(Usuario $user)
+    { // User $user
         $conn = Aplicacion::getInstance()->getConexionBd();
 
-        $query = sprintf( "SELECT * FROM kernels K WHERE K.user_email = '%s'", $conn->real_escape_string( $user->getEmail() ) );
-        $rs = $conn->query( $query );
+        $query = sprintf("SELECT * FROM kernels K WHERE K.user_email = '%s'", $conn->real_escape_string($user->getEmail()));
+        $rs = $conn->query($query);
 
-        $raw_kernels = $rs->fetch_all( MYSQLI_ASSOC );
+        $raw_kernels = $rs->fetch_all(MYSQLI_ASSOC);
         $ret = [];
-        foreach ( $raw_kernels as $k ) {
+        foreach ($raw_kernels as $rk) {
             $ret[] = new Kernel(
-                $k[ 'name' ],
-                $k[ 'run_state' ],
-                $k[ 'user_email' ],
-                $k[ 'results' ],
-                $k[ 'id' ],
-                $k[ 'js_code' ],
-                $k[ 'statistics' ],
-                $k[ 'description' ],
-                $k[ 'total_reward' ],
-                $k[ 'progress_map' ]
+                $rk['name'],
+                $rk['is_finished'],
+                $rk['user_email'],
+                $rk['results'],
+                $rk['id'],
+                $rk['js_code'],
+                $rk['description'],
+                $rk['total_reward'],
+                $rk['progress_map'],
+                $rk['reward_per_line']
             );
         }
         return $ret;
     }
 
-    public static function buscaKernelPorId(string $id) { // Id
-        $conn = Aplicacion::getInstance()->getConexionBd();
-        $ret = NUll;
-        $query = sprintf( "SELECT * FROM kernels K WHERE K.id = '%s'", $conn->real_escape_string($id));
-        $rs = $conn->query( $query );
-        if (mysqli_num_rows($rs))
-        {
-            $rk = $rs->fetch_assoc();
-            $ret = new Kernel(
-                $rk[ 'name' ],
-                $rk[ 'run_state' ],
-                $rk[ 'user_email' ],
-                $rk[ 'results' ],
-                $rk[ 'id' ],
-                $rk[ 'js_code' ],
-                $rk[ 'statistics' ],
-                $rk[ 'description' ],
-                $rk[ 'total_reward' ],
-                $rk[ 'progress_map' ]
-            );
-        }
-        
-        return $ret;
-    }
-
-    public static function enviaKernel($kernel_name,$kernel_js_code,$kernel_description,$kernel_price)
+    public static function buscaKernelsMejorPagados(int $count)
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
 
+        $query = sprintf("SELECT * FROM kernels K ORDER BY reward_per_line limit %d", $conn->real_escape_string($count));
+        $rs = $conn->query($query);
+
+        $raw_kernels = $rs->fetch_all(MYSQLI_ASSOC);
+        $ret = [];
+        foreach ($raw_kernels as $rk) {
+            $ret[] = new Kernel(
+                $rk['name'],
+                $rk['is_finished'],
+                $rk['user_email'],
+                $rk['results'],
+                $rk['id'],
+                $rk['js_code'],
+                $rk['description'],
+                $rk['total_reward'],
+                $rk['progress_map'],
+                $rk['reward_per_line']
+            );
+        }
+        return $ret;
+    }
+
+    public static function buscaKernelsMasNuevos(int $count)
+    {
+        $conn = Aplicacion::getInstance()->getConexionBd();
+
+        $query = sprintf("SELECT * FROM kernels K ORDER BY upload_time limit %d", $conn->real_escape_string($count));
+        $rs = $conn->query($query);
+
+        $raw_kernels = $rs->fetch_all(MYSQLI_ASSOC);
+        $ret = [];
+        foreach ($raw_kernels as $rk) {
+            $ret[] = new Kernel(
+                $rk['name'],
+                $rk['is_finished'],
+                $rk['user_email'],
+                $rk['results'],
+                $rk['id'],
+                $rk['js_code'],
+                $rk['description'],
+                $rk['total_reward'],
+                $rk['progress_map'],
+                $rk['reward_per_line']
+            );
+        }
+        return $ret;
+    }
+
+    public static function buscaKernelPorId(string $id)
+    { // Id
+        $conn = Aplicacion::getInstance()->getConexionBd();
+        $ret = NUll;
+        $query = sprintf("SELECT * FROM kernels K WHERE K.id = '%s'", $conn->real_escape_string($id));
+        $rs = $conn->query($query);
+        if (mysqli_num_rows($rs)) {
+            $rk = $rs->fetch_assoc();
+            $ret = new Kernel(
+                $rk['name'],
+                $rk['is_finished'],
+                $rk['user_email'],
+                $rk['results'],
+                $rk['id'],
+                $rk['js_code'],
+                $rk['description'],
+                $rk['total_reward'],
+                $rk['progress_map'],
+                $rk['reward_per_line']
+            );
+        }
+
+        return $ret;
+    }
+
+    public static function enviaKernel($kernel_name, $kernel_js_code, $kernel_description, $kernel_price, $iteration_count)
+    {
+        $conn = Aplicacion::getInstance()->getConexionBd();
+
+        $lines_arr = $lines_arr = preg_split('/\n|\r/', $kernel_js_code);
+        $code_lines = count($lines_arr);
+
         $query = sprintf(
-            'INSERT INTO kernels (name, run_state, user_email, results, js_code, statistics, total_reward, description, progress_map) 
-            VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')',
+            'INSERT INTO kernels (name, is_finished, user_email, results, js_code, total_reward, description, progress_map, reward_per_line, iteration_count) 
+            VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\',\'%s\')',
             $conn->real_escape_string($kernel_name),
             0,
             $conn->real_escape_string($_SESSION["user_email"]),
             '{"results":""}',
             $conn->real_escape_string($kernel_js_code),
-            '{}',
             $conn->real_escape_string($kernel_price),
             $conn->real_escape_string($kernel_description),
-            $conn->real_escape_string(0) //hay que inicializar el progress_map a 0
+            str_repeat("0", ceil($iteration_count / 8)), //hay que inicializar el progress_map a 0
+            $conn->real_escape_string($kernel_price / $iteration_count / $code_lines),
+            $conn->real_escape_string($iteration_count),
+
         );
         if (!$conn->query($query)) {
             echo $query;
@@ -89,26 +148,27 @@ class Kernel {
         return true;
     }
 
-    public function __construct( $name, $run_state, $user_email, $results, $id, $js_code, $statistics, $description, $total_reward, $progress_map ) {
+    public function __construct($name, $is_finished, $user_email, $results, $id, $js_code, $description, $total_reward, $progress_map, $getreward_per_line)
+    {
         $this->name = $name;
-        $this->run_state = $run_state;
+        $this->is_finished = $is_finished;
         $this->user_email = $user_email;
         $this->results = $results;
         $this->id = $id;
         $this->js_code = $js_code;
-        $this->statistics = $statistics;
         $this->description = $description;
         $this->total_reward = $total_reward;
         $this->progress_map = $progress_map;
+        $this->reward_per_line = $getreward_per_line;
     }
 
     public function getname()
     {
         return $this->name;
     }
-    public function getrun_state()
+    public function getis_finished()
     {
-        return $this->run_state;
+        return $this->is_finished;
     }
     public function getuser_email()
     {
@@ -122,10 +182,6 @@ class Kernel {
     {
         return $this->js_code;
     }
-    public function getstatistics()
-    {
-        return $this->statistics;
-    }
     public function getdescription()
     {
         return $this->description;
@@ -137,6 +193,17 @@ class Kernel {
     public function getprogress_map()
     {
         return $this->progress_map;
+    }
+
+    public function getreward_per_line()
+    {
+        return $this->reward_per_line;
+
+    }
+    public function getid()
+    {
+        return $this->id;
+
     }
 
 

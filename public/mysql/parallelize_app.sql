@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2023 at 08:38 PM
+-- Generation Time: Apr 06, 2023 at 05:09 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -35,6 +35,14 @@ CREATE TABLE `comments` (
   `comment` varchar(1024) CHARACTER SET utf32 COLLATE utf32_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`user_email`, `comment`) VALUES
+('diego@email.com', 'buah, una web genial, 10/10'),
+('diego@email.com', 'pues ya no me gusta, todo mal');
+
 -- --------------------------------------------------------
 
 --
@@ -48,7 +56,7 @@ CREATE TABLE `execution_registration` (
   `results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`results`)),
   `iteration_range_start` int(11) NOT NULL,
   `iteration_range_end` int(11) NOT NULL,
-  `reward` int(11) NOT NULL
+  `reward` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -59,20 +67,25 @@ CREATE TABLE `execution_registration` (
 
 CREATE TABLE `kernels` (
   `name` varchar(30) NOT NULL,
-  `run_state` tinyint(1) NOT NULL,
+  `is_finished` tinyint(1) NOT NULL,
   `user_email` varchar(60) NOT NULL,
   `results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`results`)),
   `id` int(11) NOT NULL,
   `js_code` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `statistics` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`statistics`)),
-  `total_reward` int(11) NOT NULL,
+  `reward_per_line` double NOT NULL,
+  `total_reward` double NOT NULL,
   `description` longtext NOT NULL,
-  `progress_map` longblob NOT NULL
+  `progress_map` longblob NOT NULL,
+  `upload_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `iteration_count` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `kernels`
 --
+
+INSERT INTO `kernels` (`name`, `is_finished`, `user_email`, `results`, `id`, `js_code`, `reward_per_line`, `total_reward`, `description`, `progress_map`, `upload_time`, `iteration_count`) VALUES
+('deveres de FAL', 0, 'jaime@email.com', '{\"results\":\"\"}', 2, 'const very_hard = require(&quot;complicated&quot;) \r\nfunction stuf(){\r\n	going = on(&quot;here&quot;)\r\n}', 0.71428571428571, 100, 'buah, pues si yo te contara lo que hace, te quedabas cuajao', 0x303030, '2023-04-06 14:53:50', 20);
 
 -- --------------------------------------------------------
 
@@ -86,22 +99,8 @@ CREATE TABLE `token_transactions` (
   `quantity` double NOT NULL,
   `user_email` varchar(60) NOT NULL,
   `description` varchar(60) NOT NULL DEFAULT 'sin descripcion',
-  `balance` int(11) NOT NULL
+  `balance` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `token_transactions`
---
-
-INSERT INTO `token_transactions` (`id`, `transaction_timestamp`, `quantity`, `user_email`, `description`, `balance`) VALUES
-(15, '2023-03-16 18:28:50', 1, 'test@test.es', 'movimiento bancario', 1),
-(16, '2023-03-16 18:28:53', 2, 'test@test.es', 'movimiento bancario', 3),
-(17, '2023-03-16 18:28:56', 3, 'test@test.es', 'movimiento bancario', 6),
-(18, '2023-03-16 18:28:59', 4, 'test@test.es', 'movimiento bancario', 10),
-(19, '2023-03-16 18:29:02', 1, 'test@test.es', 'movimiento bancario', 11),
-(20, '2023-03-16 18:29:04', 2, 'test@test.es', 'movimiento bancario', 13),
-(21, '2023-03-16 18:29:07', 3, 'test@test.es', 'movimiento bancario', 16),
-(22, '2023-03-16 18:29:09', 4, 'test@test.es', 'movimiento bancario', 20);
 
 -- --------------------------------------------------------
 
@@ -125,9 +124,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`, `tokens`, `last_active`, `blocked`, `user_name`) VALUES
-('jaime2@gmail.com', '$2y$10$zyPdsVEjJ7uK.VUq7.t8YeS8PkbeqNthkH5jgJu6dor/o46baf1ru', 0, -1, 0, '2023-02-27', 0, 'jaime'),
-('jaime@gmail.com', '$2y$10$8eOlgWYRiwIoQsQhoIJb5uMqzFEw2BqCH3pBgtkAW/E0.bp/ohhz2', 0, -1, 0, '2023-02-27', 0, 'jaime'),
-('test@test.es', '$2y$10$CK0lm03ly46CaK8bSNgc9.sGKJ6inhBi8ndaoJm6viKUYKmg8mxMK', 0, -1, 20, '0000-00-00', 0, 'test');
+('diego@email.com', '$2y$10$3TxN6531suwgIbfla70l3ujKv5XAgCSuNkBq7fJDGoecWGClaL4ZW', 0, -1, 0, '2023-04-06', 0, 'diego'),
+('jaime@email.com', '$2y$10$rlrTSZHZoeyQrnQuxfrWSeoBaV8jmvcKvq4bxuLKD0xCJ/NKRSHjC', 0, -1, 0, '2023-04-06', 0, 'jaime'),
+('juan@email.com', '$2y$10$NvppguKXJyqI929HtOftLuPucBoS9LJL9ueMrbBarJL1QmpnipJm2', 0, -1, 0, '2023-04-06', 0, 'juan'),
+('marcos@email.com', '$2y$10$Yi.nxQT0Boj3jWbMjgd66.bSm3hZzpmbfxP1gHQKUerUKQ0ZLYFd2', 0, -1, 0, '2023-04-06', 0, 'marcos');
 
 --
 -- Indexes for dumped tables
@@ -174,7 +174,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `kernels`
 --
 ALTER TABLE `kernels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `token_transactions`
@@ -196,19 +196,19 @@ ALTER TABLE `comments`
 -- Constraints for table `execution_registration`
 --
 ALTER TABLE `execution_registration`
-  ADD CONSTRAINT `user_email_fk_ex_reg` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`);
+  ADD CONSTRAINT `user_email_fk_ex_reg` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `kernels`
 --
 ALTER TABLE `kernels`
-  ADD CONSTRAINT `user_email_fk` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`);
+  ADD CONSTRAINT `user_email_fk` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `token_transactions`
 --
 ALTER TABLE `token_transactions`
-  ADD CONSTRAINT `email_fk` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`);
+  ADD CONSTRAINT `email_fk` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
