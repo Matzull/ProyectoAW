@@ -40,7 +40,7 @@ class FormularioContacto extends Formulario
             $this->errores['user_comment'] = 'El comentario no puede estar vacío.';
         }
 
-        if (!isset($_SESSION["user"])) {
+        if (!isset($_SESSION["user_email"])) {
             $this->errores[] = 'Debes estar identificado, con una sesión abierta.';
         }
 
@@ -52,6 +52,6 @@ class FormularioContacto extends Formulario
 
     public function __construct()
     {
-        parent::__construct(0, array('action' => './contacto.php', 'method' => 'POST', 'urlRedireccion' => './SalidaExitosaFormulario.php'));
+        parent::__construct(0, array('action' => './contacto.php', 'method' => 'POST', 'urlRedireccion' => './salidaExitosaContacto.php'));
     }
 }

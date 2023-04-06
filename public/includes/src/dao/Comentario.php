@@ -12,7 +12,7 @@ class Comentario
         $conn = Aplicacion::getInstance()->getConexionBd();
 
         $query = sprintf(
-            'INSERT INTO users (user_email, comment ) VALUES (\'%s\', \'%s\')',
+            'INSERT INTO comments (user_email, comment) VALUES (\'%s\', \'%s\')',
             $conn->real_escape_string($_SESSION["user_email"]),
             $conn->real_escape_string($user_comment),
         );
