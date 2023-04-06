@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2023 at 06:14 PM
+-- Generation Time: Apr 06, 2023 at 11:56 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -80,7 +80,7 @@ CREATE TABLE `kernels` (
 --
 
 INSERT INTO `kernels` (`name`, `is_finished`, `user_email`, `id`, `js_code`, `reward_per_line`, `total_reward`, `description`, `upload_time`, `iteration_count`) VALUES
-('deveres de FAL', 0, 'jaime@email.com', 2, 'const very_hard = require(&quot;complicated&quot;) \r\nfunction stuf(){\r\n	going = on(&quot;here&quot;)\r\n}', 0.71428571428571, 100, 'buah, pues si yo te contara lo que hace, te quedabas cuajao', '2023-04-06 14:53:50', 20);
+('deveres de FAL', 0, 'jaime@email.com', 2, 'const very_hard = require(&quot;complicated&quot;) \r\nfunction stuf(){\r\n	going = on(&quot;here&quot;)\r\n}', 0.71428571428571, 100, 'buah, pues si yo te contara lo que hace, te quedabas cuajao', '2023-04-06 14:53:50', 2000);
 
 -- --------------------------------------------------------
 

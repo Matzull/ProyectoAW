@@ -1,25 +1,39 @@
 let ejecutando = false
 
+let segmento_actual;
+
 function comenzarEjecucion(id) {
-    console.log(id)
     ejecutando = !ejecutando;
 
     if (ejecutando) {
-        console.log("A")
-        set_button_style("Finalizar", "red");
+        set_button_style("Abortar", "red");
 
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function () {
             console.log(this.responseText);
-            let ranges = JSON.parse(this.responseText);
-            console.log(ranges);
+            segmento_actual = JSON.parse(this.responseText);
+            console.log("starting execution for ", segmento_actual);
+
+            //TODO aqui to el tema de la ejecución;
+
+
+
+
         }
         xhttp.open("GET", "includes/src/backend/get_computation_segment.php?id=" + id, true);
         xhttp.send();
 
     } else {
-        console.log("B")
         set_button_style("Comenzar", "green");
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+            console.log("stoped execution for ", segmento_actual);
+            segmento_actual = undefined;
+        }
+        xhttp.open("GET", "includes/src/backend/cancel_segment.php?id=" + id + "&start=" + segmento_actual.start + "&end=" + segmento_actual.end, true);
+        xhttp.send();
+
 
     }
 }

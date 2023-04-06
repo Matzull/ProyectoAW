@@ -31,16 +31,16 @@ for ($i = 0; $i < $iteration_count; $i++) {
     }
     if ($start != -1 && (assigned($i) || $max_it < $i - $start)) {
         $end = $i;
-        echo "[{\"start\":$start,\"end\":$end}]";
+        echo "{\"start\":$start,\"end\":$end}";
         \parallelize_namespace\ExecutionSegment::enviaSegmento($start, $end, $kernel_id);
         die();
     }
 }
 if ($start != -1) {
-    echo "[{\"start\":$start,\"end\":$iteration_count}]";
+    echo "{\"start\":$start,\"end\":$iteration_count}";
     \parallelize_namespace\ExecutionSegment::enviaSegmento($start, $iteration_count, $kernel_id);
     die();
 } else {
-    echo "[]";
+    echo "null";
     die();
 }

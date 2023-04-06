@@ -60,17 +60,31 @@ class ExecutionSegment
 
     public static function completaSegmento($start, $end, $kernel_id, $results)
     {
-        /*
-        UPDATE table_name
-        SET column1 = value1, column2 = value2
-        WHERE condition;
-        */
 
         $conn = Aplicacion::getInstance()->getConexionBd();
 
         $query = sprintf(
-            'UPDATE execution_segments SET results \'%s\' WHERE kernel_id = %s and iteration_start = %s and iteration_end = %s',
+            'UPDATE execution_segments SET results = \'%s\' WHERE kernel_id = %s and iteration_start = %s and iteration_end = %s',
             $conn->real_escape_string($results),
+            $conn->real_escape_string($kernel_id),
+            $conn->real_escape_string($start),
+            $conn->real_escape_string($end),
+        );
+
+        if (!$conn->query($query)) {
+            echo $query;
+            echo "Error SQL ({$conn->errno}):  {$conn->error}";
+            return false;
+        }
+        return true;
+    }
+
+    public static function eliminaSegmento($start, $end, $kernel_id)
+    {
+        $conn = Aplicacion::getInstance()->getConexionBd();
+
+        $query = sprintf(
+            'DELETE FROM execution_segments WHERE kernel_id = %s and iteration_start = %s and iteration_end = %s',
             $conn->real_escape_string($kernel_id),
             $conn->real_escape_string($start),
             $conn->real_escape_string($end),
