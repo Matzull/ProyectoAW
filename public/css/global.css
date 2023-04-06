@@ -356,3 +356,7 @@ que estar horizontal*/
     transition: all 0.5s;
     overflow: hidden;
 }
+
+.transition {
+    transition: all 0.5s;
+}

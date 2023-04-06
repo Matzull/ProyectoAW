@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once 'includes/utils.php';
 
 spl_autoload_register(
     function ($class) {

@@ -17,6 +17,7 @@ require 'includes/config.php';
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_dashboard.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/kernel_info.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/footer.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
 
     <link rel="stylesheet" href="js/codeMirror/codemirror.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/theme/dracula.min.css">
@@ -42,7 +43,7 @@ require 'includes/config.php';
             <pre id="sourceCode">
                 <?= $kernel->getCode() ?>
             </pre>
-            <!-- <script type="text/javascript">
+            <!-- <script type="text/javascript"> // levatelo a otro archivo porfa thanks
                 var code = "<?php echo addcslashes(html_entity_decode($kernel->getCode(), ENT_QUOTES), "\n") ?>";
                 var editor = CodeMirror(document.getElementById("sourceCode"), {
                     lineNumbers: true,
@@ -79,14 +80,16 @@ require 'includes/config.php';
             <div class="form block">
 
                 <div class="flex-container-info ">
-                    <button class="small-button c-green fill-flex" onclick="comenzarEjecucion">
-                        <p>Ejecutar</p>
+                    <button id="btn_box" class="small-button fill-flex transition"
+                        onclick="comenzarEjecucion(<?= $_GET["id"] ?>)">
+                        <p id="btn_text">Ejecutar</p>
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="js/kernel_execution.js"></script>
 
 </body>
 <?php require_once("./includes/src/vistas/footer.php"); ?>

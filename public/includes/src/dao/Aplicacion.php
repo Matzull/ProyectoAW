@@ -1,7 +1,6 @@
 <?php
 namespace parallelize_namespace;
 
-require_once "includes/config.php";
 class Aplicacion
 {
     private static $instance;
