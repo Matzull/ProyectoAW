@@ -63,7 +63,7 @@ a:hover {
     color: var(--m-text);
 }
 
-.t-m-white{
+.t-m-white {
     color: var(--m-white);
 }
 
@@ -223,7 +223,7 @@ a:hover {
     margin-top: 10px;
 }
 
-.form>form>label + * {
+.form>form>label+* {
     margin: 10px 0px 15px 0px;
 }
 
@@ -298,6 +298,7 @@ a:hover {
 /* Utilizado en páginas de gestión del usuario: 
     dashboard, tus kernels, ... */
 #user-panel {
+    transition: all 0.5s;
     margin-right: 215px;
     /* user nav bar width + margin right 10px*/
 }
@@ -342,10 +343,16 @@ que estar horizontal*/
     position: relative;
 }
 
-#transaction_table>tbody>tr>td  {
-   border: #b7b7b7 solid 1px;
+#transaction_table>tbody>tr>td {
+    border: #b7b7b7 solid 1px;
 }
 
 #transaction_table>thead>tr>th {
     border: #b7b7b7 solid 1px;
+}
+
+#user-nb-options {
+    height: 250px;
+    transition: all 0.5s;
+    overflow: hidden;
 }
