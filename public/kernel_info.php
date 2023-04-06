@@ -22,7 +22,7 @@ require 'includes/config.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/theme/dracula.min.css">
 
     <script type="text/javascript" src="js/codeMirror/codemirror.js"></script>
-    <script type="text/javascript" src="js/codeMirror/javascript.js"></script>    
+    <script type="text/javascript" src="js/codeMirror/javascript.js"></script>
 
 </head>
 
@@ -37,13 +37,13 @@ require 'includes/config.php';
                 Codigo fuente
             </h2>
             <?php
-                $kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["id"]);
+            $kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["id"]);
             ?>
             <pre id="sourceCode">
-                <?= $kernel->getCode()?>
+                <?= $kernel->getCode() ?>
             </pre>
             <!-- <script type="text/javascript">
-                var code = "<?php echo addcslashes(html_entity_decode($kernel->getCode(), ENT_QUOTES ), "\n")?>";
+                var code = "<?php echo addcslashes(html_entity_decode($kernel->getCode(), ENT_QUOTES), "\n") ?>";
                 var editor = CodeMirror(document.getElementById("sourceCode"), {
                     lineNumbers: true,
                     mode: "javascript",
@@ -61,25 +61,27 @@ require 'includes/config.php';
         <div class="flex-container-info vertical block">
             <div class="form">
                 <h2 class="title centered">
-                    <?=$kernel->getname();?>
+                    <?= $kernel->getname(); ?>
                 </h2>
-                <p>Usuario: <?= \parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName() ?></p>
-                <p>Estado: <?= $kernel->getis_finished() == 0 ? "Inactive" : ($kernel->getis_finished() == 1 ? "In progress" : "Finished") ?></p>
-                <p class="form"><?= $kernel->getdescription() ?></p>
+                <p>Usuario:
+                    <?= \parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName() ?>
+                </p>
+                <p>Estado:
+                    <?= $kernel->getis_finished() == 0 ? "Computing" : "Finished" ?>
+                </p>
+                <p>Recompensa:
+                    <?= $kernel->getreward_per_line() ?> tk/line
+                </p>
+                <p class="form">
+                    <?= $kernel->getdescription() ?>
+                </p>
             </div>
             <div class="form block">
-                <h2 class="title centered">
-                    Accion
-                </h2>
-                <p class="form">Iteracion 105/350</p>
+
                 <div class="flex-container-info ">
-                    <button  class="small-button c-green fill-flex"
-                        onclick="location.href='kernel_info.php'">
+                    <button class="small-button c-green fill-flex" onclick="comenzarEjecucion">
                         <p>Ejecutar</p>
                     </button>
-                    <div class="small-info c-h-b-blue fill-flex">
-                        <p> <?= $kernel->gettotal_reward()?> c/seg</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -87,6 +89,6 @@ require 'includes/config.php';
 
 
 </body>
-<?php require_once("./includes/src/vistas/footer.php");?>
+<?php require_once("./includes/src/vistas/footer.php"); ?>
 
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2023 at 05:09 PM
+-- Generation Time: Apr 06, 2023 at 06:14 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -20,10 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `parallelize_app`
 --
-
 CREATE DATABASE IF NOT EXISTS `parallelize_app` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `parallelize_app`;
-
 -- --------------------------------------------------------
 
 --
@@ -46,17 +44,16 @@ INSERT INTO `comments` (`user_email`, `comment`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `execution_registration`
+-- Table structure for table `execution_segments`
 --
 
-CREATE TABLE `execution_registration` (
+CREATE TABLE `execution_segments` (
   `user_email` varchar(60) NOT NULL,
-  `end_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `start_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `kernel_id` int(11) NOT NULL,
-  `results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`results`)),
-  `iteration_range_start` int(11) NOT NULL,
-  `iteration_range_end` int(11) NOT NULL,
-  `reward` double NOT NULL
+  `results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `iteration_start` int(11) NOT NULL,
+  `iteration_end` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -69,13 +66,11 @@ CREATE TABLE `kernels` (
   `name` varchar(30) NOT NULL,
   `is_finished` tinyint(1) NOT NULL,
   `user_email` varchar(60) NOT NULL,
-  `results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`results`)),
   `id` int(11) NOT NULL,
   `js_code` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `reward_per_line` double NOT NULL,
   `total_reward` double NOT NULL,
   `description` longtext NOT NULL,
-  `progress_map` longblob NOT NULL,
   `upload_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `iteration_count` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -84,8 +79,8 @@ CREATE TABLE `kernels` (
 -- Dumping data for table `kernels`
 --
 
-INSERT INTO `kernels` (`name`, `is_finished`, `user_email`, `results`, `id`, `js_code`, `reward_per_line`, `total_reward`, `description`, `progress_map`, `upload_time`, `iteration_count`) VALUES
-('deveres de FAL', 0, 'jaime@email.com', '{\"results\":\"\"}', 2, 'const very_hard = require(&quot;complicated&quot;) \r\nfunction stuf(){\r\n	going = on(&quot;here&quot;)\r\n}', 0.71428571428571, 100, 'buah, pues si yo te contara lo que hace, te quedabas cuajao', 0x303030, '2023-04-06 14:53:50', 20);
+INSERT INTO `kernels` (`name`, `is_finished`, `user_email`, `id`, `js_code`, `reward_per_line`, `total_reward`, `description`, `upload_time`, `iteration_count`) VALUES
+('deveres de FAL', 0, 'jaime@email.com', 2, 'const very_hard = require(&quot;complicated&quot;) \r\nfunction stuf(){\r\n	going = on(&quot;here&quot;)\r\n}', 0.71428571428571, 100, 'buah, pues si yo te contara lo que hace, te quedabas cuajao', '2023-04-06 14:53:50', 20);
 
 -- --------------------------------------------------------
 
@@ -140,10 +135,10 @@ ALTER TABLE `comments`
   ADD KEY `user_email` (`user_email`);
 
 --
--- Indexes for table `execution_registration`
+-- Indexes for table `execution_segments`
 --
-ALTER TABLE `execution_registration`
-  ADD PRIMARY KEY (`kernel_id`,`iteration_range_start`),
+ALTER TABLE `execution_segments`
+  ADD PRIMARY KEY (`kernel_id`,`iteration_start`),
   ADD KEY `user_email_fk_ex_reg` (`user_email`);
 
 --
@@ -193,10 +188,11 @@ ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `execution_registration`
+-- Constraints for table `execution_segments`
 --
-ALTER TABLE `execution_registration`
-  ADD CONSTRAINT `user_email_fk_ex_reg` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `execution_segments`
+  ADD CONSTRAINT `kernel_id_fk_ex_seg` FOREIGN KEY (`kernel_id`) REFERENCES `kernels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_email_fk_ex_seg` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `kernels`
