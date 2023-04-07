@@ -26,6 +26,7 @@
   box-sizing: border-box;
   background-color: var(--gris);
   margin-left: 2%;
+  margin-right: 2%;
   margin-top: 25px;
   margin-bottom: 50px;
 }
@@ -55,4 +56,9 @@ pre{
   overflow-y: auto;
   background: #1e1e1e00;
   max-height: 650px;
+}
+
+.centered_text{
+  width: 100%;
+  text-align: center;
 }
