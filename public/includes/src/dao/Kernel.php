@@ -44,6 +44,7 @@ class Kernel
         $query = sprintf("SELECT * FROM kernels K WHERE K.user_email = '%s'", $conn->real_escape_string($user->getEmail()));
         $rs = $conn->query($query);
 
+        
         $raw_kernels = $rs->fetch_all(MYSQLI_ASSOC);
         $ret = [];
         foreach ($raw_kernels as $rk) {

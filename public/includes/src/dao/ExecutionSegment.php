@@ -11,8 +11,52 @@ class ExecutionSegment
     private $iteration_start;
     private $iteration_end;
 
-    public static function buscaSegmentosConKernelIdYRango($start, $end, $kernel_id)
+    private function storeToDb()
     {
+        $conn = Aplicacion::getInstance()->getConexionBd();
+
+        $query = sprintf(
+            'UPDATE execution_segments SET user_email = \'%s\', start_time = %s, results = \'%s\' WHERE kernel_id = %s,iteration_start = %s, iteration_end = %s',
+            $conn->real_escape_string($this->user_email),
+            $conn->real_escape_string($this->start_time),
+            $conn->real_escape_string($this->results),
+            $conn->real_escape_string($this->kernel_id),
+            $conn->real_escape_string($this->iteration_start),
+            $conn->real_escape_string($this->iteration_end),
+
+        );
+
+        if (!$conn->query($query)) {
+            echo $query;
+            echo "Error SQL ({$conn->errno}):  {$conn->error}";
+            return false;
+        }
+    }
+
+    public static function buscaSegmentosConKernelIdYRango($iteration_start, $iteration_end, $kernel_id)
+    {
+        $conn = Aplicacion::getInstance()->getConexionBd();
+        $ret = NULL;
+        $query = sprintf(
+            "SELECT * FROM execution_segments K WHERE K.kernel_id = '%s' && K.iteration_start = '%s' && K.iteration_end = '%s'",
+            $conn->real_escape_string($kernel_id),
+            $conn->real_escape_string($iteration_start),
+            $conn->real_escape_string($iteration_end),
+        );
+        $rs = $conn->query($query);
+
+        if (mysqli_num_rows($rs)) {
+            $rk = $rs->fetch_assoc();
+            $ret = new ExecutionSegment(
+                $rk['user_email'],
+                $rk['start_time'],
+                $rk['kernel_id'],
+                $rk['results'],
+                $rk['iteration_start'],
+                $rk['iteration_end'],
+            );
+        }
+        return $ret;
 
     }
 
@@ -128,6 +172,11 @@ class ExecutionSegment
     public function getresults()
     {
         return $this->results;
+    }
+    public function setresults($data)
+    {
+        $this->results = $data;
+        $this->storeToDb();
     }
     public function getiteration_start()
     {
