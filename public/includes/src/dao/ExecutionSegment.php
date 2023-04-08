@@ -11,6 +11,11 @@ class ExecutionSegment
     private $iteration_start;
     private $iteration_end;
 
+    public static function buscaSegmentosConKernelIdYRango($start, $end, $kernel_id)
+    {
+
+    }
+
     public static function buscaSegmentosConKernelId($id)
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
@@ -22,9 +27,6 @@ class ExecutionSegment
         $ret = [];
         foreach ($raw_results as $t) {
 
-            // foreach ($t as $paramName => $paramValue)
-            //     echo "$paramName:$paramValue, ";
-            // echo "\n";
 
             $ret[] = new ExecutionSegment(
                 $t['user_email'],
@@ -35,6 +37,8 @@ class ExecutionSegment
                 $t['iteration_end']
             );
         }
+
+
         return $ret;
     }
 
@@ -100,10 +104,10 @@ class ExecutionSegment
 
     public function __construct($user_email, $start_time, $kernel_id, $results, $iteration_start, $iteration_end)
     {
-        $this->$user_email = $user_email;
-        $this->$start_time = $start_time;
-        $this->$kernel_id = $kernel_id;
-        $this->$results = $results;
+        $this->user_email = $user_email;
+        $this->start_time = $start_time;
+        $this->kernel_id = $kernel_id;
+        $this->results = $results;
         $this->iteration_start = $iteration_start;
         $this->iteration_end = $iteration_end;
 

@@ -23,7 +23,7 @@
        echo ' <div class="form-container">';
        echo ' <div class="form">';
         $usuario = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
-        $t = $usuario->gettoekns();
+        $t = $usuario->gettokens();
         echo '<h2 class="title">Tokens</h2>';
         echo "<p class=\"subtitle t-muted\">Actualmente tienes $t tokens</p>";
         $formulario = new \parallelize_namespace\formulario\FormularioTransaction();

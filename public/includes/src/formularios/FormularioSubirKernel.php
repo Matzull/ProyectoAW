@@ -81,9 +81,15 @@ class FormularioSubirKernel extends Formulario
             $this->errores['kernel_description'] = 'Debes poner una descripcion de tu kernel.';
         }
 
+        $usuario = \parallelize_namespace\Usuario::buscaUsuario($_GET["user_email"]);
+
         $input_price = filter_input(INPUT_POST, 'input_price', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         if (!$input_price || empty($input_price = trim($input_price))) {
             $this->errores['input_price'] = 'Debes poner un precio a tu kernel.';
+        }
+        if ($usuario->gettokens() < $input_price) {
+            $this->errores['input_price'] = 'No tienes tanto dinero para gastar, ingresa primero.';
+
         }
 
         $iteration_count = filter_input(INPUT_POST, 'iteration_count', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -92,6 +98,10 @@ class FormularioSubirKernel extends Formulario
         }
 
         if (count($this->errores) === 0) {
+
+            $usuario->setTokens($usuario->gettokens() - $input_price);
+            \parallelize_namespace\Transaction::submit(-$input_price, $_SESSION["user_email"], "pago por el kernel" . $kernel_name, $usuario->gettokens());
+
             \parallelize_namespace\kernel::enviaKernel($kernel_name, $input_kernel, $kernel_description, $input_price, $iteration_count);
         }
 

@@ -107,7 +107,7 @@ class Usuario
         return $this->user_email;
     }
 
-    public function gettoekns()
+    public function gettokens()
     {
         return $this->tokens;
     }

@@ -5,7 +5,7 @@
             <img src="<?= RUTA_SVG ?>/Plus_i.svg" alt="">
         </button>
         <h3 class="t-big no-margin">
-            <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->gettoekns() ?>
+            <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->gettokens() ?>
         </h3>
     </div>
 </div>

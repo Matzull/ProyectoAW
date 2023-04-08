@@ -57,7 +57,7 @@ else{
                         <div class="flex-between">
                             <div></div>
                             <h3 class="t-big no-margin">
-                                <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->gettoekns() ?>
+                                <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->gettokens() ?>
                             </h3>
                         </div>
                     </div>

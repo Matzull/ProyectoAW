@@ -25,12 +25,19 @@ if (!isset($_SESSION['user_email'])) {
     <?php
     require_once("./includes/src/vistas/nav_bar.php");
     ?>
-   
+
     <div class="main-container">
         <div class="form">
             <h2 class="title">
                 Subir kernel
             </h2>
+
+            <p>antes de continuar recomendamos ojear la siguiente documentación:</p>    
+            <ul>
+                <li><a
+                        href="https://github.com/gpujs/gpu.js/#supported-math-functions">https://github.com/gpujs/gpu.js/#supported-math-functions</a>
+                </li>
+            </ul>
             <?php
             if (isset($_SESSION["user_email"])) {
                 $formulario = new \parallelize_namespace\formulario\FormularioSubirKernel();
@@ -39,7 +46,7 @@ if (!isset($_SESSION['user_email'])) {
                 echo "<p>Necesitas estar registrado para enviarnos información,<a href=\"./register.php\"> registrate aqui</a> o si ya tienes cuenta <a href=\"./login.php\">inicia sesión aqui!</a></p>"; // TODO los enlaces
             }
             ?>
-        </div>        
+        </div>
     </div>
 
 </body>

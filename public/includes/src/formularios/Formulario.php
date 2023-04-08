@@ -1,6 +1,27 @@
 <?php
 namespace parallelize_namespace\formulario;
 
+function generaErroresGlobalesFormulario($errores)
+{
+    $html = '';
+    $keys = array_filter(array_keys($errores), function ($v) {
+        return is_numeric($v);
+    });
+    if (count($keys) > 0) {
+        $html = '<ul class="errores">';
+        foreach ($keys as $key) {
+            $html .= "<li>{$errores[$key]}</li>";
+        }
+        $html .= '</ul>';
+    }
+    return $html;
+}
+
+function generarError($campo, $errores)
+{
+    return isset($errores[$campo]) ? "<br><span class=\"form-field-error\">{$errores[$campo]}</span>" : '';
+}
+
 /**
  * Clase base para la gestión de formularios.
  */
@@ -68,6 +89,8 @@ abstract class Formulario
         }
         return $erroresCampos;
     }
+
+
 
     /**
      * @var string Identificador único utilizado para &quot;id&quot; de la etiqueta &lt;form&gt; y para comprobar que se ha enviado el formulario.

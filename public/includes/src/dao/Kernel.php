@@ -14,6 +14,29 @@ class Kernel
     private $reward_per_line;
     private $iteration_count;
 
+    private function storeToDb()
+    {
+        $conn = Aplicacion::getInstance()->getConexionBd();
+
+        $query = sprintf(
+            'UPDATE kernels SET name = \'%s\', is_finished = %s, user_email = \'%s\', js_code = \'%s\', description = \'%s\', total_reward = %s, reward_per_line = %s WHERE id = \'%s\'',
+            $conn->real_escape_string($this->name),
+            $conn->real_escape_string($this->is_finished),
+            $conn->real_escape_string($this->user_email),
+            $conn->real_escape_string($this->js_code),
+            $conn->real_escape_string($this->description),
+            $conn->real_escape_string($this->total_reward),
+            $conn->real_escape_string($this->reward_per_line),
+            $conn->real_escape_string($this->id)
+        );
+
+        if (!$conn->query($query)) {
+            echo $query;
+            echo "Error SQL ({$conn->errno}):  {$conn->error}";
+            return false;
+        }
+    }
+
     public static function buscaKernelDeUsuario(Usuario $user)
     { // User $user
         $conn = Aplicacion::getInstance()->getConexionBd();
@@ -125,7 +148,7 @@ class Kernel
 
         $query = sprintf(
             'INSERT INTO kernels (name, is_finished, user_email, js_code, total_reward, description, reward_per_line, iteration_count) 
-            VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\',\'%s\')',
+            VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')',
             $conn->real_escape_string($kernel_name),
             0,
             $conn->real_escape_string($_SESSION["user_email"]),
@@ -143,6 +166,8 @@ class Kernel
         }
         return true;
     }
+
+
 
     public function __construct($name, $is_finished, $user_email, $id, $js_code, $description, $total_reward, $getreward_per_line, $iteration_count)
     {
@@ -171,7 +196,7 @@ class Kernel
     }
     public function getCode()
     {
-        return $this->js_code;
+        return htmlspecialchars_decode($this->js_code);
     }
     public function getdescription()
     {
@@ -193,6 +218,12 @@ class Kernel
     public function getiteration_count()
     {
         return $this->iteration_count;
+    }
+
+    public function setFinished()
+    {
+        $this->is_finished = 1;
+        $this->storeToDb();
     }
 
 

@@ -96,30 +96,8 @@ require 'includes/config.php';
             <div>
                 <h1 class="centered_text">Información privada para el propietario</h1>
                 <div class="codeBlock">
-
-                    <a download="resultados_de_kernel.csv" href="data:text/html,<?php
-
-
-                    function result_at($n)
-                    {
-                        $segments = \parallelize_namespace\ExecutionSegment::buscaSegmentosConKernelId($_GET["id"]);
-
-                        foreach ($segments as $i => $seg) {
-                            if ($seg->contains($n) && isset(explode(",", $seg->getresults())[$n])) {
-                                return explode(",", $seg->getresults())[$n];
-                            }
-                        }
-                        return "";
-                    }
-
-                    for ($iteration = 0; $iteration < $kernel->getiteration_count(); $iteration++) {
-                        echo result_at($iteration);
-                        if ($iteration != $kernel->getiteration_count() - 1) {
-                            echo ",";
-                        }
-                    }
-
-                    ?>">Descargar resultados
+                    <a download="resultados_de_kernel.csv"
+                        href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>">Descargar resultados
                         <?= $kernel->getis_finished() ? "totales" : "parciales" ?>
                     </a>
 
@@ -127,6 +105,11 @@ require 'includes/config.php';
             </div>
         <?php } ?>
     </div>
+    <script>
+        kernel = {
+            finished: <?= $kernel->getis_finished() == 0 ? "false" : "true" ?>
+        }
+    </script>
 
 
     <?php require "js/kernel_execution.php"; ?>

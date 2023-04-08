@@ -41,6 +41,8 @@ if ($start != -1) {
     \parallelize_namespace\ExecutionSegment::enviaSegmento($start, $iteration_count, $kernel_id);
     die();
 } else {
+
+    $kernel->setFinished();
     echo "null";
     die();
 }
