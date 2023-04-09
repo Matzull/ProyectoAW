@@ -23,7 +23,7 @@ require 'includes/config.php';
 
     <div class="ranking-container">
         <div class="table-format">
-            <table> 
+            <table>
                 <!-- Para rellenar esta tabla habrá que consultar el ranking en la BD -->
                 <thead>
                     <tr>
@@ -33,34 +33,34 @@ require 'includes/config.php';
                     </tr>
                 </thead>
                 <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Matzul_el_mediocre</td>
-                            <td>30</td> 
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>diegoq</td>
-                            <td>29</td> 
-                        </tr>   
-                        <tr>
-                            <td>3</td>
-                            <td>jaimev</td>
-                            <td>28</td> 
-                        </tr>  
-                        <?php
-                            for ($i = 1; $i <= 15; $i++) {
-                                echo <<<HTML
+                    <tr>
+                        <td>1</td>
+                        <td>Matzul_el_mediocre</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>diegoq</td>
+                        <td>29</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>jaimev</td>
+                        <td>28</td>
+                    </tr>
+                    <?php
+                    for ($i = 1; $i <= 15; $i++) {
+                        echo <<<HTML
                                 <tr>
                                     <td>pos</td>
                                     <td>nombre</td>
                                     <td>puntos</td> 
                                 </tr> 
                                 HTML;
-                            }  
-                        ?>  
+                    }
+                    ?>
                 </tbody>
-            </table>  
+            </table>
         </div>
 
         <div class="right-side">
@@ -78,14 +78,14 @@ require 'includes/config.php';
                     <h3>jaimev</h3>
                 </div>
             </div>
-            
-            <div class>
-            <img src="svg/blobanimation.svg">
+
+            <div>
+                <img src="svg/blobanimation.svg">
             </div>
         </div>
     </div>
     <?php require("./includes/src/vistas/footer.php"); ?>
-  
+
 </body>
 
 </html>
