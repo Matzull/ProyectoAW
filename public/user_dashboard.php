@@ -50,7 +50,7 @@ $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
                     </div>
                 </div>
                 <div class="section section-h">
-                    <?php require("includes/src/vistas/token_big_info.php")?>
+                    <?php require("includes/src/vistas/token_big_info.php") ?>
                 </div>
                 <div class="section">
                     <h3 class="title">HISTORIAL DE EJECUCIONES</h3>
@@ -79,16 +79,18 @@ $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
                 <div id="last-kernels" class="section">
                     <h3 class="title">TUS ÚLTIMOS KERNELS</h3>
                     <div class="kernels">
-                        <?php if(sizeof($kernels = $user->getKernels()) > 0): ?>
+                        <?php if (sizeof($kernels = $user->getKernels()) > 0): ?>
                             <!-- <p>Hay al menos un kernel</p> -->
-                            
+
                             <?php
                             $kernels = array_slice($kernels, 0, 3);
                             foreach ($kernels as $k) {
                                 $kName = $k->getname();
                                 $kRunState = $k->is_finished();
+                                $kId = $k->getid();
                                 echo <<<HTML
-                                    <div class="upload-k">
+                                    
+                                    <div class="upload-k"  onclick="location.href='kernel_info.php?id=$kId'">
                                         <h4 class="k-title">$kName</h4>
                                         <span class="button c-green">$kRunState</span>
                                     </div>
@@ -96,10 +98,12 @@ $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
                             }
                             ?>
                         <?php else: ?>
-                            <p>Todavía no has subido kernels.<p>
-                        <?php endif ?>
+                            <p>Todavía no has subido kernels.
+                            <p>
+                            <?php endif ?>
                     </div>
-                    <button type="button" class="button c-h-blue" onclick="location.href='your_kernels.php'">Ver más kernels</button>
+                    <button type="button" class="button c-h-blue" onclick="location.href='your_kernels.php'">Ver más
+                        kernels</button>
                 </div>
             </div>
         </div>

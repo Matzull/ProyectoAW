@@ -66,7 +66,7 @@ class Kernel
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
 
-        $query = sprintf("SELECT * FROM kernels K ORDER BY reward_per_line limit %d", $conn->real_escape_string($count));
+        $query = sprintf("SELECT * FROM kernels K ORDER BY reward_per_line desc limit %d", $conn->real_escape_string($count));
         $rs = $conn->query($query);
 
         $raw_kernels = $rs->fetch_all(MYSQLI_ASSOC);

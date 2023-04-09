@@ -81,7 +81,7 @@ require 'includes/config.php';
                     <a download="resultados_de_kernel.csv"
                         href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>&format=csv">Descargar resultados
                         <?= $kernel->is_finished() ? "totales" : "parciales" ?> en csv
-                    </a>
+                    </a><br>
                     <a download="resultados_de_kernel.json"
                         href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>&format=json">Descargar
                         resultados
