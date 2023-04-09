@@ -3,9 +3,8 @@
 .ranking-container {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-
-    padding: 0;
+    justify-content: space-evenly; /* alinea horizontalmente */
+    height: 100vh; /* altura total del viewport */
 }
 
 .ranking1 {
@@ -30,16 +29,11 @@
     background-color: var(--gris);
 }
 
-.rank-blob {
-    max-width: 350px;
-    min-height: 350px;
-    width: 100%;
-    height: 90%;
-}
-
 .right-side {
+    display: flex;
+    flex-direction: column; /* distribución vertical */
     align-items: center;
-    align-self: auto;
+    justify-content: flex-start; /* alinea horizontalmente al inicio */
 }
 
 table {
@@ -78,7 +72,10 @@ tbody td:first-child {
     font-weight: bold;
 }
 
-
+.blob-container{
+    width: 50%;
+    height: auto;
+}
 /* Estilos para el podio */
 .podio {
     display: flex;

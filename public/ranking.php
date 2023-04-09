@@ -63,8 +63,8 @@ require 'includes/config.php';
                 </div>
             </div>
             
-            <div class = rank-blob>
-            <img src="svg/blobanimation.svg">
+            <div class = "blob-container">
+                <img src="svg/blobanimation.svg">
             </div>
         </div>
     </div>
