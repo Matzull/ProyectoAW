@@ -1,21 +1,28 @@
 <?php
 
-define("MAX_SEGMENT_SIZE", 1000);
+define("MAX_SEGMENT_SIZE", 10);
 
 require '../../config.php';
+
+// function assigned($n)
+// {
+//     global $kernel_id;
+
+//     $segments = \parallelize_namespace\ExecutionSegment::buscaSegmentosConKernelId($kernel_id);
+
+//     foreach ($segments as $i => $seg) {
+//         if ($seg->contains($n)) {
+//             return true;
+//         }
+//     }
+//     return false;
+// }
 
 function assigned($n)
 {
     global $kernel_id;
-
-    $segments = \parallelize_namespace\ExecutionSegment::buscaSegmentosConKernelId($kernel_id);
-
-    foreach ($segments as $i => $seg) {
-        if ($seg->contains($n)) {
-            return true;
-        }
-    }
-    return false;
+    $seg = \parallelize_namespace\ExecutionSegment::buscaSegmentosConKernelIdQueContenganIt($kernel_id, $n);
+    return $seg;
 }
 
 $kernel_id = $_GET["id"];
@@ -27,10 +34,17 @@ $end = -1;
 
 
 for ($i = 0; $i < $iteration_count; $i++) {
-    if ($start == -1 && !assigned($i)) {
-        $start = $i;
-    }
-    if ($start != -1 && (assigned($i) || MAX_SEGMENT_SIZE < $i - $start)) {
+
+    if ($start == -1) {
+        $seg = assigned($i);
+
+        if (isset($seg)) {
+            $i = $seg->getiteration_end()-1;
+            continue;
+        } else {
+            $start = $i;
+        }
+    } else if ($start != -1 && (assigned($i) || MAX_SEGMENT_SIZE < $i - $start)) {
         $end = $i;
         echo "{\"start\":$start,\"end\":$end}";
         \parallelize_namespace\ExecutionSegment::enviaSegmento($start, $end, $kernel_id);

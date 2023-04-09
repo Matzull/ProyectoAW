@@ -37,8 +37,8 @@ require 'includes/config.php';
                 $kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["id"]);
                 require_once("./js/kernelViz.php");
                 showCode(false, "sourceCode", $kernel);
-                
-                ?> 
+
+                ?>
             </div>
 
             <div class="flex-container-info vertical block">
@@ -50,7 +50,7 @@ require 'includes/config.php';
                         <?= \parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName() ?>
                     </p>
                     <p>Estado:
-                        <?= $kernel->getis_finished() == 0 ? "Computing" : "Finished" ?>
+                        <?= $kernel->is_finished() == 0 ? "Computing" : "Finished" ?>
                     </p>
                     <p>Recompensa:
                         <?= $kernel->getreward_per_line() ?> tk/line
@@ -62,7 +62,8 @@ require 'includes/config.php';
                 <div class="form block">
 
                     <div class="flex-container-info ">
-                        <button id="btn_box" class="small-button fill-flex transition" onclick= 'comenzarEjecucion(<?= $_GET["id"] ?>)'>
+                        <button id="btn_box" class="small-button fill-flex transition"
+                            onclick='comenzarEjecucion(<?= $_GET["id"] ?>)'>
                             <p id="btn_text">Ejecutar</p>
                         </button>
                     </div>
@@ -78,8 +79,13 @@ require 'includes/config.php';
                 <h1 class="centered_text">Información privada para el propietario</h1>
                 <div class="codeBlock">
                     <a download="resultados_de_kernel.csv"
-                        href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>">Descargar resultados
-                        <?= $kernel->getis_finished() ? "totales" : "parciales" ?>
+                        href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>&format=csv">Descargar resultados
+                        <?= $kernel->is_finished() ? "totales" : "parciales" ?> en csv
+                    </a><br>
+                    <a download="resultados_de_kernel.json"
+                        href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>&format=json">Descargar
+                        resultados
+                        <?= $kernel->is_finished() ? "totales" : "parciales" ?> en json
                     </a>
 
                 </div>
@@ -88,7 +94,7 @@ require 'includes/config.php';
     </div>
     <script>
         kernel = {
-            finished: <?= $kernel->getis_finished() == 0 ? "false" : "true" ?>
+            finished: <?= $kernel->is_finished() == 0 ? "false" : "true" ?>
         }
     </script>
 

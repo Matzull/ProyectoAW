@@ -62,11 +62,9 @@ require 'includes/config.php';
                     <p><?=$GLOBALS['usuarios'][2][1]?></p>
                 </div>
             </div>
-
-
-
-            <div class=rank-blob>
-                <img src="svg/blobanimation.svg">
+            
+            <div class>
+            <img src="svg/blobanimation.svg">
             </div>
         </div>
     </div>

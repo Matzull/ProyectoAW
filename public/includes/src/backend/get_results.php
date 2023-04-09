@@ -4,8 +4,11 @@ require '../../config.php';
 
 
 $id = $_GET["id"];
+$format = $_GET["format"];
 $kernel = \parallelize_namespace\Kernel::buscaKernelPorId($id);
 $segments = \parallelize_namespace\ExecutionSegment::buscaSegmentosConKernelId($_GET["id"]);
+
+$segment_cache = null;
 
 if (!isset($_SESSION["user_email"])) {
     echo "identificate para acceder a los resultados de tu kenel";
@@ -17,30 +20,22 @@ if ($kernel->getuser_email() != $_SESSION["user_email"]) {
     die();
 }
 
-function result_at($n)
-{
-    global $segments;
-
-    foreach ($segments as $i => $seg) {
-        // echo "[" . $i . "]<br>";
-
-        if ($seg->contains($n)) {
-            $sub_index = $n - $seg->getiteration_start();
-            $res_list = explode(",", $seg->getresults());
-            // echo "contained in ";
-            // echo $seg->getresults();
-            // echo "<br>";
-            if (isset($res_list[$sub_index])) {
-                return $res_list[$sub_index];
-            }
-        } 
+if ($format == "csv") {
+    for ($iteration = 0; $iteration < $kernel->getiteration_count(); $iteration++) {
+        echo $kernel->result_at($iteration);
+        if ($iteration != $kernel->getiteration_count() - 1) {
+            echo ",";
+        }
     }
-    return "";
-}
-
-for ($iteration = 0; $iteration < $kernel->getiteration_count(); $iteration++) {
-    echo result_at($iteration);
-    if ($iteration != $kernel->getiteration_count() - 1) {
-        echo ",";
+} else if ($format == "json") {
+    echo "[";
+    for ($iteration = 0; $iteration < $kernel->getiteration_count(); $iteration++) {
+        echo $kernel->result_at($iteration);
+        if ($iteration != $kernel->getiteration_count() - 1) {
+            echo ",";
+        }
     }
+    echo "]";
+} else {
+    echo "formato no reconocido, use el parametro de url format con una opcion valida (csv, json)";
 }
