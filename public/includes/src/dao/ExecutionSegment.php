@@ -33,6 +33,29 @@ class ExecutionSegment
         }
     }
 
+    public static function buscaSegmentosConKernelIdQueContenganIt($id, $it)
+    {
+        $conn = Aplicacion::getInstance()->getConexionBd();
+        $ret = NULL;
+
+        $query = "SELECT * FROM execution_segments K WHERE K.kernel_id = '" . $conn->real_escape_string($id) . "' && K.iteration_start <= " . $conn->real_escape_string($it) . " && K.iteration_end > " . $conn->real_escape_string($it);
+
+
+        $rs = $conn->query($query);
+        if (mysqli_num_rows($rs)) {
+            $rk = $rs->fetch_assoc();
+            $ret = new ExecutionSegment(
+                $rk['user_email'],
+                $rk['start_time'],
+                $rk['kernel_id'],
+                $rk['results'],
+                $rk['iteration_start'],
+                $rk['iteration_end'],
+            );
+        }
+        return $ret;
+    }
+
     public static function buscaSegmentosConKernelIdYRango($iteration_start, $iteration_end, $kernel_id)
     {
         $conn = Aplicacion::getInstance()->getConexionBd();

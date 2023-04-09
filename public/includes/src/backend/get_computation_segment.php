@@ -1,21 +1,27 @@
 <?php
 
-define("MAX_SEGMENT_SIZE", 1000);
+define("MAX_SEGMENT_SIZE", 10);
 
 require '../../config.php';
+
+// function assigned($n)
+// {
+//     global $kernel_id;
+
+//     $segments = \parallelize_namespace\ExecutionSegment::buscaSegmentosConKernelId($kernel_id);
+
+//     foreach ($segments as $i => $seg) {
+//         if ($seg->contains($n)) {
+//             return true;
+//         }
+//     }
+//     return false;
+// }
 
 function assigned($n)
 {
     global $kernel_id;
-
-    $segments = \parallelize_namespace\ExecutionSegment::buscaSegmentosConKernelId($kernel_id);
-
-    foreach ($segments as $i => $seg) {
-        if ($seg->contains($n)) {
-            return true;
-        }
-    }
-    return false;
+    return \parallelize_namespace\ExecutionSegment::buscaSegmentosConKernelIdQueContenganIt($kernel_id, $n);
 }
 
 $kernel_id = $_GET["id"];
