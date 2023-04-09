@@ -79,7 +79,7 @@ require 'includes/config.php';
                 </div>
             </div>
             
-            <div class="rank-blob">
+            <div class>
             <img src="svg/blobanimation.svg">
             </div>
         </div>

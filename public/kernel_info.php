@@ -37,6 +37,7 @@ require 'includes/config.php';
                 $kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["id"]);
                 require_once("./js/kernelViz.php");
                 showCode(false, "sourceCode", $kernel);
+                
                 ?> 
             </div>
 
@@ -61,8 +62,7 @@ require 'includes/config.php';
                 <div class="form block">
 
                     <div class="flex-container-info ">
-                        <button id="btn_box" class="small-button fill-flex transition"
-                            onclick="comenzarEjecucion(<?= $_GET["id"] ?>)">
+                        <button id="btn_box" class="small-button fill-flex transition" onclick= 'comenzarEjecucion(<?= $_GET["id"] ?>)'>
                             <p id="btn_text">Ejecutar</p>
                         </button>
                     </div>
