@@ -21,7 +21,8 @@ require '../../config.php';
 function assigned($n)
 {
     global $kernel_id;
-    return \parallelize_namespace\ExecutionSegment::buscaSegmentosConKernelIdQueContenganIt($kernel_id, $n);
+    $seg = \parallelize_namespace\ExecutionSegment::buscaSegmentosConKernelIdQueContenganIt($kernel_id, $n);
+    return $seg;
 }
 
 $kernel_id = $_GET["id"];
@@ -33,10 +34,17 @@ $end = -1;
 
 
 for ($i = 0; $i < $iteration_count; $i++) {
-    if ($start == -1 && !assigned($i)) {
-        $start = $i;
-    }
-    if ($start != -1 && (assigned($i) || MAX_SEGMENT_SIZE < $i - $start)) {
+
+    if ($start == -1) {
+        $seg = assigned($i);
+
+        if (isset($seg)) {
+            $i = $seg->getiteration_end();
+            continue;
+        } else {
+            $start = $i;
+        }
+    } else if ($start != -1 && (assigned($i) || MAX_SEGMENT_SIZE < $i - $start)) {
         $end = $i;
         echo "{\"start\":$start,\"end\":$end}";
         \parallelize_namespace\ExecutionSegment::enviaSegmento($start, $end, $kernel_id);
