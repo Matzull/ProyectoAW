@@ -15,14 +15,15 @@ $results = file_get_contents('php://input');
 $seg = \parallelize_namespace\ExecutionSegment::buscaSegmentosConKernelIdYRango($start, $end, $kernel_id);
 $user_email = $seg->getuser_email();
 
-if ($user_email->getuser_email() != $_SESSION["user_email"]) {
+if ($user_email != $_SESSION["user_email"]) {
     echo "no tienes permiso";
     die();
 }
 
 $kernel = \parallelize_namespace\Kernel::buscaKernelPorId($kernel_id);
+$usuario = \parallelize_namespace\Usuario::buscaUsuario($user_email);
 
-$token_delta = 10; // TODO reward calculations
+$token_delta = ($kernel->gettotal_reward() / $kernel->getiteration_count()) * ($seg->getiteration_end() - $seg->getiteration_start());
 
 $seg->setresults($results);
 

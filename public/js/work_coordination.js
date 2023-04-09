@@ -21,6 +21,7 @@ function pedir_trabajo(id) {
     set_state("pidiendo trabajo");
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
+        console.log(this.responseText);
         segmento_actual = JSON.parse(this.responseText);
         set_state("trabajando...");
 
@@ -47,7 +48,7 @@ function mandar_resultado(res, id) {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
         set_state("resultado enviado");
-
+        console.log(this.responseText);
         if (ejecutando) {
             pedir_trabajo(id);
         }

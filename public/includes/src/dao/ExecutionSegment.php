@@ -16,7 +16,7 @@ class ExecutionSegment
         $conn = Aplicacion::getInstance()->getConexionBd();
 
         $query = sprintf(
-            'UPDATE execution_segments SET user_email = \'%s\', start_time = %s, results = \'%s\' WHERE kernel_id = %s,iteration_start = %s, iteration_end = %s',
+            'UPDATE execution_segments SET user_email = \'%s\', start_time = \'%s\', results = \'%s\' WHERE kernel_id = %s && iteration_start = %s && iteration_end = %s',
             $conn->real_escape_string($this->user_email),
             $conn->real_escape_string($this->start_time),
             $conn->real_escape_string($this->results),

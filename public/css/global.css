@@ -360,3 +360,7 @@ que estar horizontal*/
 .transition {
     transition: all 0.5s;
 }
+
+.form-field-error{
+    color: red;
+}
