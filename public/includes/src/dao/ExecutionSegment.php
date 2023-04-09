@@ -36,11 +36,13 @@ class ExecutionSegment
     public static function buscaSegmentosConKernelIdQueContenganIt($id, $it)
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
-        $ret = NULL;
 
-        $query = "SELECT * FROM execution_segments K WHERE K.kernel_id = '" . $conn->real_escape_string($id) . "' && K.iteration_start <= " . $conn->real_escape_string($it) . " && K.iteration_end > " . $conn->real_escape_string($it);
-
-
+        $query = sprintf(
+            "SELECT * FROM execution_segments K WHERE K.kernel_id = '%s' && K.iteration_start <= %d && K.iteration_end > %d",
+            $conn->real_escape_string($id),
+            $conn->real_escape_string($it),
+            $conn->real_escape_string($it)
+        );
         $rs = $conn->query($query);
         if (mysqli_num_rows($rs)) {
             $rk = $rs->fetch_assoc();
