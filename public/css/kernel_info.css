@@ -20,12 +20,13 @@
 
 .codeBlock{
   border-radius: 10px;
-  max-width: 1000px;
-  width: 1000px;
+  max-width: 1200px;
+  min-width: 950px;
   padding: 15px 30px 15px 30px;
   box-sizing: border-box;
   background-color: var(--gris);
   margin-left: 2%;
+  margin-right: 2%;
   margin-top: 25px;
   margin-bottom: 50px;
 }
@@ -49,13 +50,15 @@ pre{
   border-radius: 10px;
 }
 
-code{
+#sourceCode{
   font-family: 'Courier New', Courier, monospace;
-  font-size: 1em;
-  background: #1e1e1e00;
-  padding: 15px;
-  display: block;
+  font-size: 17px;
   overflow-y: auto;
-  line-height: 1.5;
+  background: #1e1e1e00;
   max-height: 650px;
+}
+
+.centered_text{
+  width: 100%;
+  text-align: center;
 }

@@ -12,64 +12,99 @@ require 'includes/config.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kernel Info</title>
-    <link rel="stylesheet" href="css/nav_bar.css">
-    <link rel="stylesheet" href="css/user_nav_bar.css">
-    <link rel="stylesheet" href="css/user_dashboard.css">
-    <link rel="stylesheet" href="css/kernel_info.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link href="includes/modules/prism.css" rel="stylesheet" />
-    <script src="includes/modules/prism.js"></script>
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_dashboard.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/kernel_info.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/footer.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
 
 </head>
 
 <body>
     <?php
-    require_once "includes/config.php";
-    require_once("./includes/vistas/nav_bar.php");
-
-    //$kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["kernel_id"]);
+    require_once("./includes/src/vistas/nav_bar.php");
     ?>
-    <div class="flex-container-info horizontal">
-        <div class="codeBlock">
-            <h2 class="title">
-                Codigo fuente
-            </h2>
-            <?php
-                $kernel = \parallelize_namespace\Kernel::buscaKernelPorId(2);
-                echo '<pre class="line-numbers"><code class="language-javascript ">' . $kernel->getCode() . '</code></pre>';
-            ?>
-
-        </div>
-
-        <div class="flex-container-info vertical block">
-            <div class="form">
-                <h2 class="title centered">
-                    <?=$kernel->getname();?>
+    <div class="flex-container-info vertical">
+        <div class="flex-container-info horizontal">
+            <div class="codeBlock">
+                <h2 class="title">
+                    Codigo fuente
                 </h2>
-                <p>Usuario: <?= \parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName() ?></p>
-                <p>Estado: <?= $kernel->getrun_state() == 0 ? "Inactive" : ($kernel->getrun_state() == 1 ? "In progress" : "Finished") ?></p>
-                <p class="form"><?= $kernel->getdescription() ?></p>
+                <pre id="sourceCode">
+                </pre>
+                <?php
+                $kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["id"]);
+                require_once("./js/kernelViz.php");
+                showCode(false, "sourceCode", $kernel);
+
+                ?>
             </div>
-            <div class="form block">
-                <h2 class="title centered">
-                    Accion
-                </h2>
-                <p class="form">Iteracion 105/350</p>
-                <div class="flex-container-info ">
-                    <button  class="small-button c-green fill-flex"
-                        onclick="location.href='kernel_info.php'">
-                        <p>Ejecutar</p>
-                    </button>
-                    <div class="small-info c-h-b-blue fill-flex">
-                        <p> <?= $kernel->gettotal_reward()?> c/seg</p>
+
+            <div class="flex-container-info vertical block">
+                <div class="form">
+                    <h2 class="title centered">
+                        <?= $kernel->getname(); ?>
+                    </h2>
+                    <p>Usuario:
+                        <?= \parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName() ?>
+                    </p>
+                    <p>Estado:
+                        <?= $kernel->is_finished() == 0 ? "Computing" : "Finished" ?>
+                    </p>
+                    <p>Recompensa:
+                        <?= $kernel->getreward_per_line() ?> tk/line
+                    </p>
+                    <p class="form">
+                        <?= $kernel->getdescription() ?>
+                    </p>
+                </div>
+                <div class="form block">
+
+                    <div class="flex-container-info ">
+                        <button id="btn_box" class="small-button fill-flex transition"
+                            onclick='comenzarEjecucion(<?= $_GET["id"] ?>)'>
+                            <p id="btn_text">Ejecutar</p>
+                        </button>
                     </div>
+                    <p id="state_text"></p>
+
                 </div>
             </div>
         </div>
+        <?php
+        if (isset($_SESSION["user_email"]) && $kernel->getuser_email() == $_SESSION["user_email"]) {
+            ?>
+            <div>
+                <h1 class="centered_text">Información privada para el propietario</h1>
+                <div class="codeBlock">
+                    <a download="resultados_de_kernel.csv"
+                        href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>&format=csv">Descargar resultados
+                        <?= $kernel->is_finished() ? "totales" : "parciales" ?> en csv
+                    </a><br>
+                    <a download="resultados_de_kernel.json"
+                        href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>&format=json">Descargar
+                        resultados
+                        <?= $kernel->is_finished() ? "totales" : "parciales" ?> en json
+                    </a>
+
+                </div>
+            </div>
+        <?php } ?>
     </div>
+    <script>
+        kernel = {
+            finished: <?= $kernel->is_finished() == 0 ? "false" : "true" ?>
+        }
+    </script>
+
+
+    <?php require "js/kernel_execution.php"; ?>
+
+    <script src="js/work_coordination.js"></script>
 
 
 </body>
-<?php require_once("./includes/vistas/footer.php");?>
+<?php require_once("./includes/src/vistas/footer.php"); ?>
 
 </html>

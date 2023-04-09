@@ -1,4 +1,5 @@
 <!-- Define que el documento esta bajo el estandar de HTML 5 -->
+<?php require_once "includes/config.php";?>
 <!DOCTYPE html>
 
 <!-- Representa la raíz de un documento HTML o XHTML. Todos los demás elementos deben ser descendientes de este elemento. -->
@@ -9,14 +10,14 @@
     <title> Crear Cuenta </title>
     <meta name="keywords" content="Crear Cuenta">
     <!-- Link hacia el archivo de estilos css -->
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/register.css">
 </head>
 
 <body>
     <?php
-    require_once "includes/config.php";
     $formulario = new \parallelize_namespace\formulario\FormularioRegister();
+    require "includes/src/vistas/logo_nav_bar.php";
     ?>
     <div class="form-container">
         <div class="form">
@@ -32,7 +33,7 @@
                 Iniciar Sesión</button>
         </div>
         <div class="form-drawing">
-            <!-- dibujo blobs/ Flor -->
+            <img src="svg/blobanimation.svg">
         </div>
     </div>
 

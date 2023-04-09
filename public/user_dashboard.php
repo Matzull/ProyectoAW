@@ -7,6 +7,8 @@ if (!isset($_SESSION['user_email'])) {
     header("location: login.php");
     die();
 }
+
+$user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
 ?>
 
 <!DOCTYPE html>
@@ -17,19 +19,19 @@ if (!isset($_SESSION['user_email'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/nav_bar.css">
-    <link rel="stylesheet" href="css/user_nav_bar.css">
-    <link rel="stylesheet" href="css/user_dashboard.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_dashboard.css">
 </head>
 
 <body>
 
 
-    <?php require("includes/vistas/nav_bar.php") ?>
+    <?php require("includes/src/vistas/nav_bar.php") ?>
     <div class="main-container">
         <div id="user-panel">
             <div class="header">
-                <img src="./svg/Dashboard_i.svg" alt="" width="44">
+                <img src="./<?= RUTA_SVG ?>/Dashboard_i.svg" alt="" width="44">
                 <h2>DASHBOARD</h2>
             </div>
             <div class="sections-container">
@@ -38,17 +40,17 @@ if (!isset($_SESSION['user_email'])) {
                     <div class="lateral-info">
                         <h3 class="title">PARTICIPACIÓN</h3>
                         <p class="t-muted">Has subido
-                            <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getKernelCount() ?>
+                            <?= $user->getKernelCount() ?>
                             kernels.
                         </p>
                         <p class="t-muted">Has ejecutado
-                            <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getMsCrunched() ?>
+                            <?= $user->getMsCrunched() ?>
                             ms.
                         </p>
                     </div>
                 </div>
                 <div class="section section-h">
-                    <?php require("includes/vistas/token_big_info.php")?>
+                    <?php require("includes/src/vistas/token_big_info.php") ?>
                 </div>
                 <div class="section">
                     <h3 class="title">HISTORIAL DE EJECUCIONES</h3>
@@ -74,16 +76,38 @@ if (!isset($_SESSION['user_email'])) {
                     <div class="execution-history">
                     </div>
                 </div>
-                <div class="section">
+                <div id="last-kernels" class="section">
                     <h3 class="title">TUS ÚLTIMOS KERNELS</h3>
-                    <div class="last-kernels">
+                    <div class="kernels">
+                        <?php if (sizeof($kernels = $user->getKernels()) > 0): ?>
+                            <!-- <p>Hay al menos un kernel</p> -->
+
+                            <?php
+                            $kernels = array_slice($kernels, 0, 3);
+                            foreach ($kernels as $k) {
+                                $kName = $k->getname();
+                                $kRunState = $k->is_finished() ? "Terminado": "Corriendo";
+                                $kId = $k->getid();
+                                echo <<<HTML
+                                    <div class="upload-k"  onclick="location.href='kernel_info.php?id=$kId'">
+                                        <h4 class="k-title">$kName</h4>
+                                        <span class="button c-green">$kRunState</span>
+                                    </div>
+                                HTML;
+                            }
+                            ?>
+                        <?php else: ?>
+                            <p>Todavía no has subido kernels.
+                            <p>
+                            <?php endif ?>
                     </div>
-                    <button class="button c-h-blue" >Ver más kernels</button>
+                    <button type="button" class="button c-h-blue" onclick="location.href='your_kernels.php'">Ver más
+                        kernels</button>
                 </div>
             </div>
         </div>
     </div>
-    <?php require("includes/vistas/user_nav_bar.php") ?>
+    <?php require("includes/src/vistas/user_nav_bar.php") ?>
 </body>
 
 </html>

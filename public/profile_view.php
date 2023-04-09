@@ -4,12 +4,12 @@ namespace parallelize_namespace;
 require 'includes/config.php';
 
 define('ERROR_MSG', 'Usuario no encontrado');
-if (!isset($_GET['id']) || 
-    ($user = Usuario::buscaUsuario($_GET['id'])) === false) {
+if (!isset($_GET['profile_id']) || 
+    ($user = Usuario::buscaUsuario($_GET['profile_id'])) === false) {
     $profile_msg = ERROR_MSG;
 }
 else{
-    $profile_msg = $_GET['id'];
+    $profile_msg = $_GET['profile_id'];
 }
 ?>
 
@@ -20,12 +20,12 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $profile_msg ?></title>
-    <link rel="stylesheet" href="./css/nav_bar.css">
-    <link rel="stylesheet" href="./css/user_nav_bar.css">
-    <link rel="stylesheet" href="./css/profile_view.css">
+    <link rel="stylesheet" href="./<?= RUTA_CSS ?>/nav_bar.css">
+    <link rel="stylesheet" href="./<?= RUTA_CSS ?>/user_nav_bar.css">
+    <link rel="stylesheet" href="./<?= RUTA_CSS ?>/profile_view.css">
 </head>
 <body>
-    <?php require_once("./includes/vistas/nav_bar.php") ?>
+    <?php require_once("./includes/src/vistas/nav_bar.php") ?>
     <div class="main-container">
     <?php if(strcmp($profile_msg, ERROR_MSG) == 0): ?>
         <h1><?= $profile_msg ?></h1>
@@ -57,11 +57,11 @@ else{
                         <div class="flex-between">
                             <div></div>
                             <h3 class="t-big no-margin">
-                                <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->gettoekns() ?>
+                                <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->gettokens() ?>
                             </h3>
                         </div>
                     </div>
-                    <img src="svg/Token_i.svg" alt="" width="100" heigh="100">
+                    <img src="<?= RUTA_SVG ?>/Token_i.svg" alt="" width="100" heigh="100">
                 </div>
             </div>
             <div class="section">

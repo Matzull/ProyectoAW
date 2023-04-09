@@ -17,22 +17,22 @@ if (!isset($_SESSION['user_email'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/nav_bar.css">
-    <link rel="stylesheet" href="css/user_nav_bar.css">
-    <link rel="stylesheet" href="css/your_kernels.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/your_kernels.css">
 </head>
 
 <body>
-    <?php require_once("./includes/vistas/nav_bar.php") ?>
+    <?php require_once("./includes/src/vistas/nav_bar.php") ?>
     <div class="main-container">
         <div id="user-panel">
             <div class="header">
-                <img src="./svg/Kernels_i.svg" alt="" width="44">
+                <img src="./<?= RUTA_SVG ?>/Kernels_i.svg" alt="" width="44">
                 <h2>TUS KERNELS</h2>
             </div>
             <div class="sections-container">
                 <div class="section">
-                    <h3 class="title">HISTORIAL DE EJECUCIONES</h3>
+                    <!-- <h3 class="title">HISTORIAL DE EJECUCIONES</h3> -->
                     <form class="search-form" action="">
                         <div class="main-panel">
                             <input class="input-field" type="text" name="" id="" placeholder="Buscar...">
@@ -58,16 +58,16 @@ if (!isset($_SESSION['user_email'])) {
                 <div class="section">
                     <h3 class="title">SUBIR KERNEL</h3>
                     <div id="upload-panel">
-                        <img src="svg/Kernels_big_i.svg" alt="">
+                        <img src="<?= RUTA_SVG ?>/Kernels_big_i.svg" alt="">
                         <button class="circular-button button c-h-blue" onclick="location.href='subirkernel.php'">
-                            <img src="svg/Plus_i.svg" alt="">
+                            <img src="<?= RUTA_SVG ?>/Plus_i.svg" alt="">
                         </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <?php require_once("./includes/vistas/user_nav_bar.php") ?>
+    <?php require_once("./includes/src/vistas/user_nav_bar.php") ?>
 
 </body>
 
