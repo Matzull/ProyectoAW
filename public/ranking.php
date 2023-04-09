@@ -22,70 +22,56 @@ require 'includes/config.php';
     <?php require('./includes/src/vistas/nav_bar.php') ?>
 
     <div class="ranking-container">
-        <div class="table-format">
-            <table> 
-                <!-- Para rellenar esta tabla habrá que consultar el ranking en la BD -->
-                <thead>
-                    <tr>
-                        <th>posición</th>
-                        <th>nombre de usuario</th>
-                        <th>puntuación</th>
-                    </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Matzul_el_mediocre</td>
-                            <td>30</td> 
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>diegoq</td>
-                            <td>29</td> 
-                        </tr>   
-                        <tr>
-                            <td>3</td>
-                            <td>jaimev</td>
-                            <td>28</td> 
-                        </tr>  
-                        <?php
-                            for ($i = 1; $i <= 15; $i++) {
-                                echo <<<HTML
-                                <tr>
-                                    <td>pos</td>
-                                    <td>nombre</td>
-                                    <td>puntos</td> 
-                                </tr> 
-                                HTML;
-                            }  
-                        ?>  
-                </tbody>
-            </table>  
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Posición</th>
+                    <th>Usuario</th>
+                    <th>Puntuación</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php $GLOBALS['usuarios'] = \parallelize_namespace\Usuario::getMejoresUsuarios(25);
+                foreach ($GLOBALS['usuarios'] as $key => $value) {
+                    echo "<tr>";
+                    echo "<td>" . $key + 1 . "</td>";
+                    echo "<td>" . $value[0] . "</td>";
+                    echo "<td>" . $value[1] . "</td>";
+                    echo "</tr>";
+                }
+                ?>
+            </tbody>
+        </table>
 
         <div class="right-side">
-            <div class="top-rank">
-                <h2 class="title">
-                    BEST PARALELLIZERS
-                </h2>
-                <div class="ranking1">
-                    <h3>Matzul_el_mediocre</h3>
+            <div class="podio">
+                <div class="podio-item oro">
+                    <h3>1º</h3>
+                    <p><?=$GLOBALS['usuarios'][0][0]?></p>
+                    <p><?=$GLOBALS['usuarios'][0][1]?></p>
                 </div>
-                <div class="ranking2">
-                    <h3>diegoq</h3>
+                <div class="podio-item plata">
+                    <h3>2º</h3>
+                    <p><?=$GLOBALS['usuarios'][1][0]?></p>
+                    <p><?=$GLOBALS['usuarios'][1][1]?></p>
                 </div>
-                <div class="ranking3">
-                    <h3>jaimev</h3>
+                <div class="podio-item bronce">
+                    <h3>3º</h3>
+                    <p><?=$GLOBALS['usuarios'][2][0]?></p>
+                    <p><?=$GLOBALS['usuarios'][2][1]?></p>
                 </div>
             </div>
-            
-            <div class>
-            <img src="svg/blobanimation.svg">
+
+
+
+            <div class=rank-blob>
+                <img src="svg/blobanimation.svg">
             </div>
         </div>
     </div>
     <?php require("./includes/src/vistas/footer.php"); ?>
-  
+
 </body>
 
 </html>

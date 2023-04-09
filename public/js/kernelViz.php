@@ -9,7 +9,7 @@
     $code = " ";
     if ($kernel != null)
     {
-        $code = addcslashes(html_entity_decode($kernel->getCode(), ENT_QUOTES), "\n");
+        $code = addcslashes(html_entity_decode($kernel->getCode(), ENT_QUOTES), "\n\r");
     }
     
     $isReadonly = ($editable) ? "false" : "true";

@@ -61,6 +61,19 @@ class Usuario
         return false;
     }
 
+    public static function getMejoresUsuarios($count)
+    {
+        $conn = Aplicacion::getInstance()->getConexionBd();
+        $query = sprintf("SELECT user_name, millis_crunched FROM users U ORDER BY millis_crunched ASC LIMIT %s", $count);
+        $rs = $conn->query($query);
+        $users = $rs->fetch_all(MYSQLI_ASSOC);
+        $ret = [];
+        foreach ($users as $usr) {
+            $ret[] = [$usr['user_name'], $usr['millis_crunched']];
+        }
+        return $ret;
+    }
+
     public function __construct($user_name, $user_email, $user_password, $millis_crunched, $ranking, $tokens, $last_active, $blocked)
     {
         $this->user_name = $user_name;
