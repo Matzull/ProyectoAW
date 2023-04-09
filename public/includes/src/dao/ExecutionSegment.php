@@ -35,7 +35,11 @@ class ExecutionSegment
 
     public static function buscaSegmentosConKernelIdQueContenganIt($id, $it)
     {
+
+        // echo "buscando segmento que contenga $it para el k $id <br>";
         $conn = Aplicacion::getInstance()->getConexionBd();
+
+        $ret = null;
 
         $query = sprintf(
             "SELECT * FROM execution_segments K WHERE K.kernel_id = '%s' && K.iteration_start <= %d && K.iteration_end > %d",
@@ -220,8 +224,10 @@ class ExecutionSegment
         // echo $this->getiteration_start();
         // echo " and ";
         // echo $this->getiteration_end();
+        // echo ":";
         // echo $n >= $this->iteration_start && $n < $this->iteration_end;
-        // echo "\n";
+        // echo "<br>";
+
         return $n >= $this->iteration_start && $n < $this->iteration_end;
     }
 

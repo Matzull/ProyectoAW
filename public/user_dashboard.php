@@ -86,7 +86,7 @@ $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
                             $kernels = array_slice($kernels, 0, 3);
                             foreach ($kernels as $k) {
                                 $kName = $k->getname();
-                                $kRunState = $k->getis_finished();
+                                $kRunState = $k->is_finished();
                                 echo <<<HTML
                                     <div class="upload-k">
                                         <h4 class="k-title">$kName</h4>

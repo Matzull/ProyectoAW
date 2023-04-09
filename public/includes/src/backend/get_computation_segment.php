@@ -39,7 +39,7 @@ for ($i = 0; $i < $iteration_count; $i++) {
         $seg = assigned($i);
 
         if (isset($seg)) {
-            $i = $seg->getiteration_end();
+            $i = $seg->getiteration_end()-1;
             continue;
         } else {
             $start = $i;

@@ -5,7 +5,6 @@ class Kernel
 {
 
     private $name;
-    private $is_finished;
     private $user_email;
     private $id;
     private $js_code;
@@ -14,14 +13,15 @@ class Kernel
     private $reward_per_line;
     private $iteration_count;
 
+    private $segment_cache;
+
     private function storeToDb()
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
 
         $query = sprintf(
-            'UPDATE kernels SET name = \'%s\', is_finished = %s, user_email = \'%s\', js_code = \'%s\', description = \'%s\', total_reward = %s, reward_per_line = %s WHERE id = \'%s\'',
+            'UPDATE kernels SET name = \'%s\', user_email = \'%s\', js_code = \'%s\', description = \'%s\', total_reward = %s, reward_per_line = %s WHERE id = \'%s\'',
             $conn->real_escape_string($this->name),
-            $conn->real_escape_string($this->is_finished),
             $conn->real_escape_string($this->user_email),
             $conn->real_escape_string($this->js_code),
             $conn->real_escape_string($this->description),
@@ -44,13 +44,12 @@ class Kernel
         $query = sprintf("SELECT * FROM kernels K WHERE K.user_email = '%s'", $conn->real_escape_string($user->getEmail()));
         $rs = $conn->query($query);
 
-        
+
         $raw_kernels = $rs->fetch_all(MYSQLI_ASSOC);
         $ret = [];
         foreach ($raw_kernels as $rk) {
             $ret[] = new Kernel(
                 $rk['name'],
-                $rk['is_finished'],
                 $rk['user_email'],
                 $rk['id'],
                 $rk['js_code'],
@@ -75,7 +74,6 @@ class Kernel
         foreach ($raw_kernels as $rk) {
             $ret[] = new Kernel(
                 $rk['name'],
-                $rk['is_finished'],
                 $rk['user_email'],
                 $rk['id'],
                 $rk['js_code'],
@@ -101,7 +99,6 @@ class Kernel
         foreach ($raw_kernels as $rk) {
             $ret[] = new Kernel(
                 $rk['name'],
-                $rk['is_finished'],
                 $rk['user_email'],
                 $rk['id'],
                 $rk['js_code'],
@@ -125,7 +122,6 @@ class Kernel
             $rk = $rs->fetch_assoc();
             $ret = new Kernel(
                 $rk['name'],
-                $rk['is_finished'],
                 $rk['user_email'],
                 $rk['id'],
                 $rk['js_code'],
@@ -148,10 +144,9 @@ class Kernel
         $code_lines = count($lines_arr);
 
         $query = sprintf(
-            'INSERT INTO kernels (name, is_finished, user_email, js_code, total_reward, description, reward_per_line, iteration_count) 
+            'INSERT INTO kernels (name, user_email, js_code, total_reward, description, reward_per_line, iteration_count) 
             VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')',
             $conn->real_escape_string($kernel_name),
-            0,
             $conn->real_escape_string($_SESSION["user_email"]),
             $conn->real_escape_string($kernel_js_code),
             $conn->real_escape_string($kernel_price),
@@ -170,10 +165,9 @@ class Kernel
 
 
 
-    public function __construct($name, $is_finished, $user_email, $id, $js_code, $description, $total_reward, $getreward_per_line, $iteration_count)
+    public function __construct($name, $user_email, $id, $js_code, $description, $total_reward, $getreward_per_line, $iteration_count)
     {
         $this->name = $name;
-        $this->is_finished = $is_finished;
         $this->user_email = $user_email;
         $this->id = $id;
         $this->js_code = $js_code;
@@ -187,10 +181,42 @@ class Kernel
     {
         return $this->name;
     }
-    public function getis_finished()
+    public function is_finished()
     {
-        return $this->is_finished;
+        for ($i = 0; $i < $this->iteration_count; $i++) {
+            $res = $this->result_at($i);
+            if ($res == "not_asigned") {
+                return false;
+            }
+        }
+
+        return true;
     }
+
+    public function result_at($n)
+    {
+        $seg = null;
+
+        if ($this->segment_cache && $this->segment_cache->contains($n)) {
+            $seg = $this->segment_cache;
+        } else {
+            $seg = \parallelize_namespace\ExecutionSegment::buscaSegmentosConKernelIdQueContenganIt($this->id, $n);
+            if (!isset($seg)) {
+                return "not_asigned";
+            }
+            $this->segment_cache = $seg;
+        }
+
+        $sub_index = $n - $seg->getiteration_start();
+        $res_list = explode(",", $seg->getresults());
+        if (isset($res_list[$sub_index])) {
+            return $res_list[$sub_index];
+        }
+        return "not_solved";
+
+    }
+
+
     public function getuser_email()
     {
         return $this->user_email;
