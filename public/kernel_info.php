@@ -19,12 +19,6 @@ require 'includes/config.php';
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/footer.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
 
-    <link rel="stylesheet" href="js/codeMirror/codemirror.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/theme/dracula.min.css">
-
-    <script type="text/javascript" src="js/codeMirror/codemirror.js"></script>
-    <script type="text/javascript" src="js/codeMirror/javascript.js"></script>
-
 </head>
 
 <body>
@@ -37,26 +31,13 @@ require 'includes/config.php';
                 <h2 class="title">
                     Codigo fuente
                 </h2>
+                <pre id="sourceCode">
+                </pre>
                 <?php
                 $kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["id"]);
-                ?>
-                <pre id="sourceCode">
-                <?= $kernel->getCode() ?>
-            </pre>
-                <!-- <script type="text/javascript"> // levatelo a otro archivo porfa thanks
-                var code = "<?php echo addcslashes(html_entity_decode($kernel->getCode(), ENT_QUOTES), "\n") ?>";
-                var editor = CodeMirror(document.getElementById("sourceCode"), {
-                    lineNumbers: true,
-                    mode: "javascript",
-                    theme: "dracula",
-                    indentUnit: 10,
-                    readOnly: true,
-                    lineWrapping: true,
-                    pasteAsPlainText: true
-                });
-                editor.setValue(code);
-                editor.setSize("100%", "100%");
-            </script>   -->
+                require_once("./js/kernelViz.php");
+                showCode(false, "sourceCode", $kernel);
+                ?> 
             </div>
 
             <div class="flex-container-info vertical block">

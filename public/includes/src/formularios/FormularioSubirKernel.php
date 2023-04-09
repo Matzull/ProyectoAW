@@ -3,12 +3,14 @@
 namespace parallelize_namespace\formulario;
 
 require_once 'includes/config.php';
+require_once("./js/kernelViz.php");
 ?>
 <link rel="stylesheet" href="js/codeMirror/codemirror.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/theme/dracula.min.css">
 
 <script type="text/javascript" src="js/codeMirror/codemirror.js"></script>
 <script type="text/javascript" src="js/codeMirror/javascript.js"></script>
+
 
 <?php
 class FormularioSubirKernel extends Formulario
@@ -26,20 +28,22 @@ class FormularioSubirKernel extends Formulario
 
         <label for = 'kernel_name'>Nombre del kernel</label>
         <input id = 'kernel_name' class = 'input-field' name = 'kernel_name' placeholder = 'Nombre del kernel' value = "$val_kernel_name" ></textarea>
-        HTML . generarError('kernel_name', $this->errores) . <<<HTML
+        HTML . generarError('kernel_name', $this->errores) . <<<'HTML'
         
         <label for = 'input_kernel'>Introducir kernel</label>
+        <div class="input-field">
         <textarea id = 'input_kernel' class = 'input-field' name = 'input_kernel' placeholder = 'Introduce tu kernel' value = "$val_input_kernel" ></textarea>
-        <script type="text/javascript">
-            var editor = CodeMirror.fromTextArea(document.getElementById("input_kernel"), {
-                lineNumbers: true,
-                mode: "javascript",
-                theme: "dracula",
-                indentUnit: 10,
-                lineWrapping: true
-            });
-            editor.setSize("100%", "100%");
-        </script> 
+            <script>
+                var editor = CodeMirror.fromTextArea(document.getElementById("input_kernel"), {
+                    lineNumbers: true,
+                    mode: "javascript",
+                    theme: "dracula",
+                    indentUnit: 10,
+                    lineWrapping: true
+                });
+                editor.setSize("100%", "100%");
+            </script>
+        </div>
         HTML . generarError('input_kernel', $this->errores) . <<<HTML
 
         <label for = 'kernel_description'>Descripcion del kernel</label>
