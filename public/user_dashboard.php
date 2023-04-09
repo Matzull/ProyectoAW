@@ -89,7 +89,6 @@ $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
                                 $kRunState = $k->is_finished();
                                 $kId = $k->getid();
                                 echo <<<HTML
-                                    
                                     <div class="upload-k"  onclick="location.href='kernel_info.php?id=$kId'">
                                         <h4 class="k-title">$kName</h4>
                                         <span class="button c-green">$kRunState</span>
