@@ -1,5 +1,7 @@
 <?php
 
+define("MAX_SEGMENT_SIZE", 1000);
+
 require '../../config.php';
 
 function assigned($n)
@@ -23,13 +25,12 @@ $iteration_count = $kernel->getiteration_count();
 $start = -1;
 $end = -1;
 
-$max_it = 10;
 
 for ($i = 0; $i < $iteration_count; $i++) {
     if ($start == -1 && !assigned($i)) {
         $start = $i;
     }
-    if ($start != -1 && (assigned($i) || $max_it < $i - $start)) {
+    if ($start != -1 && (assigned($i) || MAX_SEGMENT_SIZE < $i - $start)) {
         $end = $i;
         echo "{\"start\":$start,\"end\":$end}";
         \parallelize_namespace\ExecutionSegment::enviaSegmento($start, $end, $kernel_id);
@@ -41,7 +42,6 @@ if ($start != -1) {
     \parallelize_namespace\ExecutionSegment::enviaSegmento($start, $iteration_count, $kernel_id);
     die();
 } else {
-
     $kernel->setFinished();
     echo "null";
     die();
