@@ -86,7 +86,7 @@ $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
                             $kernels = array_slice($kernels, 0, 3);
                             foreach ($kernels as $k) {
                                 $kName = $k->getname();
-                                $kRunState = $k->is_finished();
+                                $kRunState = $k->is_finished() ? "Terminado": "Corriendo";
                                 $kId = $k->getid();
                                 echo <<<HTML
                                     <div class="upload-k"  onclick="location.href='kernel_info.php?id=$kId'">
