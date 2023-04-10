@@ -39,7 +39,7 @@ if (!isset($_SESSION['user_email'])) {
                             <button class="button c-h-blue" type="submit">Buscar</button>
                         </div>
                         <div class="option-panel">
-                            <button class="button c-h-blue" >Filtrar</button>
+                            <button class="button c-h-blue">Filtrar</button>
                             <select class="select" name="orderby" id="orderby">
                                 <optgroup label="Fecha">
                                     <option value="more recent first">Más reciente primero</option>
@@ -63,6 +63,17 @@ if (!isset($_SESSION['user_email'])) {
                             <img src="<?= RUTA_SVG ?>/Plus_i.svg" alt="">
                         </button>
                     </div>
+                </div>
+                <div class="section">
+                <?php 
+                    $kernels = \parallelize_namespace\Usuario::getKernels();
+                    foreach ($kernels as $key => $value) {
+                        echo "<tr>";
+                        echo "<td>" . $key + 1 . "</td>";
+                        echo "<td>" . $value . "</td>";
+                        echo "</tr>";
+                    }
+                ?>
                 </div>
             </div>
         </div>

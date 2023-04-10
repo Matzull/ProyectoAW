@@ -24,8 +24,8 @@ if (!isset($_SESSION['user_email'])) {
 <body>
     <?php
     require_once("./includes/src/vistas/nav_bar.php");
-    ?>
-
+    ob_start(); //En vez de pintar directamente con echo, guarda en un buffer y pinta al final
+    echo <<<EOS
     <div class="main-container">
         <div class="form">
             <h2 class="title">
@@ -34,17 +34,21 @@ if (!isset($_SESSION['user_email'])) {
 
             <p>antes de continuar recomendamos ojear la siguiente documentación:</p>    
             <ul>
-                <li><a
-                        href="https://github.com/gpujs/gpu.js/#supported-math-functions">https://github.com/gpujs/gpu.js/#supported-math-functions</a>
+                <li><a href="https://github.com/gpujs/gpu.js/#supported-math-functions">https://github.com/gpujs/gpu.js/#supported-math-functions</a>
                 </li>
             </ul>
-            <?php
-                $formulario = new \parallelize_namespace\formulario\FormularioSubirKernel();
-                echo $formulario->gestiona();
-            ?>
+    EOS;
+
+    $formulario = new \parallelize_namespace\formulario\FormularioSubirKernel();
+    echo $formulario->gestiona();
+
+    echo <<<EOS
         </div>
     </div>
+    
 
 </body>
 
 </html>
+EOS;
+    echo ob_get_clean();//aqui es donde se flushea el buffer creado por ob_start

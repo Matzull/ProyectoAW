@@ -2,7 +2,6 @@
 
 
 <script>
-
     function exec(i_start, i_end) {
         const gpu = new GPU();
         const acelerated_kernel = gpu.createKernel(function (i_start, i_end) {
@@ -12,6 +11,4 @@
 
         return acelerated_kernel(i_start, i_end);
     }
-
-
 </script>
