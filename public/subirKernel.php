@@ -39,12 +39,8 @@ if (!isset($_SESSION['user_email'])) {
                 </li>
             </ul>
             <?php
-            if (isset($_SESSION["user_email"])) {
                 $formulario = new \parallelize_namespace\formulario\FormularioSubirKernel();
                 echo $formulario->gestiona();
-            } else {
-                echo "<p>Necesitas estar registrado para enviarnos información,<a href=\"./register.php\"> registrate aqui</a> o si ya tienes cuenta <a href=\"./login.php\">inicia sesión aqui!</a></p>"; // TODO los enlaces
-            }
             ?>
         </div>
     </div>

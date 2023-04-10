@@ -224,7 +224,6 @@ abstract class Formulario
         if (!$this->formularioEnviado($datos)) {
             return $this->generaFormulario();
         }
-
         $this->procesaFormulario($datos);
         $esValido = count($this->errores) === 0;
 
@@ -235,7 +234,7 @@ abstract class Formulario
 
         if ($this->urlRedireccion !== null) {
             header("Location: {$this->urlRedireccion}");
-            exit();
+            die();
         }
     }
 

@@ -145,7 +145,7 @@ class Kernel
 
         $query = sprintf(
             'INSERT INTO kernels (name, user_email, js_code, total_reward, description, reward_per_line, iteration_count) 
-            VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')',
+            VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')',
             $conn->real_escape_string($kernel_name),
             $conn->real_escape_string($_SESSION["user_email"]),
             $conn->real_escape_string($kernel_js_code),
