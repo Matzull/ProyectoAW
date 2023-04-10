@@ -12,7 +12,6 @@ class Kernel
     private $total_reward;
     private $reward_per_line;
     private $iteration_count;
-
     private $segment_cache;
 
     private function storeToDb()

@@ -31,28 +31,55 @@ if (!isset($_SESSION['user_email'])) {
                 <h2>TUS KERNELS</h2>
             </div>
             <div class="sections-container">
-                <div class="section">
-                    <!-- <h3 class="title">HISTORIAL DE EJECUCIONES</h3> -->
-                    <form class="search-form" action="">
-                        <div class="main-panel">
-                            <input class="input-field" type="text" name="" id="" placeholder="Buscar...">
-                            <button class="button c-h-blue" type="submit">Buscar</button>
+                <div class="vertical">
+                    <div class="section">
+                        <!-- <h3 class="title">HISTORIAL DE EJECUCIONES</h3> -->
+                        <form class="search-form" action="">
+                            <div class="main-panel">
+                                <input class="input-field" type="text" name="" id="" placeholder="Buscar...">
+                                <button class="button c-h-blue" type="submit">Buscar</button>
+                            </div>
+                            <div class="option-panel">
+                                <button class="button c-h-blue">Filtrar</button>
+                                <select class="select" name="orderby" id="orderby">
+                                    <optgroup label="Fecha">
+                                        <option value="more recent first">Más reciente primero</option>
+                                        <option value="less recent first">Menos reciente primero</option>
+                                    </optgroup>
+                                    <optgroup label="Ingresos">
+                                        <option value="more income first">Más ingresos primero</option>
+                                        <option value="less income first">Menos ingresos primero</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </form>
+                        <div class="execution-history">
                         </div>
-                        <div class="option-panel">
-                            <button class="button c-h-blue">Filtrar</button>
-                            <select class="select" name="orderby" id="orderby">
-                                <optgroup label="Fecha">
-                                    <option value="more recent first">Más reciente primero</option>
-                                    <option value="less recent first">Menos reciente primero</option>
-                                </optgroup>
-                                <optgroup label="Ingresos">
-                                    <option value="more income first">Más ingresos primero</option>
-                                    <option value="less income first">Menos ingresos primero</option>
-                                </optgroup>
-                            </select>
+                    </div>
+                    <div class="section indented">   
+                        <div class="kernels">
+                            <?php
+                            $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]); 
+                            if (sizeof($kernels = $user->getKernels()) > 0): ?>
+                                <?php
+                                $kernels = array_slice($kernels, 0, 3);
+                                foreach ($kernels as $k) {
+                                    $kName = $k->getname();
+                                    $kRunState = $k->is_finished() ? "Terminado" : "Corriendo";
+                                    $kId = $k->getid();
+                                    echo <<<HTML
+                                    <div class="upload-k"  onclick="location.href='kernel_info.php?id=$kId'">
+                                        <h4 class="k-title">$kName</h4>
+                                        <span class="button c-green">$kRunState</span>
+                                    </div>
+                                HTML;
+                                }
+                                ?>
+                            <?php else: ?>
+                                <p>Todavía no has subido kernels.
+                                <p>
+                                <?php endif ?>
                         </div>
-                    </form>
-                    <div class="execution-history">
                     </div>
                 </div>
                 <div class="section">
@@ -63,17 +90,6 @@ if (!isset($_SESSION['user_email'])) {
                             <img src="<?= RUTA_SVG ?>/Plus_i.svg" alt="">
                         </button>
                     </div>
-                </div>
-                <div class="section">
-                <?php 
-                    $kernels = \parallelize_namespace\Usuario::getKernels();
-                    foreach ($kernels as $key => $value) {
-                        echo "<tr>";
-                        echo "<td>" . $key + 1 . "</td>";
-                        echo "<td>" . $value . "</td>";
-                        echo "</tr>";
-                    }
-                ?>
                 </div>
             </div>
         </div>
