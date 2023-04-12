@@ -4,6 +4,19 @@
 }
 
 
+
+.ranking {
+    width: 100px;
+    height: 100px;
+    font-size: 2em;
+    font-weight: bold;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 #last-kernels {
     display: flex;
     flex-direction: column;

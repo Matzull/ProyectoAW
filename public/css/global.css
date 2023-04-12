@@ -36,6 +36,30 @@ a:hover {
     /* color: var(--white); */
 }
 
+/* || SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--m-text); 
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--h-gris); 
+}
+
+
 /* COLORES DE FONDO */
 .c-main {
     background-color: var(--main);
@@ -302,6 +326,9 @@ a:hover {
     margin-right: 215px;
     /* user nav bar width + margin right 10px*/
 }
+#user-panel.nb-closed {
+    margin-right: 0px;
+}
 
 #user-panel>.header {
     display: flex;
@@ -310,6 +337,11 @@ a:hover {
     gap: 15px;
 }
 
+@media only screen and (max-width: 900px) {
+    #user-panel {
+        margin-right: 0px;
+    }
+}
 
 
 /* TODO: Mover a kernel_marketplace.css */
@@ -329,38 +361,10 @@ que estar horizontal*/
 
 /*cosas de las vistas que se podrían requerir en varios documentos*/
 
-#transaction_graph_canvas {
-    width: 94%;
-    padding: 3%;
-}
-
-#transaction_table {
-    font-size: 16px;
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 94%;
-    left: 3%;
-    position: relative;
-}
-
-#transaction_table>tbody>tr>td {
-    border: #b7b7b7 solid 1px;
-}
-
-#transaction_table>thead>tr>th {
-    border: #b7b7b7 solid 1px;
-}
-
-#user-nb-options {
-    height: 250px;
-    transition: all 0.5s;
-    overflow: hidden;
-}
-
 .transition {
     transition: all 0.5s;
 }
 
 .form-field-error{
-    color: red;
+    color: var(--red);
 }

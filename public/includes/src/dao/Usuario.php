@@ -150,6 +150,10 @@ class Usuario
         return "";
     }
 
+    public function getRanking(){
+        return $this->ranking;
+    }
+
     public function setTokens($value)
     {
         $this->tokens = $value;

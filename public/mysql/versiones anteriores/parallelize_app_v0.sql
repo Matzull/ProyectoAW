@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 12-04-2023 a las 11:24:08
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: Apr 08, 2023 at 01:56 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,14 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `parallelize_app`
+-- Database: `parallelize_app`
 --
+
 CREATE DATABASE IF NOT EXISTS `parallelize_app` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `parallelize_app`;
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE `comments` (
@@ -34,7 +36,7 @@ CREATE TABLE `comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `comments`
+-- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`user_email`, `comment`) VALUES
@@ -47,7 +49,7 @@ INSERT INTO `comments` (`user_email`, `comment`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `execution_segments`
+-- Table structure for table `execution_segments`
 --
 
 CREATE TABLE `execution_segments` (
@@ -60,7 +62,7 @@ CREATE TABLE `execution_segments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `execution_segments`
+-- Dumping data for table `execution_segments`
 --
 
 INSERT INTO `execution_segments` (`user_email`, `start_time`, `kernel_id`, `results`, `iteration_start`, `iteration_end`) VALUES
@@ -78,7 +80,7 @@ INSERT INTO `execution_segments` (`user_email`, `start_time`, `kernel_id`, `resu
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `kernels`
+-- Table structure for table `kernels`
 --
 
 CREATE TABLE `kernels` (
@@ -95,7 +97,7 @@ CREATE TABLE `kernels` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `kernels`
+-- Dumping data for table `kernels`
 --
 
 INSERT INTO `kernels` (`name`, `is_finished`, `user_email`, `id`, `js_code`, `reward_per_line`, `total_reward`, `description`, `upload_time`, `iteration_count`) VALUES
@@ -105,7 +107,7 @@ INSERT INTO `kernels` (`name`, `is_finished`, `user_email`, `id`, `js_code`, `re
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `token_transactions`
+-- Table structure for table `token_transactions`
 --
 
 CREATE TABLE `token_transactions` (
@@ -120,7 +122,7 @@ CREATE TABLE `token_transactions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -135,104 +137,93 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`, `tokens`, `last_active`, `blocked`, `user_name`) VALUES
-('borjal@ucm.es', '$2y$10$Grc.4A8YQQFlmf6.xsPSsulr9KnJG8Iuu4UlGs0Wd21AGeSBqtuFy', 0, -1, 0, '2023-04-12', 0, 'Borja Lopez'),
-('diego@email.com', '$2y$10$3TxN6531suwgIbfla70l3ujKv5XAgCSuNkBq7fJDGoecWGClaL4ZW', 0, -1, 0, '2023-04-06', 0, 'Diego Quiroga'),
-('jaime@email.com', '$2y$10$rlrTSZHZoeyQrnQuxfrWSeoBaV8jmvcKvq4bxuLKD0xCJ/NKRSHjC', 0, -1, 0, '2023-04-06', 0, 'Jaime Gonzalez'),
-('jaimev@ucm.es', '$2y$10$8lC/xKDpJeoiZs/oheFy.e.722qgLOZdvCVGU5rUslHvJvgWwasxe', 0, -1, 0, '2023-04-12', 0, 'Jaime Vazquez'),
-('juan@email.com', '$2y$10$NvppguKXJyqI929HtOftLuPucBoS9LJL9ueMrbBarJL1QmpnipJm2', 0, -1, 0, '2023-04-06', 0, 'Juan Jerez'),
-('juant@ucm.es', '$2y$10$o6wNhE2oqQnVxi9DRXefKe6sqk7SxggktnItTRmDasCO9TprmTYry', 0, -1, 0, '2023-04-12', 0, 'Juan Trillo'),
-('laurar@ucm.es', '$2y$10$DIBDqzkXUj8/XtGqF1uWK.HfP8Qog7yKI7V5KwdK3jp3qIVPAnE/y', 0, -1, 0, '2023-04-12', 0, 'Laura Rodriguez'),
-('luciam@ucm.es', '$2y$10$AbN5QqbgRYi42fKchanoGOmWLhVVANjSkFWRhrqu9BHkMylxml4qG', 0, -1, 0, '2023-04-12', 0, 'Lucia Marquez'),
-('luz@ucm.es', '$2y$10$mBDcnGZMXDN0en/9v0wPhO8x/n64OWvMoFHgvjDQgoq2GuCku7vSO', 0, -1, 0, '2023-04-12', 0, 'Luz Rojas'),
-('marcoj@ucm.es', '$2y$10$KJV3RNKeCnfTfEo.Rx7V5Ox6Pi8jn61d4jCxj6VAVZtzhmQLTGXMy', 0, -1, 0, '2023-04-12', 0, 'Marco Jim&eacute;nez'),
-('marcos@email.com', '$2y$10$Yi.nxQT0Boj3jWbMjgd66.bSm3hZzpmbfxP1gHQKUerUKQ0ZLYFd2', 0, -1, 0, '2023-04-06', 0, 'Marcos Alonso'),
-('martas@ucm.es', '$2y$10$VgRlv21OqmXycOsHIqehpuZIyp0aY2okfmrC168INEof1edOoR7YO', 0, -1, 0, '2023-04-12', 0, 'Marta Sillero'),
-('pablop@ucm.es', '$2y$10$6VKBzixsytnVpbBqldfWlOmjHU8wVszs4oMwTaKRh5.Os7zuczphC', 0, -1, 0, '2023-04-12', 0, 'Pablo Perez'),
-('susanao@ucm.es', '$2y$10$DYmCcgDDD.4opmwWHnqeCeDzT6yvwdIjCrgvZoae3qoaru.gh1pWq', 0, -1, 0, '2023-04-12', 0, 'Susana Bueno'),
-('victorm@ucm.es', '$2y$10$AN67M/.Z0zwh6ZZpGPR69u4iwyo5K4BAKOrB4SSRWkHNyTbKY4QRe', 0, -1, 0, '2023-04-12', 0, 'Victor Martin');
+('diego@email.com', '$2y$10$3TxN6531suwgIbfla70l3ujKv5XAgCSuNkBq7fJDGoecWGClaL4ZW', 0, -1, 0, '2023-04-06', 0, 'diego'),
+('jaime@email.com', '$2y$10$rlrTSZHZoeyQrnQuxfrWSeoBaV8jmvcKvq4bxuLKD0xCJ/NKRSHjC', 0, -1, 0, '2023-04-06', 0, 'jaime'),
+('juan@email.com', '$2y$10$NvppguKXJyqI929HtOftLuPucBoS9LJL9ueMrbBarJL1QmpnipJm2', 0, -1, 0, '2023-04-06', 0, 'juan'),
+('marcos@email.com', '$2y$10$Yi.nxQT0Boj3jWbMjgd66.bSm3hZzpmbfxP1gHQKUerUKQ0ZLYFd2', 0, -1, 0, '2023-04-06', 0, 'marcos');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `comments`
+-- Indexes for table `comments`
 --
 ALTER TABLE `comments`
   ADD KEY `user_email` (`user_email`);
 
 --
--- Indices de la tabla `execution_segments`
+-- Indexes for table `execution_segments`
 --
 ALTER TABLE `execution_segments`
   ADD PRIMARY KEY (`kernel_id`,`iteration_start`),
   ADD KEY `user_email_fk_ex_reg` (`user_email`);
 
 --
--- Indices de la tabla `kernels`
+-- Indexes for table `kernels`
 --
 ALTER TABLE `kernels`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_email_fk` (`user_email`);
 
 --
--- Indices de la tabla `token_transactions`
+-- Indexes for table `token_transactions`
 --
 ALTER TABLE `token_transactions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `email_fk` (`user_email`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_email`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `kernels`
+-- AUTO_INCREMENT for table `kernels`
 --
 ALTER TABLE `kernels`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `token_transactions`
+-- AUTO_INCREMENT for table `token_transactions`
 --
 ALTER TABLE `token_transactions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `comments`
+-- Constraints for table `comments`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `execution_segments`
+-- Constraints for table `execution_segments`
 --
 ALTER TABLE `execution_segments`
   ADD CONSTRAINT `kernel_id_fk_ex_seg` FOREIGN KEY (`kernel_id`) REFERENCES `kernels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `user_email_fk_ex_seg` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `kernels`
+-- Constraints for table `kernels`
 --
 ALTER TABLE `kernels`
   ADD CONSTRAINT `user_email_fk` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `token_transactions`
+-- Constraints for table `token_transactions`
 --
 ALTER TABLE `token_transactions`
   ADD CONSTRAINT `email_fk` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;

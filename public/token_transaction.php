@@ -15,24 +15,24 @@
 </head>
 
 <body>
-
-    <?php
-    if (!isset($_SESSION["user_email"])) {
-        echo '<p>Debes haberte identificado</p>';
-    } else {
-       echo ' <div class="form-container">';
-       echo ' <div class="form">';
-        $usuario = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
-        $t = $usuario->gettokens();
-        echo '<h2 class="title">Tokens</h2>';
-        echo "<p class=\"subtitle t-muted\">Actualmente tienes $t tokens</p>";
-        $formulario = new \parallelize_namespace\formulario\FormularioTransaction();
-        echo $formulario->gestiona();
-        echo ' </div>';
-        echo ' </div>';
-    }
-
-    ?>
+    <?php if(!isset($_SESSION["user_email"])): ?>
+        <div class="main-container">
+            <p>Debes haberte identificado</p>
+        </div>
+    <?php else: ?>
+        <?php 
+            $usuario = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
+            $t = $usuario->gettokens();
+            $formulario = new \parallelize_namespace\formulario\FormularioTransaction(isset($_GET['withdraw']) && $_GET['withdraw'] == 'true');
+        ?>
+        <div class="form-container">
+            <div class="form">
+                <h2 class="title">Tokens</h2>
+                <p class="subtitle t-muted">Actualmente tienes <?= $t ?> tokens</p>
+                <?= $formulario->gestiona()  ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
 </body>
 
