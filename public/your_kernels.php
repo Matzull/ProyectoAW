@@ -54,23 +54,28 @@ if (!isset($_SESSION['user_email'])) {
                             </div>
                         </form>
                         <div class="execution-history">
-                        </div>
-                    </div>
-                    <div class="section indented">   
-                        <div class="kernels">
                             <?php
-                            $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]); 
-                            if (sizeof($kernels = $user->getKernels()) > 0): ?>
+                            $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
+                            $kernels = $user->getKernels();
+                            $kernel_n = sizeof($kernels);
+                            echo '<p class="comment">Se han encontrado ' . $kernel_n . ' kernels</p>';
+                            if ($kernel_n > 0): ?>
                                 <?php
                                 $kernels = array_slice($kernels, 0, 3);
                                 foreach ($kernels as $k) {
                                     $kName = $k->getname();
                                     $kRunState = $k->is_finished() ? "Terminado" : "Corriendo";
                                     $kId = $k->getid();
+                                    $kDate = $k->getupload_time();
                                     echo <<<HTML
-                                    <div class="upload-k"  onclick="location.href='kernel_info.php?id=$kId'">
-                                        <h4 class="k-title">$kName</h4>
-                                        <span class="button c-green">$kRunState</span>
+                                    <div class="kernels">
+                                        <div class="upload-k"  onclick="location.href='kernel_info.php?id=$kId'">
+                                            <h4 class="k-title">$kName</h4>
+                                            <div class="kern-info">
+                                                <p class="no-margin">Kernel uploaded in $kDate </p>  
+                                                <div class="button c-green">$kRunState</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 HTML;
                                 }
@@ -82,7 +87,7 @@ if (!isset($_SESSION['user_email'])) {
                         </div>
                     </div>
                 </div>
-                <div class="section">
+                <div class="section vertical-restriction">
                     <h3 class="title">SUBIR KERNEL</h3>
                     <div id="upload-panel">
                         <img src="<?= RUTA_SVG ?>/Kernels_big_i.svg" alt="">
