@@ -172,9 +172,14 @@
                     el programa de ejecutar el kernel concurrentemente.</p>
                 <!-- TODO EXPLICAR LOS 3 PHP DE LA FUNCIONALIDAD de ejecutar kernel (backend) -->
                 <ul> 
-                    <li>get_computation_segment.php: <span class="t-m-white"> escribir</span></li>
-                    <li>get_results.php: <span class="t-m-white">escribir.</span></li>
-                    <li>FormularioLogin.php: <span class="t-m-white">escribir</span></li>
+                    <li>get_computation_segment.php: <span class="t-m-white"> se encarga de asignar un segmento del kernel a 
+                        un usuario para que lo ejecute</span></li>
+                    <li>get_results.php: <span class="t-m-white">Se encarga de conseguir el resultado de cada una
+                        de las iteraciones del kernel, no confundir con los segmentos, y las
+                        almacena en un csv poniendo primero el resultado y luego la coma.</span></li>
+                    <li>submit_results.php: <span class="t-m-white">realiza la comunicacion entre el usuario y el servidor 
+                        para entregarle los resultados, se le pide al usuario hacer el login,
+                        se calcula el tiempo de codigo ejecutado y se le dan los tokens al usuario</span></li>
                 </ul>
                 
                 <h4>JavaScript</h4>
@@ -192,10 +197,12 @@
                 <!-- TODO EXPLICAR FUNCIONAMIENTO DE FUNCIONES QUE TIENEN QUE VER CON AL EJECUCION DEL KERNEL -->
                 <ul> 
                     <li>nav_bar.js: <span class="t-m-white"> se encarga de realizar un toggle en la navbar de encogerla y ampliarla.</span></li>
-                    <li>user_nav_bar.js: <span class="t-m-white">se encarga de realizar un toggle en la user navbar de encogerla y ampliarla.</span></li>
-                    <li>gpu-browser.min.js: <span class="t-m-white">escribir</span></li>
-                    <li>work_coordination.js: <span class="t-m-white">escribir</span></li>
-                    <li>kernel_execution.php: <span class="t-m-white">escribir</span></li>
+                    <li>user_nav_bar.js: <span class="t-m-white">Se encarga de realizar un toggle en la user navbar de encogerla y ampliarla.</span></li>
+                    <li>gpu-browser.min.js: <span class="t-m-white">Libreria importada que se encarga de que la ejecucion
+                         concurrente del kernel funcione. NO TOCAR NADA</span></li>
+                    <li>work_coordination.js: <span class="t-m-white">se encarga de empezar a ejecutar el kernel, tambien se encarga de 
+                        gestionar la ejecucion de los segmentos del kernel cuando un dispositivo este pidiendo trabajo ademas de mandar el resultado </span></li>
+                    <li>kernel_execution.php: <span class="t-m-white">Se encarga de ejecutar el segmento del kernel </span></li>
                     <li>kernelViz.php: <span class="t-m-white">escribir</span></li>
 
                 </ul>
@@ -293,7 +300,8 @@
                         </ul>
                     </li>
                 </ul>
-                <!-- TODO CAMBIAR Y ACTIALIZAR LA INFORMACION PUESTA ADEMAS DE AÑADIR EL PROCESO DE EJECUTAR KERNEL Y CONECTARLO CON EL CODIGO DE JAVASCRIPT -->
+                <!-- TODO CAMBIAR Y ACTIALIZAR LA INFORMACION PUESTA ADEMAS DE AÑADIR EL PROCESO DE EJECUTAR KERNEL
+                     Y CONECTARLO CON EL CODIGO DE JAVASCRIPT -->
                 <p class="t-m-white"></p>
                 <h2 class="title">SOBRE EL PROTOTIPO FUNCIONAL</h2>
                 <h3>Uso.</h3>
