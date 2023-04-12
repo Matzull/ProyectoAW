@@ -13,6 +13,7 @@ class Kernel
     private $reward_per_line;
     private $iteration_count;
     private $segment_cache;
+    private $upload_time;
 
     private function storeToDb()
     {
@@ -55,7 +56,8 @@ class Kernel
                 $rk['description'],
                 $rk['total_reward'],
                 $rk['reward_per_line'],
-                $rk["iteration_count"]
+                $rk["iteration_count"],
+                $rk['upload_time']
             );
         }
         return $ret;
@@ -79,8 +81,8 @@ class Kernel
                 $rk['description'],
                 $rk['total_reward'],
                 $rk['reward_per_line'],
-                $rk["iteration_count"]
-
+                $rk["iteration_count"],
+                $rk['upload_time']
             );
         }
         return $ret;
@@ -104,8 +106,8 @@ class Kernel
                 $rk['description'],
                 $rk['total_reward'],
                 $rk['reward_per_line'],
-                $rk["iteration_count"]
-
+                $rk["iteration_count"],
+                $rk['upload_time']
             );
         }
         return $ret;
@@ -127,8 +129,8 @@ class Kernel
                 $rk['description'],
                 $rk['total_reward'],
                 $rk['reward_per_line'],
-                $rk["iteration_count"]
-
+                $rk["iteration_count"],
+                $rk['upload_time']
             );
         }
 
@@ -164,7 +166,7 @@ class Kernel
 
 
 
-    public function __construct($name, $user_email, $id, $js_code, $description, $total_reward, $getreward_per_line, $iteration_count)
+    public function __construct($name, $user_email, $id, $js_code, $description, $total_reward, $getreward_per_line, $iteration_count, $upload_time)
     {
         $this->name = $name;
         $this->user_email = $user_email;
@@ -174,6 +176,7 @@ class Kernel
         $this->total_reward = $total_reward;
         $this->reward_per_line = $getreward_per_line;
         $this->iteration_count = $iteration_count;
+        $this->upload_time = $upload_time;   
     }
 
     public function getname()
@@ -244,6 +247,10 @@ class Kernel
     public function getiteration_count()
     {
         return $this->iteration_count;
+    }
+    public function getupload_time()
+    {
+        return $this->upload_time;
     }
 
     public function setFinished()
