@@ -36,7 +36,10 @@ $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
             </div>
             <div class="sections-container">
                 <div class="section section-h">
-                    <img class="circle-border" src="https://picsum.photos/100/100" alt="" width="100" height="100">
+                    <div class="ranking circle-border c-h-blue">
+                        <?= $user->getRanking() ?>
+                    </div>
+                    <!-- <img class="circle-border" src="https://picsum.photos/100/100" alt="" width="100" height="100"> -->
                     <div class="lateral-info">
                         <h3 class="title">PARTICIPACIÓN</h3>
                         <p class="t-muted">Has subido

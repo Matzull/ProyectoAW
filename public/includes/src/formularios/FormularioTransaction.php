@@ -12,12 +12,10 @@ class FormularioTransaction extends Formulario
         $val_token_delta = isset($datos['token_delta']) ? $datos['token_delta'] : '';
 
         return generaErroresGlobalesFormulario($this->errores) . <<<HTML
-        <div>
         <label for = 'token_delta'>Volumen de tokens</label>
         <input id = 'token_delta' class = 'input-field' type = 'text' name = 'token_delta' placeholder = '123' value = "$val_token_delta" required>
         HTML . generarError('token_delta', $this->errores) . <<<HTML
-
-        </div>
+        
         <button id = 'create-acc-button' class = 'button c-h-blue' type = 'submit' title = 'Pedir' name = 'Pedir'>Pedir transacción</button>
 
         HTML;

@@ -57,3 +57,15 @@
     background-color: inherit;
     border: none;
 }
+#user-nb-options {
+    height: 250px;
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+#user-nav-bar.nb-closed > #user-nb-options {
+    height: 0px;
+}
+#user-nav-bar.nb-closed #user-nb-toggle-b {
+    transform: scaleY(-1);
+}
