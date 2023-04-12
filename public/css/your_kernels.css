@@ -51,9 +51,9 @@
     color: gray;
 }
 
-.kern-info >.button{
+/* .kern-info >.button{
     justify-content: center ;
-}
+} */
 
 .vertical-restriction{
     max-height: 250px;
@@ -63,4 +63,5 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 16px;
 }

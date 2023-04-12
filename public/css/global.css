@@ -366,5 +366,5 @@ que estar horizontal*/
 }
 
 .form-field-error{
-    color: red;
+    color: var(--red);
 }
