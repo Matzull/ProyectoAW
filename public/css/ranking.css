@@ -38,10 +38,11 @@
 
 table {
     width: fit-content;
-    min-width: 300px;
-    border-collapse: separate;
+    min-width: 600px;
+    border-collapse: collapse;
     border:solid #0c0214 1px;
     border-radius:6px;
+
 }
 
 th,td {
@@ -51,10 +52,12 @@ th,td {
 }
 
 th {
+    background: gray;
     background-color: #2648a2;
 }
 
 tr:nth-child(even) {
+    
     background-color: #5181bf;
     color: black;
 }
@@ -75,6 +78,19 @@ tbody td:first-child {
 .blob-container{
     width: 50%;
     height: auto;
+}
+
+th:first-of-type {
+    border-top-left-radius: 10px;
+}
+th:last-of-type {
+    border-top-right-radius: 10px;
+}
+tr:last-of-type td:first-of-type {
+    border-bottom-left-radius: 10px;
+}
+tr:last-of-type td:last-of-type {
+    border-bottom-right-radius:10px;
 }
 /* Estilos para el podio */
 .podio {
