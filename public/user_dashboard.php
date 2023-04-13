@@ -18,15 +18,14 @@ $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_dashboard.css">
 </head>
 
 <body>
-
-
+    <?php require("includes/src/vistas/user_nav_bar.php") ?>
     <?php require("includes/src/vistas/nav_bar.php") ?>
     <div class="main-container">
         <div id="user-panel">
@@ -110,7 +109,6 @@ $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
             </div>
         </div>
     </div>
-    <?php require("includes/src/vistas/user_nav_bar.php") ?>
 </body>
 
 </html>

@@ -131,29 +131,31 @@ CREATE TABLE `users` (
   `tokens` double NOT NULL DEFAULT 0,
   `last_active` date NOT NULL DEFAULT current_timestamp(),
   `blocked` tinyint(1) NOT NULL DEFAULT 0,
-  `user_name` varchar(20) NOT NULL
+  `user_name` varchar(20) NOT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`, `tokens`, `last_active`, `blocked`, `user_name`) VALUES
-('borjal@ucm.es', '$2y$10$Grc.4A8YQQFlmf6.xsPSsulr9KnJG8Iuu4UlGs0Wd21AGeSBqtuFy', 0, -1, 0, '2023-04-12', 0, 'Borja Lopez'),
-('diego@email.com', '$2y$10$3TxN6531suwgIbfla70l3ujKv5XAgCSuNkBq7fJDGoecWGClaL4ZW', 0, -1, 0, '2023-04-06', 0, 'Diego Quiroga'),
-('jaime@email.com', '$2y$10$rlrTSZHZoeyQrnQuxfrWSeoBaV8jmvcKvq4bxuLKD0xCJ/NKRSHjC', 0, -1, 0, '2023-04-06', 0, 'Jaime Gonzalez'),
-('jaimev@ucm.es', '$2y$10$8lC/xKDpJeoiZs/oheFy.e.722qgLOZdvCVGU5rUslHvJvgWwasxe', 0, -1, 0, '2023-04-12', 0, 'Jaime Vazquez'),
-('juan@email.com', '$2y$10$NvppguKXJyqI929HtOftLuPucBoS9LJL9ueMrbBarJL1QmpnipJm2', 0, -1, 0, '2023-04-06', 0, 'Juan Jerez'),
-('juant@ucm.es', '$2y$10$o6wNhE2oqQnVxi9DRXefKe6sqk7SxggktnItTRmDasCO9TprmTYry', 0, -1, 0, '2023-04-12', 0, 'Juan Trillo'),
-('laurar@ucm.es', '$2y$10$DIBDqzkXUj8/XtGqF1uWK.HfP8Qog7yKI7V5KwdK3jp3qIVPAnE/y', 0, -1, 0, '2023-04-12', 0, 'Laura Rodriguez'),
-('luciam@ucm.es', '$2y$10$AbN5QqbgRYi42fKchanoGOmWLhVVANjSkFWRhrqu9BHkMylxml4qG', 0, -1, 0, '2023-04-12', 0, 'Lucia Marquez'),
-('luz@ucm.es', '$2y$10$mBDcnGZMXDN0en/9v0wPhO8x/n64OWvMoFHgvjDQgoq2GuCku7vSO', 0, -1, 0, '2023-04-12', 0, 'Luz Rojas'),
-('marcoj@ucm.es', '$2y$10$KJV3RNKeCnfTfEo.Rx7V5Ox6Pi8jn61d4jCxj6VAVZtzhmQLTGXMy', 0, -1, 0, '2023-04-12', 0, 'Marco Jim&eacute;nez'),
-('marcos@email.com', '$2y$10$Yi.nxQT0Boj3jWbMjgd66.bSm3hZzpmbfxP1gHQKUerUKQ0ZLYFd2', 0, -1, 0, '2023-04-06', 0, 'Marcos Alonso'),
-('martas@ucm.es', '$2y$10$VgRlv21OqmXycOsHIqehpuZIyp0aY2okfmrC168INEof1edOoR7YO', 0, -1, 0, '2023-04-12', 0, 'Marta Sillero'),
-('pablop@ucm.es', '$2y$10$6VKBzixsytnVpbBqldfWlOmjHU8wVszs4oMwTaKRh5.Os7zuczphC', 0, -1, 0, '2023-04-12', 0, 'Pablo Perez'),
-('susanao@ucm.es', '$2y$10$DYmCcgDDD.4opmwWHnqeCeDzT6yvwdIjCrgvZoae3qoaru.gh1pWq', 0, -1, 0, '2023-04-12', 0, 'Susana Bueno'),
-('victorm@ucm.es', '$2y$10$AN67M/.Z0zwh6ZZpGPR69u4iwyo5K4BAKOrB4SSRWkHNyTbKY4QRe', 0, -1, 0, '2023-04-12', 0, 'Victor Martin');
+INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`, `tokens`, `last_active`, `blocked`, `user_name`, `is_admin`) VALUES
+('admin@parallelize.com', '$2y$10$zQ06ag.N33pYnOk9Q.SVpOe90sKAjviDXIf5ZBT5zzJpXgtcYr2Mi', 0, -1, 0, '2023-04-12', 0, 'admin', 1),
+('borjal@ucm.es', '$2y$10$Grc.4A8YQQFlmf6.xsPSsulr9KnJG8Iuu4UlGs0Wd21AGeSBqtuFy', 0, -1, 0, '2023-04-12', 0, 'Borja Lopez', 0),
+('diego@email.com', '$2y$10$3TxN6531suwgIbfla70l3ujKv5XAgCSuNkBq7fJDGoecWGClaL4ZW', 0, -1, 0, '2023-04-06', 0, 'Diego Quiroga', 0),
+('jaime@email.com', '$2y$10$rlrTSZHZoeyQrnQuxfrWSeoBaV8jmvcKvq4bxuLKD0xCJ/NKRSHjC', 0, -1, 0, '2023-04-06', 0, 'Jaime Gonzalez', 0),
+('jaimev@ucm.es', '$2y$10$8lC/xKDpJeoiZs/oheFy.e.722qgLOZdvCVGU5rUslHvJvgWwasxe', 0, -1, 0, '2023-04-12', 0, 'Jaime Vazquez', 0),
+('juan@email.com', '$2y$10$NvppguKXJyqI929HtOftLuPucBoS9LJL9ueMrbBarJL1QmpnipJm2', 0, -1, 0, '2023-04-06', 0, 'Juan Jerez', 0),
+('juant@ucm.es', '$2y$10$o6wNhE2oqQnVxi9DRXefKe6sqk7SxggktnItTRmDasCO9TprmTYry', 0, -1, 0, '2023-04-12', 0, 'Juan Trillo', 0),
+('laurar@ucm.es', '$2y$10$DIBDqzkXUj8/XtGqF1uWK.HfP8Qog7yKI7V5KwdK3jp3qIVPAnE/y', 0, -1, 0, '2023-04-12', 0, 'Laura Rodriguez', 0),
+('luciam@ucm.es', '$2y$10$AbN5QqbgRYi42fKchanoGOmWLhVVANjSkFWRhrqu9BHkMylxml4qG', 0, -1, 0, '2023-04-12', 0, 'Lucia Marquez', 0),
+('luz@ucm.es', '$2y$10$mBDcnGZMXDN0en/9v0wPhO8x/n64OWvMoFHgvjDQgoq2GuCku7vSO', 0, -1, 0, '2023-04-12', 0, 'Luz Rojas', 0),
+('marcoj@ucm.es', '$2y$10$KJV3RNKeCnfTfEo.Rx7V5Ox6Pi8jn61d4jCxj6VAVZtzhmQLTGXMy', 0, -1, 0, '2023-04-12', 0, 'Marco Jim&eacute;nez', 0),
+('marcos@email.com', '$2y$10$Yi.nxQT0Boj3jWbMjgd66.bSm3hZzpmbfxP1gHQKUerUKQ0ZLYFd2', 0, -1, 0, '2023-04-06', 0, 'Marcos Alonso', 0),
+('martas@ucm.es', '$2y$10$VgRlv21OqmXycOsHIqehpuZIyp0aY2okfmrC168INEof1edOoR7YO', 0, -1, 0, '2023-04-12', 0, 'Marta Sillero', 0),
+('pablop@ucm.es', '$2y$10$6VKBzixsytnVpbBqldfWlOmjHU8wVszs4oMwTaKRh5.Os7zuczphC', 0, -1, 0, '2023-04-12', 0, 'Pablo Perez', 0),
+('susanao@ucm.es', '$2y$10$DYmCcgDDD.4opmwWHnqeCeDzT6yvwdIjCrgvZoae3qoaru.gh1pWq', 0, -1, 0, '2023-04-12', 0, 'Susana Bueno', 0),
+('victorm@ucm.es', '$2y$10$AN67M/.Z0zwh6ZZpGPR69u4iwyo5K4BAKOrB4SSRWkHNyTbKY4QRe', 0, -1, 0, '2023-04-12', 0, 'Victor Martin', 0);
 
 --
 -- Índices para tablas volcadas

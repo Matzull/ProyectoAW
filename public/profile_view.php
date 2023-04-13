@@ -4,12 +4,12 @@ namespace parallelize_namespace;
 require 'includes/config.php';
 
 define('ERROR_MSG', 'Usuario no encontrado');
-if (!isset($_GET['profile_id']) || 
-    ($user = Usuario::buscaUsuario($_GET['profile_id'])) === false) {
+if (!isset($_GET['id']) || 
+    ($user = Usuario::buscaUsuario($_GET['id'])) === false) {
     $profile_msg = ERROR_MSG;
 }
 else{
-    $profile_msg = $_GET['profile_id'];
+    $profile_msg = $_GET['id'];
 }
 ?>
 

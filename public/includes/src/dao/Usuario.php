@@ -11,6 +11,7 @@ class Usuario
     private $tokens;
     private $last_active;
     private $blocked;
+    private $is_admin;
     public static function buscaUsuario($user_email)
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
@@ -21,7 +22,9 @@ class Usuario
             return false;
         } else {
             $fila = $rs->fetch_assoc();
-            return new Usuario($fila['user_name'], $fila['user_email'], $fila['user_password'], $fila['millis_crunched'], $fila['ranking'], $fila['tokens'], $fila['last_active'], $fila['blocked']);
+            return new Usuario($fila['user_name'], $fila['user_email'], $fila['user_password'],
+                $fila['millis_crunched'], $fila['ranking'], $fila['tokens'], $fila['last_active'], $fila['blocked'],
+                $fila['is_admin']);
         }
     }
 
@@ -74,7 +77,7 @@ class Usuario
         return $ret;
     }
 
-    public function __construct($user_name, $user_email, $user_password, $millis_crunched, $ranking, $tokens, $last_active, $blocked)
+    public function __construct($user_name, $user_email, $user_password, $millis_crunched, $ranking, $tokens, $last_active, $blocked, $is_admin)
     {
         $this->user_name = $user_name;
         $this->user_email = $user_email;
@@ -84,7 +87,7 @@ class Usuario
         $this->tokens = $tokens;
         $this->last_active = $last_active;
         $this->blocked = $blocked;
-
+        $this->is_admin = $is_admin;
     }
 
     private function storeToDb()
@@ -128,6 +131,11 @@ class Usuario
     public function getMsCrunched()
     {
         return $this->millis_crunched;
+    }
+
+    public function getIsAdmin()
+    {
+        return $this->is_admin;
     }
 
     public function getKernelCount()

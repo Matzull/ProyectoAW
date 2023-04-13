@@ -8,6 +8,9 @@
         </p>
     </div>
     <div id="user-nb-options" class="panel">
+        <?php if(\parallelize_namespace\Usuario::buscaUsuario($_SESSION['user_email'])->getIsAdmin()): ?>
+            <p><a href="admin_dashboard.php"><img src="<?= RUTA_SVG ?>/admin_i.svg" alt="" width="20"> Admin Dashboard</a></p>
+        <?php endif; ?>
         <p><a href="user_dashboard.php"><img src="<?= RUTA_SVG ?>/Dashboard_i.svg" alt="" width="20"> Dashboard</a></p>
         <p><a href="wallet.php"><img src="<?= RUTA_SVG ?>/Wallet_i.svg" alt="" width="20"> Cartera</a></p>
         <p><a href="your_kernels.php"><img src="<?= RUTA_SVG ?>/Kernels_i.svg" alt="" width="20"> Tus Kernels</a></p>

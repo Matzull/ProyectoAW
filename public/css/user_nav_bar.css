@@ -58,13 +58,14 @@
     border: none;
 }
 #user-nb-options {
-    height: 250px;
+    max-height: 300px;
+    /*Necesario si varía el número de enlaces*/
     transition: all 0.5s;
     overflow: hidden;
 }
 
 #user-nav-bar.nb-closed > #user-nb-options {
-    height: 0px;
+    max-height: 0px;
 }
 #user-nav-bar.nb-closed #user-nb-toggle-b {
     transform: scaleY(-1);
