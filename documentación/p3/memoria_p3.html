@@ -181,24 +181,24 @@
             <li>get_results.php: <span class="t-m-white">Se encarga de conseguir el resultado de cada una
                         de las iteraciones del kernel, no confundir con los segmentos, y las
                         almacena en un csv poniendo primero el resultado y luego la coma.</span></li>
-                    <li>submit_results.php: <span class="t-m-white">realiza la comunicacion entre el usuario y el servidor para entregarle los resultados, se le pide al usuario hacer el login, se calcula el tiempo de codigo ejecutado y se le dan los tokens al usuario</span></li>
-                </ul>
-                <h4>JavaScript</h4>
-                <p class="t-m-white">Adicionalmente se ha creado carpeta llamada backend que contiene la forma que tiene el programa de ejecutar el kernel concurrentemente.</p>
-                <h4>Codemirror</h4>
-                <p>Es la libreria que hemos utilizado para crear los editores y visores del codigo en subir kernel y kernel_info.</p>
-                <ul>
-                    <li>codemirror.css: <span class="t-m-white"> Codigo css del editor de codigo de codemirror.</span></li>
-                    <li>codemirror.js: <span class="t-m-white">Libreria de codemirror.</span></li>
-                    <li>dracula.js: <span class="t-m-white">Tema del editor para la visualizacion de codigo.</span></li>
-                    <li>javascript.js: <span class="t-m-white">Soporte de sintaxis para lenguaje javascript.</span></li>
+            <li>submit_results.php: <span class="t-m-white">realiza la comunicacion entre el usuario y el servidor para entregarle los resultados, se le pide al usuario hacer el login, se calcula el tiempo de codigo ejecutado y se le dan los tokens al usuario</span></li>
+        </ul>
+        <h4>JavaScript</h4>
+        <p class="t-m-white">Adicionalmente se ha creado carpeta llamada backend que contiene la forma que tiene el programa de ejecutar el kernel concurrentemente.</p>
+        <h4>Codemirror</h4>
+        <p>Es la libreria que hemos utilizado para crear los editores y visores del codigo en subir kernel y kernel_info.</p>
+        <ul>
+            <li>codemirror.css: <span class="t-m-white"> Codigo css del editor de codigo de codemirror.</span></li>
+            <li>codemirror.js: <span class="t-m-white">Libreria de codemirror.</span></li>
+            <li>dracula.js: <span class="t-m-white">Tema del editor para la visualizacion de codigo.</span></li>
+            <li>javascript.js: <span class="t-m-white">Soporte de sintaxis para lenguaje javascript.</span></li>
 
-                </ul>
-                <p>Toda la creacion de los editores se encuentran en el achivo kernelViz.php.</p>
-                <ul>
-                    <li>nav_bar.js: <span class="t-m-white"> se encarga de realizar un toggle en la navbar de encogerla y ampliarla.</span></li>
-                    <li>user_nav_bar.js: <span class="t-m-white">Se encarga de realizar un toggle en la user navbar de encogerla y ampliarla.</span></li>
-                    <li>gpu-browser.min.js: <span class="t-m-white">Libreria importada que se encarga de que la ejecucion
+        </ul>
+        <p>Toda la creacion de los editores se encuentran en el achivo kernelViz.php.</p>
+        <ul>
+            <li>nav_bar.js: <span class="t-m-white"> se encarga de realizar un toggle en la navbar de encogerla y ampliarla.</span></li>
+            <li>user_nav_bar.js: <span class="t-m-white">Se encarga de realizar un toggle en la user navbar de encogerla y ampliarla.</span></li>
+            <li>gpu-browser.min.js: <span class="t-m-white">Libreria importada que se encarga de que la ejecucion
                          concurrente del kernel funcione. NO TOCAR NADA</span></li>
             <li>work_coordination.js: <span class="t-m-white">se encarga de empezar a ejecutar el kernel, tambien se encarga de gestionar la ejecucion de los segmentos del kernel cuando un dispositivo este pidiendo trabajo ademas de mandar el resultado </span></li>
             <li>kernel_execution.php: <span class="t-m-white">Se encarga de ejecutar el segmento del kernel </span></li>
@@ -271,19 +271,19 @@
                         para poder repartid las recompensas, se guarda en el momento que el cliente devuelve los datos
                         resueltos. La funcionalidad no está implementada.
                         <ul>
-                            <li>user_email: el usuario responsable del calculo</li>
-                            <li>start_time: el momento cuando se asigno</li>
-                            <li>kernel_id: el id del kernel ejecutado</li>
-                            <li>iteration_start: por que iteración ha empezado a ejecutar</li>
-                            <li>iteration_end: que iteración ha sido la última en ejecutar</li>
-                            <li>results:resultado de la ejecucion</li>
-                        </ul>
-                    </li>
+                    <li>user_email: el usuario responsable del calculo</li>
+                    <li>start_time: el momento cuando se asigno</li>
+                    <li>kernel_id: el id del kernel ejecutado</li>
+                    <li>iteration_start: por que iteración ha empezado a ejecutar</li>
+                    <li>iteration_end: que iteración ha sido la última en ejecutar</li>
+                    <li>results:resultado de la ejecucion</li>
                 </ul>
-                <p class="t-m-white"></p>
-                <h2 class="title">SOBRE EL PROTOTIPO FUNCIONAL</h2>
-                <h3>Uso.</h3>
-                <p class="t-m-white">El prototipo tiene una carpeta 'sql' que contiene los archivos necesarios para
+            </li>
+        </ul>
+        <p class="t-m-white"></p>
+        <h2 class="title">SOBRE EL PROTOTIPO FUNCIONAL</h2>
+        <h3>Uso.</h3>
+        <p class="t-m-white">El prototipo tiene una carpeta 'sql' que contiene los archivos necesarios para
                     importar la base de datos. Una vez importada se puede probar directamente las funcionalidades con
                     las cuentas de usuario ya creadas: jaime@email.com (contraseña: jaimejaime) y diego@email.com (contraseña:
                     diegodiego)por ejemplo .A parte de esas dos cuentas se han creado más usuarios para dar forma a la tabla del ranking, también es posible crear cuentas de usuario nuevas.</p>
@@ -294,75 +294,75 @@
                     usarán dichos scripts: 'css', 'img', 'includes', 'js' y 'svg'. La carpeta includes contiene los
                     scripts auxiliares y las carpetas 'dao' (clases de la base de datos), 'formularios' y 'vistas'
                     (secciones reutilizables).</p>
-                <h2 class="title">FUNCIONAMIENTO DE LA SEGMENTACIÓN Y EJECUCIÓN CONCURRENTE DE LOS KERNELS</h2>
-                <p class="t-m-white">El funcionamiento de la segmentación y ejecucion concurrente se gestiona a través de  la carpeta backend y enlazando con los archivos de JavaScript correspondiente, una vez el usuario escoge un kernel al que unirse se le asigna un segmento libre, el encargado de hacerlo es el archivo get_computation_sgment.php, una vez escogido un segmente se llama a gpu-browser-min.js que toma control de la gpu del usuario y ejecuta el segmento correspondiente, es importante tener en cuenta que la clave es que los segmentos de todos los usuarios se ejecutan concurrentemente por lo que el programa se encarga de seleccionar cada segmento libre a un usuario. Una vez ejecutado el segmento el archivo get_results.php saca los resultados de la ejecución y submit_results.php se encarga de asignar la recompensa para que conste en la base de datos.</p>
-                <table>
-                    <thead>
-                      <tr>
-                        <th>Miembros</th>
-                        <th>Tareas</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Jaime Gonzalez</td>
-                        <td>
-                            <ul>
-                                <li>ejecución de kernel (distribuido entre clientes y acelerado por gpu)</li>
-                                <li>descarga de kernel</li>
-                                <li>transaciones</li>
-                                <li>recompensa por kernel</li>
-                                <li>grafica de tk/tiempo</li>
-                                <li>diseño de los kernels de prueba</li>
-                                <li>funcionalidad del marketplace</li>
-                            </ul>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Marcos Alonso</td>
-                        <td>
-                            <ul>
-                                <li>Kernel_info</li>
-                                <li>Creacion de editores con CodeMirror</li>
-                                <li>Funcionalidades DAO</li>
-                                <li>recompensa por kernel</li>
-                                <li>Ranking backend y pagina</li>
-                                <li>Css multiples archivos</li>
-                            </ul>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Juan Trillo</td>
-                        <td>escribir</td>
-                      </tr>
-                      <tr>
-                        <td>Juan Jerez</td>
-                        <td>explicacion de nuevas funciones de la p3 y tablas de la bd en la memoria, subir kernel, mercado de kernel y sus css</td>
-                      </tr>
-                      <tr>
-                        <td>Diego Quiroga</td>
-                        <td>
-                            <ul>
-                                <li>Corrección de errores en las hojas de estilos: settings, formularios, ...</li>
-                                <li>Mejora en el 'responsive design' de vistas y componentes: login, register,
+        <h2 class="title">FUNCIONAMIENTO DE LA SEGMENTACIÓN Y EJECUCIÓN CONCURRENTE DE LOS KERNELS</h2>
+        <p class="t-m-white">El funcionamiento de la segmentación y ejecucion concurrente se gestiona a través de  la carpeta backend y enlazando con los archivos de JavaScript correspondiente, una vez el usuario escoge un kernel al que unirse se le asigna un segmento libre, el encargado de hacerlo es el archivo get_computation_sgment.php, una vez escogido un segmente se llama a gpu-browser-min.js que toma control de la gpu del usuario y ejecuta el segmento correspondiente, es importante tener en cuenta que la clave es que los segmentos de todos los usuarios se ejecutan concurrentemente por lo que el programa se encarga de seleccionar cada segmento libre a un usuario. Una vez ejecutado el segmento el archivo get_results.php saca los resultados de la ejecución y submit_results.php se encarga de asignar la recompensa para que conste en la base de datos.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Miembros</th>
+                    <th>Tareas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jaime Gonzalez</td>
+                    <td>
+                        <ul>
+                            <li>ejecución de kernel (distribuido entre clientes y acelerado por gpu)</li>
+                            <li>descarga de kernel</li>
+                            <li>transaciones</li>
+                            <li>recompensa por kernel</li>
+                            <li>grafica de tk/tiempo</li>
+                            <li>diseño de los kernels de prueba</li>
+                            <li>funcionalidad del marketplace</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Marcos Alonso</td>
+                    <td>
+                        <ul>
+                            <li>Kernel_info</li>
+                            <li>Creacion de editores con CodeMirror</li>
+                            <li>Funcionalidades DAO</li>
+                            <li>recompensa por kernel</li>
+                            <li>Ranking backend y pagina</li>
+                            <li>Css multiples archivos</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Juan Trillo</td>
+                    <td>escribir</td>
+                </tr>
+                <tr>
+                    <td>Juan Jerez</td>
+                    <td>explicacion de nuevas funciones de la p3 y tablas de la bd en la memoria, subir kernel, mercado de kernel y sus css</td>
+                </tr>
+                <tr>
+                    <td>Diego Quiroga</td>
+                    <td>
+                        <ul>
+                            <li>Corrección de errores en las hojas de estilos: settings, formularios, ...</li>
+                            <li>Mejora en el 'responsive design' de vistas y componentes: login, register,
                                         nav_bar, ranking, entre otros.
                                     </li>
-                                <li>Estructura de la página: admin_dashboard.</li>
-                                <li>Comprobación de rol de administrador para acceso a admin_dashboard y
+                            <li>Estructura de la página: admin_dashboard.</li>
+                            <li>Comprobación de rol de administrador para acceso a admin_dashboard y
                                         enlace extra en el user_nav_bar.
                                     </li>
-                            </ul>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Jaime Vazquez</td>
-                        <td>Escribir</td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-        </div>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jaime Vazquez</td>
+                    <td>Escribir</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+</div>
+</div>
 </body>
 
 </html>
