@@ -1,0 +1,8 @@
+@import "global.css";
+table {
+    width: fit-content;
+    width: 100%;
+    max-width: 600px;
+    border-radius:6px;
+    margin-left: 37%;
+}   

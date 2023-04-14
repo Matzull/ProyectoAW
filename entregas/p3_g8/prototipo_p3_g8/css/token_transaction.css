@@ -1,0 +1,6 @@
+@import "global.css";
+
+#token_delta{
+    align-items: center;
+    justify-content: space-around;
+}
