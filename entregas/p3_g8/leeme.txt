@@ -1,0 +1,6 @@
+funcionalidades terminadas:
+- login
+- crear cuenta
+- hacer una transacion de tokens
+- subir un kernel
+- ejecutar un kernel

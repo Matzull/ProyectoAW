@@ -1,0 +1,37 @@
+@import "global.css";
+#user_comment {/*Emm me falta ajustar la height para que quede bien*/
+    font: inherit;
+    padding: 8px;
+    background-color: inherit;
+    border: 2px solid var(--h-blue);
+    border-radius: 10px;
+    color: inherit;
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+}
+
+.small{
+    height: 50px;
+    width: 50px;
+}
+
+.socials-cont{/*Puede que haya que especificar el estilo de el segundo "Form" con id="socials*/
+    gap: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
+}
+
+.social-drawing {
+    max-width: 250px;
+    height: 250px;
+    width: 100%;
+    background-color: #3282b8;
+}

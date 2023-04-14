@@ -1,0 +1,36 @@
+
+.section > .section-row {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.section > .section-row > .section-content {
+    min-width: 260px;
+    flex: 1;
+}
+
+.photo-panel {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.photo-panel > .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.field-button {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
