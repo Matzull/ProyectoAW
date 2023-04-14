@@ -272,8 +272,8 @@
                 <h3>Uso.</h3>
                 <p class="t-m-white">El prototipo tiene una carpeta 'sql' que contiene los archivos necesarios para
                     importar la base de datos. Una vez importada se puede probar directamente las funcionalidades con
-                    las cuentas de usuario ya creadas: jaime2@gmail.com (contraseña: aaaaaaaa) y jaime@gmail.com (contraseña:
-                    aaaaaaaa).A parte de esas dos cuentas se han creado más usuarios para dar forma a la tabla del ranking, también es posible crear cuentas de usuario nuevas.</p>
+                    las cuentas de usuario ya creadas: jaime@email.com (contraseña: jaimejaime) y diego@email.com (contraseña:
+                    diegodiego)por ejemplo .A parte de esas dos cuentas se han creado más usuarios para dar forma a la tabla del ranking, también es posible crear cuentas de usuario nuevas.</p>
                     <p>También existe la posibilidad de ser administrador, hay una cuenta creada como administrador (correo: admin@parallelize.com, contraseña: adminadmin). Si inicias sesión como administrador tendrás algunos cambios en el perfil como obtener una lista de usuarios (pulsando en el botón 'Admin Dashboard') con la opción de bloquear a usuarios(Funcionalidad no implementada todavía).</p>
                 <h3>Estructura</h3>
                 <p class="t-m-white">En la raíz de la carpeta donde se almacena el prototipo ('public') se pueden
@@ -281,7 +281,7 @@
                     usarán dichos scripts: 'css', 'img', 'includes', 'js' y 'svg'. La carpeta includes contiene los
                     scripts auxiliares y las carpetas 'dao' (clases de la base de datos), 'formularios' y 'vistas'
                     (secciones reutilizables).</p>
-                <h2 class="title">FUCNIONAMIENTO DE LA SEGMENTACIÓN Y EJECUCIÓN CONCURRENTE DE LOS KERNELS</h2>
+                <h2 class="title">FUNCIONAMIENTO DE LA SEGMENTACIÓN Y EJECUCIÓN CONCURRENTE DE LOS KERNELS</h2>
                 <p class="t-m-white">El funcionamiento de la segmentación y ejecucion concurrente se gestiona a través de  la carpeta backend y enlazando con los archivos de JavaScript correspondiente, una vez el usuario escoge un kernel al que unirse se le asigna un segmento libre, el encargado de hacerlo es el archivo get_computation_sgment.php, una vez escogido un segmente se llama a gpu-browser-min.js que toma control de la gpu del usuario y ejecuta el segmento correspondiente, es importante tener en cuenta que la clave es que los segmentos de todos los usuarios se ejecutan concurrentemente por lo que el programa se encarga de seleccionar cada segmento libre a un usuario. Una vez ejecutado el segmento el archivo get_results.php saca los resultados de la ejecución y submit_results.php se encarga de asignar la recompensa para que conste en la base de datos.</p>
             </div>
         </div>
