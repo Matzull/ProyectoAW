@@ -283,6 +283,40 @@
                     (secciones reutilizables).</p>
                 <h2 class="title">FUNCIONAMIENTO DE LA SEGMENTACIÓN Y EJECUCIÓN CONCURRENTE DE LOS KERNELS</h2>
                 <p class="t-m-white">El funcionamiento de la segmentación y ejecucion concurrente se gestiona a través de  la carpeta backend y enlazando con los archivos de JavaScript correspondiente, una vez el usuario escoge un kernel al que unirse se le asigna un segmento libre, el encargado de hacerlo es el archivo get_computation_sgment.php, una vez escogido un segmente se llama a gpu-browser-min.js que toma control de la gpu del usuario y ejecuta el segmento correspondiente, es importante tener en cuenta que la clave es que los segmentos de todos los usuarios se ejecutan concurrentemente por lo que el programa se encarga de seleccionar cada segmento libre a un usuario. Una vez ejecutado el segmento el archivo get_results.php saca los resultados de la ejecución y submit_results.php se encarga de asignar la recompensa para que conste en la base de datos.</p>
+                <table>
+                    <thead>
+                      <tr>
+                        <th>Miembros</th>
+                        <th>Tareas</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Jaime Gonzalez</td>
+                        <td>Escribir</td>
+                      </tr>
+                      <tr>
+                        <td>Marcos Alonso</td>
+                        <td>escribir</td>
+                      </tr>
+                      <tr>
+                        <td>Juan Trillo</td>
+                        <td>escribir</td>
+                      </tr>
+                      <tr>
+                        <td>Juan Jerez</td>
+                        <td>explicacion de nuevas funciones de la p3 y tablas de la bd en la memoria, subir kernel, mercado de kernel y sus css</td>
+                      </tr>
+                      <tr>
+                        <td>Diego Quiroga</td>
+                        <td>Escribir</td>
+                      </tr>
+                      <tr>
+                        <td>Jaime Vazquez</td>
+                        <td>Escribir</td>
+                      </tr>
+                    </tbody>
+                  </table>
             </div>
         </div>
     </div>
