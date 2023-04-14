@@ -92,7 +92,7 @@ if (!isset($_SESSION['user_email'])) {
                     <h3 class="title">SUBIR KERNEL</h3>
                     <div id="upload-panel">
                         <img src="<?= RUTA_SVG ?>/Kernels_big_i.svg" alt="">
-                        <button class="circular-button button c-h-blue" onclick="location.href='subirkernel.php'">
+                        <button class="circular-button button c-h-blue" onclick="location.href='subirKernel.php'">
                             <img src="<?= RUTA_SVG ?>/Plus_i.svg" alt="">
                         </button>
                     </div>

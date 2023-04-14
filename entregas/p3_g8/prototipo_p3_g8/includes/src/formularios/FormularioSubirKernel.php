@@ -106,7 +106,7 @@ class FormularioSubirKernel extends Formulario
             $usuario->setTokens($usuario->gettokens() - $input_price);
             \parallelize_namespace\Transaction::submit(-$input_price, $_SESSION["user_email"], "pago por el kernel " . $kernel_name, $usuario->gettokens());
 
-            \parallelize_namespace\kernel::enviaKernel($kernel_name, $input_kernel, $kernel_description, $input_price, $iteration_count);
+            \parallelize_namespace\Kernel::enviaKernel($kernel_name, $input_kernel, $kernel_description, $input_price, $iteration_count);
         }
 
     }

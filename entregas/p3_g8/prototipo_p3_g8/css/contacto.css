@@ -26,12 +26,10 @@
     display: flex;
     justify-content: center;
     gap: 50px;
-
 }
 
 .social-drawing {
     max-width: 250px;
     height: 250px;
     width: 100%;
-    background-color: #3282b8;
 }
