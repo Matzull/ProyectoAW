@@ -13,4 +13,4 @@ Marta Sillero, martas@ucm.es, martamarta
 Pablo Perez, pablop@ucm.es, pablopablo
 Susana Bueno, susanao@ucm.es,susanasusana
 Victor Martin, victorm@ucm.es, victorvictor
-Marco Jim&eacute;nez, marcoj@ucm.es, marcomarco 
+Marco Jimenez, marcoj@ucm.es, marcomarco 
