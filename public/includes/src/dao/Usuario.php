@@ -155,7 +155,7 @@ class Usuario
 
     public function getPicUrl()
     {
-        return "";
+        return RUTA_IMGS."/default_profile_pic.png";
     }
 
     public function getRanking(){

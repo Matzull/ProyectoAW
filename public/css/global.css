@@ -81,6 +81,10 @@ a:hover {
     background-color: var(--green);
 }
 
+.c-transparent {
+    background-color: transparent;
+}
+
 /* COLORES DE TEXTO */
 
 .t-muted {
