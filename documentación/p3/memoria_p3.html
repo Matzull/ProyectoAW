@@ -32,7 +32,7 @@
                     <li>your_kernels.php: <span class="t-m-white">muestra una vista exclusiva para usuarios registrados
                             en la que hay información sobre los kernels subidos por él y un botón para añadir uno
                             nuevo.</span></li>
-                    <li>|kernel_form.php|: <span class="t-m-white">muestra un formulario para completar la información
+                    <li>subirKernel.php: <span class="t-m-white">muestra un formulario para completar la información
                             se un kernel que se quiere añadir. Está conectado con el script your_kernels.php a través de
                             un botón.</span></li>
                 </ul>
@@ -42,7 +42,7 @@
                             puede ver las ofertas de kernels.</span></li>
                     <li>kernel_info.php: <span class="t-m-white">muestra toda la información referente a un kernel. Se
                             conecta con kernel_marketplace.php a través de un botón y muestra algunas propiedades del kernel</span></li>
-                    <li>|kernel_execution.php|: <span class="t-m-white">es una vista auxiliar a kernel_info.php que se
+                    <li>kernel_execution.php: <span class="t-m-white">es una vista auxiliar a kernel_info.php que se
                             muestra cuando el usuario decide ejecutar un kernel.</span></li>
                 </ul>
                 <h3>Valoraciones.</h3>
@@ -89,6 +89,9 @@
                 </ul>
                 <h3>Componentes.</h3>
                 <ul>
+                    <li>logo_nav_bar.php: <span class="t-m-white">genera una barra de navegación utilizada en login.php
+                        y register.php que permie regresar a index.php.
+                    </span></li>
                     <li>nav_bar.php: <span class="t-m-white">genera una barra de navegación que permite acceder a las
                             páginas públicas para cualquier usuario: index.php, kernel_marketplace.php, ranking.php,
                             FAQ.php y contacto.php. Además, dependiendo de si se está registrado o no, se mostrarán
@@ -108,7 +111,7 @@
                 </ul>
 
                 <h2 class="title">CONTENIDO DE LAS CSS</h2>
-                <p class="t-m-white">Se ha decidido utilizar una CSS global en comun para todas las vistas y siempre respaldada y completada por una CSS particula para cada vista, dando como resultado la
+                <p class="t-m-white">Se ha decidido utilizar una CSS global en común para todas las vistas y siempre respaldada y completada por una CSS particula para cada vista, dando como resultado la
                     pertinente vista de la web.</p>
                 <ul>
                     <li>global.css<span class="t-m-white">contiene una serie de ajustes comunes para todas las css;Entre esos ajustes se encuentran:
@@ -309,7 +312,18 @@
                       </tr>
                       <tr>
                         <td>Diego Quiroga</td>
-                        <td>Escribir</td>
+                        <td>
+                            <ul>
+                                <li>Corrección de errores en las hojas de estilos: settings, formularios, ...</li>
+                                <li>Mejora en el 'responsive design' de vistas y componentes: login, register,
+                                    nav_bar, ranking, entre otros.
+                                </li>
+                                <li>Estructura de la página: admin_dashboard.</li>
+                                <li>Comprobación de rol de administrador para acceso a admin_dashboard y
+                                    enlace extra en el user_nav_bar.
+                                </li>
+                            </ul>
+                        </td>
                       </tr>
                       <tr>
                         <td>Jaime Vazquez</td>
