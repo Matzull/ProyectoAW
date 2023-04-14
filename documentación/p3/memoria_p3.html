@@ -5,14 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memoria Práctica 2</title>
-    <!-- <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css"> -->
-    <!-- <style>
-        /* TODO evitar usar css embebido */
-        .section {
-            width: 100%;
-        }
-    </style> -->
+    <title>Memoria Práctica 3</title>
 </head>
 
 <body>
@@ -52,7 +45,6 @@
                     <li>|kernel_execution.php|: <span class="t-m-white">es una vista auxiliar a kernel_info.php que se
                             muestra cuando el usuario decide ejecutar un kernel.</span></li>
                 </ul>
-                
                 <h3>Valoraciones.</h3>
                 <ul>
                     <li>kernel_info.php: <span class="t-m-white">junto a la información mostrada del kernel hay una
@@ -129,8 +121,7 @@
                     <li>FAQ.css: <span class="t-m-white">ajusta las Frequently Asked Questions y les da colores de la paleta a las dichas.</span></li>
                     <li>kernel_info.css: <span class="t-m-white">incluye el formato que será usado para mostrar el código del kernel.</span></li>
                     <li>login.css, settings.css, profile_view.css, register.css, marketplace.css, subirKernel.css y token_transaction.css: <span class="t-m-white">incluyen ligeros ajustes al formato de botones contenedores y demás.</span></li>
-                    <li>ranking.css: <span class="t-m-white">incluye el formato de la tabla vista en ranking y 
-                            los gradientes del podio.</span></li>
+                    <li>ranking.css: <span class="t-m-white">incluye el formato de la tabla vista en ranking y los gradientes del podio.</span></li>
                     <li>nav_bar.css: <span class="t-m-white">incluye el formato de la barra principal de la web accesible desde casi todas las vistas.</span></li>
                     <li>usernav_bar.css: <span class="t-m-white">incluye el formato de la barra principal del usuario accesible desde el perfil del mismo.</span></li>
                     <li>wallet.css y your_kernels.css: <span class="t-m-white">incluyen ajustes mas notorios a los contenidos de sus respectivas vistas .php.</span></li>
@@ -168,25 +159,20 @@
                             la página de token_transaction.php.</span></li>
                 </ul>
 
-                <p class="t-m-white">Adicionalmente se ha creado carpeta llamada backend que contiene la forma que tiene 
-                    el programa de ejecutar el kernel concurrentemente.</p>
-                <ul> 
-                    <li>get_computation_segment.php: <span class="t-m-white"> se encarga de asignar un segmento del kernel a 
+                <p class="t-m-white">Adicionalmente se ha creado carpeta llamada backend que contiene la forma que tiene el programa de ejecutar el kernel concurrentemente.</p>
+                <ul>
+                    <li>get_computation_segment.php: <span class="t-m-white"> se encarga de asignar un segmento del kernel a
                         un usuario para que lo ejecute</span></li>
                     <li>get_results.php: <span class="t-m-white">Se encarga de conseguir el resultado de cada una
                         de las iteraciones del kernel, no confundir con los segmentos, y las
                         almacena en un csv poniendo primero el resultado y luego la coma.</span></li>
-                    <li>submit_results.php: <span class="t-m-white">realiza la comunicacion entre el usuario y el servidor 
-                        para entregarle los resultados, se le pide al usuario hacer el login,
-                        se calcula el tiempo de codigo ejecutado y se le dan los tokens al usuario</span></li>
+                    <li>submit_results.php: <span class="t-m-white">realiza la comunicacion entre el usuario y el servidor para entregarle los resultados, se le pide al usuario hacer el login, se calcula el tiempo de codigo ejecutado y se le dan los tokens al usuario</span></li>
                 </ul>
-                
                 <h4>JavaScript</h4>
-                <p class="t-m-white">Adicionalmente se ha creado carpeta llamada backend que contiene la forma que tiene 
-                    el programa de ejecutar el kernel concurrentemente.</p>
+                <p class="t-m-white">Adicionalmente se ha creado carpeta llamada backend que contiene la forma que tiene el programa de ejecutar el kernel concurrentemente.</p>
                 <h5>Codemirror</h5>
                 <!-- TODO explicar libreria Codemirror -->
-                <ul> 
+                <ul>
                     <li>codemirror.css: <span class="t-m-white"> escribir</span></li>
                     <li>codemirror.js: <span class="t-m-white">escribir.</span></li>
                     <li>dracula.js: <span class="t-m-white">escribir</span></li>
@@ -194,13 +180,12 @@
 
                 </ul>
                 <!-- TODO EXPLICAR FUNCIONAMIENTO DE KERNELVIZ -->
-                <ul> 
+                <ul>
                     <li>nav_bar.js: <span class="t-m-white"> se encarga de realizar un toggle en la navbar de encogerla y ampliarla.</span></li>
                     <li>user_nav_bar.js: <span class="t-m-white">Se encarga de realizar un toggle en la user navbar de encogerla y ampliarla.</span></li>
                     <li>gpu-browser.min.js: <span class="t-m-white">Libreria importada que se encarga de que la ejecucion
                          concurrente del kernel funcione. NO TOCAR NADA</span></li>
-                    <li>work_coordination.js: <span class="t-m-white">se encarga de empezar a ejecutar el kernel, tambien se encarga de 
-                        gestionar la ejecucion de los segmentos del kernel cuando un dispositivo este pidiendo trabajo ademas de mandar el resultado </span></li>
+                    <li>work_coordination.js: <span class="t-m-white">se encarga de empezar a ejecutar el kernel, tambien se encarga de gestionar la ejecucion de los segmentos del kernel cuando un dispositivo este pidiendo trabajo ademas de mandar el resultado </span></li>
                     <li>kernel_execution.php: <span class="t-m-white">Se encarga de ejecutar el segmento del kernel </span></li>
                     <li>kernelViz.php: <span class="t-m-white">escribir</span></li>
 
@@ -213,10 +198,10 @@
                             script y que permite iniciarlizar la sesión y otros valores como constantes.</span></li>
                 </ul>
                 <h2 class="title">ESTRUCTURA DE LA BASE DE DATOS</h2>
-                <img src="img\diagramaER.png" alt="diagramaER">
+                <img src="imgMemoria/diagramaER.png" alt="diagramaER">
 
-                <p class="t-m-white">Las tablas de las bases de datos han sufrido modificaciones para adecuarla 
-                    con el nuevo codigo realizado y con los nuevos problemas que nos hemos encontrado 
+                <p class="t-m-white">
+                    Las tablas de la base de datos han sufrido modificaciones para adecuarla con el nuevo codigo realizado y con los nuevos problemas que nos hemos encontrado
                 </p>
 
                 <h3>Explicación de las tablas</h3>
@@ -225,20 +210,12 @@
                     <li>users:
                         <ul>
                             <li>user_email: el email del usuario.</li>
-                            
                             <li>user_password: contraseña del usuario</li>
-                            
                             <li>millis_crunched: tiempo dedicado en la plataforma ejecutando codigo</li>
-                            
                             <li>ranking: numero de la posicion en el ranking segun los millis crunched</li>
-
                             <li>tokens: créditos que posee el usuario</li>
-                            
-                            <li>last_active: aun no esta implementada, pero guardara el ultimo momento en 
-                                el que el usuario ha entrado a la web</li>
-                            
+                            <li>last_active: aun no esta implementada, pero guardara el ultimo momento en el que el usuario ha entrado a la web</li>
                             <li>blocked: baneo de la cuenta por subir codigo malicioso o por otros motivos</li>
-                            
                             <li>user_name: nombre del usuario visible para los demas</li>
                         </ul>
                     </li>
@@ -254,17 +231,11 @@
                         ellos. La clase Kernel maneja las lecturas y escrituras de esta tabla.
                         <ul>
                             <li>name: el nombre del kernel</li>
-            
                             <li>user_email: apunta al usuario autor</li>
-                           
                             <li>id: identificador unico</li>
-                            
                             <li>js_code: el codigo a ejecutar</li>
-                            
                             <li>total_reward: el valor de recompensa total ofrecida</li>
-                            
                             <li>description: un texto que describa el funcionamiento del código</li>
-                            
                             <li>progress_map: mapa de bits que determina que iteraciones están ejecutadas y cuales no.</li>
                         </ul>
                     </li>
@@ -274,21 +245,16 @@
                         escrituras de esta tabla.
                         <ul>
                             <li>id: identificador unico</li>
-                            
                             <li>transaction_timestamp: segundo en el que se ejecutó la transación</li>
-                            
                             <li>quantity: cantidad de tokens introducida o extraida</li>
-                            
                             <li>user_email: usuario beneficiado</li>
-                            
                             <li>description: breve texto explicando la razón del movimiento</li>
-                            
                             <li>balance: balance resultante</li>
                         </ul>
                     </li>
                     <li>execution_segments: lleva un registro de todas las veces que un usuario ejecuta un kernel
                         para poder repartid las recompensas, se guarda en el momento que el cliente devuelve los datos
-                        resueltos. La funcionalidad no está implementado.
+                        resueltos. La funcionalidad no está implementada.
                         <ul>
                             <li>user_email: el usuario responsable del calculo</li>
                             <li>start_time: el momento cuando se asigno</li>
@@ -306,17 +272,17 @@
                 <h3>Uso.</h3>
                 <p class="t-m-white">El prototipo tiene una carpeta 'sql' que contiene los archivos necesarios para
                     importar la base de datos. Una vez importada se puede probar directamente las funcionalidades con
-                    las cuentas ya creadas: jaime2@gmail.com (contraseña: aaaaaaaa) y jaime@gmail.com (contraseña:
-                    aaaaaaaa). También es posible crear cuentas de usuario nuevas</p>
+                    las cuentas de usuario ya creadas: jaime2@gmail.com (contraseña: aaaaaaaa) y jaime@gmail.com (contraseña:
+                    aaaaaaaa).A parte de esas dos cuentas se han creado más usuarios para dar forma a la tabla del ranking, también es posible crear cuentas de usuario nuevas.</p>
+                    <p>También existe la posibilidad de ser administrador, hay una cuenta creada como administrador (correo: admin@parallelize.com, contraseña: adminadmin). Si inicias sesión como administrador tendrás algunos cambios en el perfil como obtener una lista de usuarios (pulsando en el botón 'Admin Dashboard') con la opción de bloquear a usuarios(Funcionalidad no implementada todavía).</p>
                 <h3>Estructura</h3>
                 <p class="t-m-white">En la raíz de la carpeta donde se almacena el prototipo ('public') se pueden
                     encontrar todos los scripts utilizados para la vistas y una serie de carpetas con recursos que
                     usarán dichos scripts: 'css', 'img', 'includes', 'js' y 'svg'. La carpeta includes contiene los
                     scripts auxiliares y las carpetas 'dao' (clases de la base de datos), 'formularios' y 'vistas'
                     (secciones reutilizables).</p>
-                
                 <h2 class="title">FUCNIONAMIENTO DE LA SEGMENTACIÓN Y EJECUCIÓN CONCURRENTE DE LOS KERNELS</h2>
-                <p class="t-m-white">escribir</p>
+                <p class="t-m-white">El funcionamiento de la segmentación y ejecucion concurrente se gestiona a través de  la carpeta backend y enlazando con los archivos de JavaScript correspondiente, una vez el usuario escoge un kernel al que unirse se le asigna un segmento libre, el encargado de hacerlo es el archivo get_computation_sgment.php, una vez escogido un segmente se llama a gpu-browser-min.js que toma control de la gpu del usuario y ejecuta el segmento correspondiente, es importante tener en cuenta que la clave es que los segmentos de todos los usuarios se ejecutan concurrentemente por lo que el programa se encarga de seleccionar cada segmento libre a un usuario. Una vez ejecutado el segmento el archivo get_results.php saca los resultados de la ejecución y submit_results.php se encarga de asignar la recompensa para que conste en la base de datos.</p>
             </div>
         </div>
     </div>
