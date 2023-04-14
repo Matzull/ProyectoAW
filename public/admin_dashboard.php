@@ -32,8 +32,24 @@ if (!isset($_SESSION['user_email'])) {
             </div>
             <div class="sections-container">
                 <div class="section">
-                    <h3 class="title">LISTA DE DENUNCIAS</h3>
-                    <!-- CONTENIDO -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>LISTA DE USUARIOS</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <?php $GLOBALS['usuarios'] = \parallelize_namespace\Usuario::getMejoresUsuarios(25);
+                            foreach ($GLOBALS['usuarios'] as $key => $value) {
+                                echo "<tr>";
+                                echo "<td>" . $value[0] . "</td>";
+                                echo "<td> <button class=\"small-button c-h-b-blue\" onclick=\"\">BLOQUEAR</button> </td>"; //En el onClick se bloquearía al usuario
+                                echo "</tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

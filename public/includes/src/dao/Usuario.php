@@ -77,6 +77,19 @@ class Usuario
         return $ret;
     }
 
+    public static function getTodosLosUsuarios()
+    {
+        $conn = Aplicacion::getInstance()->getConexionBd();
+        $query = sprintf("SELECT user_name FROM users U");
+        $rs = $conn->query($query);
+        $users = $rs->fetch_all(MYSQLI_ASSOC);
+        $ret = [];
+        foreach ($users as $usr) {
+            $ret[] = [$usr['user_name']];
+        }
+        return $ret;
+    }
+
     public function __construct($user_name, $user_email, $user_password, $millis_crunched, $ranking, $tokens, $last_active, $blocked, $is_admin)
     {
         $this->user_name = $user_name;
