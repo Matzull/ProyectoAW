@@ -7,7 +7,7 @@ spl_autoload_register(
         // echo "<div>A importando " . $class . "</div>";
 
         // project-specific namespace prefix
-        $prefix = 'parallelize_namespace\\';
+        $prefix = 'parallelize_namespace/';
 
         // base directory for the namespace prefix
         $base_dir = __DIR__ . "/src/dao/";
@@ -44,7 +44,7 @@ spl_autoload_register(
         // echo "<div>B importando " . $class . "</div>";
 
         // project-specific namespace prefix
-        $prefix = 'parallelize_namespace\\formulario\\';
+        $prefix = 'parallelize_namespace/formulario/';
 
         // base directory for the namespace prefix
         $base_dir = __DIR__ . "/src/formularios/";
