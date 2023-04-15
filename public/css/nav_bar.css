@@ -75,14 +75,14 @@
     /* padding: 16px 20px; */
 }
 
-#nav-bar > .nav-bar-sec > ul > li > ul {
+#nav-bar > .nav-bar-sec > ul > li > .dropdown-content {
     display: none;
     position: absolute;
+    margin-left: -20px;
 }
 
-#nav-bar > .nav-bar-sec > ul > li .dropdown-content{
+#nav-bar > .nav-bar-sec > ul > li ul{
     position: relative;
-    /* left: -15px; */
     margin-top: 25px;
     background-color: var(--gris);
     border-radius: 10px;
@@ -92,11 +92,11 @@
     overflow: hidden;
 }
 
-#nav-bar > .nav-bar-sec > ul > li:hover > ul {
+#nav-bar > .nav-bar-sec > ul > li:hover .dropdown-content {
     display: block;
 }
 
-#nav-bar > .nav-bar-sec > ul > li > ul:hover{
+#nav-bar > .nav-bar-sec > ul > li .dropdown-content:hover{
     display: block;
 }
 

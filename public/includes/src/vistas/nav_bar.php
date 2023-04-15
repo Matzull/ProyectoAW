@@ -5,20 +5,21 @@
             <ul class="links-sec">
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="kernel_marketplace.php">Mercado de Kernels</a>
-                    <ul>
-                        <div class="dropdown-content">
+                    <div class="dropdown-content">    
+                        <ul>
+                        
                             <li><a href="kernel_marketplace.php">Mercado de Kernels</a></li>
                             <li><a href="ranking.php">Ranking</a></li>
-                        </div>
-                    </ul>
+                        </ul>
+                    </div>
                 </li>
                 <li><a href="FAQ.php">Información</a>
-                    <ul>
-                        <div class="dropdown-content">
+                    <div class="dropdown-content">
+                        <ul>
                             <li><a href="FAQ.php">FAQ</a></li>
                             <li><a href="contacto.php">Contacto</a></li>
-                        </div>
-                    </ul>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
