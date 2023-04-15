@@ -29,7 +29,6 @@
             <div class="form">
                 <h2 class="title">Tokens</h2>
                 <p class="subtitle t-muted">Actualmente tienes <?= $t ?> tokens</p>
-                <p class="subtitle t-muted">Esta pantalla simula una pasarela de pago, para simular entrada de dinero introduce un numero positivo, para simular la retirada introduce un numero negativo</p>
                 <?= $formulario->gestiona()  ?>
             </div>
         </div>
