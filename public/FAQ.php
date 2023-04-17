@@ -25,7 +25,7 @@ require 'includes/config.php';
                 FAQ
             </h1>
             <!-- <input method="post" type="text" placeholder="¿Cómo te podemos ayudar"> -->
-            <form method="POST" action="">
+            <form method="POST" action="FAQ.php">
                 <input class="input-field" type="text" name="search-FAQ" placeholder="¿Cómo te podemos ayudar?"/>
             </form>
         </div>

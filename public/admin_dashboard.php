@@ -35,7 +35,7 @@ if (!isset($_SESSION['user_email'])) {
                     <table>
                         <thead>
                             <tr>
-                                <th>LISTA DE USUARIOS</th>
+                                <th colspan="2">LISTA DE USUARIOS</th>
                             </tr>
                         </thead>
 

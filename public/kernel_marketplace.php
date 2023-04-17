@@ -21,7 +21,7 @@
     function mostrar_kernel($kernel)
     {
         ?>
-        <div id="kernel" class="form form-extra-carrousel">
+        <div class="form form-extra-carrousel">
             <h3 class="title">
                 <?= $kernel->getname() ?>
             </h3>
