@@ -365,21 +365,6 @@ a:hover {
 }
 
 
-/* TODO: Mover a kernel_marketplace.css */
-/*este de momento es usado solo para el kernel marketplace o el mercado (basicamente intente que no tuviese
-que estar horizontal*/
-.form-container-marketplace {
-    display: flex;
-    align-items: center;
-    /*justify-content: space-around;*/
-
-    padding: 0;
-    min-width: 100vw;
-    min-height: 100vh;
-    /* width: 100%;
-    height: 100%; */
-}
-
 /*cosas de las vistas que se podrían requerir en varios documentos*/
 
 .transition {
