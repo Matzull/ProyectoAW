@@ -50,12 +50,21 @@ if (!isset($_SESSION['user_email'])) {
                     </h2>
                     <p class="subtitle t-muted">Síguenos en nuestras redes!</p>
                     <!-- Creamos redes sociales? -->
-                    <a href="https://instagram.com"><img class="small" src="<?= RUTA_IMGS ?>/logo-Instagram-bMode.png"></a>
-                    <a href="https://facebook.com"><img class="small" src="<?= RUTA_IMGS ?>/logo-Facebook-bMode.png"></a>
-                    <a href="https://github.com"><img class="small" src="<?= RUTA_IMGS ?>/logo-Github-dMode.png"></a>
+                    <a href="https://instagram.com">
+                        <img class="small" src="<?= RUTA_IMGS ?>/logo-Instagram-bMode.png"
+                            alt="Instagram">
+                    </a>
+                    <a href="https://facebook.com">
+                        <img class="small" src="<?= RUTA_IMGS ?>/logo-Facebook-bMode.png"
+                            alt="Facebook">
+                    </a>
+                    <a href="https://github.com">
+                        <img class="small" src="<?= RUTA_IMGS ?>/logo-Github-dMode.png"
+                            alt="Github">
+                    </a>
             </div>
             <div class="social-drawing">
-                    <img src="svg/blobanimation.svg">
+                    <img src="svg/blobanimation.svg" alt="Blob Animation">
             </div>
         </div>
         

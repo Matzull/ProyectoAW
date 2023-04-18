@@ -64,7 +64,7 @@ require 'includes/config.php';
                 </div>
                 
                 <div class = "blob-container">
-                    <img src="svg/blobanimation.svg">
+                    <img src="svg/blobanimation.svg" alt="Blob Animation">
                 </div>
             </div>
         </div>

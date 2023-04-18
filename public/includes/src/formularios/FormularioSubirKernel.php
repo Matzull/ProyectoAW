@@ -8,8 +8,8 @@ require_once("./js/kernelViz.php");
 <link rel="stylesheet" href="js/codeMirror/codemirror.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/theme/dracula.min.css">
 
-<script type="text/javascript" src="js/codeMirror/codemirror.js"></script>
-<script type="text/javascript" src="js/codeMirror/javascript.js"></script>
+<script src="js/codeMirror/codemirror.js"></script>
+<script src="js/codeMirror/javascript.js"></script>
 
 
 <?php
@@ -32,7 +32,7 @@ class FormularioSubirKernel extends Formulario
         
         <label for = 'input_kernel'>Introducir kernel</label>
         <div class="input-field">
-        <textarea id = 'input_kernel' class = 'input-field' name = 'input_kernel' placeholder = 'Introduce tu kernel' value = "$val_input_kernel" ></textarea>
+        <textarea id = 'input_kernel' class = 'input-field' name = 'input_kernel' placeholder = 'Introduce tu kernel'></textarea>
             <script>
                 var editor = CodeMirror.fromTextArea(document.getElementById("input_kernel"), {
                     lineNumbers: true,
@@ -47,16 +47,16 @@ class FormularioSubirKernel extends Formulario
         HTML . generarError('input_kernel', $this->errores) . <<<HTML
 
         <label for = 'kernel_description'>Descripcion del kernel</label>
-        <textarea id = 'kernel_description' class = 'input-field' name = 'kernel_description' placeholder = 'Pon una breve descripcion del funcionamiento del kernel' value = "$val_kernel_description" ></textarea>
+        <textarea id = 'kernel_description' class = 'input-field' name = 'kernel_description' placeholder = 'Pon una breve descripcion del funcionamiento del kernel'></textarea>
         HTML . generarError('kernel_description', $this->errores) . <<<HTML
 
         <!-- en el precio he puesto pattern="^[0-9]+(.[0-9]+)?$" para que solo puedas poner numeros y puntos -->
         <label for = 'input_price'>Precio</label>
-        <input id = 'input_price' class = 'input-field'  pattern="^[0-9]+(.[0-9]+)?$" name = 'input_price' placeholder = 'Pon un precio a pagar por la ejecucion' value = "$val_input_price" ></textarea>
+        <input id = 'input_price' class = 'input-field'  pattern="^[0-9]+(.[0-9]+)?$" name = 'input_price' placeholder = 'Pon un precio a pagar por la ejecucion'></textarea>
         HTML . generarError('input_price', $this->errores) . <<<HTML
 
         <label for = 'iteration_count'>iteraciones</label>
-        <input id = 'iteration_count' class = 'input-field'  pattern="^[0-9]+(.[0-9]+)?$" name = 'iteration_count' placeholder = 'Decide la cantidad de veces que se debe ejecutar' value = "$iteration_count" ></textarea>
+        <input id = 'iteration_count' class = 'input-field'  pattern="^[0-9]+(.[0-9]+)?$" name = 'iteration_count' placeholder = 'Decide la cantidad de veces que se debe ejecutar'></textarea>
         HTML . generarError('iteration_count', $this->errores) . <<<HTML
       
         <!-- la id de este button era create-acc-button -->

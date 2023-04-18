@@ -37,10 +37,10 @@ if (!isset($_SESSION['user_email'])) {
                 </div>
                 <div class="section section-h take-out">
                     <div id="hammer-div">
-                        <img src="img\hammer-icon-8080.png" class="inverted" alt="" width="100">
+                        <img src="img/hammer-icon-8080.png" class="inverted" alt="" width="100">
                         <button class="button c-h-blue" onclick="location.href='token_transaction.php?withdraw=true'">Retirar Dinero</button>
                     </div>
-                    <img src="img\piggy_bank_PNG47.png" alt="" width="100" id="piggy">
+                    <img src="img/piggy_bank_PNG47.png" alt="" width="100" id="piggy">
                 </div>
                 <div class="section">
                     <h3 class="title">GRÁFICA DE MOVIMIENTOS</h3>

@@ -35,9 +35,9 @@ if (!isset($_SESSION['user_email'])) {
                 <!-- <div class="vertical"> -->
                 <div class="section">
                     <!-- <h3 class="title">HISTORIAL DE EJECUCIONES</h3> -->
-                    <form class="search-form" action="">
+                    <form class="search-form" action="your_kernels.php">
                         <div class="main-panel">
-                            <input class="input-field" type="text" name="" id="" placeholder="Buscar...">
+                            <input class="input-field" type="text" name="search" placeholder="Buscar...">
                             <button class="button c-h-blue" type="submit">Buscar</button>
                         </div>
                         <div class="option-panel">

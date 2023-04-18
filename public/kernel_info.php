@@ -31,8 +31,8 @@ require 'includes/config.php';
                 <h2 class="title">
                     Codigo fuente
                 </h2>
-                <pre id="sourceCode">
-                </pre>
+                <div id="sourceCode">
+                </div>
                 <?php
                 $kernel = \parallelize_namespace\Kernel::buscaKernelPorId($_GET["id"]);
                 require_once("./js/kernelViz.php");
@@ -62,9 +62,9 @@ require 'includes/config.php';
                 <div class="form block">
 
                     <div class="flex-container-info ">
-                        <button id="btn_box" class="small-button fill-flex transition"
+                        <button id="btn_box" class="button fill-flex transition"
                             onclick='comenzarEjecucion(<?= $_GET["id"] ?>)'>
-                            <p id="btn_text">Ejecutar</p>
+                            <span id="btn_text">Ejecutar</span>
                         </button>
                     </div>
                     <p id="state_text"></p>
