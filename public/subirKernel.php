@@ -5,6 +5,9 @@ if (!isset($_SESSION['user_email'])) {
     header("location: login.php");
     die();
 }
+
+$formulario = new \parallelize_namespace\formulario\FormularioSubirKernel();
+$html_formulario = $formulario->gestiona();
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +27,6 @@ if (!isset($_SESSION['user_email'])) {
 <body>
     <?php
     require_once("./includes/src/vistas/nav_bar.php");
-    ob_start(); //En vez de pintar directamente con echo, guarda en un buffer y pinta al final
     echo <<<EOS
     <div class="main-container">
         <div class="form">
@@ -39,8 +41,7 @@ if (!isset($_SESSION['user_email'])) {
             </ul>
     EOS;
 
-    $formulario = new \parallelize_namespace\formulario\FormularioSubirKernel();
-    echo $formulario->gestiona();
+    echo $html_formulario;
 
     echo <<<EOS
         </div>
@@ -51,4 +52,3 @@ if (!isset($_SESSION['user_email'])) {
 
 </html>
 EOS;
-    echo ob_get_clean();//aqui es donde se flushea el buffer creado por ob_start
