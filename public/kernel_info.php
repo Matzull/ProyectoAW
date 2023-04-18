@@ -12,12 +12,12 @@ require 'includes/config.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kernel Info</title>
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
-    <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_dashboard.css">
+    
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/kernel_info.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/footer.css">
-    <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
 
 </head>
 
@@ -25,9 +25,9 @@ require 'includes/config.php';
     <?php
     require_once("./includes/src/vistas/nav_bar.php");
     ?>
-    <div class="flex-container-info vertical">
-        <div class="flex-container-info horizontal">
-            <div class="codeBlock">
+    <div class="main-container">
+        <div class="sections-container kernel">
+            <div class="section codeBlock">
                 <h2 class="title">
                     Codigo fuente
                 </h2>
@@ -41,32 +41,30 @@ require 'includes/config.php';
                 ?>
             </div>
 
-            <div class="flex-container-info vertical block">
-                <div class="form">
+            <div class="sections-container kernel-info">
+                <div class="section">
                     <h2 class="title centered">
                         <?= $kernel->getname(); ?>
                     </h2>
-                    <p>Usuario:
+                    <p><strong>Usuario:</strong>
                         <?= \parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName() ?>
                     </p>
-                    <p>Estado:
+                    <p><strong>Estado:</strong>
                         <?= $kernel->is_finished() == 0 ? "Computing" : "Finished" ?>
                     </p>
-                    <p>Recompensa:
+                    <p><strong>Recompensa:</strong>
                         <?= $kernel->getreward_per_line() ?> tk/line
                     </p>
-                    <p class="form">
+                    <div class="section">
+                        <h4 class="title">Descripción</h4>
                         <?= $kernel->getdescription() ?>
-                    </p>
-                </div>
-                <div class="form block">
-
-                    <div class="flex-container-info ">
-                        <button id="btn_box" class="button fill-flex transition"
-                            onclick='comenzarEjecucion(<?= $_GET["id"] ?>)'>
-                            <span id="btn_text">Ejecutar</span>
-                        </button>
                     </div>
+                </div>
+                <div class="section kernel-exec">
+                    <button id="btn_box" class="button fill-flex transition"
+                        onclick='comenzarEjecucion(<?= $_GET["id"] ?>)'>
+                        <span id="btn_text">Ejecutar</span>
+                    </button>
                     <p id="state_text"></p>
 
                 </div>
@@ -75,23 +73,25 @@ require 'includes/config.php';
         <?php
         if (isset($_SESSION["user_email"]) && $kernel->getuser_email() == $_SESSION["user_email"]) {
             ?>
-            <div>
-                <h1 class="centered_text">Información privada para el propietario</h1>
-                <div class="codeBlock">
-                    <a download="resultados_de_kernel.csv"
-                        href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>&format=csv">Descargar resultados
-                        <?= $kernel->is_finished() ? "totales" : "parciales" ?> en csv
-                    </a><br>
-                    <a download="resultados_de_kernel.json"
-                        href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>&format=json">Descargar
-                        resultados
-                        <?= $kernel->is_finished() ? "totales" : "parciales" ?> en json
-                    </a>
-
+            <div class="sections-container">
+                <div class="section">
+                    <h2 class="title">Información privada para el propietario</h2>
+                    <div class="codeBlock">
+                        <a download="resultados_de_kernel.csv"
+                            href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>&format=csv">Descargar resultados
+                            <?= $kernel->is_finished() ? "totales" : "parciales" ?> en csv
+                        </a><br>
+                        <a download="resultados_de_kernel.json"
+                            href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>&format=json">Descargar
+                            resultados
+                            <?= $kernel->is_finished() ? "totales" : "parciales" ?> en json
+                        </a>
+                    </div>
                 </div>
             </div>
         <?php } ?>
     </div>
+    
     <script>
         kernel = {
             finished: <?= $kernel->is_finished() == 0 ? "false" : "true" ?>
