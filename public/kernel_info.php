@@ -2,6 +2,8 @@
 namespace parallelize_namespace;
 
 require 'includes/config.php';
+$formulario = new \parallelize_namespace\formulario\FormularioComentario($_GET["id"]);  
+$formulario_html = $formulario->gestiona();
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +25,8 @@ require 'includes/config.php';
 
 <body>
     <?php
+    // TODO gestion de errores de kernel no encontrado
+   
     require_once("./includes/src/vistas/nav_bar.php");
     ?>
     <div class="main-container">
@@ -90,6 +94,35 @@ require 'includes/config.php';
                 </div>
             </div>
         <?php } ?>
+        
+            <div class = "sections-container">
+                <div class="section">
+                    <h2 class="title">Comentarios del kernel</h2>
+                    <?= $formulario_html ?>
+
+                    <div class="comments">
+
+                        <!-- php 
+                        $comentarios = \parallelize_namespace\Comentario::buscaComentariosPorKernel($_GET["id"]);
+                        foreach ($comentarios as $comentario) {
+                            $usuario = \parallelize_namespace\Usuario::buscaUsuario($comentario->getuser_email());
+                            $usuario_nombre = $usuario->getName();
+                            $usuario_foto = $usuario->getPhoto();
+                            $comentario_texto = $comentario->getcomment();
+                            $comentario_fecha = $comentario->getdate();
+                            php?
+                            <div class="comment">
+                                <div class="comment-header">
+                                    poner username
+                                </div>
+                                <div class="comment-text">poner comentario</div>
+                            </div>
+                        php } php?-->
+                        <!-- TODO hacer comentarios.php y mover comenta de usuario a comentario y hacer lo de arriba para listar comentarios -->
+                    </div>
+                </div>
+            </div>
+        
     </div>
     
     <script>
