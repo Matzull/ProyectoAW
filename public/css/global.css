@@ -33,6 +33,7 @@ body {
 a {
     text-decoration: none;
     color: var(--h-blue);
+    word-break: break-word;
 }
 
 a:hover {
@@ -242,7 +243,6 @@ a:hover {
     padding: 30px;
     box-sizing: border-box;
     background-color: var(--gris);
-    height: 100%;
     border: 2px solid var(--h-gris);
 }
 
@@ -358,6 +358,13 @@ a:hover {
     gap: 15px;
 }
 
+#user-panel>.sections-container {
+    /* Evitar que el cotenido ocupe más de lo necesario */
+    max-width: 1300px;
+    margin: auto;
+    width: 100%;
+}
+
 @media only screen and (max-width: 900px) {
     #user-panel {
         margin-right: 0px;
@@ -373,4 +380,5 @@ a:hover {
 
 .form-field-error{
     color: var(--red);
+    margin: 0px 0px 10px 0px;
 }
