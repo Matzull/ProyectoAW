@@ -32,10 +32,11 @@ if (!isset($_SESSION['user_email'])) {
             </div>
             <div class="sections-container">
                 <div class="section">
-                    <table>
+                    <table class="table">
                         <thead>
                             <tr>
-                                <th colspan="2">LISTA DE USUARIOS</th>
+                                <th>Usuario</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
 
@@ -44,7 +45,12 @@ if (!isset($_SESSION['user_email'])) {
                             foreach ($GLOBALS['usuarios'] as $key => $value) {
                                 echo "<tr>";
                                 echo "<td>" . $value[0] . "</td>";
-                                echo "<td> <button class=\"small-button c-h-b-blue\" onclick=\"\">BLOQUEAR</button> </td>"; //En el onClick se bloquearía al usuario
+                                echo <<<HTML
+                                    <td>
+                                        <button class="small-button c-h-b-blue" onclick="">Bloquear</button>
+                                        <button class="small-button c-red" onclick="">Eliminar</button>
+                                    </td>
+                                HTML;
                                 echo "</tr>";
                             }
                             ?>
