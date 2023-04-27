@@ -102,23 +102,23 @@ $formulario_html = $formulario->gestiona();
 
                     <div class="comments">
 
-                        <!-- php 
-                        $comentarios = \parallelize_namespace\Comentario::buscaComentariosPorKernel($_GET["id"]);
-                        foreach ($comentarios as $comentario) {
-                            $usuario = \parallelize_namespace\Usuario::buscaUsuario($comentario->getuser_email());
-                            $usuario_nombre = $usuario->getName();
-                            $usuario_foto = $usuario->getPhoto();
-                            $comentario_texto = $comentario->getcomment();
-                            $comentario_fecha = $comentario->getdate();
-                            php?
+
+
+                        <?php 
+                        $comentariosk = \parallelize_namespace\ComentarioKernel::buscaComentariosPorKernel($_GET["id"]);
+                        foreach ($comentariosk as $comentariok) {
+                            $comentario_email = $comentariok->getUserEmail();
+                            $comentario_texto = $comentariok->getUserComment();
+                        
+                        ?>
                             <div class="comment">
                                 <div class="comment-header">
                                     poner username
+                                    <?php echo " " . $comentario_email . " " . $comentario_texto . " " ?>
                                 </div>
-                                <div class="comment-text">poner comentario</div>
                             </div>
-                        php } php?-->
-                        <!-- TODO hacer comentarios.php y mover comenta de usuario a comentario y hacer lo de arriba para listar comentarios -->
+                        <?php } ?>
+                        <!-- TODO HACER CSS COMENTARIOS -->
                     </div>
                 </div>
             </div>

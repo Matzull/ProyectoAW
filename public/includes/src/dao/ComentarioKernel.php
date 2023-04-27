@@ -3,9 +3,9 @@ namespace parallelize_namespace;
 
 class ComentarioKernel
 {
-    private $user_name;
     private $user_email;
     private $user_comment;
+    private $kernel_id;
 
     public static function comenta($user_email, $kernel_id, $comentario)
     {
@@ -30,9 +30,41 @@ class ComentarioKernel
         return false;
     }
 
-    public function __construct($user_name, $user_email, $user_comment){
-        $this->user_name = $user_name;
+    public static function buscaComentariosPorKernel($kernel_id)
+    {
+        $conn = Aplicacion::getInstance()->getConexionBd();
+        $query = sprintf(
+            'SELECT * FROM kernel_comments WHERE kernel_id = \'%d\'',
+            $kernel_id
+        );
+        $rs = $conn->query($query);
+        $result = [];
+        while ($row = $rs->fetch_assoc()) {
+            $result[] = new ComentarioKernel($row['user_email'], $row['kernel_id'], $row['comment']);
+        }
+        $rs->free();
+        return $result;
+    }
+   
+
+    public function __construct($user_email, $kernel_id, $user_comment){
+        
         $this->user_email = $user_email;
+        $this->kernel_id = $kernel_id;
         $this->user_comment = $user_comment;
     }
+
+    public function getUserEmail(){
+        return $this->user_email;
+    }
+
+    public function getUserComment(){
+        return $this->user_comment;
+    }
+
+    public function getKernelId(){
+        return $this->kernel_id;
+    }
+
+
 }
