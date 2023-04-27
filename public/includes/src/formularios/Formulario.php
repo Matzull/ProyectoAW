@@ -19,7 +19,7 @@ function generaErroresGlobalesFormulario($errores)
 
 function generarError($campo, $errores)
 {
-    return isset($errores[$campo]) ? "<br><span class=\"form-field-error\">{$errores[$campo]}</span><br>" : '';
+    return isset($errores[$campo]) ? "<p class=\"form-field-error\">{$errores[$campo]}</p>" : '';
 }
 
 /**

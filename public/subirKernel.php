@@ -34,7 +34,7 @@ $html_formulario = $formulario->gestiona();
                 Subir kernel
             </h2>
 
-            <p>antes de continuar recomendamos ojear la siguiente documentación:</p>    
+            <p>Antes de continuar recomendamos ojear la siguiente documentación:</p>    
             <ul>
                 <li><a href="https://github.com/gpujs/gpu.js/#supported-math-functions">https://github.com/gpujs/gpu.js/#supported-math-functions</a>
                 </li>
