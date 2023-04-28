@@ -113,7 +113,6 @@ $formulario_html = $formulario->gestiona();
                         ?>
                             <div class="comment">
                                 <div class="comment-header">
-                                    poner username
                                     <?php echo " " . $comentario_email . " " . $comentario_texto . " " ?>
                                 </div>
                             </div>
