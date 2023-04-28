@@ -113,6 +113,7 @@ tr:last-of-type td:last-of-type {
 
 .podio-item {
     text-align: center;
+    text-shadow: 0 0 10px black;
     padding: 20px;
     /* margin: 10px; */
     border-radius: 10px;
