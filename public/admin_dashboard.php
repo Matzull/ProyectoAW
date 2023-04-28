@@ -32,30 +32,38 @@ if (!isset($_SESSION['user_email'])) {
             </div>
             <div class="sections-container">
                 <div class="section">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Usuario</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <?php $GLOBALS['usuarios'] = \parallelize_namespace\Usuario::getMejoresUsuarios(25);
-                            foreach ($GLOBALS['usuarios'] as $key => $value) {
-                                echo "<tr>";
-                                echo "<td>" . $value[0] . "</td>";
-                                echo <<<HTML
-                                    <td>
-                                        <button class="small-button c-h-b-blue" onclick="">Bloquear</button>
-                                        <button class="small-button c-red" onclick="">Eliminar</button>
-                                    </td>
-                                HTML;
-                                echo "</tr>";
-                            }
-                            ?>
-                        </tbody>
-                    </table>
+                    <h3 class="title">LISTA DE USUARIOS</h3>
+                    <div class="user-list">
+                        <?php
+                        $allUsers = \parallelize_namespace\Usuario::getTodosLosUsuarios();
+                        foreach($allUsers as $user) {
+                        ?>
+                            <div class="user">
+                                <div class="user-main-info" onclick="location.href = 'profile_view.php?id=<?= $user->getEmail() ?>'">
+                                    <img class="circle-border obj-fit-cover"
+                                        src="<?= $user->getPicUrl() ?>" alt="profile pic" width="50" height="50">
+                                    <div class="user-data">
+                                        <p class="username no-margin"><?= $user->getName() ?></p>
+                                        <p class="t-muted no-margin"><?= $user->getEmail() ?></p>
+                                    </div>
+                                </div>
+                                <div class="options">
+                                    <button class="report-b small-button c-h-b-blue" onclick="">10 <img src="<?= RUTA_SVG ?>/report_i.svg" alt="" width="16"></button>
+                                    <button class="block-b small-button c-h-b-blue" onclick="">
+                                        <?php
+                                        if($user->getBlocked()){
+                                            echo "Desbloquear";
+                                        }
+                                        else {
+                                            echo "Bloquear";
+                                        }
+                                        ?>
+                                    </button>
+                                    <button class="small-button c-red" onclick="">Eliminar</button>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
                 </div>
             </div>
         </div>
