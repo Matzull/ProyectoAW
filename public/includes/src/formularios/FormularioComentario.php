@@ -22,7 +22,7 @@ class FormularioComentario extends Formulario
     protected function procesaFormulario(&$datos)
     {
         if (count($this->errores) === 0) {
-            $resultado = \parallelize_namespace\Usuario::comenta($this->user_email, $this->kernel_id, $datos['comentario']);
+            $resultado = \parallelize_namespace\ComentarioKernel::comenta($this->user_email, $this->kernel_id, $datos['comentario']);
 
             if (!$resultado) {
                 $this->errores[] = 'error al enviar el comentario';
