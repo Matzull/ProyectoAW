@@ -38,7 +38,7 @@ if (!isset($_SESSION['user_email'])) {
                         $allUsers = \parallelize_namespace\Usuario::getTodosLosUsuarios();
                         foreach($allUsers as $user) {
                         ?>
-                            <div class="user">
+                            <div id="user-<?= hash("md5",$user->getEmail()); ?>" class="user">
                                 <div class="user-main-info" onclick="location.href = 'profile_view.php?id=<?= $user->getEmail() ?>'">
                                     <img class="circle-border obj-fit-cover"
                                         src="<?= $user->getPicUrl() ?>" alt="profile pic" width="50" height="50">
@@ -48,8 +48,10 @@ if (!isset($_SESSION['user_email'])) {
                                     </div>
                                 </div>
                                 <div class="options">
-                                    <button class="report-b small-button c-h-b-blue" onclick="">10 <img src="<?= RUTA_SVG ?>/report_i.svg" alt="" width="16"></button>
-                                    <button class="block-b small-button c-h-b-blue" onclick="">
+                                    <button class="report-b small-button c-h-b-blue" onclick="document.querySelector('#user-<?= hash('md5',$user->getEmail()) ?> > .user-reports').classList.toggle('closed')">
+                                        10 <img src="<?= RUTA_SVG ?>/report_i.svg" alt="" width="16">
+                                    </button>
+                                    <button class="block-b small-button c-h-b-blue" onclick="location.href='bloquear.php?id=<?= $user->getEmail() ?>'">
                                         <?php
                                         if($user->getBlocked()){
                                             echo "Desbloquear";
@@ -59,7 +61,26 @@ if (!isset($_SESSION['user_email'])) {
                                         }
                                         ?>
                                     </button>
-                                    <button class="small-button c-red" onclick="">Eliminar</button>
+                                    <button class="small-button c-red" onclick="location.href='eliminar_usuario.php?id=<?= $user->getEmail() ?>'">Eliminar</button>
+                                </div>
+                                <div class="user-reports closed">
+                                    <h3 class="user-reports-title">Denuncias</h3>
+                                    <div class="user-report">
+                                        <div class="header">
+                                            <p class="username no-margin"><?= $user->getName() ?></p>
+                                            <p class="username no-margin">Kernel#1</p>
+                                        </div>
+                                        <div class="body">
+                                            <p class="no-margin t-m-white">
+                                                Lorem ipsum dolor sit amet consectetur 
+                                                adipisicing elit. Eius in, culpa et enim 
+                                                doloribus sit, autem esse fugit hic delectus
+                                                minus eligendi, suscipit dolorem debitis
+                                                molestias iste iusto ea mollitia?
+                                            </p>
+                                            <p class="date no-margin t-m-white">12:00 1 abril 2023</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         <?php } ?>

@@ -129,7 +129,7 @@ class Usuario
         return true;
     }
 
-    public static function borrarUsuario($user_email){
+    public static function eliminarUsuario($user_email){
         $conn = Aplicacion::getInstance()->getConexionBd();
         $query = sprintf(
             'DELETE FROM Users WHERE user_email = \'%s\'',
