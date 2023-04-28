@@ -24,58 +24,47 @@ if (!isset($_SESSION['user_email'])) {
     <?php require("includes/src/vistas/user_nav_bar.php") ?>
     <?php require("includes/src/vistas/nav_bar.php") ?>
     <div class="main-container">
-        <?php if (!\parallelize_namespace\Usuario::buscaUsuario($_SESSION['user_email'])->getIsAdmin()): ?>
-            <h2>No tienes rol de administrador.</h2>
-        <?php else: ?>
-            <div id="user-panel">
-                <div class="header">
-                    <img src="./<?= RUTA_SVG ?>/admin_big_i.svg" alt="" width="44">
-                    <h2>ADMIN DASHBOARD</h2>
-                </div>
-                <div class="sections-container">
-                    <div class="section">
+    <?php if(!\parallelize_namespace\Usuario::buscaUsuario($_SESSION['user_email'])->getIsAdmin()): ?>
+        <h2>No tienes rol de administrador.</h2>
+    <?php else: ?>
+        <div id="user-panel">
+            <div class="header">
+                <img src="./<?= RUTA_SVG ?>/admin_big_i.svg" alt="" width="44">
+                <h2>ADMIN DASHBOARD</h2>
+            </div>
+            <div class="sections-container">
+                <div class="section">
+                    <h3 class="title">LISTA DE USUARIOS</h3>
+                    <div class="user-list">
                         <?php
-
-                        $action = isset($_GET["action"]) ? $_GET["action"] : "ban_user";
-                        switch ($action) {
-                            case 'ban_user':
-                                ?>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Usuario</th>
-                                            <th>Acciones</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        <?php $GLOBALS['usuarios'] = \parallelize_namespace\Usuario::getMejoresUsuarios(25);
-                                        foreach ($GLOBALS['usuarios'] as $key => $user) {
-                                            $user_name =  $user->getName();
-                                            $user_email =  $user->getEmail();
-                                            
-                                            echo "<tr>";
-                                            echo "<td>" . $user_name . "</td>";
-                                            echo <<<HTML
-                                                <td>
-                                                    <button class="small-button c-h-b-blue" onclick="window.location='?action=\'ban_user\'&subject=\'$user_email\' '">Bloquear</button>
-                                                    <button class="small-button c-red" onclick="">Eliminar</button>
-                                                </td>
-                                            HTML;
-                                            echo "</tr>";
+                        $allUsers = \parallelize_namespace\Usuario::getTodosLosUsuarios();
+                        foreach($allUsers as $user) {
+                        ?>
+                            <div class="user">
+                                <div class="user-main-info" onclick="location.href = 'profile_view.php?id=<?= $user->getEmail() ?>'">
+                                    <img class="circle-border obj-fit-cover"
+                                        src="<?= $user->getPicUrl() ?>" alt="profile pic" width="50" height="50">
+                                    <div class="user-data">
+                                        <p class="username no-margin"><?= $user->getName() ?></p>
+                                        <p class="t-muted no-margin"><?= $user->getEmail() ?></p>
+                                    </div>
+                                </div>
+                                <div class="options">
+                                    <button class="report-b small-button c-h-b-blue" onclick="">10 <img src="<?= RUTA_SVG ?>/report_i.svg" alt="" width="16"></button>
+                                    <button class="block-b small-button c-h-b-blue" onclick="">
+                                        <?php
+                                        if($user->getBlocked()){
+                                            echo "Desbloquear";
+                                        }
+                                        else {
+                                            echo "Bloquear";
                                         }
                                         ?>
-                                    </tbody>
-                                </table>
-
-                                <?php
-                                break;
-
-                            default:
-                                break;
-                        }
-                        ?>
-
+                                    </button>
+                                    <button class="small-button c-red" onclick="">Eliminar</button>
+                                </div>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

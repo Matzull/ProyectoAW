@@ -20,3 +20,65 @@
 .table tr > td:nth-child(2) {
     text-align: right;
 }
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: auto;
+    max-width: 800px;
+    max-height: 700px;
+    overflow-y: auto;
+    padding: 5px;
+}
+.user-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.user-list>.user {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--h-gris);
+    border-radius: 5px;
+}
+.user .user-data {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.user .user-data>p{
+    /* max-width: 150px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; */
+    word-break: break-all;
+}
+.user .username {
+    font-weight: bold;
+}
+.user>.options {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.user>.options>.block-b {
+    min-width: 125px;
+}
+.user>.options>.report-b {
+    min-width: 80px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+}
+.user-main-info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-basis: 240px;
+    cursor: pointer;
+}
