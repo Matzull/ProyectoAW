@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-04-2023 a las 18:31:55
--- Versión del servidor: 10.4.25-MariaDB
--- Versión de PHP: 8.1.10
+-- Tiempo de generación: 12-04-2023 a las 11:24:08
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `parallelize_app`
 --
-
+CREATE DATABASE IF NOT EXISTS `parallelize_app` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `parallelize_app`;
 -- --------------------------------------------------------
 
 --
@@ -30,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `comments` (
   `user_email` varchar(60) NOT NULL,
   `comment` varchar(1024) CHARACTER SET utf32 COLLATE utf32_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `comments`
@@ -56,7 +57,7 @@ CREATE TABLE `execution_segments` (
   `results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `iteration_start` int(11) NOT NULL,
   `iteration_end` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `execution_segments`
@@ -91,7 +92,7 @@ CREATE TABLE `kernels` (
   `description` longtext NOT NULL,
   `upload_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `iteration_count` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `kernels`
@@ -100,31 +101,6 @@ CREATE TABLE `kernels` (
 INSERT INTO `kernels` (`name`, `is_finished`, `user_email`, `id`, `js_code`, `reward_per_line`, `total_reward`, `description`, `upload_time`, `iteration_count`) VALUES
 ('deveres de FAL', 0, 'jaime@email.com', 2, 'return i;', 0.71428571428571, 100, 'buah, pues si yo te contara lo que hace, te quedabas cuajao', '2023-04-06 14:53:50', 2000),
 ('calcular pi', 1, 'diego@email.com', 3, 'function is_inside_circle(x,y){\n 	return x*x+y*y &lt; 1 ? 1 : 0;         \n}\n\nlet res = 0;\n\nfor(let t = 0; t &lt; 100000; t++){\n   	res += is_inside_circle(Math.random(),Math.random());\n}\n\nreturn res / 25000;', 0.0047619047619048, 10, 'calcula pi con montecarlo', '2023-04-08 11:28:45', 100);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `kernel_comments`
---
-
-CREATE TABLE `kernel_comments` (
-  `user_email` varchar(60) NOT NULL,
-  `kernel_id` int(11) NOT NULL,
-  `comment` varchar(1024) NOT NULL,
-  `time` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `kernel_comments`
---
-
-INSERT INTO `kernel_comments` (`user_email`, `kernel_id`, `comment`, `time`) VALUES
-('juan@email.com', 2, 'buen kernel\r\n', '2023-04-26 12:30:32'),
-('juan@email.com', 2, 'faltan los ejercicios de vuelta atras', '2023-04-26 12:36:22'),
-('juan@email.com', 2, 'a', '2023-04-26 12:42:07'),
-('juan@email.com', 2, 'no m gusta', '2023-04-26 13:01:41'),
-('juan@email.com', 2, 'b', '2023-04-27 12:15:42'),
-('juan@email.com', 2, 'holahola', '2023-04-27 17:48:29');
 
 -- --------------------------------------------------------
 
@@ -139,7 +115,7 @@ CREATE TABLE `token_transactions` (
   `user_email` varchar(60) NOT NULL,
   `description` varchar(60) NOT NULL DEFAULT 'sin descripcion',
   `balance` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -157,7 +133,7 @@ CREATE TABLE `users` (
   `blocked` tinyint(1) NOT NULL DEFAULT 0,
   `user_name` varchar(20) NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `users`
@@ -204,12 +180,6 @@ ALTER TABLE `execution_segments`
 ALTER TABLE `kernels`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_email_fk` (`user_email`);
-
---
--- Indices de la tabla `kernel_comments`
---
-ALTER TABLE `kernel_comments`
-  ADD PRIMARY KEY (`user_email`,`kernel_id`,`time`);
 
 --
 -- Indices de la tabla `token_transactions`

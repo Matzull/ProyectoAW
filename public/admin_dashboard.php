@@ -9,6 +9,7 @@ if (!isset($_SESSION['user_email'])) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,6 +19,7 @@ if (!isset($_SESSION['user_email'])) {
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/admin_dashboard.css">
 </head>
+
 <body>
     <?php require("includes/src/vistas/user_nav_bar.php") ?>
     <?php require("includes/src/vistas/nav_bar.php") ?>
@@ -87,8 +89,8 @@ if (!isset($_SESSION['user_email'])) {
                     </div>
                 </div>
             </div>
-        </div>
-    <?php endif; ?>
+        <?php endif; ?>
     </div>
 </body>
+
 </html>

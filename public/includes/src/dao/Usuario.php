@@ -67,12 +67,14 @@ class Usuario
     public static function getMejoresUsuarios($count)
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
-        $query = sprintf("SELECT user_name, millis_crunched FROM users U ORDER BY millis_crunched ASC LIMIT %s", $count);
+        $query = sprintf("SELECT * FROM users U ORDER BY millis_crunched ASC LIMIT %s", $count);
         $rs = $conn->query($query);
         $users = $rs->fetch_all(MYSQLI_ASSOC);
         $ret = [];
         foreach ($users as $usr) {
-            $ret[] = [$usr['user_name'], $usr['millis_crunched']];
+            $ret[] = new Usuario($usr['user_name'], $usr['user_email'], $usr['user_password'],
+                $usr['millis_crunched'], $usr['ranking'], $usr['tokens'], $usr['last_active'], $usr['blocked'],
+                $usr['is_admin']);
         }
         return $ret;
     }
