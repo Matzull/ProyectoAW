@@ -20,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `parallelize_app`
 --
-
+CREATE DATABASE IF NOT EXISTS `parallelize_app` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `parallelize_app`;
 -- --------------------------------------------------------
 
 --
@@ -111,7 +112,8 @@ CREATE TABLE `kernel_comments` (
   `user_email` varchar(60) NOT NULL,
   `kernel_id` int(11) NOT NULL,
   `comment` varchar(1024) NOT NULL,
-  `time` datetime NOT NULL DEFAULT current_timestamp()
+  `time` datetime NOT NULL DEFAULT current_timestamp(),
+  `is_report` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

@@ -50,8 +50,11 @@ if (!isset($_SESSION['user_email'])) {
                                     </div>
                                 </div>
                                 <div class="options">
+                                    <?php 
+                                        $user_reports = \parallelize_namespace\ComentarioKernel::buscaDenunciasUsuario($user->getEmail());                                        
+                                    ?>
                                     <button class="report-b small-button c-h-b-blue" onclick="document.querySelector('#user-<?= hash('md5',$user->getEmail()) ?> > .user-reports').classList.toggle('closed')">
-                                        10 <img src="<?= RUTA_SVG ?>/report_i.svg" alt="" width="16">
+                                        <?= sizeof($user_reports) ?> <img src="<?= RUTA_SVG ?>/report_i.svg" alt="" width="16">
                                     </button>
                                     <button class="block-b small-button c-h-b-blue" onclick="location.href='bloquear.php?id=<?= $user->getEmail() ?>'">
                                         <?php
@@ -63,26 +66,40 @@ if (!isset($_SESSION['user_email'])) {
                                         }
                                         ?>
                                     </button>
-                                    <button class="small-button c-red" onclick="location.href='eliminar_usuario.php?id=<?= $user->getEmail() ?>'">Eliminar</button>
+                                    <button class="small-button c-red" 
+                                        onclick="location.href='eliminar_usuario.php?id=<?= $user->getEmail() ?>'">
+                                            Eliminar
+                                    </button>
                                 </div>
                                 <div class="user-reports closed">
                                     <h3 class="user-reports-title">Denuncias</h3>
+                                    <?php
+                                        if(!$user_reports){
+                                            echo "<p>No Hay Denuncias</p>";
+                                        }
+                                    ?>
+                                    <?php foreach($user_reports as $r){ ?>
                                     <div class="user-report">
                                         <div class="header">
-                                            <p class="username no-margin"><?= $user->getName() ?></p>
-                                            <p class="username no-margin">Kernel#1</p>
+                                            <p class="username no-margin">
+                                                <a href="profile_view.php?id=<?= $r->getUserEmail() ?>" target="_blank">
+                                                    <?= $r->getUserEmail() ?>
+                                                </a>
+                                            </p>
+                                            <p class="username no-margin">
+                                                <a href="kernel_info.php?id=<?= $r->getKernelId() ?>" target="_blank">
+                                                    Kernel#<?= $r->getKernelId() ?>
+                                                </a>
+                                            </p>
                                         </div>
                                         <div class="body">
                                             <p class="no-margin t-m-white">
-                                                Lorem ipsum dolor sit amet consectetur 
-                                                adipisicing elit. Eius in, culpa et enim 
-                                                doloribus sit, autem esse fugit hic delectus
-                                                minus eligendi, suscipit dolorem debitis
-                                                molestias iste iusto ea mollitia?
+                                                <?= $r->getUserComment() ?>
                                             </p>
-                                            <p class="date no-margin t-m-white">12:00 1 abril 2023</p>
+                                            <p class="date no-margin t-m-white"><?= $r->getTime() ?></p>
                                         </div>
                                     </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         <?php } ?>

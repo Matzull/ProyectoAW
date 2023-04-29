@@ -111,6 +111,13 @@
 .user-report>.header {
     display: flex;
     justify-content: space-between;
+    gap: 5px 20px;
+    flex-wrap: wrap;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--l-gris);
+}
+.user-report>.header .username {
+    word-break: break-all;
 }
 .user-report>.body {
     display: flex;

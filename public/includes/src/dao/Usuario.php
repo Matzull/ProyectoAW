@@ -128,6 +128,9 @@ class Usuario
             echo "Error SQL ({$conn->errno}):  {$conn->error}";
             return false;
         }
+        if ($conn->affected_rows < 1){
+            return false;
+        }
         return true;
     }
 
@@ -140,6 +143,9 @@ class Usuario
         if (!$conn->query($query)) {
             echo $query;
             echo "Error SQL ({$conn->errno}):  {$conn->error}";
+            return false;
+        }
+        if ($conn->affected_rows < 1){
             return false;
         }
         return true;

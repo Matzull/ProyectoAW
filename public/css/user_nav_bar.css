@@ -10,6 +10,7 @@
     border-radius: 10px;
     
     border: 2px solid var(--h-gris);
+    z-index: 100;
 }
 
 #user-nav-bar > .header > p {

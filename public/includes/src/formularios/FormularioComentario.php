@@ -13,7 +13,9 @@ class FormularioComentario extends Formulario
         return generaErroresGlobalesFormulario($this->errores) . <<<HTML
         HTML . generarError('user_email', $this->errores) . <<<HTML
         <textarea id = 'campo-comentario' class = 'input-field' name = 'comentario' placeholder = 'Danos tu opinion sobre el kernel...' 
-        required rows="5"></textarea> 
+        required rows="5"></textarea>
+        <input type="checkbox" name="is-report" id="is-report">
+        <label for="is-report">¿Es una denuncia?</label>
         <button id = 'comment-button' class='button c-h-blue' type='submit' title='Ingresar' name='Ingresar'>Enviar Comentario</button>
 
         HTML;
@@ -22,7 +24,7 @@ class FormularioComentario extends Formulario
     protected function procesaFormulario(&$datos)
     {
         if (count($this->errores) === 0) {
-            $resultado = \parallelize_namespace\ComentarioKernel::comenta($this->user_email, $this->kernel_id, $datos['comentario']);
+            $resultado = \parallelize_namespace\ComentarioKernel::comenta($this->user_email, $this->kernel_id, $datos['comentario'], isset($datos['is-report']));
 
             if (!$resultado) {
                 $this->errores[] = 'error al enviar el comentario';
