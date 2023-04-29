@@ -23,7 +23,7 @@ class FormularioContacto extends Formulario
         </div>
         </div>
         <label for = 'user_comment'>Comentarios</label>
-        <textarea id = 'user_comment' class = 'input-field' name = 'user_comment' placeholder = 'Escribe cualquier cosa que quieras comentarnos' value = "$val_user_comment" ></textarea>
+        <textarea id = 'user_comment' class = 'input-field' name = 'user_comment' placeholder = 'Escribe cualquier cosa que quieras comentarnos'></textarea>
         HTML . generarError('user_comment', $this->errores) . <<<HTML
       
         <!-- la id de este button era create-acc-button -->

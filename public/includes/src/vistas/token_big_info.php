@@ -9,4 +9,4 @@
         </h3>
     </div>
 </div>
-<img src="<?= RUTA_SVG ?>/Token_i.svg" alt="" width="100" heigh="100">
+<img src="<?= RUTA_SVG ?>/Token_i.svg" alt="" width="100" height="100">

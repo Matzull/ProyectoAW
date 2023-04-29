@@ -63,16 +63,18 @@ class Usuario
         }
         return false;
     }
-
+    
     public static function getMejoresUsuarios($count)
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
-        $query = sprintf("SELECT user_name, millis_crunched FROM users U ORDER BY millis_crunched ASC LIMIT %s", $count);
+        $query = sprintf("SELECT * FROM users U ORDER BY millis_crunched ASC LIMIT %s", $count);
         $rs = $conn->query($query);
         $users = $rs->fetch_all(MYSQLI_ASSOC);
         $ret = [];
         foreach ($users as $usr) {
-            $ret[] = [$usr['user_name'], $usr['millis_crunched']];
+            $ret[] = new Usuario($usr['user_name'], $usr['user_email'], $usr['user_password'],
+                $usr['millis_crunched'], $usr['ranking'], $usr['tokens'], $usr['last_active'], $usr['blocked'],
+                $usr['is_admin']);
         }
         return $ret;
     }
@@ -80,14 +82,73 @@ class Usuario
     public static function getTodosLosUsuarios()
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
-        $query = sprintf("SELECT user_name FROM users U");
+
+        $query = sprintf("SELECT * FROM users");
         $rs = $conn->query($query);
         $users = $rs->fetch_all(MYSQLI_ASSOC);
-        $ret = [];
-        foreach ($users as $usr) {
-            $ret[] = [$usr['user_name']];
+        $allUsers = [];
+        foreach ($users as $user) {
+            $allUsers[] = new Usuario($user['user_name'], $user['user_email'], $user['user_password'],
+            $user['millis_crunched'], $user['ranking'], $user['tokens'], $user['last_active'], $user['blocked'],
+            $user['is_admin']);
         }
-        return $ret;
+        return $allUsers;
+    }
+    public static function comenta($user_email, $kernel_id, $comentario)
+    {
+        $user = Usuario::buscaUsuario($user_email);
+        if ($user) {
+            $conn = Aplicacion::getInstance()->getConexionBd();
+            $query = sprintf(
+                'INSERT INTO kernel_comments (user_email, kernel_id ,comment) VALUES (\'%s\', \'%d\', \'%s\')',
+                $conn->real_escape_string($user_email),
+                $kernel_id,
+                $conn->real_escape_string($comentario)
+            );
+            if (!$conn->query($query)) {
+                echo $query;
+                echo "Error SQL ({$conn->errno}):  {$conn->error}";
+                return false;
+            }
+
+            return true;
+        }
+        echo "ERROR: No se ha encontrado el usuario";
+        return false;
+    }
+
+    public static function toggleBlocked($user_email){
+        $conn = Aplicacion::getInstance()->getConexionBd();
+        $query = sprintf(
+            'UPDATE Users SET blocked = ! blocked WHERE user_email = \'%s\'',
+            $conn->real_escape_string($user_email),
+        );
+        if (!$conn->query($query)) {
+            echo $query;
+            echo "Error SQL ({$conn->errno}):  {$conn->error}";
+            return false;
+        }
+        if ($conn->affected_rows < 1){
+            return false;
+        }
+        return true;
+    }
+
+    public static function eliminarUsuario($user_email){
+        $conn = Aplicacion::getInstance()->getConexionBd();
+        $query = sprintf(
+            'DELETE FROM Users WHERE user_email = \'%s\'',
+            $conn->real_escape_string($user_email),
+        );
+        if (!$conn->query($query)) {
+            echo $query;
+            echo "Error SQL ({$conn->errno}):  {$conn->error}";
+            return false;
+        }
+        if ($conn->affected_rows < 1){
+            return false;
+        }
+        return true;
     }
 
     public function __construct($user_name, $user_email, $user_password, $millis_crunched, $ranking, $tokens, $last_active, $blocked, $is_admin)
@@ -149,6 +210,10 @@ class Usuario
     public function getIsAdmin()
     {
         return $this->is_admin;
+    }
+
+    public function getBlocked(){
+        return $this->blocked;
     }
 
     public function getKernelCount()

@@ -19,16 +19,18 @@
 }
 
 .codeBlock{
-  border-radius: 10px;
-  max-width: 1200px;
-  min-width: 950px;
-  padding: 15px 30px 15px 30px;
+  /* border-radius: 10px; */
+  /* max-width: 1200px;
+  min-width: 950px; */
+  /* padding: 15px 30px 15px 30px; */
   box-sizing: border-box;
-  background-color: var(--gris);
+  /* background-color: var(--gris);
   margin-left: 2%;
   margin-right: 2%;
   margin-top: 25px;
-  margin-bottom: 50px;
+  margin-bottom: 50px; */
+  flex-basis: 600px;
+  overflow: hidden;
 }
 
 .block{
@@ -61,4 +63,30 @@ pre{
 .centered_text{
   width: 100%;
   text-align: center;
+}
+
+
+.kernel {
+  flex-wrap: wrap-reverse;
+  margin-bottom: 10px;
+}
+
+.kernel-info {
+  flex-direction: column;
+  /* flex-grow: 1; */
+  flex-basis: 350px;
+}
+
+.kernel-exec {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 990px) {
+  .kernel-info{
+    flex-grow: 1;
+  }
 }

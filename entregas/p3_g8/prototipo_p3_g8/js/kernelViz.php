@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="js/codeMirror/codemirror.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/theme/dracula.min.css">
 
-<script type="text/javascript" src="js/codeMirror/codemirror.js"></script>
-<script type="text/javascript" src="js/codeMirror/javascript.js"></script>
+<script src="js/codeMirror/codemirror.js"></script>
+<script src="js/codeMirror/javascript.js"></script>
 
 <?php function showCode($editable, $id, $kernel)
 {

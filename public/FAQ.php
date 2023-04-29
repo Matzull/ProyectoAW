@@ -25,12 +25,12 @@ require 'includes/config.php';
                 FAQ
             </h1>
             <!-- <input method="post" type="text" placeholder="¿Cómo te podemos ayudar"> -->
-            <form method="POST" action="">
+            <form method="POST" action="FAQ.php">
                 <input class="input-field" type="text" name="search-FAQ" placeholder="¿Cómo te podemos ayudar?"/>
             </form>
         </div>
     </div>
-    <div class="FAQ-container">
+    <div class="FAQ-index">
         <div class="FAQs-c1">
             <h2>Kernels</h2>
             <!-- Las preguntas deben ser enlaces a las respuestas pero por ahora solo las vistas -->
@@ -63,6 +63,15 @@ require 'includes/config.php';
                 <p>Otra pregunta</p>
                 <p>Otra pregunta</p>
             </div>
+        </div>
+    </div>
+
+    <div class="container-answers">
+        <div class="form answer">
+            <h1> FAQ </h1>
+
+            <p>fjdsklañfjkds</p>
+            <p>djsalfjd</p>
         </div>
     </div>
 

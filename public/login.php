@@ -25,7 +25,7 @@
     <div class="main-container">
         <div class="form-container">
             <div class="form-drawing">
-                <img src="svg/blobanimation.svg">
+                <img src="svg/blobanimation.svg" alt="Blob Animation">
             </div>
             <div class="form">
                 <h2 class="title">

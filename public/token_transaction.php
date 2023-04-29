@@ -15,10 +15,9 @@
 </head>
 
 <body>
+    <div class="main-container">
     <?php if(!isset($_SESSION["user_email"])): ?>
-        <div class="main-container">
-            <p>Debes haberte identificado</p>
-        </div>
+        <p>Debes haberte identificado</p>
     <?php else: ?>
         <?php 
             $usuario = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
@@ -33,7 +32,7 @@
             </div>
         </div>
     <?php endif; ?>
-
+    </div>
 </body>
 
 

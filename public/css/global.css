@@ -33,6 +33,7 @@ body {
 a {
     text-decoration: none;
     color: var(--h-blue);
+    word-break: break-word;
 }
 
 a:hover {
@@ -109,6 +110,11 @@ a:hover {
     margin: 0px;
 }
 
+/* IMÁGEN OBJECT-FIT: COVER */
+.obj-fit-cover {
+    object-fit: cover;
+}
+
 /* --- COMPONENTES SIMPLES --- */
 
 /* CONTENEDOR CIRCULAR */
@@ -133,6 +139,7 @@ a:hover {
     border: none;
     color: inherit;
     transition: filter 0.4s;
+    cursor: pointer;
 }
 
 .small-button:hover {
@@ -147,6 +154,7 @@ a:hover {
     border: none;
     color: inherit;
     transition: filter 0.4s;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -242,7 +250,6 @@ a:hover {
     padding: 30px;
     box-sizing: border-box;
     background-color: var(--gris);
-
     border: 2px solid var(--h-gris);
 }
 
@@ -358,27 +365,19 @@ a:hover {
     gap: 15px;
 }
 
+#user-panel>.sections-container {
+    /* Evitar que el cotenido ocupe más de lo necesario */
+    max-width: 1300px;
+    margin: auto;
+    width: 100%;
+}
+
 @media only screen and (max-width: 900px) {
     #user-panel {
         margin-right: 0px;
     }
 }
 
-
-/* TODO: Mover a kernel_marketplace.css */
-/*este de momento es usado solo para el kernel marketplace o el mercado (basicamente intente que no tuviese
-que estar horizontal*/
-.form-container-marketplace {
-    display: flex;
-    align-items: center;
-    /*justify-content: space-around;*/
-
-    padding: 0;
-    min-width: 100vw;
-    min-height: 100vh;
-    /* width: 100%;
-    height: 100%; */
-}
 
 /*cosas de las vistas que se podrían requerir en varios documentos*/
 
@@ -388,4 +387,5 @@ que estar horizontal*/
 
 .form-field-error{
     color: var(--red);
+    margin: 0px 0px 10px 0px;
 }

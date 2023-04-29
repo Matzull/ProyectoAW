@@ -3,3 +3,11 @@
     display: flex;
     justify-content: space-between;
 }
+
+/* #input-kernel {
+    height: 250px;
+} */
+
+#kernel-description {
+    resize: none;
+}

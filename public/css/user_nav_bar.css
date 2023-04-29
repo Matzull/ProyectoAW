@@ -5,11 +5,12 @@
     padding: 15px;
     margin-right: 10px;
     position: fixed;
-    top: 74px;
+    top: 72px;
     right: 0px;
     border-radius: 10px;
     
     border: 2px solid var(--h-gris);
+    z-index: 100;
 }
 
 #user-nav-bar > .header > p {
