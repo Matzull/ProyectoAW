@@ -169,7 +169,7 @@ class Usuario
         $conn = Aplicacion::getInstance()->getConexionBd();
 
         $query = sprintf(
-            'UPDATE users SET user_name = \'%s\', user_password = \'%s\', millis_crunched = %s, ranking = %s, tokens = %s, last_active = %s, blocked = %s WHERE user_email = \'%s\'',
+            'UPDATE users SET user_name = \'%s\', user_password = \'%s\', millis_crunched = %d, ranking = %s, tokens = %s, last_active = %s, blocked = %s WHERE user_email = \'%s\'',
             $conn->real_escape_string($this->user_name),
             $conn->real_escape_string($this->user_password),
             $conn->real_escape_string($this->millis_crunched),
@@ -243,6 +243,12 @@ class Usuario
     public function setTokens($value)
     {
         $this->tokens = $value;
+        $this->storeToDb();
+    }
+
+    public function setMillisCrunched($value)
+    {
+        $this->millis_crunched = $value;
         $this->storeToDb();
     }
 }

@@ -255,7 +255,6 @@ class Kernel
 
     public function setFinished()
     {
-        $this->is_finished = 1;
         $this->storeToDb();
     }
 
