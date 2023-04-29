@@ -24,54 +24,102 @@ require 'includes/config.php';
             <h1 class="title-FAQ">
                 FAQ
             </h1>
-            <!-- <input method="post" type="text" placeholder="¿Cómo te podemos ayudar"> -->
-            <form method="POST" action="FAQ.php">
-                <input class="input-field" type="text" name="search-FAQ" placeholder="¿Cómo te podemos ayudar?"/>
-            </form>
         </div>
     </div>
     <div class="FAQ-index">
-        <div class="FAQs-c1">
-            <h2>Kernels</h2>
-            <!-- Las preguntas deben ser enlaces a las respuestas pero por ahora solo las vistas -->
-            <div class="question-FAQ" >
-                <p>Como contactar con el equipo</p>
-                <p>Otra pregunta</p>
-                <p>Otra pregunta</p>
-                <p>Otra pregunta</p>
-                <p>Otra pregunta</p>
+            <div class="FAQs-c1">
+                <h2>Preguntas generales</h2>
+                <!-- Las preguntas deben ser enlaces a las respuestas pero por ahora solo las vistas -->
+                <div class="question-FAQ" >
+                    <p><a href="#q1">¿Cómo contactar con el equipo?</a></p>
+                    <p><a href="#q1">Tengo problemas con el registro de mi cuenta</a></p>
+                    <p><a href="#q2">¿Cuáles son las redes sociales de paralellize?</a></p>
+                    <p><a href="#q3">Tengo problemaas con el inicio de sesión en mi cuenta</a></p>
+                    <p><a href="#q4">¿Cómo puedo valorar el trabajo del equipo de Parallelize?</a></p>
+                </div>
             </div>
-        </div>
         <div class="FAQs-c2">
-            <h2>Otro tema</h2>
+            <h2>Kernels</h2>
             <div class="question-FAQ" >
-                <p>Otra pregunta</p>
-                <p>Otra pregunta</p>
-                <p>Otra pregunta</p>
-                <p>Otra pregunta</p>
-                <p>Otra pregunta</p>
+                <p><a href="#q5">¿Qué es un kernel?</a></p>
+                <p><a href="#q6">¿Cómo puedo ejecutar un kernel?</a></p>
+                <p><a href="#q7">Como subir mi propio kernel</a></p>
+                <p><a href="#q8">¿Qué es una iteración?</a></p>
             </div>
         </div>
     
         <div class="FAQs-c3">
-            <h2>Otro tema</h2>
+            <h2>Funcionamiento de la aplicación</h2>
     
             <div class="question-FAQ" >
-                <p>Otra pregunta</p>
-                <p>Otra pregunta</p>
-                <p>Otra pregunta</p>
-                <p>Otra pregunta</p>
-                <p>Otra pregunta</p>
+                <p><a href="#q9">¿Cómo funciona el ranking?</a></p>
+                <p><a href="#q10">¿En qué consiste la segmentación?</a></p>
+                <p><a href="#q11">¿Qué es la ejecución concurrente?</a></p>
+                <p><a href="#q12">¿Qué debo hacer para ganar dinero con Parallelize?</a></p>
             </div>
         </div>
     </div>
 
-    <div class="container-answers">
-        <div class="form answer">
-            <h1> FAQ </h1>
+    <div class="answers">
+        <div id="q1">
+            <h2>¿Cómo contactar con el equipo?</h2>
+            <p>Para cualquier consulta relativa a la página web  o al funcionamiento de los kernel no dudes en contactar con nosotros, para ello solo tendrás que pulsar en 'Contacto' dentro de la pestaña Información, una vez dentro solo tendrás que escribir el comentario/consulta que le quieras enviar al equipo. Aunque te recomendamos que primero busques tu pregunta en esta sección de FAQ ya que ahorrarás tiempo en responder a tu consulta.</p>
+        </div>
+        <div id="q2">
+            <h2>Tengo problemas con el registro de mi cuenta</h2>
+            <p>Si estás teniendo dificultades con el registro de tu cuenta es posible que no estés introduciendo bien algún campo, estos son algunos de los posibles motivos:
+            <ul>
+                <li>La contraseña no cumple los requisitos de seguridad (como que por ejemplo no tengo la longitud adecuada).</li>
+                <li>El correo electrónico no es válido: asegúrate de que estás introduciendo un correo electrónico real ya que sino no será posible crear la cuenta</li>
+                <li>El correo que estás intentando introducir ya tiene asignada una cuenta</li>
+            </ul>
+            Si cumples todos los requisitos mencionados anteriormente no dudes en contactar con nuestro equipo técnico para proporcionarte ayuda personalizada.
+            </p>
 
-            <p>fjdsklañfjkds</p>
-            <p>djsalfjd</p>
+        </div>
+        <div id="q3">
+            <h2>¿Cuáles son las redes sociales de paralellize?</h2>
+            <p>Puedes encontrar las redes sociales de parallelize en la pestaña de contacto dentro de información.</p>
+        </div>
+        <div id="q4">
+            <h2>Tengo problemaas con el inicio de sesión en mi cuenta</h2>
+            <p>Si no consigues iniciar sesión asegúrate de estar introduciendo bien tus credenciales, y si aun así no consigues iniciar sesión puedes probar a cambiar la contraseña. Si aun así no consigues inicar sesión puedes contactar con el equipo de soporte.</p>
+        </div>
+        <div id="q5">
+            <h2>¿Cómo puedo valorar el trabajo del equipo de Parallelize?</h2>
+            <p>Te agradecemos que decidas dedicar tu tiempo a valorar nuestro trabajo, puedes escribir una valoración en el formulario de contacto, que llegará al equipo de Parallelize directamente.</p>
+        </div>
+        <div id="q6">
+            <h2>¿Qué es un kernel?</h2>
+            <p>Un kernel es un código que por su complejidad o longitud de ejecución no puede ser ejecutado en un solo ordenador, ahí es donde entra Parallelize, donde el usuario dueño del código lo sube como kernel para que otros usuarios pongan su ordenador para ejecutar el codigo (kernel) a cambio de tokens</p>
+        </div>
+        <div id="q7">
+            <h2>¿Cómo puedo ejecutar un kernel?</h2>
+            <p>Para ejecutar un kernel, después de iniciar sesión dirigete al mercado de kernels, una vez en el mercado solo tendrás que elegir el kernel que mejor encaje con tu requisitos, pulsar en el botón más info y darle a ejecutar.</p>
+        </div>
+        <div id="q8">
+            <h2>Como subir mi propio kernel</h2>
+            <p>Para subir tu propio kernel deberás dirgirte a tu perfil, pulsar en la opción 'Tus kernels' y elegir la opción 'subir kernel', hecho esto solo faltará rellenar la información relativa al kernel que vas a subir, te recomendamos leer siguiente documentación: https://github.com/gpujs/gpu.js/#supported-math-functions antes de subir tu primer kernel.</p>
+        </div>
+        <div id="q9">
+            <h2>¿Qué es una iteración?</h2>
+            <p>Una iteración en un kernel es la ejecución de todos los segmentos del programa una vez. Un kernel se compone de multiples iteraciones.</p>
+        </div>
+        <div id="q10">
+            <h2>¿Cómo funciona el ranking?</h2>
+            <p>El ranking es el reflejo de nuestro usuarios más activos y comprometidos, para entrar en el ranking tendrás que ser uno de los usuarios que mas segmentos ha ejecutado.</p>
+        </div>
+        <div id="q11">
+            <h2>¿En qué consiste la segmentación?</h2>
+            <p>La segmentación de un kernel es la forma que tiene Parallelize de dividir un programa muy grande en distintas porciones más pequeñas que serán ejecutados por los distintos usuarios</p>
+        </div>
+        <div id="q12">
+            <h2>¿Qué es la ejecución concurrente?</h2>
+            <p>La ejecución concurrente en Parallelize es la capacidad de que distintos ususarios puedan ejecutar sus segmentos del mismo kernel a la vez</p>
+        </div>
+        <div id="q13">
+            <h2>¿Qué debo hacer para ganar dinero con Parallelize?</h2>
+            <p>Si tu objetivo es ganar dinero a través de Parallelize lo que tendrás que hacer es poner tu dispositivo a procesar los distintos kernels que se ofrecen para así ganar tokens que podrás posreriormente cambiar por dinero real y transferir a tu cuenta</p>
         </div>
     </div>
 
