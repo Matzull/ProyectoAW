@@ -10,10 +10,8 @@ function comenzarEjecucion(id) {
     const xhttp = new XMLHttpRequest();
     if (ejecutando) {
         set_button_style("Abortar", "red");
-        xhttp.open("POST", "includes/src/backend/get_computation_time.php", true);
         pedir_trabajo(id);
     } else {
-        xhttp.open("POST", "includes/src/backend/get_computation_time.php", true);
         set_button_style("Comenzar", "green");
     }
     xhttp.send();

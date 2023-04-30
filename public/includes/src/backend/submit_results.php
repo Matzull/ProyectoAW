@@ -30,5 +30,8 @@ $seg->setresults($results);
 $usuario->setTokens($usuario->gettokens() + $token_delta);
 \parallelize_namespace\Transaction::submit($token_delta, $_SESSION["user_email"], "recompensa por trabajo en el kernel " . $kernel->getname(), $usuario->gettokens());
 
+$unix_epoc_start = strtotime($seg->getstart_time());
+$unix_epoc_end = round(microtime(true) * 1000);
+$tiempo_ejecucion = $unix_epoc_end - $unix_epoc_start;
 
-// completaSegmento($start, $end, $kernel_id, $results);
+$usuario->setMillisCrunched($unix_epoc_end);

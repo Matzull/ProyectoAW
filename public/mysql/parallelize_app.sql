@@ -52,7 +52,7 @@ INSERT INTO `comments` (`user_email`, `comment`) VALUES
 
 CREATE TABLE `execution_segments` (
   `user_email` varchar(60) NOT NULL,
-  `start_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `start_time` time(3) NOT NULL DEFAULT current_timestamp(3),
   `kernel_id` int(11) NOT NULL,
   `results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `iteration_start` int(11) NOT NULL,

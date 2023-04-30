@@ -67,7 +67,7 @@ class Usuario
     public static function getMejoresUsuarios($count)
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
-        $query = sprintf("SELECT * FROM users U ORDER BY millis_crunched ASC LIMIT %s", $count);
+        $query = sprintf("SELECT * FROM users U ORDER BY millis_crunched DESC LIMIT %s", $count);
         $rs = $conn->query($query);
         $users = $rs->fetch_all(MYSQLI_ASSOC);
         $ret = [];
