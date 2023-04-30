@@ -14,6 +14,19 @@ class Aplicacion
         return self::$instance;
     }
 
+    static function getTime()
+    {
+        $conn = self::getInstance()->getConexionBd();
+
+        $query = sprintf("SELECT current_timestamp(3) as time;");
+        $result = $conn->query($query);
+
+        $time = $result->fetch_all(MYSQLI_ASSOC);
+
+        return $time[0]["time"];
+    }
+
+
     function init($bdDatosConexion)
     {
         $this->db_connection = mysqli_connect(BD_HOST, BD_USER, BD_PASS, BD_NAME);
@@ -35,5 +48,6 @@ class Aplicacion
         }
         return $this->db_connection;
     }
+
 
 }
