@@ -1,0 +1,6 @@
+funcionalidades terminadas:
+- Panel de administrador
+    - Baneo de usuarios
+    - Eliminacion de usuarios
+- Comentarios en kernels con opcion a denuncia
+- Cambios en seccion FAQ, contenido y estructura

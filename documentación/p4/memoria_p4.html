@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memoria Práctica 4</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <h1>MEMORIA DE LA PRÁCTICA 4</h1>
+        <div class="sections-container">
+            <div class="section">
+                <h2 class="title">INTRODUCCIÓN</h2>
+                <p class="t-m-white">En este documento se describe con detalle los scripts y la estructura de la base de
+                    datos que conforman este proyecto. El prototipo se puede visitar en <a
+                        href="http://vm03.containers.fdi.ucm.es"> el vps </a> (solo disponible en la fdi o a traves del
+                    vpn)</p>
+
+                Integrantes del grupo:
+
+                <ul>
+                    <li>Jaime Gonzalez</li>
+                    <li>Marcos Alonso</li>
+                    <li>Juan Trillo</li>
+                    <li>Juan Jerez</li>
+                    <li>Diego Quiroga</li>
+                    <li>Jaime Vazquez</li>
+                </ul>
+
+                <h2 class="title">LISTADOS DE SCRIPTS PARA LAS VISTAS</h2>
+                <p class="t-m-white">Se ha decidido utilizar un script PHP para cada vista, dando como resultado la
+                    siguiente lista clasificada según la funcionalidad o el tema.</p>
+                <h3>Inicio de sesión y creación de cuenta.</h3>
+                <ul>
+                    <li>login.php: <span class="t-m-white">muestra una vista desde la que el usuario puede iniciar
+                            sesión. Acompañando a este script está logout.php que permite al usuario cerrar sesión, no
+                            es como tal un script de vista.</span></li>
+                    <li>register.php: <span class="t-m-white">muestra una vista desde la que el usuario puede completar
+                            un formulario para crearse una cuenta.</span></li>
+                </ul>
+                <h3>Subida de kernels.</h3>
+                <ul>
+                    <li>your_kernels.php: <span class="t-m-white">muestra una vista exclusiva para usuarios registrados
+                            en la que hay información sobre los kernels subidos por él y un botón para añadir uno
+                            nuevo.</span></li>
+
+                    <li>subirKernel.php: <span class="t-m-white">muestra un formulario para completar la información
+                            se un kernel que se quiere añadir. Está conectado con el script your_kernels.php a través de
+                            un botón.</span></li>
+                </ul>
+                <h3>Ejecución de kernels.</h3>
+                <ul>
+                    <li>kernel_marketplace.php: <span class="t-m-white">muestra una vista de mercado donde el usuario
+                            puede ver las ofertas de kernels.</span></li>
+                    <li>kernel_info.php: <span class="t-m-white">muestra toda la información referente a un kernel. Se
+                            conecta con kernel_marketplace.php a través de un botón y muestra algunas propiedades del
+                            kernel</span></li>
+
+                    <li>kernel_execution.php: <span class="t-m-white">es una vista auxiliar a kernel_info.php que se
+                            muestra cuando el usuario decide ejecutar un kernel.</span></li>
+                </ul>
+                <h3>Valoraciones.</h3>
+                <ul>
+                    <li>kernel_info.php: <span class="t-m-white">junto a la información mostrada del kernel hay una
+                            sección que permite hacer valoraciones.</span></li>
+                </ul>
+                <h3>Gestión de tokens.</h3>
+                <ul>
+                    <li>wallet.php: <span class="t-m-white">muestra una vista exclusiva para usuarios registrados que da
+                            información detallada sobre la cartera de tokens: historial de transacciones, gráficas, ...
+                            Junto a la información hay dos secciones con botones para retirar tokens o añadir
+                            tokens.</span></li>
+                    <li>token_transaction.php: <span class="t-m-white">muestra una vista auxiliar para completar la
+                            transacción deseada (retirar o añadir tokens) a través de un formulario.</span></li>
+                </ul>
+                <h3>Ranking.</h3>
+                <ul>
+                    <li>ranking.php: <span class="t-m-white">muestra una vista que lista a los usuarios con mayor
+                            participación dentro de la aplicación. Si estás registrado, se mostrará tu posición, aunque
+                            no estés en los primeros</span></li>
+                </ul>
+                <h3>Gestión de administrador.</h3>
+                <ul>
+                    <li>admin_dashboard.php: <span class="t-m-white">muestra una vista exclusiva a usuario con rol de
+                            administrador que permite realizar todas las acciones de administrador.</span></li>
+                </ul>
+                <h3>Vistas complementarias.</h3>
+                <ul>
+                    <li>index.php: <span class="t-m-white">muestra la vista principal de la página, lo que primero se
+                            muestra a un usuario que no esté registrado.</span></li>
+                    <li>FAQ.php: <span class="t-m-white">muestra una vista para preguntar cuestiones sobre la página a
+                            través de un buscador o por una lista de preguntas dividida en secciones.</span></li>
+                    <li>contacto.php: <span class="t-m-white">muestra una vista desde la que se puede rellenar un
+                            formulario para sugerencias, quejas o cuestiones. Además, se muestran enlaces a las
+                            distintas redes sociales de la empresa.</span></li>
+                    <li>user_dashboard.php: <span class="t-m-white">muestra una vista exclusiva para usuarios
+                            registrados. Es la vista que primero se le muestra a un usuario registrado. En ella hay
+                            información resumida sobre la cuenta.</span></li>
+                    <li>settings.php: <span class="t-m-white">muestra una vista exclusiva para usuarios registrados
+                            donde se puede modificar datos de la cuenta o del perfil público.</span></li>
+                    <li>profile_view.php: <span class="t-m-white">muestra una vista que da detalles públicos sobre un
+                            usuario.</span></li>
+
+                </ul>
+                <h3>Componentes.</h3>
+                <ul>
+                    <li>logo_nav_bar.php: <span class="t-m-white">genera una barra de navegación utilizada en login.php
+                            y register.php que permie regresar a index.php.
+                        </span></li>
+                    <li>nav_bar.php: <span class="t-m-white">genera una barra de navegación que permite acceder a las
+                            páginas públicas para cualquier usuario: index.php, kernel_marketplace.php, ranking.php,
+                            FAQ.php y contacto.php. Además, dependiendo de si se está registrado o no, se mostrarán
+                            botones para iniciaar sesión y crear cuenta, o se mostrará el nombre del usuario registrado
+                            y un acceso al user_dashboard.php.</span></li>
+                    <li>user_nav_bar.php: <span class="t-m-white">genera una segunda barra de navegación exclusiva para
+                            usuarios registrados que permite navegar por las vistas de usuario: user_dashboard.php,
+                            wallet.php, your_kernels.php y settings.php. Se muestra sólo en esas vistas.</span></li>
+                    <li>footer.php: <span class="t-m-white">genera un pie de página para dar mayor accesibilidad al
+                            usuario.</span></li>
+                    <li>token_big_info.php: <span class="t-m-white">genera una sección que da detalles sobre la cartera
+                            de tokens de un usuario.</span></li>
+                    <li>transaction_graph.php: <span class="t-m-white">genera una gráfica que resume las transacciones
+                            realizadas por el usuario.</span></li>
+                    <li>transaction_table.php: <span class="t-m-white">genera una tabla con las trasacciones realizadas
+                            por el usuario.</span></li>
+                </ul>
+
+                <h2 class="title">CONTENIDO DE LAS CSS</h2>
+                <p class="t-m-white">Se ha decidido utilizar una CSS global en común para todas las vistas y siempre
+                    respaldada y completada por una CSS particula para cada vista, dando como resultado la
+                    pertinente vista de la web.</p>
+                <ul>
+                    <li>global.css: <span class="t-m-white">contiene una serie de ajustes comunes para todas las css;Entre
+                            esos ajustes se encuentran:
+                            la paleta de colores de la página(colores a usar en el fondo letras etc; una base para todas
+                            las páginas(cuerpo, contenedores principales a usar,
+                            predefiniciones para todos los elementos usados como los botones,campos de formularios,
+                            contenedores, blobs y tablas)).</span></li>
+                    <li>footer.css: <span class="t-m-white">en este archivo se incluye el formato del footer
+                            sobreescribiendo global.css </span></li>
+                    <li>index.css: <span class="t-m-white">incluye el formato de las "imagenes" de gradiente diagonal
+                            mostradas en index
+                            (en realidad son simples divs).</span></li>
+                    <li>contacto.css: <span class="t-m-white">simplemente ajusta las imagenes y contenedores mostrados
+                            por contactos.php.</span></li>
+                    <li>FAQ.css: <span class="t-m-white">ajusta las Frequently Asked Questions y les da colores de la
+                            paleta a las dichas.</span></li>
+                    <li>kernel_info.css: <span class="t-m-white">incluye el formato que será usado para mostrar el
+                            código del kernel.</span></li>
+                    <li>login.css, settings.css, profile_view.css, register.css, marketplace.css, subirKernel.css y
+                        token_transaction.css: <span class="t-m-white">incluyen ligeros ajustes al formato de botones
+                            contenedores y demás.</span></li>
+                    <li>ranking.css: <span class="t-m-white">incluye el formato de la tabla vista en ranking y los
+                            gradientes del podio.</span></li>
+                    <li>nav_bar.css: <span class="t-m-white">incluye el formato de la barra principal de la web
+                            accesible desde casi todas las vistas.</span></li>
+                    <li>usernav_bar.css: <span class="t-m-white">incluye el formato de la barra principal del usuario
+                            accesible desde el perfil del mismo.</span></li>
+                    <li>wallet.css y your_kernels.css: <span class="t-m-white">incluyen ajustes mas notorios a los
+                            contenidos de sus respectivas vistas .php.</span></li>
+                </ul>
+
+                <h2 class="title">LISTADOS DE SCRIPTS ADICIONALES</h2>
+                <p class="t-m-white">Como la gestión de la base de datos es compleja, se ha decidido separar la
+                    funcionalidad en clases:</p>
+                <ul>
+                    <li>Aplicacion.php: <span class="t-m-white">contiene la funcionalidad básica para mantener una única
+                            conexión con la base de datos.</span></li>
+                    <li>Usuario.php: <span class="t-m-white">contiene toda la funcionalidad directamente relacionada con
+                            el usuario.</span></li>
+                    <li>Kernel.php: <span class="t-m-white">contiene toda la funcionalidad directamente relacionada con
+                            los kernels.</span></li>
+                    <li>Comentario.php: <span class="t-m-white">contiene toda la funcionalidad directamente relacionada
+                            con los comentarios.</span></li>
+                    <li>Transaction.php: <span class="t-m-white">contiene toda la funcionalidad directamente relacionada
+                            con las transacciones (retirada o adición de tokens).</span></li>
+                </ul>
+                <p class="t-m-white">Además de estas clases, se ha decido crear una familia de clases que heredan de
+                    Formulario.php, lo que permite organizar y modificar fácilmente todos los tipos de formularios
+                    utilizados.</p>
+                <ul>
+                    <li>Formulario.php: <span class="t-m-white">clase abtracta de la que heredan el resto de
+                            formularios. Con tiene la funcionalidad compartida entre todos los formularios.</span></li>
+                    <li>FormularioContacto.php: <span class="t-m-white">permite crear y gestionar un formulario para la
+                            página de contacto.</span></li>
+                    <li>FormularioLogin.php: <span class="t-m-white">permite crear y gestionar un formulario para la
+                            página de login.</span></li>
+                    <li>FormularioRegister.php: <span class="t-m-white">permite crear y gestionar un formulario para la
+                            página de creación de cuenta.</span></li>
+                    <li>FormularioTransaction.php: <span class="t-m-white">permite crear y gestionar un formulario para
+                            la página de token_transaction.php.</span></li>
+                </ul>
+
+                <p class="t-m-white">Adicionalmente se ha creado carpeta llamada backend que contiene la forma que tiene
+                    el programa de ejecutar el kernel concurrentemente.</p>
+                <ul>
+                    <li>get_computation_segment.php: <span class="t-m-white"> se encarga de asignar un segmento del
+                            kernel a
+                            un usuario para que lo ejecute</span></li>
+                    <li>get_results.php: <span class="t-m-white">Se encarga de conseguir el resultado de cada una
+                            de las iteraciones del kernel, no confundir con los segmentos, y las
+                            almacena en un csv poniendo primero el resultado y luego la coma.</span></li>
+                    <li>submit_results.php: <span class="t-m-white">realiza la comunicacion entre el usuario y el
+                            servidor para entregarle los resultados, se le pide al usuario hacer el login, se calcula el
+                            tiempo de codigo ejecutado y se le dan los tokens al usuario</span></li>
+                </ul>
+                <h4>JavaScript</h4>
+                <p class="t-m-white">Adicionalmente se ha creado carpeta llamada backend que contiene la forma que tiene
+                    el programa de ejecutar el kernel concurrentemente.</p>
+                <h4>Codemirror</h4>
+                <p>Es la libreria que hemos utilizado para crear los editores y visores del codigo en subir kernel y
+                    kernel_info.</p>
+                <ul>
+                    <li>codemirror.css: <span class="t-m-white"> Codigo css del editor de codigo de codemirror.</span>
+                    </li>
+                    <li>codemirror.js: <span class="t-m-white">Libreria de codemirror.</span></li>
+                    <li>dracula.js: <span class="t-m-white">Tema del editor para la visualizacion de codigo.</span></li>
+                    <li>javascript.js: <span class="t-m-white">Soporte de sintaxis para lenguaje javascript.</span></li>
+
+                </ul>
+                <p>Toda la creacion de los editores se encuentran en el achivo kernelViz.php.</p>
+                <ul>
+                    <li>nav_bar.js: <span class="t-m-white"> se encarga de realizar un toggle en la navbar de encogerla
+                            y ampliarla.</span></li>
+                    <li>user_nav_bar.js: <span class="t-m-white">Se encarga de realizar un toggle en la user navbar de
+                            encogerla y ampliarla.</span></li>
+                    <li>gpu-browser.min.js: <span class="t-m-white">Libreria importada que se encarga de que la
+                            ejecucion
+                            concurrente del kernel funcione. NO TOCAR NADA</span></li>
+                    <li>work_coordination.js: <span class="t-m-white">se encarga de empezar a ejecutar el kernel,
+                            tambien se encarga de gestionar la ejecucion de los segmentos del kernel cuando un
+                            dispositivo este pidiendo trabajo ademas de mandar el resultado </span></li>
+                    <li>kernel_execution.php: <span class="t-m-white">Se encarga de ejecutar el segmento del kernel
+                        </span></li>
+                    <li>kernelViz.php: <span class="t-m-white">escribir</span></li>
+
+                </ul>
+
+                <p class="t-m-white">Por último, también se ha decidio utilizar un script PHP con funcionalidad auxliar.
+                </p>
+                <ul>
+                    <li>config.php: <span class="t-m-white">permite reducir la repetición de código común entre los
+                            script y que permite iniciarlizar la sesión y otros valores como constantes.</span></li>
+                </ul>
+                <h2 class="title">ESTRUCTURA DE LA BASE DE DATOS</h2>
+
+                <p>Para garantizar una mayor seguridad en la base de datos se ha decidido crear un nuevo usuario que será el encargado del manejo de esta. </p>
+                <img src="imgMemoria/diagramaER.png" alt="diagramaER">
+
+                <p class="t-m-white">
+                    Las tablas de la base de datos han sufrido modificaciones para adecuarla con el nuevo codigo
+                    realizado y con los nuevos problemas que nos hemos encontrado
+                </p>
+
+                <h3>Explicación de las tablas</h3>
+
+                <ul>
+                    <li>users:
+                        <ul>
+                            <li>user_email: el email del usuario.</li>
+                            <li>user_password: contraseña del usuario</li>
+                            <li>millis_crunched: tiempo dedicado en la plataforma ejecutando codigo</li>
+                            <li>ranking: numero de la posicion en el ranking segun los millis crunched</li>
+                            <li>tokens: créditos que posee el usuario</li>
+                            <li>last_active: aun no esta implementada, pero guardara el ultimo momento en el que el
+                                usuario ha entrado a la web</li>
+                            <li>blocked: baneo de la cuenta por subir codigo malicioso o por otros motivos</li>
+                            <li>user_name: nombre del usuario visible para los demas</li>
+                        </ul>
+                    </li>
+                    <li>comments: registra los comentarios enviados por la funcionalidad de contacto. La clase
+                        comentario maneja las lecturas y escrituras de esta tabla.
+                        <ul>
+                            <li>user_email: apunta al usuario autor</li>
+                            <li>comment: el contenido del comentario</li>
+                        </ul>
+                    </li>
+
+                    <li>kernels: guarda los kernels que han sido subidos por los usuarios y la información acerca de
+                        ellos. La clase Kernel maneja las lecturas y escrituras de esta tabla.
+                        <ul>
+                            <li>name: el nombre del kernel</li>
+                            <li>user_email: apunta al usuario autor</li>
+                            <li>id: identificador unico</li>
+                            <li>js_code: el codigo a ejecutar</li>
+                            <li>total_reward: el valor de recompensa total ofrecida</li>
+                            <li>description: un texto que describa el funcionamiento del código</li>
+                            <li>progress_map: mapa de bits que determina que iteraciones están ejecutadas y cuales no.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>token_transaction: registra cada transacion entrante o saliente de tokens para poder mostrar la
+                        evolución a lo largo del tiempo de tu balance. La clase Transaction maneja las lecturas y
+                        escrituras de esta tabla.
+                        <ul>
+                            <li>id: identificador unico</li>
+                            <li>transaction_timestamp: segundo en el que se ejecutó la transación</li>
+                            <li>quantity: cantidad de tokens introducida o extraida</li>
+                            <li>user_email: usuario beneficiado</li>
+                            <li>description: breve texto explicando la razón del movimiento</li>
+                            <li>balance: balance resultante</li>
+                        </ul>
+                    </li>
+                    <li>execution_segments: lleva un registro de todas las veces que un usuario ejecuta un kernel
+                        para poder repartid las recompensas, se guarda en el momento que el cliente devuelve los datos
+                        resueltos.
+                        <ul>
+                            <li>user_email: el usuario responsable del calculo</li>
+                            <li>start_time: el momento cuando se asigno</li>
+                            <li>kernel_id: el id del kernel ejecutado</li>
+                            <li>iteration_start: por que iteración ha empezado a ejecutar</li>
+                            <li>iteration_end: que iteración ha sido la última en ejecutar</li>
+                            <li>results:resultado de la ejecucion</li>
+                        </ul>
+                    </li>
+                    <li>kernel_comments: Registra los comentarios o denuncias que se han hecho en los kernels por los usuarios. Se muestran en kernel info debajo de cada kernel.
+                        <ul>
+                            <li>user_email: el usuario que ha escrito el comentario.</li>
+                            <li>kernel_id: el id del kernel en el que se encuentra el comentario.</li>
+                            <li>comment: El contenido del comentario.</li>
+                            <li>time: La fecha y hora con precision de segundos del comentario.</li>
+                            <li>is_report: Valor que determina si el comentario se debe tratar como una denuncia por un administrador</li>
+                        </ul>
+                    </li>
+                    <li>user_ranking: Es una vista que muestra los mejores usuarios respecto a los milisegundos computados. Se utiliza para mostrar el ranking de usuarios en la pagina de ranking.
+                        <ul>
+                            <li>user_email: el usuario responsable del calculo</li>
+                            <li>millis_crunched: Los milisegundos computados por el usuario</li>
+                            <li>ranking: La posicion actual en el ranking global de usuarios</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p class="t-m-white"></p>
+                <h2 class="title">SOBRE EL PROTOTIPO FUNCIONAL</h2>
+                <h3>Uso.</h3>
+                <p class="t-m-white">El prototipo tiene una carpeta 'sql' que contiene los archivos necesarios para
+                    importar la base de datos. Una vez importada se puede probar directamente las funcionalidades con
+                    las cuentas de usuario ya creadas: jaime@email.com (contraseña: jaimejaime) y diego@email.com
+                    (contraseña:
+                    diegodiego)por ejemplo .A parte de esas dos cuentas se han creado más usuarios para dar forma a la
+                    tabla del ranking, también es posible crear cuentas de usuario nuevas.</p>
+                <p>También existe la posibilidad de ser administrador, hay una cuenta creada como administrador (correo:
+                    admin@parallelize.com, contraseña: adminadmin). Si inicias sesión como administrador tendrás algunos
+                    cambios en el perfil como obtener una lista de usuarios (pulsando en el botón 'Admin Dashboard') con
+                    la opción de bloquear a usuarios(Funcionalidad no implementada todavía).</p>
+                <h3>Estructura</h3>
+                <p class="t-m-white">En la raíz de la carpeta donde se almacena el prototipo ('public') se pueden
+                    encontrar todos los scripts utilizados para la vistas y una serie de carpetas con recursos que
+                    usarán dichos scripts: 'css', 'img', 'includes', 'js' y 'svg'. La carpeta includes contiene los
+                    scripts auxiliares y las carpetas 'dao' (clases de la base de datos), 'formularios' y 'vistas'
+                    (secciones reutilizables).</p>
+                <h2 class="title">FUNCIONAMIENTO DE LA SEGMENTACIÓN Y EJECUCIÓN CONCURRENTE DE LOS KERNELS</h2>
+                <p class="t-m-white">El funcionamiento de la segmentación y ejecucion concurrente se gestiona a través
+                    de la carpeta backend y enlazando con los archivos de JavaScript correspondiente, una vez el usuario
+                    escoge un kernel al que unirse se le asigna un segmento libre, el encargado de hacerlo es el archivo
+                    get_computation_sgment.php, una vez escogido un segmente se llama a gpu-browser-min.js que toma
+                    control de la gpu del usuario y ejecuta el segmento correspondiente, es importante tener en cuenta
+                    que la clave es que los segmentos de todos los usuarios se ejecutan concurrentemente por lo que el
+                    programa se encarga de seleccionar cada segmento libre a un usuario. Una vez ejecutado el segmento
+                    el archivo get_results.php saca los resultados de la ejecución y submit_results.php se encarga de
+                    asignar la recompensa para que conste en la base de datos.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Miembros</th>
+                            <th>Tareas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jaime Gonzalez</td>
+                            <td>
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Marcos Alonso</td>
+                            <td>
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Juan Trillo</td>
+                            <td>
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Juan Jerez</td>
+                            <td>
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Diego Quiroga</td>
+                            <td>
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jaime Vazquez</td>
+                            <td>
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
