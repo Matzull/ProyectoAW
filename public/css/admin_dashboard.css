@@ -95,6 +95,7 @@
 }
 .user-reports.closed {
     max-height: 0px;
+    overflow: hidden;
 }
 .user-reports-title{
     text-align: center;

@@ -1,3 +1,7 @@
+.main-container {
+  padding-bottom: 60px;
+}
+
 .flex-container-info { 
   display: flex;
   align-items: inherit;
@@ -83,6 +87,24 @@ pre{
   gap: 15px;
   align-items: center;
   justify-content: center;
+}
+
+.private-section {
+  flex-basis: 100%;
+}
+.private-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 900px;
+  margin: auto;
+}
+.private-info > p {
+  font-weight: bold;
+}
+
+#comments-section {
+  padding-bottom: 60px;
 }
 
 .form-comment {

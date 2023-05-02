@@ -1,5 +1,9 @@
 @import "global.css";
 
+.main-container {
+    padding-bottom: 60px;
+}
+
 .ranking-container {
     display: flex;
     align-items: center;

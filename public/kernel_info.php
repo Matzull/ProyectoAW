@@ -51,7 +51,10 @@ $formulario_html = $formulario->gestiona();
                         <?= $kernel->getname(); ?>
                     </h2>
                     <p><strong>Usuario:</strong>
-                        <?= \parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email())->getName() ?>
+                        <?php $user = \parallelize_namespace\Usuario::buscaUsuario($kernel->getuser_email()); ?>
+                        <a href="profile_view.php?id=<?= $user->getEmail() ?>">
+                            <?= $user->getName() ?>
+                        </a>
                     </p>
                     <p><strong>Estado:</strong>
                         <?= $kernel->is_finished() == 0 ? "Computing" : "Finished" ?>
@@ -74,29 +77,28 @@ $formulario_html = $formulario->gestiona();
                 </div>
             </div>
         </div>
-        <?php
-        if (isset($_SESSION["user_email"]) && $kernel->getuser_email() == $_SESSION["user_email"]) {
-            ?>
-            <div class="sections-container">
-                <div class="section">
-                    <h2 class="title">Información privada para el propietario</h2>
-                    <div class="codeBlock">
-                        <a download="resultados_de_kernel.csv"
-                            href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>&format=csv">Descargar resultados
-                            <?= $kernel->is_finished() ? "totales" : "parciales" ?> en csv
-                        </a><br>
-                        <a download="resultados_de_kernel.json"
-                            href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>&format=json">Descargar
-                            resultados
-                            <?= $kernel->is_finished() ? "totales" : "parciales" ?> en json
-                        </a>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
         
             <div class = "sections-container">
-                <div class="section">
+                <?php if (isset($_SESSION["user_email"]) && $kernel->getuser_email() == $_SESSION["user_email"]): ?>
+                <div class="private-section section">
+                    <h2 class="title">Información privada para el propietario</h2>
+                    <div class="private-info">
+                        <p class="no-margin">
+                            <a download="resultados_de_kernel.csv"
+                                href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>&format=csv">
+                                Descargar resultados <?= $kernel->is_finished() ? "totales" : "parciales" ?> en csv
+                            </a>
+                        </p>
+                        <p class="no-margin">
+                            <a download="resultados_de_kernel.json"
+                                href="includes/src/backend/get_results.php?id=<?= $_GET["id"] ?>&format=json">
+                                Descargar resultados <?= $kernel->is_finished() ? "totales" : "parciales" ?> en json
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <?php endif; ?>
+                <div id="comments-section" class="section">
                     <h2 class="title">Comentarios del kernel</h2>
                     <?= $formulario_html ?>
 
@@ -122,7 +124,6 @@ $formulario_html = $formulario->gestiona();
                                 </div>
                             </div>
                         <?php } ?>
-                        <!-- TODO HACER CSS COMENTARIOS -->
                     </div>
                 </div>
             </div>
