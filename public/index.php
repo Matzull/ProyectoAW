@@ -18,9 +18,77 @@ require 'includes/config.php';
 </head>
 
 <body>
+    
     <?php require_once("./includes/src/vistas/nav_bar.php") ?>
     <div class="main-container">
-        <div class="diagonal-gradient"></div>
+        <section class="carousel" aria-label="Gallery">
+            <ol class="carousel__viewport">
+                <li id="carousel__slide1"
+                    tabindex="0"
+                    class="carousel__slide">
+                    <div class="carousel__snapper">
+                        <a href="#carousel__slide4"
+                        class="carousel__prev">Go to last slide</a>
+                        <a href="https://www.w3schools.com"><img class="carimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/W3Schools_logo.svg/1088px-W3Schools_logo.svg.png"></a>
+                        <a href="#carousel__slide2"
+                        class="carousel__next">Go to next slide</a>
+                    </div>
+                </li>
+                <li id="carousel__slide2"
+                    tabindex="0"
+                    class="carousel__slide">
+                    <div class="carousel__snapper">
+                        <a href="#carousel__slide1"
+                            class="carousel__prev">Go to previous slide</a>
+                            <a href="https://www.ucm.es"><img class="carimg" src="https://www.ucm.es/data/cont/docs/3-2016-07-21-EscudoUCMTransparenteBig.png"></a>
+                        <a href="#carousel__slide3"
+                            class="carousel__next">Go to next slide</a>
+                    </div>
+                </li>
+                <li id="carousel__slide3"
+                    tabindex="0"
+                    class="carousel__slide">
+                    <div class="carousel__snapper">
+                        <a href="#carousel__slide2"
+                            class="carousel__prev">Go to previous slide</a>
+                        <a href="https://visualstudio.microsoft.com/es/"><img class="carimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png"></a>
+                        <a href="#carousel__slide4"
+                            class="carousel__next">Go to next slide</a>
+                    </div>
+                </li>
+                <li id="carousel__slide4"
+                    tabindex="0"
+                    class="carousel__slide">
+                    <div class="carousel__snapper">
+                        <a href="#carousel__slide3"
+                            class="carousel__prev">Go to previous slide</a>
+                            <a href="https://www.apachefriends.org/es/index.html"><img class="carimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Xampp_logo.svg/1024px-Xampp_logo.svg.png"></a>
+                        <a href="#carousel__slide1"
+                            class="carousel__next">Go to first slide</a>
+                    </div>
+                </li>
+            </ol>
+            <aside class="carousel__navigation">
+                <ol class="carousel__navigation-list">
+                <li class="carousel__navigation-item">
+                    <a href="#carousel__slide1"
+                    class="carousel__navigation-button">Go to slide 1</a>
+                </li>
+                <li class="carousel__navigation-item">
+                    <a href="#carousel__slide2"
+                    class="carousel__navigation-button">Go to slide 2</a>
+                </li>
+                <li class="carousel__navigation-item">
+                    <a href="#carousel__slide3"
+                    class="carousel__navigation-button">Go to slide 3</a>
+                </li>
+                <li class="carousel__navigation-item">
+                    <a href="#carousel__slide4"
+                    class="carousel__navigation-button">Go to slide 4</a>
+                </li>
+                </ol>
+            </aside>
+        </section>
         <div class="aligned">
             <div>
                 <h1>Bienvenid@s a Parallelize!</h1>
