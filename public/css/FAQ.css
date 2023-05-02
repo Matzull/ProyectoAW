@@ -1,25 +1,16 @@
 @import "global.css";
 
-.form{
-    text-align: center;
-    max-width: 800px;
-    /* padding-top: 10px;
-    padding-right: 600px;
-    padding-bottom: 50px;
-    padding-left: 400px; */
+.main-container {
+    padding-bottom: 80px;
+}
+
+#faq-section {
+    padding-bottom: 80px;
 }
 
 .title-FAQ{
     font-size: 80px;
-}
-
-h2{
-    font-weight: bold;
-    display: block;
-}
-
-a{
-    word-spacing: 15%;
+    text-align: center;
 }
 
 .question-FAQ {
@@ -30,17 +21,16 @@ a{
     margin: 0px 0px 10px 0px;
     display: flex;
     align-items: center;
-    justify-content:space-evenly;
-}
-
-.container {
-    /* padding: 10px; */
-    display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: start;
 }
 
 .answers{
-    margin: 0px 0px 10px 0px;
-    align-items: center;
-    justify-content:space-evenly;
+    margin: auto;
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

@@ -19,7 +19,7 @@ require 'includes/config.php';
 
 <body>
     <?php require_once("./includes/src/vistas/nav_bar.php") ?>
-    <div>
+    <div class="main-container">
         <div class="diagonal-gradient"></div>
         <div class="aligned">
             <div>

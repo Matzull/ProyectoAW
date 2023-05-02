@@ -419,7 +419,7 @@ CREATE TABLE `user_ranking` (
 --
 DROP TABLE IF EXISTS `user_ranking`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `user_ranking`  AS SELECT `users`.`user_email` AS `user_email`, `users`.`millis_crunched` AS `millis_crunched`, row_number() over ( order by `users`.`millis_crunched` desc) AS `ranking` FROM `users``users`  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `user_ranking`  AS SELECT `users`.`user_email` AS `user_email`, `users`.`millis_crunched` AS `millis_crunched`, row_number() over ( order by `users`.`millis_crunched` desc) AS `ranking` FROM `users`;
 
 --
 -- Indexes for dumped tables

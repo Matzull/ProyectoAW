@@ -85,6 +85,65 @@ pre{
   justify-content: center;
 }
 
+.form-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto;
+  margin-bottom: 20px;
+  max-width: 900px;
+}
+#comment-field {
+  resize: none;
+}
+form > .form-options {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto;
+  max-width: 800px;
+}
+.comment {
+  background-color: var(--h-gris);
+  border-radius: 5px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.comment>.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px 20px;
+  flex-wrap: wrap;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--l-gris);
+}
+.comment>.header>.username {
+  font-weight: bold;
+}
+.comment>.header>.type {
+  color: var(--red);
+  font-weight: bold;
+}
+.comment>.body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.comment>.body>.time {
+  text-align: end;
+  font-weight: bold;
+}
+
 @media only screen and (max-width: 990px) {
   .kernel-info{
     flex-grow: 1;

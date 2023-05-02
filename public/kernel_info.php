@@ -101,19 +101,24 @@ $formulario_html = $formulario->gestiona();
                     <?= $formulario_html ?>
 
                     <div class="comments">
-
-
-
                         <?php 
-                        $comentariosk = \parallelize_namespace\ComentarioKernel::buscaComentariosPorKernel($_GET["id"]);
-                        foreach ($comentariosk as $comentariok) {
-                            $comentario_email = $comentariok->getUserEmail();
-                            $comentario_texto = $comentariok->getUserComment();
-                        
+                            $comentariosk = \parallelize_namespace\ComentarioKernel::buscaComentariosPorKernel($_GET["id"]);
+                            foreach ($comentariosk as $comentariok) {
+                                $c_sender = $comentariok->getUserEmail();
+                                $c_text = $comentariok->getUserComment();
+                                $c_time = $comentariok->getTime();
+                                $c_is_report = $comentariok->getIsReport();
                         ?>
                             <div class="comment">
-                                <div class="comment-header">
-                                    <?php echo " " . $comentario_email . " " . $comentario_texto . " " ?>
+                                <div class="header">
+                                    <p class="username no-margin"><a href="profile_view.php?id=<?= $c_sender ?>" target="_blank"><?= $c_sender ?></a></p>
+                                    <?php if($c_is_report): ?>
+                                    <p class="type no-margin">Denuncia</p>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="body">
+                                    <p class="no-margin t-m-white"><?= $c_text ?></p>
+                                    <p class="time no-margin t-m-white"><?= $c_time ?></p>
                                 </div>
                             </div>
                         <?php } ?>
