@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 30, 2023 at 01:37 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 02-05-2023 a las 17:55:58
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,24 +18,26 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `parallelize_app`
+-- Base de datos: `parallelize_app`
 --
 CREATE DATABASE IF NOT EXISTS `parallelize_app` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `parallelize_app`;
 
+CREATE USER 'parallelize'@'localhost' IDENTIFIED BY 'vus2Aequu7uidieparallelize';
+GRANT SELECT, INSERT, UPDATE ON parallelize_app.* TO 'parallelize'@'localhost';
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comments`
+-- Estructura de tabla para la tabla `comments`
 --
 
 CREATE TABLE `comments` (
   `user_email` varchar(60) NOT NULL,
   `comment` varchar(1024) CHARACTER SET utf32 COLLATE utf32_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `comments`
+-- Volcado de datos para la tabla `comments`
 --
 
 INSERT INTO `comments` (`user_email`, `comment`) VALUES
@@ -48,7 +50,7 @@ INSERT INTO `comments` (`user_email`, `comment`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `execution_segments`
+-- Estructura de tabla para la tabla `execution_segments`
 --
 
 CREATE TABLE `execution_segments` (
@@ -58,10 +60,10 @@ CREATE TABLE `execution_segments` (
   `results` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `iteration_start` int(11) NOT NULL,
   `iteration_end` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `execution_segments`
+-- Volcado de datos para la tabla `execution_segments`
 --
 
 INSERT INTO `execution_segments` (`user_email`, `start_time`, `kernel_id`, `results`, `iteration_start`, `iteration_end`) VALUES
@@ -125,7 +127,7 @@ INSERT INTO `execution_segments` (`user_email`, `start_time`, `kernel_id`, `resu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kernels`
+-- Estructura de tabla para la tabla `kernels`
 --
 
 CREATE TABLE `kernels` (
@@ -139,10 +141,10 @@ CREATE TABLE `kernels` (
   `description` longtext NOT NULL,
   `upload_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `iteration_count` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kernels`
+-- Volcado de datos para la tabla `kernels`
 --
 
 INSERT INTO `kernels` (`name`, `is_finished`, `user_email`, `id`, `js_code`, `reward_per_line`, `total_reward`, `description`, `upload_time`, `iteration_count`) VALUES
@@ -152,7 +154,7 @@ INSERT INTO `kernels` (`name`, `is_finished`, `user_email`, `id`, `js_code`, `re
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kernel_comments`
+-- Estructura de tabla para la tabla `kernel_comments`
 --
 
 CREATE TABLE `kernel_comments` (
@@ -161,10 +163,10 @@ CREATE TABLE `kernel_comments` (
   `comment` varchar(1024) NOT NULL,
   `time` datetime NOT NULL DEFAULT current_timestamp(),
   `is_report` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kernel_comments`
+-- Volcado de datos para la tabla `kernel_comments`
 --
 
 INSERT INTO `kernel_comments` (`user_email`, `kernel_id`, `comment`, `time`, `is_report`) VALUES
@@ -178,7 +180,7 @@ INSERT INTO `kernel_comments` (`user_email`, `kernel_id`, `comment`, `time`, `is
 -- --------------------------------------------------------
 
 --
--- Table structure for table `token_transactions`
+-- Estructura de tabla para la tabla `token_transactions`
 --
 
 CREATE TABLE `token_transactions` (
@@ -188,10 +190,10 @@ CREATE TABLE `token_transactions` (
   `user_email` varchar(60) NOT NULL,
   `description` varchar(60) NOT NULL DEFAULT 'sin descripcion',
   `balance` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `token_transactions`
+-- Volcado de datos para la tabla `token_transactions`
 --
 
 INSERT INTO `token_transactions` (`id`, `transaction_timestamp`, `quantity`, `user_email`, `description`, `balance`) VALUES
@@ -363,7 +365,7 @@ INSERT INTO `token_transactions` (`id`, `transaction_timestamp`, `quantity`, `us
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -376,10 +378,10 @@ CREATE TABLE `users` (
   `blocked` tinyint(1) NOT NULL DEFAULT 0,
   `user_name` varchar(20) NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`, `tokens`, `last_active`, `blocked`, `user_name`, `is_admin`) VALUES
@@ -403,8 +405,8 @@ INSERT INTO `users` (`user_email`, `user_password`, `millis_crunched`, `ranking`
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `user_ranking`
--- (See below for the actual view)
+-- Estructura Stand-in para la vista `user_ranking`
+-- (Véase abajo para la vista actual)
 --
 CREATE TABLE `user_ranking` (
 `user_email` varchar(60)
@@ -415,96 +417,107 @@ CREATE TABLE `user_ranking` (
 -- --------------------------------------------------------
 
 --
--- Structure for view `user_ranking`
+-- Estructura para la vista `user_ranking`
 --
 DROP TABLE IF EXISTS `user_ranking`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `user_ranking`  AS SELECT `users`.`user_email` AS `user_email`, `users`.`millis_crunched` AS `millis_crunched`, row_number() over ( order by `users`.`millis_crunched` desc) AS `ranking` FROM `users`;
+CREATE ALGORITHM = UNDEFINED DEFINER=`parallelize`@`localhost` SQL SECURITY DEFINER VIEW `user_ranking` AS 
+SELECT `users`.`user_email` AS `user_email`, `users`.`millis_crunched` AS `millis_crunched`, 
+row_number() OVER (ORDER BY `users`.`millis_crunched` DESC) AS `over` 
+FROM `users`;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `comments`
+-- Indices de la tabla `comments`
 --
 ALTER TABLE `comments`
   ADD KEY `user_email` (`user_email`);
 
 --
--- Indexes for table `execution_segments`
+-- Indices de la tabla `execution_segments`
 --
 ALTER TABLE `execution_segments`
   ADD PRIMARY KEY (`kernel_id`,`iteration_start`),
   ADD KEY `user_email_fk_ex_reg` (`user_email`);
 
 --
--- Indexes for table `kernels`
+-- Indices de la tabla `kernels`
 --
 ALTER TABLE `kernels`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_email_fk` (`user_email`);
 
 --
--- Indexes for table `kernel_comments`
+-- Indices de la tabla `kernel_comments`
 --
 ALTER TABLE `kernel_comments`
-  ADD PRIMARY KEY (`user_email`,`kernel_id`,`time`);
+  ADD PRIMARY KEY (`user_email`,`kernel_id`,`time`),
+  ADD KEY `kernel_id` (`kernel_id`);
 
 --
--- Indexes for table `token_transactions`
+-- Indices de la tabla `token_transactions`
 --
 ALTER TABLE `token_transactions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `email_fk` (`user_email`);
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `kernels`
+-- AUTO_INCREMENT de la tabla `kernels`
 --
 ALTER TABLE `kernels`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `token_transactions`
+-- AUTO_INCREMENT de la tabla `token_transactions`
 --
 ALTER TABLE `token_transactions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `comments`
+-- Filtros para la tabla `comments`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `execution_segments`
+-- Filtros para la tabla `execution_segments`
 --
 ALTER TABLE `execution_segments`
   ADD CONSTRAINT `kernel_id_fk_ex_seg` FOREIGN KEY (`kernel_id`) REFERENCES `kernels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `user_email_fk_ex_seg` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `kernels`
+-- Filtros para la tabla `kernels`
 --
 ALTER TABLE `kernels`
   ADD CONSTRAINT `user_email_fk` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `token_transactions`
+-- Filtros para la tabla `kernel_comments`
+--
+ALTER TABLE `kernel_comments`
+  ADD CONSTRAINT `kernel_comments_ibfk_1` FOREIGN KEY (`kernel_id`) REFERENCES `kernels` (`id`),
+  ADD CONSTRAINT `kernel_comments_ibfk_2` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`);
+
+--
+-- Filtros para la tabla `token_transactions`
 --
 ALTER TABLE `token_transactions`
   ADD CONSTRAINT `email_fk` FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`) ON DELETE CASCADE ON UPDATE CASCADE;
@@ -513,5 +526,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-CREATE USER 'parallelize'@'localhost' IDENTIFIED BY 'vus2Aequu7uidieparallelize';
-GRANT SELECT, INSERT, UPDATE ON parallelize_app.* TO 'parallelize'@'localhost';
