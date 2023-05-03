@@ -58,41 +58,6 @@ if (!isset($_SESSION['user_email'])) {
                                         <div class="button c-green"><?= $kRunState ?></div>
                                     </div>
                                 </div>
-                                <div class="kernel" onclick="location.href='kernel_info.php?id=<?= $kId ?>'">
-                                    <h4 class="k-title"><?= $kName?></h4>
-                                    <div class="kern-info">
-                                        <p class="no-margin">Kernel uploaded in <?= $kDate ?></p>  
-                                        <div class="button c-green"><?= $kRunState ?></div>
-                                    </div>
-                                </div>
-                                <div class="kernel" onclick="location.href='kernel_info.php?id=<?= $kId ?>'">
-                                    <h4 class="k-title"><?= $kName?></h4>
-                                    <div class="kern-info">
-                                        <p class="no-margin">Kernel uploaded in <?= $kDate ?></p>  
-                                        <div class="button c-green"><?= $kRunState ?></div>
-                                    </div>
-                                </div>
-                                <div class="kernel" onclick="location.href='kernel_info.php?id=<?= $kId ?>'">
-                                    <h4 class="k-title"><?= $kName?></h4>
-                                    <div class="kern-info">
-                                        <p class="no-margin">Kernel uploaded in <?= $kDate ?></p>  
-                                        <div class="button c-green"><?= $kRunState ?></div>
-                                    </div>
-                                </div>
-                                <div class="kernel" onclick="location.href='kernel_info.php?id=<?= $kId ?>'">
-                                    <h4 class="k-title"><?= $kName?></h4>
-                                    <div class="kern-info">
-                                        <p class="no-margin">Kernel uploaded in <?= $kDate ?></p>  
-                                        <div class="button c-green"><?= $kRunState ?></div>
-                                    </div>
-                                </div>
-                                <div class="kernel" onclick="location.href='kernel_info.php?id=<?= $kId ?>'">
-                                    <h4 class="k-title"><?= $kName?></h4>
-                                    <div class="kern-info">
-                                        <p class="no-margin">Kernel uploaded in <?= $kDate ?></p>  
-                                        <div class="button c-green"><?= $kRunState ?></div>
-                                    </div>
-                                </div>
                             <?php } ?>
                             </div>
                         <?php else: ?>
