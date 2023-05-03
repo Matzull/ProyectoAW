@@ -37,20 +37,22 @@ $formulario_html = $formulario->gestiona();
                     <div class="section-row">
 
                         <div class="section-content">
-                            <h2>Nombre de Usuario</h2>
+                            <h2 class="title">Nombre de Usuario</h2>
                             <div>
-                                <div class="field-button">
-                                    <?= $formulario_html ?>
-                                </div>
+                                <?= $formulario_html ?>
                             </div>
+                        </div>
+                        <div class="section-content">
+                            <h2 class="title">Acceder al perfil</h2>
+                            <button class="button c-h-blue"
+                                onclick="location.href='profile_view.php?id=<?= $_SESSION['user_email'] ?>'">
+                                Ver perfil como un tercero
+                            </button>
+
                         </div>
                     </div>
 
 
-                    <button class="button c-h-blue"
-                        onclick="location.href='profile_view.php?id=<?= $_SESSION['user_email'] ?>'">
-                        Ver perfil como un tercero
-                    </button>
 
                 </div>
             </div>
