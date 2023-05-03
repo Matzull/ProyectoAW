@@ -5,6 +5,9 @@ if (!isset($_SESSION['user_email'])) {
     header("location: login.php");
     die();
 }
+
+$formulario = new \parallelize_namespace\formulario\FormularioUserNameChange();
+$formulario_html = $formulario->gestiona();
 ?>
 
 <!DOCTYPE html>
@@ -32,67 +35,23 @@ if (!isset($_SESSION['user_email'])) {
             <div class="sections-container">
                 <div class="section">
                     <div class="section-row">
-                        <div class="section-content">
-                            <h2>Mi foto de Perfil</h2>
-                            <div class="photo-panel">
-                                <img class="circle-border" src="img/default_profile_pic.png" alt="Profile Photo" width="100" height="100">
-                                <div class="options">
-                                    <button class="button c-h-blue" >Cambiar Foto</button>
-                                    <button class="button c-h-b-blue" >Eliminar Foto</button>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="section-content">
                             <h2>Nombre de Usuario</h2>
                             <div>
                                 <div class="field-button">
-                                    <input class="input-field" type="text" value="NombreDeUsuario" disabled>
-                                    <button class="button c-h-blue" >Editar</button>
+                                    <?= $formulario_html ?>
                                 </div>
-                                <button class="button c-h-b-blue" >Utilizar Mi Nombre Real</button>
                             </div>
                         </div>
                     </div>
-                    <div class="section-row">
-                        <div class="section-content">
-                            <h2>Mis Datos Personales</h2>
-                            <h3>Nombre</h3>
-                            <div class="field-button">
-                                <input class="input-field" type="text" value="Nombre" disabled>
-                                <button class="button c-h-blue" >Editar</button>
-                            </div>
-                            <h3>Apellidos</h3>
-                            <div class="field-button">
-                                <input class="input-field" type="text" value="Apellidos" disabled>
-                                <button class="button c-h-blue" >Editar</button>
-                            </div>
-                            <h3>Correo electrónico</h3>
-                            <div class="field-button">
-                                <input class="input-field" type="text" value="example@gmail.com" disabled>
-                                <button class="button c-h-blue" >Editar</button>
-                            </div>
-                            <h3>Método de pago</h3>
-                            <button class="button c-h-blue" >Mostrar información de pago</button>
-                        </div>
-                        <div class="section-content">
-                            <h2>Opciones</h2>
-                            <h3>Opciones del perfil público</h3>
-                            <div class="checkbox-list">
-                                <div>
-                                    <input type="checkbox" id="show-real-name">
-                                    <label for="show-real-name">Mostrar mi nombre real</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="show-my-wallet">
-                                    <label for="show-my-wallet">Mostrar mi cartera</label>
-                                </div>
-                            </div>
-                            <button class="button c-h-blue"  onclick="location.href='profile_view.php?id=<?= $_SESSION['user_email'] ?>'">
-                                Ver perfil como un tercero
-                            </button>
-                            <h3>Otras opciones</h3>
-                        </div>
-                    </div>
+
+
+                    <button class="button c-h-blue"
+                        onclick="location.href='profile_view.php?id=<?= $_SESSION['user_email'] ?>'">
+                        Ver perfil como un tercero
+                    </button>
+
                 </div>
             </div>
         </div>
