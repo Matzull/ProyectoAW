@@ -5,14 +5,14 @@ require 'includes/config.php';
 
 ?>
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="es">
 
 <head>
-    <meta charset='UTF-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ</title>
-    <link rel='stylesheet' href='<?= RUTA_CSS ?>/nav_bar.css'>
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/FAQ.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/footer.css">
 </head>

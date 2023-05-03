@@ -5,6 +5,8 @@ if (!isset($_SESSION['user_email'])) {
     header("location: login.php");
     die();
 }
+$formulario = new \parallelize_namespace\formulario\FormularioContacto();
+$html_form = $formulario->gestiona();
 ?>
 
 <!DOCTYPE html>
@@ -34,10 +36,7 @@ if (!isset($_SESSION['user_email'])) {
             <p class="subtitle t-muted">Danos feedback de nuestra web!</p>
             <?php
             if (isset($_SESSION["user_email"])) {
-                $formulario = new \parallelize_namespace\formulario\FormularioContacto();
                 echo $formulario->gestiona();
-                
-
             } else {
                 echo "<p>Necesitas estar registrado para enviarnos información,<a href=\"./register.php\"> registrate aqui</a> o si ya tienes cuenta <a href=\"./login.php\">inicia sesión aqui!</a></p>"; // TODO los enlaces
             }
