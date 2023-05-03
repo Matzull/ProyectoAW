@@ -2,8 +2,10 @@
 namespace parallelize_namespace;
 
 require 'includes/config.php';
-$formulario = new \parallelize_namespace\formulario\FormularioComentario($_GET["id"]);  
-$formulario_html = $formulario->gestiona();
+if (isset($_SESSION["user_email"])) {
+    $formulario = new \parallelize_namespace\formulario\FormularioComentario($_GET["id"]);  
+    $formulario_html = $formulario->gestiona();
+}
 ?>
 
 <!DOCTYPE html>
@@ -100,8 +102,9 @@ $formulario_html = $formulario->gestiona();
                 <?php endif; ?>
                 <div id="comments-section" class="section">
                     <h2 class="title">Comentarios del kernel</h2>
-                    <?= $formulario_html ?>
-
+                    <?php if (isset($_SESSION["user_email"])): ?>
+                        <?= $formulario_html ?>
+                    <?php endif; ?>
                     <div class="comments">
                         <?php 
                             $comentariosk = \parallelize_namespace\ComentarioKernel::buscaComentariosPorKernel($_GET["id"]);
