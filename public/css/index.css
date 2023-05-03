@@ -25,7 +25,7 @@ h1{
 
 .carousel{
     width: 95%;
-    height: 500x;
+    height: fit-content;
     border-radius: 100px;
     margin-left: 2.5%;
     margin-right: 2.5%;
@@ -110,7 +110,7 @@ h1{
   
   .carousel {
     position: relative;
-    padding-top: 75%;
+    padding-top: 33.33333%;
     filter: drop-shadow(0 0 10px #0003);
     perspective: 100px;
   }
@@ -132,13 +132,6 @@ h1{
     position: relative;
     flex: 0 0 100%;
     width: 95%;
-
-  }
-  
-  .carousel__slide:nth-child(4) {
-    background-color: #403f4a;
-    border-radius: 100px;
-
   }
   
   .carousel__slide:before {
@@ -159,9 +152,9 @@ h1{
     scroll-snap-align: center;
   }
   .carimg{
-    /*align-self: center; no funciona?*/
-    width: 60em;
+    height: 60vh;    
   }
+
   
   @media (hover: hover) {
     .carousel__snapper {
@@ -221,7 +214,7 @@ h1{
   .carousel__next {
     position: absolute;
     top: 0;
-    margin-top: 37.5%;
+    margin-top: 16.5%;
     width: 4rem;
     height: 4rem;
     transform: translateY(-50%);

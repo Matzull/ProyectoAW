@@ -62,7 +62,7 @@ require 'includes/config.php';
                     <div class="carousel__snapper">
                         <a href="#carousel__slide3"
                             class="carousel__prev">Go to previous slide</a>
-                            <a href="https://www.apachefriends.org/es/index.html"><img class="carimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Xampp_logo.svg/1024px-Xampp_logo.svg.png"></a>
+                            <a href="https://www.linux.org/pages/download/"><img class="carimg" src="https://www.pngall.com/wp-content/uploads/5/Linux-Logo-PNG-HD-Image.png"></a>
                         <a href="#carousel__slide1"
                             class="carousel__next">Go to first slide</a>
                     </div>
