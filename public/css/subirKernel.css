@@ -1,12 +1,14 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .form-buttons {
     margin-top: 30px;
     display: flex;
     justify-content: space-between;
 }
-
-/* #input-kernel {
-    height: 250px;
-} */
 
 #kernel-description {
     resize: none;
