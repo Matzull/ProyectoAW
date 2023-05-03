@@ -68,8 +68,8 @@ require 'includes/config.php';
                         <p class="t-m-white">Si estás teniendo dificultades con el registro de tu cuenta es posible que no estés introduciendo bien algún campo, estos son algunos de los posibles motivos:</p>
                         <ul class="t-m-white">
                             <li>La contraseña no cumple los requisitos de seguridad (como que por ejemplo no tengo la longitud adecuada).</li>
-                            <li>El correo electrónico no es válido: asegúrate de que estás introduciendo un correo electrónico real ya que sino no será posible crear la cuenta</li>
-                            <li>El correo que estás intentando introducir ya tiene asignada una cuenta</li>
+                            <li>El correo electrónico no es válido: asegúrate de que estás introduciendo un correo electrónico real ya que sino no será posible crear la cuenta.</li>
+                            <li>El correo que estás intentando introducir ya tiene asignada una cuenta.</li>
                         </ul>
                         <p class="t-m-white">Si cumples todos los requisitos mencionados anteriormente no dudes en contactar con nuestro equipo técnico para proporcionarte ayuda personalizada.</p>
                     </div>
@@ -87,7 +87,7 @@ require 'includes/config.php';
                     </div>
                     <div id="q6">
                         <h2>¿Qué es un kernel?</h2>
-                        <p class="t-m-white">Un kernel es un código que por su complejidad o longitud de ejecución no puede ser ejecutado en un solo ordenador, ahí es donde entra Parallelize, donde el usuario dueño del código lo sube como kernel para que otros usuarios pongan su ordenador para ejecutar el codigo (kernel) a cambio de tokens</p>
+                        <p class="t-m-white">Un kernel es un código que por su complejidad o longitud de ejecución no puede ser ejecutado en un solo ordenador, ahí es donde entra Parallelize, donde el usuario dueño del código lo sube como kernel para que otros usuarios pongan su ordenador para ejecutar el codigo (kernel) a cambio de tokens.</p>
                     </div>
                     <div id="q7">
                         <h2>¿Cómo puedo ejecutar un kernel?</h2>
@@ -107,15 +107,15 @@ require 'includes/config.php';
                     </div>
                     <div id="q11">
                         <h2>¿En qué consiste la segmentación?</h2>
-                        <p class="t-m-white">La segmentación de un kernel es la forma que tiene Parallelize de dividir un programa muy grande en distintas porciones más pequeñas que serán ejecutados por los distintos usuarios</p>
+                        <p class="t-m-white">La segmentación de un kernel es la forma que tiene Parallelize de dividir un programa muy grande en distintas porciones más pequeñas que serán ejecutados por los distintos usuarios.</p>
                     </div>
                     <div id="q12">
                         <h2>¿Qué es la ejecución concurrente?</h2>
-                        <p class="t-m-white">La ejecución concurrente en Parallelize es la capacidad de que distintos ususarios puedan ejecutar sus segmentos del mismo kernel a la vez</p>
+                        <p class="t-m-white">La ejecución concurrente en Parallelize es la capacidad de que distintos ususarios puedan ejecutar sus segmentos del mismo kernel a la vez.</p>
                     </div>
                     <div id="q13">
                         <h2>¿Qué debo hacer para ganar dinero con Parallelize?</h2>
-                        <p class="t-m-white">Si tu objetivo es ganar dinero a través de Parallelize lo que tendrás que hacer es poner tu dispositivo a procesar los distintos kernels que se ofrecen para así ganar tokens que podrás posreriormente cambiar por dinero real y transferir a tu cuenta</p>
+                        <p class="t-m-white">Si tu objetivo es ganar dinero a través de Parallelize lo que tendrás que hacer es poner tu dispositivo a procesar los distintos kernels que se ofrecen para así ganar tokens que podrás posreriormente cambiar por dinero real y transferir a tu cuenta.</p>
                     </div>
                 </div>
             </div>
