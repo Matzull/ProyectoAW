@@ -34,38 +34,70 @@ if (!isset($_SESSION['user_email'])) {
             <div class="sections-container">
                 <!-- <div class="vertical"> -->
                 <div class="section">
-                    <!-- <h3 class="title">HISTORIAL DE EJECUCIONES</h3> -->
-                    
-                    <div class="execution-history">
+                    <h3 class="title">KERNELS SUBIDOS</h3>
+                    <div>
                         <?php
-                        $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
-                        $kernels = $user->getKernels();
-                        $kernel_n = sizeof($kernels);
-                        echo '<p class="comment">Se han encontrado ' . $kernel_n . ' kernels</p>';
-                        if ($kernel_n > 0): ?>
+                            $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
+                            $kernels = $user->getKernels();
+                            $kernel_n = sizeof($kernels);
+                        ?>
+                        <?php if($kernel_n > 0): ?>
+                            <p class="comment">Se han encontrado <?= $kernel_n ?> kernels</p>
+                            <div class="kernels">
                             <?php
                             foreach ($kernels as $k) {
                                 $kName = $k->getname();
                                 $kRunState = $k->is_finished() ? "Terminado" : "Corriendo";
                                 $kId = $k->getid();
                                 $kDate = $k->getupload_time();
-                                echo <<<HTML
-                                <div class="kernels">
-                                    <div class="upload-k"  onclick="location.href='kernel_info.php?id=$kId'">
-                                        <h4 class="k-title">$kName</h4>
-                                        <div class="kern-info">
-                                            <p class="no-margin">Kernel uploaded in $kDate </p>  
-                                            <div class="button c-green">$kRunState</div>
-                                        </div>
+                            ?>
+                                <div class="kernel" onclick="location.href='kernel_info.php?id=<?= $kId ?>'">
+                                    <h4 class="k-title"><?= $kName?></h4>
+                                    <div class="kern-info">
+                                        <p class="no-margin">Kernel uploaded in <?= $kDate ?></p>  
+                                        <div class="button c-green"><?= $kRunState ?></div>
                                     </div>
                                 </div>
-                            HTML;
-                            }
-                            ?>
+                                <div class="kernel" onclick="location.href='kernel_info.php?id=<?= $kId ?>'">
+                                    <h4 class="k-title"><?= $kName?></h4>
+                                    <div class="kern-info">
+                                        <p class="no-margin">Kernel uploaded in <?= $kDate ?></p>  
+                                        <div class="button c-green"><?= $kRunState ?></div>
+                                    </div>
+                                </div>
+                                <div class="kernel" onclick="location.href='kernel_info.php?id=<?= $kId ?>'">
+                                    <h4 class="k-title"><?= $kName?></h4>
+                                    <div class="kern-info">
+                                        <p class="no-margin">Kernel uploaded in <?= $kDate ?></p>  
+                                        <div class="button c-green"><?= $kRunState ?></div>
+                                    </div>
+                                </div>
+                                <div class="kernel" onclick="location.href='kernel_info.php?id=<?= $kId ?>'">
+                                    <h4 class="k-title"><?= $kName?></h4>
+                                    <div class="kern-info">
+                                        <p class="no-margin">Kernel uploaded in <?= $kDate ?></p>  
+                                        <div class="button c-green"><?= $kRunState ?></div>
+                                    </div>
+                                </div>
+                                <div class="kernel" onclick="location.href='kernel_info.php?id=<?= $kId ?>'">
+                                    <h4 class="k-title"><?= $kName?></h4>
+                                    <div class="kern-info">
+                                        <p class="no-margin">Kernel uploaded in <?= $kDate ?></p>  
+                                        <div class="button c-green"><?= $kRunState ?></div>
+                                    </div>
+                                </div>
+                                <div class="kernel" onclick="location.href='kernel_info.php?id=<?= $kId ?>'">
+                                    <h4 class="k-title"><?= $kName?></h4>
+                                    <div class="kern-info">
+                                        <p class="no-margin">Kernel uploaded in <?= $kDate ?></p>  
+                                        <div class="button c-green"><?= $kRunState ?></div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            </div>
                         <?php else: ?>
-                            <p>Todavía no has subido kernels.
-                            <p>
-                            <?php endif ?>
+                            <p>Todavía no has subido kernels.</p>
+                        <?php endif ?>
                     </div>
                 </div>
                 <!-- </div> -->
