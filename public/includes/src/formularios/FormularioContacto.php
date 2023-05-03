@@ -13,23 +13,20 @@ class FormularioContacto extends Formulario
 
         return generaErroresGlobalesFormulario($this->errores) . <<<HTML
         <div class = 'form-options'>
-        <div>
-        <input type = 'radio' name = 'type' id = 'eval' value = 'eval'>
-        <label for = 'eval'>Evaluación</label>
-        <input type = 'radio' name = 'type' id = 'sug' value = 'sug'>
-        <label for = 'sug'>Sugerencias</label>
-        <input type = 'radio' name = 'type' id = 'crit' value = 'crit'>
-        <label for = 'crit'>Críticas</label>
-        </div>
+            <div>
+                <input type = 'radio' name = 'type' id = 'eval' value = 'eval'>
+                <label for = 'eval'>Evaluación</label>
+                <input type = 'radio' name = 'type' id = 'sug' value = 'sug'>
+                <label for = 'sug'>Sugerencias</label>
+                <input type = 'radio' name = 'type' id = 'crit' value = 'crit'>
+                <label for = 'crit'>Críticas</label>
+            </div>
         </div>
         <label for = 'user_comment'>Comentarios</label>
         <textarea id = 'user_comment' class = 'input-field' name = 'user_comment' placeholder = 'Escribe cualquier cosa que quieras comentarnos'></textarea>
         HTML . generarError('user_comment', $this->errores) . <<<HTML
-      
-        <!-- la id de este button era create-acc-button -->
         <button id = 'send-button' class = 'button c-h-blue' type = 'submit' title = 'Enviar' name = 'Enviar'>Enviar</button>
-        <!-- este botón ni existía es el de clear??(es el de LIMPIAR DE FIGMA)-->
-        <button id = 'clear-button' class = 'button c-h-blue' type = 'submit' title = 'Clear' name = 'Clear'>Limpiar</button>
+        <button class='button c-h-blue' type='reset'>Limpiar</button>
         HTML;
     } // TODO boton borrar desde la linea 29 hasta la 34 y el codigo posterior de contacto aparece como output???
 

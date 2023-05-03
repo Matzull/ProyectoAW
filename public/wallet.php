@@ -20,6 +20,8 @@ if (!isset($_SESSION['user_email'])) {
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/wallet.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/transaction_table.css">
+
 </head>
 
 <body>
@@ -38,7 +40,8 @@ if (!isset($_SESSION['user_email'])) {
                 <div class="section section-h take-out">
                     <div id="hammer-div">
                         <img src="img/hammer-icon-8080.png" class="inverted" alt="" width="100">
-                        <button class="button c-h-blue" onclick="location.href='token_transaction.php?withdraw=true'">Retirar Dinero</button>
+                        <button class="button c-h-blue"
+                            onclick="location.href='token_transaction.php?withdraw=true'">Retirar Dinero</button>
                     </div>
                     <img src="img/piggy_bank_PNG47.png" alt="" width="100" id="piggy">
                 </div>

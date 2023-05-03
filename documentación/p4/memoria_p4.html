@@ -57,7 +57,7 @@
                             puede ver las ofertas de kernels.</span></li>
                     <li>kernel_info.php: <span class="t-m-white">muestra toda la información referente a un kernel. Se
                             conecta con kernel_marketplace.php a través de un botón y muestra algunas propiedades del
-                            kernel</span></li>
+                            kernel. <strong>⚠ Esta vista contiene errores de validación producidos por la librería code mirror (usada para el sintax hilighighting del codigo del kernel) ⚠</strong></span></li>
 
                     <li>kernel_execution.php: <span class="t-m-white">es una vista auxiliar a kernel_info.php que se
                             muestra cuando el usuario decide ejecutar un kernel.</span></li>
@@ -133,7 +133,8 @@
                     respaldada y completada por una CSS particula para cada vista, dando como resultado la
                     pertinente vista de la web.</p>
                 <ul>
-                    <li>global.css: <span class="t-m-white">contiene una serie de ajustes comunes para todas las css;Entre
+                    <li>global.css: <span class="t-m-white">contiene una serie de ajustes comunes para todas las
+                            css;Entre
                             esos ajustes se encuentran:
                             la paleta de colores de la página(colores a usar en el fondo letras etc; una base para todas
                             las páginas(cuerpo, contenedores principales a usar,
@@ -235,7 +236,8 @@
                             dispositivo este pidiendo trabajo ademas de mandar el resultado </span></li>
                     <li>kernel_execution.php: <span class="t-m-white">Se encarga de ejecutar el segmento del kernel
                         </span></li>
-                    <li>kernelViz.php: <span class="t-m-white">escribir</span></li>
+                    <li>kernelViz.php: <span class="t-m-white">Se ocupa de la creacion de text areas usando la libreria
+                            de codeMirror para javascript con syntaxHighlighting</span></li>
 
                 </ul>
 
@@ -247,7 +249,8 @@
                 </ul>
                 <h2 class="title">ESTRUCTURA DE LA BASE DE DATOS</h2>
 
-                <p>Para garantizar una mayor seguridad en la base de datos se ha decidido crear un nuevo usuario que será el encargado del manejo de esta. </p>
+                <p>Para garantizar una mayor seguridad en la base de datos se ha decidido crear un nuevo usuario que
+                    será el encargado del manejo de esta. </p>
                 <img src="imgMemoria/diagramaER.png" alt="diagramaER">
 
                 <p class="t-m-white">
@@ -317,16 +320,20 @@
                             <li>results:resultado de la ejecucion</li>
                         </ul>
                     </li>
-                    <li>kernel_comments: Registra los comentarios o denuncias que se han hecho en los kernels por los usuarios. Se muestran en kernel info debajo de cada kernel.
+                    <li>kernel_comments: Registra los comentarios o denuncias que se han hecho en los kernels por los
+                        usuarios. Se muestran en kernel info debajo de cada kernel.
                         <ul>
                             <li>user_email: el usuario que ha escrito el comentario.</li>
                             <li>kernel_id: el id del kernel en el que se encuentra el comentario.</li>
                             <li>comment: El contenido del comentario.</li>
                             <li>time: La fecha y hora con precision de segundos del comentario.</li>
-                            <li>is_report: Valor que determina si el comentario se debe tratar como una denuncia por un administrador</li>
+                            <li>is_report: Valor que determina si el comentario se debe tratar como una denuncia por un
+                                administrador</li>
                         </ul>
                     </li>
-                    <li>user_ranking: Es una vista que muestra los mejores usuarios respecto a los milisegundos computados. Se utiliza para mostrar el ranking de usuarios en la pagina de ranking.
+                    <li>user_ranking: Es una vista que muestra los usuarios ordenados respecto a los milisegundos
+                        computados y su posición en el ranking. Se utiliza para mostrar el ranking de usuarios en su
+                        perfil.
                         <ul>
                             <li>user_email: el usuario responsable del calculo</li>
                             <li>millis_crunched: Los milisegundos computados por el usuario</li>
@@ -375,7 +382,7 @@
                             <td>Jaime Gonzalez</td>
                             <td>
                                 <ul>
-                                    <li></li>
+                                    <li>Completar funcionalidad del ranking con la creacion de una vista en la bd</li>
                                 </ul>
                             </td>
                         </tr>
