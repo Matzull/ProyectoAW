@@ -224,7 +224,10 @@ a:hover {
     outline: none;
 }
 
-
+/* SECTION LINK */
+.section-link {
+    scroll-margin-top: 74px;
+}
 
 /* CONTENEDORES */
 
