@@ -263,4 +263,10 @@ class Usuario
         $this->millis_crunched = $value;
         $this->storeToDb();
     }
+
+    public function setName($value)
+    {
+        $this->user_name = $value;
+        $this->storeToDb();
+    }
 }
