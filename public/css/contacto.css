@@ -3,20 +3,20 @@
 .main-container{
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 50px;
+    align-items: start;
+    gap: 20px 50px;
+    flex-wrap: wrap;
 }
 
-#user_comment {/*Emm me falta ajustar la height para que quede bien*/
-    font: inherit;
-    padding: 8px;
-    background-color: inherit;
-    border: 2px solid var(--h-blue);
-    border-radius: 10px;
-    color: inherit;
-    width: 100%;
-    height: 200px;
-    box-sizing: border-box;
+.comment-type {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 5px 10px;
+    flex-wrap: wrap;
+}
+
+#user_comment {
+    resize: none;
 }
 
 .small{
@@ -24,14 +24,26 @@
     width: 50px;
 }
 
-.socials-cont{/*Puede que haya que especificar el estilo de el segundo "Form" con id="socials*/
-    gap: 50px;
+.socials-cont{
+    gap: 30px;
     display: flex;
     flex-direction: column;
+    max-width: 450px;
+    flex-grow: 1;
 }
+.socials-cont .subtitle {
+    text-align: center;
+}
+.socials-cont .social-imgs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+} 
 
 .social-drawing {
     max-width: 250px;
     height: 250px;
     width: 100%;
+    margin: auto;
 }

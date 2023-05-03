@@ -42,29 +42,28 @@ $html_form = $formulario->gestiona();
             }
             ?>
         </div>
-        <div class="socials-cont">
-            <div id="socials" class="form">
+        <div class="socials-cont sections-container">
+            <div class="section">
                     <h2 class="title">
                         Redes sociales
                     </h2>
                     <p class="subtitle t-muted">Síguenos en nuestras redes!</p>
-                    <!-- Creamos redes sociales? -->
-                    <a href="https://instagram.com">
-                        <img class="small" src="<?= RUTA_IMGS ?>/logo-Instagram-bMode.png"
-                            alt="Instagram">
-                    </a>
-                    <a href="https://facebook.com">
-                        <img class="small" src="<?= RUTA_IMGS ?>/logo-Facebook-bMode.png"
-                            alt="Facebook">
-                    </a>
-                    <a href="https://github.com">
-                        <img class="small" src="<?= RUTA_IMGS ?>/logo-Github-dMode.png"
-                            alt="Github">
-                    </a>
+                    <div class="social-imgs">
+                        <a href="https://instagram.com">
+                            <img class="small" src="<?= RUTA_IMGS ?>/logo-Instagram-bMode.png"
+                                alt="Instagram">
+                        </a>
+                        <a href="https://facebook.com">
+                            <img class="small" src="<?= RUTA_IMGS ?>/logo-Facebook-bMode.png"
+                                alt="Facebook">
+                        </a>
+                        <a href="https://github.com">
+                            <img class="small" src="<?= RUTA_IMGS ?>/logo-Github-dMode.png"
+                                alt="Github">
+                        </a>
+                    </div>
             </div>
-            <div class="social-drawing">
-                    <img src="svg/blobanimation.svg" alt="Blob Animation">
-            </div>
+            <img class="social-drawing" src="svg/blobanimation.svg" alt="Blob Animation">
         </div>
         
     </div>
