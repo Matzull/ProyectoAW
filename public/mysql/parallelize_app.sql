@@ -423,7 +423,7 @@ DROP TABLE IF EXISTS `user_ranking`;
 
 CREATE ALGORITHM = UNDEFINED DEFINER=`parallelize`@`localhost` SQL SECURITY DEFINER VIEW `user_ranking` AS 
 SELECT `users`.`user_email` AS `user_email`, `users`.`millis_crunched` AS `millis_crunched`, 
-row_number() OVER (ORDER BY `users`.`millis_crunched` DESC) AS `over` 
+row_number() OVER (ORDER BY `users`.`millis_crunched` DESC) AS `ranking` 
 FROM `users`;
 
 --
