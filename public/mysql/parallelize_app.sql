@@ -23,8 +23,8 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `parallelize_app` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `parallelize_app`;
 
-CREATE USER 'parallelize'@'localhost' IDENTIFIED BY 'vus2Aequu7uidieparallelize';
-GRANT SELECT, INSERT, UPDATE ON parallelize_app.* TO 'parallelize'@'localhost';
+CREATE USER 'parallelize'@'172.31.0.4' IDENTIFIED BY 'vus2Aequu7uidieparallelize';
+GRANT SELECT, INSERT, UPDATE ON parallelize_app.* TO 'parallelize'@'172.31.0.4';
 -- --------------------------------------------------------
 
 --
