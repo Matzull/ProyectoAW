@@ -91,13 +91,6 @@ else{
                 <div class="uploaded-kernels">
                 </div>
             </div>
-            <div class="section">
-                <h3 class="title">ÚLTIMAS EJECUCIONES</h3>
-                <div class="last-kernels">
-
-                </div>
-                <button class="button c-h-blue" >Ver más kernels</button>
-            </div>
         </div>
     <?php endif; ?>
     </div>

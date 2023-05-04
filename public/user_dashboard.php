@@ -55,30 +55,6 @@ $user = \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"]);
                 <div class="section section-h">
                     <?php require("includes/src/vistas/token_big_info.php") ?>
                 </div>
-                <div class="section">
-                    <h3 class="title">HISTORIAL DE EJECUCIONES</h3>
-                    <form class="search-form" action="user_dashboard.php">
-                        <div class="main-panel">
-                            <input class="input-field" type="text" name="search" placeholder="Buscar...">
-                            <button class="button c-h-blue" type="submit">Buscar</button>
-                        </div>
-                        <div class="option-panel">
-                            <button class="button c-h-blue">Filtrar</button>
-                            <select class="select" name="orderby" id="orderby">
-                                <optgroup label="Fecha">
-                                    <option value="more recent first">Más reciente primero</option>
-                                    <option value="less recent first">Menos reciente primero</option>
-                                </optgroup>
-                                <optgroup label="Ingresos">
-                                    <option value="more income first">Más ingresos primero</option>
-                                    <option value="less income first">Menos ingresos primero</option>
-                                </optgroup>
-                            </select>
-                        </div>
-                    </form>
-                    <div class="execution-history">
-                    </div>
-                </div>
                 <div id="last-kernels" class="section">
                     <h3 class="title">TUS ÚLTIMOS KERNELS</h3>
                     <div class="kernels">
