@@ -11,8 +11,8 @@ define('INSTALADA', false);
 // Parámetros de configuración de la BD
 define('BD_HOST', 'localhost');
 define('BD_NAME', 'parallelize_app');
-define('BD_USER', 'root');
-define('BD_PASS', '');
+define('BD_USER', 'parallelize');
+define('BD_PASS', 'vus2Aequu7uidieparallelize');
 
 /* */
 /* Configuración de Codificación y timezone */

@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercado</title>
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
-    <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_dashboard.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/marketplace.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/footer.css">
 </head>
@@ -21,7 +21,7 @@
     function mostrar_kernel($kernel)
     {
         ?>
-        <div id="kernel" class="form form-extra-carrousel">
+        <div class="form form-extra-carrousel">
             <h3 class="title">
                 <?= $kernel->getname() ?>
             </h3>

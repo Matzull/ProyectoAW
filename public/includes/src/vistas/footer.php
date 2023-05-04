@@ -17,7 +17,7 @@
 		</div>
 
 		<div class="footer-column">
-			<h4 class="title">Mercado de kernels</h3>
+			<h4 class="title">Mercado de kernels</h4>
 			<ul>
 				<li><a href="kernel_marketplace.php">Kernels mejor pagados</a></li>
 				<li><a href="kernel_marketplace.php">Kernels nuevos</a></li>
@@ -25,7 +25,7 @@
 		</div>
 
 		<div class="footer-column">
-			<h4 class="title">Rankings</h3>
+			<h4 class="title">Rankings</h4>
 			<ul>
 				<li><a href="ranking.php">Ránking de kernels</a></li>
 				<li><a href="ranking.php">Mejores usuarios</a></li>

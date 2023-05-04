@@ -8,8 +8,8 @@ require_once("./js/kernelViz.php");
 <link rel="stylesheet" href="js/codeMirror/codemirror.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/theme/dracula.min.css">
 
-<script type="text/javascript" src="js/codeMirror/codemirror.js"></script>
-<script type="text/javascript" src="js/codeMirror/javascript.js"></script>
+<script src="js/codeMirror/codemirror.js"></script>
+<script src="js/codeMirror/javascript.js"></script>
 
 
 <?php
@@ -106,7 +106,7 @@ class FormularioSubirKernel extends Formulario
             $usuario->setTokens($usuario->gettokens() - $input_price);
             \parallelize_namespace\Transaction::submit(-$input_price, $_SESSION["user_email"], "pago por el kernel " . $kernel_name, $usuario->gettokens());
 
-            \parallelize_namespace\kernel::enviaKernel($kernel_name, $input_kernel, $kernel_description, $input_price, $iteration_count);
+            \parallelize_namespace\Kernel::enviaKernel($kernel_name, $input_kernel, $kernel_description, $input_price, $iteration_count);
         }
 
     }

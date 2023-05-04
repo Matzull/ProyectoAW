@@ -1,3 +1,7 @@
+.main-container {
+  padding-bottom: 60px;
+}
+
 .flex-container-info { 
   display: flex;
   align-items: inherit;
@@ -19,16 +23,18 @@
 }
 
 .codeBlock{
-  border-radius: 10px;
-  max-width: 1200px;
-  min-width: 950px;
-  padding: 15px 30px 15px 30px;
+  /* border-radius: 10px; */
+  /* max-width: 1200px;
+  min-width: 950px; */
+  /* padding: 15px 30px 15px 30px; */
   box-sizing: border-box;
-  background-color: var(--gris);
+  /* background-color: var(--gris);
   margin-left: 2%;
   margin-right: 2%;
   margin-top: 25px;
-  margin-bottom: 50px;
+  margin-bottom: 50px; */
+  flex-basis: 600px;
+  overflow: hidden;
 }
 
 .block{
@@ -61,4 +67,107 @@ pre{
 .centered_text{
   width: 100%;
   text-align: center;
+}
+
+
+.kernel {
+  flex-wrap: wrap-reverse;
+  margin-bottom: 10px;
+}
+
+.kernel-info {
+  flex-direction: column;
+  /* flex-grow: 1; */
+  flex-basis: 350px;
+}
+
+.kernel-exec {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.private-section {
+  flex-basis: 100%;
+}
+.private-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 900px;
+  margin: auto;
+}
+.private-info > p {
+  font-weight: bold;
+}
+
+#comments-section {
+  padding-bottom: 60px;
+}
+
+.form-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto;
+  margin-bottom: 20px;
+  max-width: 900px;
+}
+#comment-field {
+  resize: none;
+}
+form > .form-options {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto;
+  max-width: 800px;
+}
+.comment {
+  background-color: var(--h-gris);
+  border-radius: 5px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.comment>.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px 20px;
+  flex-wrap: wrap;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--l-gris);
+}
+.comment>.header>.username {
+  font-weight: bold;
+}
+.comment>.header>.type {
+  color: var(--red);
+  font-weight: bold;
+}
+.comment>.body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.comment>.body>.time {
+  text-align: end;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 990px) {
+  .kernel-info{
+    flex-grow: 1;
+  }
 }

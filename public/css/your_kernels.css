@@ -13,24 +13,25 @@
 }
 
 .kernels {
-    margin-bottom: 10px;
-    margin-top: 10px;
+    max-height: 500px;
+    overflow: auto;
     display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px;
 }
 
-.kernels > .upload-k {
+.kernel {
     background-color: var(--h-gris);
     padding: 20px;
-    gap: 10px;
-    border-radius: 10px;
-    width: 100%;
+    gap: 25px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
 }
 
-.kernels > .upload-k > .k-title {
-    margin-top: 0px;
-    margin-bottom: 20px;
+.kernel .k-title {
+    margin: 0px;
     font-size: 1.3em;
 }
 

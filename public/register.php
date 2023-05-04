@@ -1,8 +1,6 @@
-<!-- Define que el documento esta bajo el estandar de HTML 5 -->
 <?php require_once "includes/config.php";?>
 <!DOCTYPE html>
 
-<!-- Representa la raíz de un documento HTML o XHTML. Todos los demás elementos deben ser descendientes de este elemento. -->
 <html lang="es">
 
 <head>
@@ -11,9 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Crear Cuenta </title>
     <meta name="keywords" content="Crear Cuenta">
-    <!-- Link hacia el archivo de estilos css -->
-    <link rel="stylesheet" href="<?= RUTA_CSS ?>/logo_nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/logo_nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/register.css">
 </head>
 
@@ -37,7 +34,7 @@
                     Iniciar Sesión</button>
             </div>
             <div class="form-drawing">
-                <img src="svg/blobanimation.svg">
+                <img src="svg/blobanimation.svg" alt="Blob Animation">
             </div>
         </div>
     </div>

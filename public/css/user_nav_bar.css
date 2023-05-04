@@ -5,11 +5,12 @@
     padding: 15px;
     margin-right: 10px;
     position: fixed;
-    top: 74px;
+    top: 72px;
     right: 0px;
     border-radius: 10px;
     
     border: 2px solid var(--h-gris);
+    z-index: 100;
 }
 
 #user-nav-bar > .header > p {
@@ -20,10 +21,16 @@
 #user-nav-bar > .header > .name {
     font-size: large;
     font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 #user-nav-bar > .header > .email {
     color: var(--m-text);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 #user-nav-bar > .panel a {
@@ -40,7 +47,7 @@
     margin: 0px 10px 0px 0px;
 }
 
-#user-nav-bar > .panel button{
+#user-nav-bar > .panel button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,14 +55,17 @@
     margin: 10px 0px;
 }
 
-#user-nav-bar > .fold{
+#user-nav-bar > .fold {
     display: flex;
     justify-content: center;
 }
 
-#user-nav-bar > .fold > button{
+#user-nav-bar > .fold > button {
     background-color: inherit;
     border: none;
+}
+#user-nav-bar > .fold > button:hover {
+    cursor: pointer;
 }
 #user-nb-options {
     max-height: 300px;

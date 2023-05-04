@@ -5,6 +5,8 @@ if (!isset($_SESSION['user_email'])) {
     header("location: login.php");
     die();
 }
+$formulario = new \parallelize_namespace\formulario\FormularioContacto();
+$html_form = $formulario->gestiona();
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +17,7 @@ if (!isset($_SESSION['user_email'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/contacto.css">
@@ -34,29 +37,34 @@ if (!isset($_SESSION['user_email'])) {
             <p class="subtitle t-muted">Danos feedback de nuestra web!</p>
             <?php
             if (isset($_SESSION["user_email"])) {
-                $formulario = new \parallelize_namespace\formulario\FormularioContacto();
                 echo $formulario->gestiona();
-                
-
             } else {
                 echo "<p>Necesitas estar registrado para enviarnos información,<a href=\"./register.php\"> registrate aqui</a> o si ya tienes cuenta <a href=\"./login.php\">inicia sesión aqui!</a></p>"; // TODO los enlaces
             }
             ?>
         </div>
-        <div class="socials-cont">
-            <div id="socials" class="form">
+        <div class="socials-cont sections-container">
+            <div class="section">
                     <h2 class="title">
                         Redes sociales
                     </h2>
                     <p class="subtitle t-muted">Síguenos en nuestras redes!</p>
-                    <!-- Creamos redes sociales? -->
-                    <a href="https://instagram.com"><img class="small" src="<?= RUTA_IMGS ?>/logo-Instagram-bMode.png"></a>
-                    <a href="https://facebook.com"><img class="small" src="<?= RUTA_IMGS ?>/logo-Facebook-bMode.png"></a>
-                    <a href="https://github.com"><img class="small" src="<?= RUTA_IMGS ?>/logo-Github-dMode.png"></a>
+                    <div class="social-imgs">
+                        <a href="https://instagram.com">
+                            <img class="small" src="<?= RUTA_IMGS ?>/logo-Instagram-bMode.png"
+                                alt="Instagram">
+                        </a>
+                        <a href="https://facebook.com">
+                            <img class="small" src="<?= RUTA_IMGS ?>/logo-Facebook-bMode.png"
+                                alt="Facebook">
+                        </a>
+                        <a href="https://github.com">
+                            <img class="small" src="<?= RUTA_IMGS ?>/logo-Github-dMode.png"
+                                alt="Github">
+                        </a>
+                    </div>
             </div>
-            <div class="social-drawing">
-                    <img src="svg/blobanimation.svg">
-            </div>
+            <img class="social-drawing" src="svg/blobanimation.svg" alt="Blob Animation">
         </div>
         
     </div>

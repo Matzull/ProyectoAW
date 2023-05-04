@@ -17,9 +17,11 @@ if (!isset($_SESSION['user_email'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cartera</title>
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/wallet.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/transaction_table.css">
 </head>
 
 <body>
@@ -37,10 +39,11 @@ if (!isset($_SESSION['user_email'])) {
                 </div>
                 <div class="section section-h take-out">
                     <div id="hammer-div">
-                        <img src="img\hammer-icon-8080.png" class="inverted" alt="" width="100">
-                        <button class="button c-h-blue" onclick="location.href='token_transaction.php?withdraw=true'">Retirar Dinero</button>
+                        <img src="img/hammer-icon-8080.png" class="inverted" alt="" width="100">
+                        <button class="button c-h-blue"
+                            onclick="location.href='token_transaction.php?withdraw=true'">Retirar Dinero</button>
                     </div>
-                    <img src="img\piggy_bank_PNG47.png" alt="" width="100" id="piggy">
+                    <img src="img/piggy_bank_PNG47.png" alt="" width="100" id="piggy">
                 </div>
                 <div class="section">
                     <h3 class="title">GRÁFICA DE MOVIMIENTOS</h3>
@@ -48,9 +51,11 @@ if (!isset($_SESSION['user_email'])) {
                     require("includes/src/vistas/transaction_graph.php");
                     ?>
                     <h3 class="title">HISTORIAL DE MOVIMIENTOS</h3>
-                    <?php
-                    require("includes/src/vistas/transaction_table.php");
-                    ?>
+                    <div class="table-container">
+                        <?php
+                        require("includes/src/vistas/transaction_table.php");
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>

@@ -5,15 +5,16 @@ require 'includes/config.php';
 
 ?>
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="es">
 
 <head>
-    <meta charset='UTF-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ranking</title>
-    <link rel='stylesheet' href='<?= RUTA_CSS ?>/nav_bar.css'>
-    <link rel='stylesheet' href='/<?= RUTA_CSS ?>/nav_bar.css'>
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
+    <link rel="stylesheet" href="/<?= RUTA_CSS ?>/nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/ranking.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/footer.css">
 </head>
@@ -36,8 +37,8 @@ require 'includes/config.php';
                     foreach ($GLOBALS['usuarios'] as $key => $value) {
                         echo "<tr>";
                         echo "<td>" . $key + 1 . "</td>";
-                        echo "<td>" . $value[0] . "</td>";
-                        echo "<td>" . $value[1] . "</td>";
+                        echo "<td>" . $value->getName() . "</td>";
+                        echo "<td>" . $value->getMsCrunched() . "</td>";
                         echo "</tr>";
                     }
                     ?>
@@ -48,28 +49,34 @@ require 'includes/config.php';
                 <div class="podio">
                     <div class="podio-item oro">
                         <h3 class="no-margin">1º</h3>
-                        <p class="no-margin"><?=$GLOBALS['usuarios'][0][0]?></p>
-                        <!-- <p><?=$GLOBALS['usuarios'][0][1]?></p> -->
+                        <p class="no-margin">
+                            <?= $GLOBALS['usuarios'][0]->getName() ?>
+                        </p>
+                        <!-- <p><?= $GLOBALS['usuarios'][0]->getMsCrunched() ?></p> -->
                     </div>
                     <div class="podio-item plata">
                         <h3 class="no-margin">2º</h3>
-                        <p class="no-margin"><?=$GLOBALS['usuarios'][1][0]?></p>
-                        <!-- <p><?=$GLOBALS['usuarios'][1][1]?></p> -->
+                        <p class="no-margin">
+                            <?= $GLOBALS['usuarios'][1]->getName() ?>
+                        </p>
+                        <!-- <p><?= $GLOBALS['usuarios'][1]->getMsCrunched() ?></p> -->
                     </div>
                     <div class="podio-item bronce">
                         <h3 class="no-margin">3º</h3>
-                        <p class="no-margin"><?=$GLOBALS['usuarios'][2][0]?></p>
-                        <!-- <p><?=$GLOBALS['usuarios'][2][1]?></p> -->
+                        <p class="no-margin">
+                            <?= $GLOBALS['usuarios'][2]->getName() ?>
+                        </p>
+                        <!-- <p><?= $GLOBALS['usuarios'][2]->getMsCrunched() ?></p> -->
                     </div>
                 </div>
-                
-                <div class = "blob-container">
-                    <img src="svg/blobanimation.svg">
+
+                <div class="blob-container">
+                    <img src="svg/blobanimation.svg" alt="Blob Animation">
                 </div>
             </div>
         </div>
     </div>
-    
+
     <?php require("./includes/src/vistas/footer.php"); ?>
 
 </body>

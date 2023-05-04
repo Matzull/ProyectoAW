@@ -20,6 +20,7 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $profile_msg ?></title>
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
     <link rel="stylesheet" href="./<?= RUTA_CSS ?>/nav_bar.css">
     <link rel="stylesheet" href="./<?= RUTA_CSS ?>/user_nav_bar.css">
     <link rel="stylesheet" href="./<?= RUTA_CSS ?>/profile_view.css">
@@ -32,7 +33,7 @@ else{
     <?php else: ?>
         <div class="sections-container">
             <div class="section section-h">
-                <img class="circle-border" src="https://picsum.photos/200/200" alt="" width="200" height="200">
+                <img class="circle-border" src="img/default_profile_pic.png" alt="Profile Photo" width="200" height="200">
                 <div class="lateral-info">
                     <h3><?= $user->getName() ?></h3>
                     <h3 class="t-muted"><?= $user->getEmail() ?></h3>
@@ -40,7 +41,9 @@ else{
             </div>
             <div class="sections-container">
                 <div class="section section-h">
-                    <img class="circle-border" src="https://picsum.photos/100/100" alt="" width="100" height="100">
+                    <div class="ranking circle-border c-h-blue">
+                        <?= $user->getRanking() ?>
+                    </div>
                     <div class="lateral-info">
                         <h3 class="title">PARTICIPACIÓN</h3>
                         <p class="t-muted">Has subido
@@ -61,14 +64,14 @@ else{
                             </h3>
                         </div>
                     </div>
-                    <img src="<?= RUTA_SVG ?>/Token_i.svg" alt="" width="100" heigh="100">
+                    <img src="<?= RUTA_SVG ?>/Token_i.svg" alt="" width="100" height="100">
                 </div>
             </div>
             <div class="section">
                 <h3 class="title">KERNELS SUBIDOS</h3>
-                <form class="search-form" action="">
+                <form class="search-form" action="profile_view.php">
                     <div class="main-panel">
-                        <input class="input-field" type="text" name="" id="" placeholder="Buscar...">
+                        <input class="input-field" type="text" name="search" placeholder="Buscar...">
                         <button class="button c-h-blue" type="submit">Buscar</button>
                     </div>
                     <div class="option-panel">
@@ -87,13 +90,6 @@ else{
                 </form>
                 <div class="uploaded-kernels">
                 </div>
-            </div>
-            <div class="section">
-                <h3 class="title">ÚLTIMAS EJECUCIONES</h3>
-                <div class="last-kernels">
-
-                </div>
-                <button class="button c-h-blue" >Ver más kernels</button>
             </div>
         </div>
     <?php endif; ?>

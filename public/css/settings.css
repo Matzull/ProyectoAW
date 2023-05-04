@@ -1,13 +1,16 @@
-
-.section > .section-row {
+.section-row {
     display: flex;
-    gap: 60px;
+    gap: 25px 40px;
     flex-wrap: wrap;
 }
 
-.section > .section-row > .section-content {
-    min-width: 260px;
-    flex: 1;
+.section-row > .section-content {
+    flex-basis: 300px;
+    flex-grow: 1;
+}
+.section-row > .section-content > .title {
+    margin-bottom: 10px;
+    text-align: start;
 }
 
 .photo-panel {
@@ -20,6 +23,12 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.settings-label {
+    display:inline-block;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .field-button {

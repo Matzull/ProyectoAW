@@ -1,37 +1,34 @@
-@import "global.css";
+.main-container {
+    padding-bottom: 80px;
+}
 
-.form{
-    text-align: center;
-    max-width: 800px;
-    /* padding-top: 10px;
-    padding-right: 600px;
-    padding-bottom: 50px;
-    padding-left: 400px; */
+#faq-section {
+    padding-bottom: 80px;
 }
 
 .title-FAQ{
     font-size: 80px;
-}
-
-h2{
-    font-weight: bold;
-    display: block;
+    text-align: center;
 }
 
 .question-FAQ {
     margin-left: 10px;
-    color: aqua;
 }
 
-.FAQ-container { 
+.FAQ-index { 
     margin: 0px 0px 10px 0px;
     display: flex;
     align-items: center;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: start;
 }
 
-.container {
-    padding: 10px;
+.answers{
+    margin: auto;
+    max-width: 850px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
 }

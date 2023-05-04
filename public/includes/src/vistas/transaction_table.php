@@ -1,3 +1,4 @@
+
 <?php
 
 if (!isset($_SESSION["user_email"])) {
@@ -19,7 +20,7 @@ if (!isset($_SESSION["user_email"])) {
             <tbody>
                 <?php
                 foreach ($transactions as $i => $t) {
-                    echo "<tr><td>" . $t->getTimestamp() . "</td><td>" . $t->getDescription() . "</td><td>" . $t->getQuantity() . "</td><td>" . $t->getBalance() . "</td><tr>";
+                    echo "<tr><td>" . $t->getTimestamp() . "</td><td>" . $t->getDescription() . "</td><td>" . $t->getQuantity() . "</td><td>" . $t->getBalance() . "</td></tr>";
                 }
                 ?>
             </tbody>
