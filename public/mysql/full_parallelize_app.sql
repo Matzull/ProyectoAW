@@ -23,8 +23,8 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `parallelize_app` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `parallelize_app`;
 
-CREATE USER 'parallelize'@'172.31.0.4' IDENTIFIED BY 'vus2Aequu7uidieparallelize';
-GRANT SELECT, INSERT, UPDATE ON parallelize_app.* TO 'parallelize'@'172.31.0.4';
+CREATE USER 'parallelize'@'localhost' IDENTIFIED BY 'vus2Aequu7uidieparallelize';
+GRANT SELECT, INSERT, UPDATE ON parallelize_app.* TO 'parallelize'@'localhost';
 -- --------------------------------------------------------
 
 --
@@ -147,9 +147,9 @@ CREATE TABLE `kernels` (
 -- Volcado de datos para la tabla `kernels`
 --
 
-INSERT INTO `kernels` (`name`, `is_finished`, `user_email`, `id`, `js_code`, `reward_per_line`, `total_reward`, `description`, `upload_time`, `iteration_count`) VALUES
-('deveres de FAL', 0, 'jaime@email.com', 2, 'return i;', 0.71428571428571, 100, 'buah, pues si yo te contara lo que hace, te quedabas cuajao', '2023-04-06 14:53:50', 2000),
-('calcular pi', 1, 'diego@email.com', 3, 'function is_inside_circle(x,y){\n 	return x*x+y*y &lt; 1 ? 1 : 0;         \n}\n\nlet res = 0;\n\nfor(let t = 0; t &lt; 100000; t++){\n   	res += is_inside_circle(Math.random(),Math.random());\n}\n\nreturn res / 25000;', 0.0047619047619048, 10, 'calcula pi con montecarlo', '2023-04-08 11:28:45', 1000000);
+INSERT INTO `kernels` (`name`, `user_email`, `id`, `js_code`, `reward_per_line`, `total_reward`, `description`, `upload_time`, `iteration_count`) VALUES
+('deveres de FAL', 'jaime@email.com', 2, 'return i;', 0.71428571428571, 100, 'buah, pues si yo te contara lo que hace, te quedabas cuajao', '2023-04-06 14:53:50', 2000),
+('calcular pi', 'diego@email.com', 3, 'function is_inside_circle(x,y){\n 	return x*x+y*y &lt; 1 ? 1 : 0;         \n}\n\nlet res = 0;\n\nfor(let t = 0; t &lt; 100000; t++){\n   	res += is_inside_circle(Math.random(),Math.random());\n}\n\nreturn res / 25000;', 0.0047619047619048, 10, 'calcula pi con montecarlo', '2023-04-08 11:28:45', 1000000);
 
 -- --------------------------------------------------------
 
