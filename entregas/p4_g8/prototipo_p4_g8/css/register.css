@@ -1,0 +1,12 @@
+.button{
+    width: 100%;
+}
+
+#create-acc-button {
+    margin-top: 30px;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+}

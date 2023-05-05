@@ -1,0 +1,45 @@
+.section-row {
+    display: flex;
+    gap: 25px 40px;
+    flex-wrap: wrap;
+}
+
+.section-row > .section-content {
+    flex-basis: 300px;
+    flex-grow: 1;
+}
+.section-row > .section-content > .title {
+    margin-bottom: 10px;
+    text-align: start;
+}
+
+.photo-panel {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.photo-panel > .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.settings-label {
+    display:inline-block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.field-button {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}

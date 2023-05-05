@@ -1,0 +1,47 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 20px 50px;
+    flex-wrap: wrap;
+}
+
+.comment-type {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 5px 10px;
+    flex-wrap: wrap;
+}
+
+#user_comment {
+    resize: none;
+}
+
+.small{
+    height: 50px;
+    width: 50px;
+}
+
+.socials-cont{
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    flex-grow: 1;
+}
+.socials-cont .subtitle {
+    text-align: center;
+}
+.socials-cont .social-imgs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+} 
+
+.social-drawing {
+    max-width: 250px;
+    height: 250px;
+    width: 100%;
+    margin: auto;
+}

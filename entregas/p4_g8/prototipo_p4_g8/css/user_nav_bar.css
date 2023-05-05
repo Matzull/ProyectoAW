@@ -1,0 +1,82 @@
+#user-nav-bar{
+    background-color: var(--gris);
+    box-sizing: border-box;
+    width: 205px;
+    padding: 15px;
+    margin-right: 10px;
+    position: fixed;
+    top: 72px;
+    right: 0px;
+    border-radius: 10px;
+    
+    border: 2px solid var(--h-gris);
+    z-index: 100;
+}
+
+#user-nav-bar > .header > p {
+    margin: 0px 0px 10px 0px;
+    text-align: center;
+}
+
+#user-nav-bar > .header > .name {
+    font-size: large;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#user-nav-bar > .header > .email {
+    color: var(--m-text);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#user-nav-bar > .panel a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+#user-nav-bar > .panel > p {
+    margin: 25px 0px;
+}
+#user-nav-bar > .panel img {
+    margin: 0px 10px 0px 0px;
+}
+
+#user-nav-bar > .panel button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+#user-nav-bar > .fold {
+    display: flex;
+    justify-content: center;
+}
+
+#user-nav-bar > .fold > button {
+    background-color: inherit;
+    border: none;
+}
+#user-nav-bar > .fold > button:hover {
+    cursor: pointer;
+}
+#user-nb-options {
+    max-height: 300px;
+    /*Necesario si varía el número de enlaces*/
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+#user-nav-bar.nb-closed > #user-nb-options {
+    max-height: 0px;
+}
+#user-nav-bar.nb-closed #user-nb-toggle-b {
+    transform: scaleY(-1);
+}

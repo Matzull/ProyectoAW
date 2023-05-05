@@ -1,0 +1,15 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#kernel-description {
+    resize: none;
+}

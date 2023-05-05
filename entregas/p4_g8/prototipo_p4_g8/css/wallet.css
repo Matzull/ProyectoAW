@@ -1,0 +1,30 @@
+.sections-container>.section:first-child,
+.section:nth-child(2) {
+    min-width: calc(50% - 5px);
+}
+
+.take-out {
+    justify-content: space-between;
+}
+
+.take-out>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+#piggy {
+    flex-grow: 1;
+    max-width: 200px;
+}
+
+#hammer-div {
+    flex-grow: 0.5;
+}
+
+#transaction_graph_canvas {
+    width: 94%;
+    padding: 3%;
+}
