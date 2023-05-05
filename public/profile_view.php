@@ -39,7 +39,7 @@ else{
                     <h3 class="t-muted"><?= $user->getEmail() ?></h3>
                 </div>
             </div>
-            <div class="sections-container">
+            <div class="ranking-token-sec sections-container">
                 <div class="section section-h">
                     <div class="ranking circle-border c-h-blue">
                         <?= $user->getRanking() ?>
@@ -60,7 +60,7 @@ else{
                         <div class="flex-between">
                             <div></div>
                             <h3 class="t-big no-margin">
-                                <?= \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->gettokens() ?>
+                                <?= $user->gettokens() ?>
                             </h3>
                         </div>
                     </div>
@@ -69,26 +69,33 @@ else{
             </div>
             <div class="section">
                 <h3 class="title">KERNELS SUBIDOS</h3>
-                <form class="search-form" action="profile_view.php">
-                    <div class="main-panel">
-                        <input class="input-field" type="text" name="search" placeholder="Buscar...">
-                        <button class="button c-h-blue" type="submit">Buscar</button>
-                    </div>
-                    <div class="option-panel">
-                        <button class="button c-h-blue" >Filtrar</button>
-                        <select class="select" name="orderby" id="orderby">
-                            <optgroup label="Fecha">
-                                <option value="more recent first">Más reciente primero</option>
-                                <option value="less recent first">Menos reciente primero</option>
-                            </optgroup>
-                            <optgroup label="Ingresos">
-                                <option value="more income first">Más ingresos primero</option>
-                                <option value="less income first">Menos ingresos primero</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                </form>
                 <div class="uploaded-kernels">
+                    <?php
+                        $kernels = $user->getKernels();
+                        $kernel_n = sizeof($kernels);
+                    ?>
+                    <?php if($kernel_n > 0): ?>
+                        <p class="t-muted">Se han encontrado <?= $kernel_n ?> kernels</p>
+                        <div class="kernels">
+                        <?php
+                        foreach ($kernels as $k) {
+                            $kName = $k->getname();
+                            $kRunState = $k->is_finished() ? "Terminado" : "Corriendo";
+                            $kId = $k->getid();
+                            $kDate = $k->getupload_time();
+                        ?>
+                            <div class="kernel" onclick="location.href='kernel_info.php?id=<?= $kId ?>'">
+                                <h4 class="k-title"><?= $kName?></h4>
+                                <div class="kern-info">
+                                    <p class="no-margin">Kernel uploaded in <?= $kDate ?></p>  
+                                    <div class="button c-green"><?= $kRunState ?></div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                        </div>
+                    <?php else: ?>
+                        <p>Todavía no has subido kernels.</p>
+                    <?php endif ?>
                 </div>
             </div>
         </div>

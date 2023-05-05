@@ -9,6 +9,10 @@
     gap: 10px;
 }
 
+.ranking-token-sec {
+    flex-grow: 1;
+}
+
 .ranking {
     width: 100px;
     height: 100px;
@@ -18,4 +22,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.uploaded-kernels {
+    margin: auto;
+    max-width: 800px;
+}
+
+.kernels {
+    max-height: 500px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px;
+}
+
+.kernel {
+    background-color: var(--h-gris);
+    padding: 20px;
+    gap: 25px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.kernel .k-title {
+    margin: 0px;
+    font-size: 1.3em;
+}
+
+.kern-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
 }
