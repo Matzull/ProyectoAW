@@ -39,6 +39,5 @@ Los administradores:
 
 La web también hará ciertas operaciones.
 
-*   Evaluar la complejidad de los kernels para realizar una estimación de la complejidad.
+*   Evaluar la complejidad de los kernels mediante una eurística para realizar una estimación de la complejidad.
 *   Calcular un ranking de participación visible para los usuarios.
-*   Aviso de inanición
