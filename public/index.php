@@ -29,15 +29,15 @@ require 'includes/config.php';
 
             <!-- Full-width images with number and caption text -->
             <div class="mySlides fade">
-                <a href="https://www.w3schools.com"><img class = "carimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/W3Schools_logo.svg/1088px-W3Schools_logo.svg.png"></a>
+                <a href="https://www.w3schools.com"><img class = "carimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/W3Schools_logo.svg/1088px-W3Schools_logo.svg.png" alt="w3schools"></a>
             </div>
 
             <div class="mySlides fade">
-                <a href="https://www.ucm.es"><img class = "carimg" src="https://www.ucm.es/data/cont/docs/3-2016-07-21-EscudoUCMTransparenteBig.png"></a>
+                <a href="https://www.ucm.es"><img class = "carimg" src="https://www.ucm.es/data/cont/docs/3-2016-07-21-EscudoUCMTransparenteBig.png" alt="ucm"></a>
             </div>
 
             <div class="mySlides fade">
-                <a href="https://visualstudio.microsoft.com/es/"><img class = "carimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png"></a>
+                <a href="https://visualstudio.microsoft.com/es/"><img class = "carimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" alt="vs code"></a>
             </div>
 
             <!-- Next and previous buttons -->
