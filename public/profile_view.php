@@ -20,6 +20,7 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $profile_msg ?></title>
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
     <link rel="stylesheet" href="./<?= RUTA_CSS ?>/nav_bar.css">
     <link rel="stylesheet" href="./<?= RUTA_CSS ?>/user_nav_bar.css">
     <link rel="stylesheet" href="./<?= RUTA_CSS ?>/profile_view.css">
@@ -89,13 +90,6 @@ else{
                 </form>
                 <div class="uploaded-kernels">
                 </div>
-            </div>
-            <div class="section">
-                <h3 class="title">ÚLTIMAS EJECUCIONES</h3>
-                <div class="last-kernels">
-
-                </div>
-                <button class="button c-h-blue" >Ver más kernels</button>
             </div>
         </div>
     <?php endif; ?>

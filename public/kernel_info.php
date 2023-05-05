@@ -19,7 +19,6 @@ if (isset($_SESSION["user_email"])) {
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
-    
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/kernel_info.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/footer.css">
 

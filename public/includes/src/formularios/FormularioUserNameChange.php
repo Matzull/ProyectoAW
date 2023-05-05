@@ -11,12 +11,13 @@ class FormularioUserNameChange extends Formulario
         $val_nombreUsuario = isset($datos['user_name']) ? $datos['user_name'] : \parallelize_namespace\Usuario::buscaUsuario($_SESSION["user_email"])->getName();
 
         return generaErroresGlobalesFormulario($this->errores) . <<<HTML
-        <label for = 'user_name'>Nombre de usuario</label>
-        <input id = 'user_name' class = 'input-field' type = 'text' name = 'user_name' placeholder = 'Escribe tu correo' value = "$val_nombreUsuario" required>
+        <label class="settings-label" for='user_name'>Nombre de usuario</label>
+        <div class="field-button">
+        <input id='user_name' class='input-field' type='text' name='user_name' placeholder='Escribe tu correo' value="$val_nombreUsuario" required>
         HTML . generarError('user_name', $this->errores) . <<<HTML
 
-        <button id = 'login-button' class = 'button c-h-blue' type = 'submit' title = 'Ingresar' name = 'Ingresar'>Cambiar nombre</button>
-
+        <button id='login-button' class='button c-h-blue' type='submit'>Cambiar</button>
+        </div>
         HTML;
     }
 

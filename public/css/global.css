@@ -224,7 +224,10 @@ a:hover {
     outline: none;
 }
 
-
+/* SECTION LINK */
+.section-link {
+    scroll-margin-top: 74px;
+}
 
 /* CONTENEDORES */
 
@@ -328,6 +331,7 @@ a:hover {
     /* Secciones ocupan el espacio mayor posible */
 
     border: 2px solid var(--h-gris);
+    overflow: auto;
 }
 
 .sections-container .section .title {

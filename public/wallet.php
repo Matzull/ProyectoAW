@@ -17,11 +17,11 @@ if (!isset($_SESSION['user_email'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cartera</title>
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>/global.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/user_nav_bar.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/wallet.css">
     <link rel="stylesheet" href="<?= RUTA_CSS ?>/transaction_table.css">
-
 </head>
 
 <body>
@@ -51,9 +51,11 @@ if (!isset($_SESSION['user_email'])) {
                     require("includes/src/vistas/transaction_graph.php");
                     ?>
                     <h3 class="title">HISTORIAL DE MOVIMIENTOS</h3>
-                    <?php
-                    require("includes/src/vistas/transaction_table.php");
-                    ?>
+                    <div class="table-container">
+                        <?php
+                        require("includes/src/vistas/transaction_table.php");
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
